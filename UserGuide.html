@@ -1,9 +1,9 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>AddressBook Level 4 - User Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Hallper - User Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level3">AB-3</a></li><li class="nav-item"><a class="nav-link active" href="index.html">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">AddressBook-Level4</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link active" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/se-edu/addressbook-level4"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>AddressBook Level 4 - User Guide</h1></div><div id="content"><div id="preamble">
+<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level3">AB-3</a></li><li class="nav-item"><a class="nav-link active" href="index.html">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">AddressBook-Level4</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link active" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/se-edu/addressbook-level4"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Hallper - User Guide</h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>By: <code>Team SE-EDU</code>      Since: <code>Jun 2016</code>      Licence: <code>MIT</code></p>
+<p>By: <code>Team W16-1</code>      Since: <code>Aug 2018</code>      Licence: <code>MIT</code></p>
 </div>
 </div>
 <div id="toc" class="toc">
@@ -16,17 +16,32 @@
 <li><a href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></li>
 <li><a href="#adding-a-person-code-add-code">3.2. Adding a person: <code>add</code></a></li>
 <li><a href="#listing-all-persons-code-list-code">3.3. Listing all persons : <code>list</code></a></li>
-<li><a href="#editing-a-person-code-edit-code">3.4. Editing a person : <code>edit</code></a></li>
-<li><a href="#locating-persons-by-name-code-find-code">3.5. Locating persons by name: <code>find</code></a></li>
-<li><a href="#deleting-a-person-code-delete-code">3.6. Deleting a person : <code>delete</code></a></li>
-<li><a href="#selecting-a-person-code-select-code">3.7. Selecting a person : <code>select</code></a></li>
-<li><a href="#listing-entered-commands-code-history-code">3.8. Listing entered commands : <code>history</code></a></li>
-<li><a href="#undoing-previous-command-code-undo-code">3.9. Undoing previous command : <code>undo</code></a></li>
-<li><a href="#redoing-the-previously-undone-command-code-redo-code">3.10. Redoing the previously undone command : <code>redo</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code">3.11. Clearing all entries : <code>clear</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.12. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.13. Saving the data</a></li>
-<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.14. Encrypting data files <code>[coming in v2.0]</code></a></li>
+<li><a href="#searching-all-persons-under-specified-tag-code-search-code">3.4. Searching all persons under specified tag : <code>search</code></a></li>
+<li><a href="#editing-a-person-code-edit-code">3.5. Editing a person : <code>edit</code></a></li>
+<li><a href="#locating-persons-by-name-code-find-code">3.6. Locating persons by name: <code>find</code></a></li>
+<li><a href="#deleting-a-person-code-delete-code">3.7. Deleting a person : <code>delete</code></a></li>
+<li><a href="#selecting-a-person-code-select-code">3.8. Selecting a person : <code>select</code></a></li>
+<li><a href="#listing-entered-commands-code-history-code">3.9. Listing entered commands : <code>history</code></a></li>
+<li><a href="#undoing-previous-command-code-undo-code">3.10. Undoing previous command : <code>undo</code></a></li>
+<li><a href="#redoing-the-previously-undone-command-code-redo-code">3.11. Redoing the previously undone command : <code>redo</code></a></li>
+<li><a href="#clearing-all-specified-tags-code-erase-code">3.12. Clearing all specified tags : <code>erase</code></a></li>
+<li><a href="#clearing-all-entries-code-clear-code">3.13. Clearing all entries : <code>clear</code></a></li>
+<li><a href="#adds-a-picture-to-resident-detail-code-image-code">3.14. Adds a picture to resident detail : <code>image</code></a></li>
+<li><a href="#uploading-contact-information-code-import-code">3.15. Uploading contact information : <code>import</code></a></li>
+<li><a href="#composing-email-code-compose-code">3.16. Composing email : <code>compose</code></a></li>
+<li><a href="#creating-calendar-code-create_calendar-code">3.17. Creating calendar : <code>create_calendar</code></a></li>
+<li><a href="#exporting-calendars-code-publish_calendar-code">3.18. Exporting calendars : <code>publish_calendar</code></a></li>
+<li><a href="#viewing-calendar-code-view_calendar-code">3.19. Viewing calendar : <code>view_calendar</code></a></li>
+<li><a href="#adding-event-into-calendar-code-add_event-code">3.20. Adding event into calendar : <code>add_event</code></a></li>
+<li><a href="#viewing-the-budget-for-all-ccas-code-budget-code">3.21. Viewing the budget for all CCAs : <code>budget</code></a></li>
+<li><a href="#viewing-cca-budget-code-view_cca-code">3.22. Viewing CCA budget : <code>view_cca</code></a></li>
+<li><a href="#adding-a-cca-s-budget-code-add_cca-code">3.23. Adding a CCA&#8217;s budget : <code>add_cca</code></a></li>
+<li><a href="#deleting-a-cca-s-budget-code-delete_cca-code">3.24. Deleting a CCA&#8217;s budget : <code>delete_cca</code></a></li>
+<li><a href="#modifying-a-cca-s-budget-code-modify_cca-code">3.25. Modifying a CCA&#8217;s budget : <code>modify_cca</code></a></li>
+<li><a href="#adding-a-transaction-to-the-budget-code-add_transaction-code">3.26. Adding a transaction to the budget : <code>add_transaction</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.27. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">3.28. Saving the data</a></li>
+<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.29. Encrypting data files <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -38,7 +53,7 @@
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>AddressBook Level 4 (AB4) is for those who <strong>prefer to use a desktop app for managing contacts</strong>. More importantly, AB4 is <strong>optimized for those who prefer to work with a Command Line Interface</strong> (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, AB4 can get your contact management tasks done faster than traditional GUI apps. Interested? Jump to the <a href="#quick-start">Section 2, &#8220;Quick Start&#8221;</a> to get started. Enjoy!</p>
+<p>Hallper is a desktop app for the JCRC that allows <strong>for better and faster management of residents' contacts</strong>. More importantly, Hallper is <strong>optimized for those who prefer to work with a Command Line Interface</strong> (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, Hallper can get your contact management tasks done faster than traditional GUI apps. Interested? Jump to the <a href="#quick-start">Section 2, &#8220;Quick Start&#8221;</a> to get started. Enjoy!</p>
 </div>
 </div>
 </div>
@@ -51,7 +66,7 @@
 <p>Ensure you have Java version <code>9</code> or later installed in your Computer.</p>
 </li>
 <li>
-<p>Download the latest <code>addressbook.jar</code> <a href="https://github.com/se-edu/addressbook-level4/releases">here</a>.</p>
+<p>Download the latest <code>addressbook.jar</code> <a href="https://github.com/CS2103-AY1819S1-W16-1/main/tree/master/releases">here</a>.</p>
 </li>
 <li>
 <p>Copy the file to the folder you want to use as the home folder for your Address Book.</p>
@@ -76,7 +91,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <p><strong><code>list</code></strong> : lists all contacts</p>
 </li>
 <li>
-<p><strong><code>add</code></strong><code>n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01</code> : adds a contact named <code>John Doe</code> to the Address Book.</p>
+<p><strong><code>add</code></strong><code>n/John Doe p/98765432 e/johnd@example.com b/A r/110 s/Faculty of Science c/basketball</code> : adds a contact named <code>John Doe</code> to the Address Book.</p>
 </li>
 <li>
 <p><strong><code>delete</code></strong><code>3</code> : deletes the 3rd contact shown in the current list</p>
@@ -108,10 +123,10 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by the user e.g. in <code>add n/NAME</code>, <code>NAME</code> is a parameter which can be used as <code>add n/John Doe</code>.</p>
 </li>
 <li>
-<p>Items in square brackets are optional e.g <code>n/NAME [t/TAG]</code> can be used as <code>n/John Doe t/friend</code> or as <code>n/John Doe</code>.</p>
+<p>Items in square brackets are optional e.g <code>n/NAME [c/CCA]</code> can be used as <code>n/John Doe c/soccer</code> or as <code>n/John Doe</code>.</p>
 </li>
 <li>
-<p>Items with <code>…</code>​ after them can be used multiple times including zero times e.g. <code>[t/TAG]&#8230;&#8203;</code> can be used as <code>&#160;</code> (i.e. 0 times), <code>t/friend</code>, <code>t/friend t/family</code> etc.</p>
+<p>Items with <code>…</code>​ after them can be used multiple times including zero times e.g. <code>[c/CCA]&#8230;&#8203;</code> can be used as <code>&#160;</code> (i.e. 0 times), <code>c/soccer</code>, <code>c/soccer c/basketball</code> etc.</p>
 </li>
 <li>
 <p>Parameters can be in any order e.g. if the command specifies <code>n/NAME p/PHONE_NUMBER</code>, <code>p/PHONE_NUMBER n/NAME</code> is also acceptable.</p>
@@ -130,7 +145,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <h3 id="adding-a-person-code-add-code"><a class="link" href="#adding-a-person-code-add-code">3.2. Adding a person: <code>add</code></a></h3>
 <div class="paragraph">
 <p>Adds a person to the address book<br>
-Format: <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code></p>
+Format: <code>add n/NAME p/PHONE_NUMBER e/EMAIL b/BLOCK r/ROOM NUMBER s/SCHOOL [c/CCA]&#8230;&#8203;</code></p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -139,7 +154,7 @@ Format: <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;<
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-A person can have any number of tags (including 0)
+A person can have any number of CCAs (including 0)
 </td>
 </tr>
 </table>
@@ -150,10 +165,10 @@ A person can have any number of tags (including 0)
 <div class="ulist">
 <ul>
 <li>
-<p><code>add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01</code></p>
+<p><code>add n/John Doe p/98765432 e/johnd@example.com b/C r/420 s/School of Computing c/Basketball</code></p>
 </li>
 <li>
-<p><code>add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/criminal</code></p>
+<p><code>add n/Betsy Crowe c/Soccer e/betsycrowe@example.com b/A p/1234567 r/213 s/Business</code></p>
 </li>
 </ul>
 </div>
@@ -166,10 +181,30 @@ Format: <code>list</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="editing-a-person-code-edit-code"><a class="link" href="#editing-a-person-code-edit-code">3.4. Editing a person : <code>edit</code></a></h3>
+<h3 id="searching-all-persons-under-specified-tag-code-search-code"><a class="link" href="#searching-all-persons-under-specified-tag-code-search-code">3.4. Searching all persons under specified tag : <code>search</code></a></h3>
+<div class="paragraph">
+<p>Shows a list of all persons in the address book that are tagged with the specified tag.<br>
+Format: <code>search TAG</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>search basketball</code></p>
+</li>
+<li>
+<p><code>search school of computing</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="editing-a-person-code-edit-code"><a class="link" href="#editing-a-person-code-edit-code">3.5. Editing a person : <code>edit</code></a></h3>
 <div class="paragraph">
 <p>Edits an existing person in the address book.<br>
-Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code></p>
+Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [c/CCA]&#8230;&#8203;</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -188,7 +223,7 @@ Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;
 <p>When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.</p>
 </li>
 <li>
-<p>You can remove all the person&#8217;s tags by typing <code>t/</code> without specifying any tags after it.</p>
+<p>You can remove all the person&#8217;s tags by typing <code>c/</code> without specifying any tags after it.</p>
 </li>
 </ul>
 </div>
@@ -204,14 +239,14 @@ Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;
 Edits the phone number and email address of the 1st person to be <code>91234567</code> and <code>johndoe@example.com</code> respectively.</p>
 </li>
 <li>
-<p><code>edit 2 n/Betsy Crower t/</code><br>
+<p><code>edit 2 n/Betsy Crower c/</code><br>
 Edits the name of the 2nd person to be <code>Betsy Crower</code> and clears all existing tags.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="locating-persons-by-name-code-find-code"><a class="link" href="#locating-persons-by-name-code-find-code">3.5. Locating persons by name: <code>find</code></a></h3>
+<h3 id="locating-persons-by-name-code-find-code"><a class="link" href="#locating-persons-by-name-code-find-code">3.6. Locating persons by name: <code>find</code></a></h3>
 <div class="paragraph">
 <p>Finds persons whose names contain any of the given keywords.<br>
 Format: <code>find KEYWORD [MORE_KEYWORDS]</code></p>
@@ -256,7 +291,7 @@ Returns any person having names <code>Betsy</code>, <code>Tim</code>, or <code>J
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-person-code-delete-code"><a class="link" href="#deleting-a-person-code-delete-code">3.6. Deleting a person : <code>delete</code></a></h3>
+<h3 id="deleting-a-person-code-delete-code"><a class="link" href="#deleting-a-person-code-delete-code">3.7. Deleting a person : <code>delete</code></a></h3>
 <div class="paragraph">
 <p>Deletes the specified person from the address book.<br>
 Format: <code>delete INDEX</code></p>
@@ -297,7 +332,7 @@ Deletes the 1st person in the results of the <code>find</code> command.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="selecting-a-person-code-select-code"><a class="link" href="#selecting-a-person-code-select-code">3.7. Selecting a person : <code>select</code></a></h3>
+<h3 id="selecting-a-person-code-select-code"><a class="link" href="#selecting-a-person-code-select-code">3.8. Selecting a person : <code>select</code></a></h3>
 <div class="paragraph">
 <p>Selects the person identified by the index number used in the displayed person list.<br>
 Format: <code>select INDEX</code></p>
@@ -307,7 +342,7 @@ Format: <code>select INDEX</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>Selects the person and loads the Google search page the person at the specified <code>INDEX</code>.</p>
+<p>Selects the person and loads theprofile page of the person at the specified <code>INDEX</code>.</p>
 </li>
 <li>
 <p>The index refers to the index number shown in the displayed person list.</p>
@@ -338,7 +373,7 @@ Selects the 1st person in the results of the <code>find</code> command.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">3.8. Listing entered commands : <code>history</code></a></h3>
+<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">3.9. Listing entered commands : <code>history</code></a></h3>
 <div class="paragraph">
 <p>Lists all the commands that you have entered in reverse chronological order.<br>
 Format: <code>history</code></p>
@@ -359,7 +394,7 @@ Format: <code>history</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">3.9. Undoing previous command : <code>undo</code></a></h3>
+<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">3.10. Undoing previous command : <code>undo</code></a></h3>
 <div class="paragraph">
 <p>Restores the address book to the state before the previous <em>undoable</em> command was executed.<br>
 Format: <code>undo</code></p>
@@ -404,7 +439,7 @@ The <code>undo</code> command fails as there are no undoable commands executed p
 </div>
 </div>
 <div class="sect2">
-<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">3.10. Redoing the previously undone command : <code>redo</code></a></h3>
+<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">3.11. Redoing the previously undone command : <code>redo</code></a></h3>
 <div class="paragraph">
 <p>Reverses the most recent <code>undo</code> command.<br>
 Format: <code>redo</code></p>
@@ -436,28 +471,282 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 </div>
 </div>
 <div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.11. Clearing all entries : <code>clear</code></a></h3>
+<h3 id="clearing-all-specified-tags-code-erase-code"><a class="link" href="#clearing-all-specified-tags-code-erase-code">3.12. Clearing all specified tags : <code>erase</code></a></h3>
+<div class="paragraph">
+<p>Clears all spcified tags from all contacts from the address book.<br>
+Format: <code>erase CCA</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>erase basketball</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.13. Clearing all entries : <code>clear</code></a></h3>
 <div class="paragraph">
 <p>Clears all entries from the address book.<br>
 Format: <code>clear</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.12. Exiting the program : <code>exit</code></a></h3>
+<h3 id="adds-a-picture-to-resident-detail-code-image-code"><a class="link" href="#adds-a-picture-to-resident-detail-code-image-code">3.14. Adds a picture to resident detail : <code>image</code></a></h3>
+<div class="paragraph">
+<p>Uploads the image of the resident to the address book.<br>
+Format: <code>image</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Allow for the upload of the profile picture of resident.</p>
+</li>
+<li>
+<p>The image must be in <strong><code>.jpeg</code></strong>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="uploading-contact-information-code-import-code"><a class="link" href="#uploading-contact-information-code-import-code">3.15. Uploading contact information : <code>import</code></a></h3>
+<div class="paragraph">
+<p>Uploads file containing contact information of all contacts.<br>
+Format: <code>upload</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Allow for the mass upload of contact information.</p>
+</li>
+<li>
+<p>The file to be uploaded must be a <strong><code>.xml</code></strong> file.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="composing-email-code-compose-code"><a class="link" href="#composing-email-code-compose-code">3.16. Composing email : <code>compose</code></a></h3>
+<div class="paragraph">
+<p>Composes a <strong><code>.eml</code></strong> file that can be used to send emails to residents.<br>
+Format: <code>compose</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="creating-calendar-code-create_calendar-code"><a class="link" href="#creating-calendar-code-create_calendar-code">3.17. Creating calendar : <code>create_calendar</code></a></h3>
+<div class="paragraph">
+<p>Creates a calendar file in the address book for updating of events.<br>
+Format: <code>create_calendar MONTH</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>create_calendar Feb</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="exporting-calendars-code-publish_calendar-code"><a class="link" href="#exporting-calendars-code-publish_calendar-code">3.18. Exporting calendars : <code>publish_calendar</code></a></h3>
+<div class="paragraph">
+<p>Exports the calendar as a .ics file that can be used to sync with Google Calendar.<br>
+Format: <code>publish_calendar MONTH</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>publish_calendar Feb</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="viewing-calendar-code-view_calendar-code"><a class="link" href="#viewing-calendar-code-view_calendar-code">3.19. Viewing calendar : <code>view_calendar</code></a></h3>
+<div class="paragraph">
+<p>Views the calendar of the specified month.<br>
+Format: <code>view_calendar MONTH</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>view_calendar Feb</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adding-event-into-calendar-code-add_event-code"><a class="link" href="#adding-event-into-calendar-code-add_event-code">3.20. Adding event into calendar : <code>add_event</code></a></h3>
+<div class="paragraph">
+<p>Adds an event into the calendar.<br>
+Format: `add_event m/MONTH d/DATE st/START TIME et/END TIME n/NAME OF EVENT</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add_event m/Feb d/2 st/1800 et/2100 n/Enthral</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="viewing-the-budget-for-all-ccas-code-budget-code"><a class="link" href="#viewing-the-budget-for-all-ccas-code-budget-code">3.21. Viewing the budget for all CCAs : <code>budget</code></a></h3>
+<div class="paragraph">
+<p>Allows for the viewing of the budgets for all the CCAs.<br>
+Format: <code>budget</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>BP displays the total budget allocated to the CCAs, total outstanding amount and budget information of each CCA, in alphabetical order.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="viewing-cca-budget-code-view_cca-code"><a class="link" href="#viewing-cca-budget-code-view_cca-code">3.22. Viewing CCA budget : <code>view_cca</code></a></h3>
+<div class="paragraph">
+<p>Allows for the viewing of the budget and past transactions of the specified CCA.<br>
+Format: <code>view_cca CCA</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>view_cca soccer</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adding-a-cca-s-budget-code-add_cca-code"><a class="link" href="#adding-a-cca-s-budget-code-add_cca-code">3.23. Adding a CCA&#8217;s budget : <code>add_cca</code></a></h3>
+<div class="paragraph">
+<p>Adds a CCA&#8217;s budget.<br>
+Format: <code>add_cca CCA BUDGET</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add_cca badminton 500</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-a-cca-s-budget-code-delete_cca-code"><a class="link" href="#deleting-a-cca-s-budget-code-delete_cca-code">3.24. Deleting a CCA&#8217;s budget : <code>delete_cca</code></a></h3>
+<div class="paragraph">
+<p>Deletes the CCA&#8217;s exisiting budget.<br>
+Format: <code>delete_cca CCA</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>delete_cca soccer</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="modifying-a-cca-s-budget-code-modify_cca-code"><a class="link" href="#modifying-a-cca-s-budget-code-modify_cca-code">3.25. Modifying a CCA&#8217;s budget : <code>modify_cca</code></a></h3>
+<div class="paragraph">
+<p>Modifies the budget of specified CCA.<br>
+Format: <code>modify_cca CCA BUDGET</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>modify_cca soccer 500</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adding-a-transaction-to-the-budget-code-add_transaction-code"><a class="link" href="#adding-a-transaction-to-the-budget-code-add_transaction-code">3.26. Adding a transaction to the budget : <code>add_transaction</code></a></h3>
+<div class="paragraph">
+<p>Adds a transaction to the budget of specified CCA.<br>
+Format: <code>add_transaction CCA AMOUNT TYPE PERSON_IN_CHARGE</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Adds a transaction to the budget of specifed CCA.</p>
+</li>
+<li>
+<p>The types available are  either <strong><code>credit</code></strong> or <strong><code>debit</code></strong>.</p>
+</li>
+<li>
+<p>The <strong><code>PERSON-IN-CHARGE</code></strong> must be a resident in the address book.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add_transaction badminton 500 credit James</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.27. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.13. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.28. Saving the data</a></h3>
 <div class="paragraph">
 <p>Address book data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.14. Encrypting data files <code>[coming in v2.0]</code></a></h3>
+<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.29. Encrypting data files <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p><em>{explain how the user can enable/disable data encryption}</em></p>
 </div>
@@ -479,8 +768,31 @@ There is no need to save manually.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Add</strong> <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code><br>
-e.g. <code>add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague</code></p>
+<p><strong>Add</strong> : <code>add n/NAME p/PHONE_NUMBER e/EMAIL b/BLOCK r/ROOM NUMBER s/SCHOOL [c/CCA]&#8230;&#8203;</code><br>
+e.g. <code>add n/James Ho p/22224444 e/jamesho@example.com b/C r/420 s/School of Computing c/Basketball</code></p>
+</li>
+<li>
+<p><strong>Add CCA</strong> : <code>add_cca CCA BUDGET</code><br>
+e.g. <code>add_cca Basketball 500</code></p>
+</li>
+<li>
+<p><strong>Budget</strong> : <code>budget</code></p>
+</li>
+<li>
+<p><strong>Modify CCA</strong> : <code>modify_cca CCA BUDGET</code><br>
+e.g. <code>modify_cca basketball 500</code></p>
+</li>
+<li>
+<p><strong>Delete CCA</strong> : <code>delete_cca CCA</code><br>
+e.g. <code>delete_cca basketball</code></p>
+</li>
+<li>
+<p><strong>View CCA</strong> : <code>view_cca CCA</code><br>
+e.g. <code>view_cca basketball</code></p>
+</li>
+<li>
+<p><strong>Add Transaction</strong> : <code>add_transaction CCA AMOUNT TYPE PERSON-IN-CHARGE</code><br>
+e.g. <code>add_transaction soccer 500 debit James</code></p>
 </li>
 <li>
 <p><strong>Clear</strong> : <code>clear</code></p>
@@ -490,12 +802,23 @@ e.g. <code>add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1
 e.g. <code>delete 3</code></p>
 </li>
 <li>
-<p><strong>Edit</strong> : <code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code><br>
+<p><strong>Erase</strong> : <code>erase CCA</code><br>
+e.g. <code>erase basketball</code></p>
+</li>
+<li>
+<p><strong>Edit</strong> : <code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [c/CCA]&#8230;&#8203;</code><br>
 e.g. <code>edit 2 n/James Lee e/jameslee@example.com</code></p>
 </li>
 <li>
 <p><strong>Find</strong> : <code>find KEYWORD [MORE_KEYWORDS]</code><br>
 e.g. <code>find James Jake</code></p>
+</li>
+<li>
+<p><strong>Search</strong> : <code>search TAG [MORE_TAGS]</code><br>
+e.g. <code>search basketball</code></p>
+</li>
+<li>
+<p><strong>Compose</strong> : <code>compose</code></p>
 </li>
 <li>
 <p><strong>List</strong> : <code>list</code></p>
@@ -505,10 +828,33 @@ e.g. <code>find James Jake</code></p>
 </li>
 <li>
 <p><strong>Select</strong> : <code>select INDEX</code><br>
-e.g.<code>select 2</code></p>
+e.g. <code>select 2</code></p>
 </li>
 <li>
-<p><strong>History</strong> : <code>history</code></p>
+<p><strong>Create Calendar</strong> : <code>create_calendar MONTH</code><br>
+e.g. <code>create_calendar Feb</code></p>
+</li>
+<li>
+<p><strong>Publish Calendar</strong> : <code>publish_calendar MONTH</code><br>
+e.g. <code>publish_calendar Feb</code></p>
+</li>
+<li>
+<p><strong>View Calendar</strong> : <code>view_calendar MONTH</code><br>
+e.g. <code>view_calendar Feb</code></p>
+</li>
+<li>
+<p><strong>Add Event</strong> : <code>add_event m/MONTH d/DATE st/START TIME et/END TIME n/NAME OF EVENT</code><br>
+e.g. <code>add_event m/Feb d/2 st/1800 et/2100 n/Enthral</code></p>
+</li>
+<li>
+<p><strong>Image</strong> : <code>image</code></p>
+</li>
+<li>
+<p><strong>Import</strong> : <code>import</code></p>
+</li>
+<li>
+<p><strong>History</strong> : <code>history</code>
+e.g. <code>view 2</code></p>
 </li>
 <li>
 <p><strong>Undo</strong> : <code>undo</code></p>
@@ -519,4 +865,4 @@ e.g.<code>select 2</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-09-18 17:48:22 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-09-19 07:52:52 UTC</div></div></div></body></html>
