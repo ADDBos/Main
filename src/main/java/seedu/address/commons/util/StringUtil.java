@@ -1,11 +1,14 @@
 package seedu.address.commons.util;
 
+import seedu.address.model.tag.Tag;
+
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.Arrays;
+import java.util.Set;
 
 /**
  * Helper functions for handling strings.
@@ -64,5 +67,30 @@ public class StringUtil {
         } catch (NumberFormatException nfe) {
             return false;
         }
+    }
+
+    /**
+     * Returns true if {@code tags} contains the {@code word}.
+     *   Ignores case, but a full word match is required.
+     * @param tags cannot be null
+     * @param word cannot be null, cannot be empty and must be a single word
+     */
+    //@@author javenseow
+    public static boolean containsFieldIgnoreCase(String tags, String word) {
+        requireNonNull(tags);
+        requireNonNull(word);
+
+        String preppedWord = word.trim();
+        checkArgument(!preppedWord.isEmpty(), "Word parameter cannot be empty");
+        checkArgument(preppedWord.split("\\s+").length == 1, "Word parameter should be a single word");
+
+        String preppedTags = tags;
+        String[] wordsInTagsSentence = preppedTags.split(",");
+        for (int i = 0; i < wordsInTagsSentence.length; i++) {
+            wordsInTagsSentence[i] = wordsInTagsSentence[i].trim();
+        }
+
+        return Arrays.stream(wordsInTagsSentence)
+                .anyMatch(preppedWord::equalsIgnoreCase);
     }
 }

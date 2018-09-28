@@ -66,6 +66,19 @@ public class Person {
         return Collections.unmodifiableSet(tags);
     }
 
+    //@@author javenseow
+    /**
+     * Returns an immutable set containing tags, school and room, which throws {@code UnsupportedOperationException}
+     * if modification is attempted.
+     */
+    public Set<Tag> getFields() {
+        Set<Tag> fields = new HashSet<>();
+        fields.addAll(tags);
+        fields.add(new Tag(this.school.schoolName));
+        fields.add(new Tag(this.room.roomNumber));
+        return Collections.unmodifiableSet(fields);
+    }
+    //@@author
     /**
      * Returns true if both persons of the same name have at least one other identity field that is the same.
      * This defines a weaker notion of equality between two persons.
@@ -116,7 +129,7 @@ public class Person {
                 .append(getPhone())
                 .append(" Email: ")
                 .append(getEmail())
-                .append(" Room ")
+                .append(" Room: ")
                 .append(getRoom())
                 .append( " School: ")
                 .append(getSchool())

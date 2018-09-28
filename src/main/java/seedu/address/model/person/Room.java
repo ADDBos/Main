@@ -1,3 +1,4 @@
+//@@author javenseow
 package seedu.address.model.person;
 
 import static java.util.Objects.requireNonNull;
@@ -6,11 +7,12 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
 /**
  * Represents a Person's room number in the address book.
  */
+//@@author javenseow
 public class Room {
     public static final String MESSAGE_ROOM_CONSTRAINTS =
             "Room numbers should only be alphanumeric, and the first character should be an alphabet,"
             + "followed by 3 digits.";
-    public static final String ROOM_VALIDATION_REGEX = "\\d{4,}";
+    public static final String ROOM_VALIDATION_REGEX = "\\p{Alnum}+";
     public final String roomNumber;
 
     /**
@@ -41,5 +43,10 @@ public class Room {
         return other == this // short circuit if same object
                 || (other instanceof Room // instanceof handles nulls
                 && roomNumber.equals(((Room) other).roomNumber));
+    }
+
+    @Override
+    public int hashCode() {
+        return roomNumber.hashCode();
     }
 }
