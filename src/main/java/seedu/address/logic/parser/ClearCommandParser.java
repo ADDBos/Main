@@ -28,8 +28,7 @@ public class ClearCommandParser implements Parser<ClearCommand> {
 
         String[] nameKeywords = trimmedArgs.split("\\s+");
 
-        return new ClearCommand(Arrays.asList(nameKeywords),
-                new ContactContainsTagPredicate(Arrays.asList(nameKeywords)));
+        return new ClearCommand(Arrays.asList(nameKeywords));
     }
 
 }

@@ -11,6 +11,7 @@ import org.junit.Test;
 
 import seedu.address.logic.CommandHistory;
 import seedu.address.model.AddressBook;
+import seedu.address.model.BudgetBook;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
@@ -28,10 +29,9 @@ public class ClearCommandTest {
         Model expectedModel = new ModelManager();
         expectedModel.commitAddressBook();
         List<String> target = new ArrayList<>();
-        ContactContainsTagPredicate predicate = new ContactContainsTagPredicate(target);
 
-        assertCommandSuccess(new ClearCommand(target, predicate), model, commandHistory,
-                ClearCommand.MESSAGE_CLEAR_ALL_SUCCESS, expectedModel);
+        assertCommandSuccess(new ClearCommand(target), model, commandHistory,
+                String.format(ClearCommand.MESSAGE_CLEAR_SPECIFIC_SUCCESS, target.get(0)), expectedModel);
     }
 
     @Test
@@ -41,10 +41,9 @@ public class ClearCommandTest {
         expectedModel.resetData(new AddressBook());
         expectedModel.commitAddressBook();
         List<String> target = new ArrayList<>();
-        ContactContainsTagPredicate predicate = new ContactContainsTagPredicate(target);
 
-        assertCommandSuccess(new ClearCommand(target, predicate), model, commandHistory,
-                ClearCommand.MESSAGE_CLEAR_ALL_SUCCESS, expectedModel);
+        assertCommandSuccess(new ClearCommand(target), model, commandHistory,
+                String.format(ClearCommand.MESSAGE_CLEAR_SPECIFIC_SUCCESS, target.get(0)), expectedModel);
     }
 
     @Test
@@ -54,10 +53,9 @@ public class ClearCommandTest {
         List<String> target = new ArrayList<>();
         Object[] tags = p.getTags().toArray();
         target.add(tags[0].toString());
-        ContactContainsTagPredicate predicate = new ContactContainsTagPredicate(target);
-        ClearCommand clearCommand = new ClearCommand(target, predicate);
+        ClearCommand clearCommand = new ClearCommand(target);
 
-        ModelManager expectedModel = new ModelManager(model.getAddressBook(), model.getBudgetBook(), new UserPrefs());
+        ModelManager expectedModel = new ModelManager(model.getAddressBook(), new BudgetBook(), new UserPrefs());
         List<Person> persons = new ArrayList<>();
         persons.add(p);
         expectedModel.clearMultiplePersons(persons);

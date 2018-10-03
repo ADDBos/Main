@@ -12,7 +12,6 @@ import seedu.address.model.tag.Tag;
  */
 public class ContactContainsTagPredicate implements Predicate<Person> {
     private final List<String> keywords;
-    private Set<Tag> tags;
 
     public ContactContainsTagPredicate(List<String> keywords) {
         this.keywords = keywords;

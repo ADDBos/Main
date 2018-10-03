@@ -14,6 +14,7 @@ import java.util.Set;
 import org.junit.jupiter.api.Test;
 
 import seedu.address.logic.CommandHistory;
+import seedu.address.model.BudgetBook;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
@@ -34,7 +35,7 @@ class EraseCommandTest {
         ContactContainsTagPredicate predicate = new ContactContainsTagPredicate(target);
         EraseCommand eraseCommand = new EraseCommand(target, predicate);
 
-        ModelManager expectedModel = new ModelManager(model.getAddressBook(), model.getBudgetBook(), new UserPrefs());
+        ModelManager expectedModel = new ModelManager(model.getAddressBook(), new BudgetBook(), new UserPrefs());
         List<Person> original = new ArrayList<>();
         original.add(p);
         Set<Tag> editedTags = new HashSet<>();
