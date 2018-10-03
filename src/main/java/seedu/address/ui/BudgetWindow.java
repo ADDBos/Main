@@ -20,7 +20,7 @@ public class BudgetWindow extends UiPart<Stage> {
     private static final String FXML = "BudgetWindow.fxml";
 
     private BrowserPanel browserPanel;
-    private CcaListPanel personListPanel;
+    private CcaListPanel ccaListPanel;
     private UserPrefs prefs;
     private Logic logic;
 
@@ -28,7 +28,7 @@ public class BudgetWindow extends UiPart<Stage> {
     private StackPane browserPlaceholder;
 
     @FXML
-    private StackPane personListPanelPlaceholder;
+    private StackPane ccaListPanelPlaceholder;
 
     @FXML
     private StackPane resultDisplayPlaceholder;
@@ -60,14 +60,20 @@ public class BudgetWindow extends UiPart<Stage> {
      */
     void fillInnerParts() {
 
+        browserPanel = new BrowserPanel();
+        browserPlaceholder.getChildren().add(browserPanel.getRoot());
+
         CommandBox commandBox = new CommandBox(logic);
         commandBoxPlaceholder.getChildren().add(commandBox.getRoot());
 
-        personListPanel = new CcaListPanel(logic.getFilteredCcaList());
-        personListPanelPlaceholder.getChildren().add(personListPanel.getRoot());
+        ccaListPanel = new CcaListPanel(logic.getFilteredCcaList());
+        ccaListPanelPlaceholder.getChildren().add(ccaListPanel.getRoot());
 
         ResultDisplay resultDisplay = new ResultDisplay();
         resultDisplayPlaceholder.getChildren().add(resultDisplay.getRoot());
+
+        // BudgetResultDisplay budgetResultDisplay = new BudgetResultDisplay();
+        // budgetResultDisplayPlaceholder.getChildren().add(budgetResultDisplay.getRoot());
 
         StatusBarFooter statusBarFooter = new StatusBarFooter(prefs.getBudgetBookFilePath());
         statusbarPlaceholder.getChildren().add(statusBarFooter.getRoot());

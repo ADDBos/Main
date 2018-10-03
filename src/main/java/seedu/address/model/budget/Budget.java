@@ -5,7 +5,7 @@ package seedu.address.model.budget;
  */
 public class Budget {
 
-    private static int INITIAL_SPENDING = 0;
+    private static int initialSpending = 0;
 
     private int initial;
     private int spent;
@@ -14,7 +14,7 @@ public class Budget {
 
     public Budget(int initial) {
         this.initial = initial;
-        this.spent = INITIAL_SPENDING;
+        this.spent = initialSpending;
         this.outstanding = initial;
         this.transaction = new Transaction();
     }

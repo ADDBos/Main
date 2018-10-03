@@ -74,6 +74,12 @@ public class StorageManager extends ComponentManager implements Storage {
     }
 
     @Override
+    public Optional<ReadOnlyAddressBook> readAddressBook(Path filePath) throws DataConversionException, IOException {
+        logger.fine("Attempting to read data from file: " + filePath);
+        return addressBookStorage.readAddressBook(filePath);
+    }
+
+    @Override
     public Path getBudgetBookFilePath() {
         return budgetBookStorage.getBudgetBookFilePath();
     }
@@ -98,12 +104,6 @@ public class StorageManager extends ComponentManager implements Storage {
     public void saveBudgetBook(ReadOnlyBudgetBook budgetBook, Path filePath) throws IOException {
         logger.fine("Attempting to write to data file: " + filePath);
         budgetBookStorage.saveBudgetBook(budgetBook, filePath);
-    }
-
-    @Override
-    public Optional<ReadOnlyAddressBook> readAddressBook(Path filePath) throws DataConversionException, IOException {
-        logger.fine("Attempting to read data from file: " + filePath);
-        return addressBookStorage.readAddressBook(filePath);
     }
 
     @Override

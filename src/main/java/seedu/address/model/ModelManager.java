@@ -106,7 +106,9 @@ public class ModelManager extends ComponentManager implements Model {
     }
 
     @Override
-    public ReadOnlyBudgetBook getBudgetBook() { return versionedBudgetBook; }
+    public ReadOnlyBudgetBook getBudgetBook() {
+        return versionedBudgetBook;
+    }
 
     /**
      * Raises an event to indicate the model has changed

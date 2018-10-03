@@ -28,9 +28,11 @@ public class ResultDisplay extends UiPart<Region> {
 
     public ResultDisplay() {
         super(FXML);
+
         resultDisplay.textProperty().bind(displayed);
         registerAsAnEventHandler(this);
     }
+
 
     @Subscribe
     private void handleNewResultAvailableEvent(NewResultAvailableEvent event) {

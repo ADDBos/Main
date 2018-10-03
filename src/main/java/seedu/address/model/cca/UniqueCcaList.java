@@ -56,17 +56,6 @@ public class UniqueCcaList implements Iterable<Cca> {
         internalCcaList.set(index, editedCca);
     }
 
-    /**
-     * Removes the equivalent tag from the unique tag list.
-     * The tag must exist in the list.
-     */
-    public void remove(Cca toRemove) {
-        requireNonNull(toRemove);
-        if (!internalCcaList.remove(toRemove)) {
-            throw new CcaNotFoundException();
-        }
-    }
-
     public void setCca(UniqueCcaList replacement) {
         requireNonNull(replacement);
         internalCcaList.setAll(replacement.internalCcaList);
@@ -83,6 +72,17 @@ public class UniqueCcaList implements Iterable<Cca> {
         }
 
         internalCcaList.setAll(ccas);
+    }
+
+    /**
+     * Removes the equivalent tag from the unique tag list.
+     * The tag must exist in the list.
+     */
+    public void remove(Cca toRemove) {
+        requireNonNull(toRemove);
+        if (!internalCcaList.remove(toRemove)) {
+            throw new CcaNotFoundException();
+        }
     }
 
     /**
