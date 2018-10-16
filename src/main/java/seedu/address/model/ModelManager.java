@@ -218,6 +218,7 @@ public class ModelManager extends ComponentManager implements Model {
 
         versionedBudgetBook.updateCca(target, editedCca);
         indicateBudgetBookChanged();
+    }
   
     //@@author kengwoon
     @Override
