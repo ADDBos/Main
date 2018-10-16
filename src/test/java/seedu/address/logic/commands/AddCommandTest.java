@@ -168,6 +168,8 @@ public class AddCommandTest {
 
         @Override
         public void updateCca(Cca target, Cca editedCca) {
+            throw new AssertionError("This method should not be called.");
+        }
 
         @Override
         public void updateMultiplePersons(List<Person> target, List<Person> editedPerson) {

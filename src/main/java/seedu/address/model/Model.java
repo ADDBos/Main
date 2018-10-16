@@ -112,7 +112,7 @@ public interface Model {
      * The person identity of {@code editedPerson} must not be the same as another existing person in the address book.
      */
     void updateCca(Cca target, Cca editedCca);
-  
+
     /**
      * Replaces the given persons {@code target} with {@code editedPerson}.
      * {@code target} must exist in the address book.

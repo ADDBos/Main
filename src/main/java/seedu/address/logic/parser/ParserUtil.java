@@ -333,7 +333,7 @@ public class ParserUtil {
         }
         return new Transaction(trimmedTransaction);
     }
-  
+
     /**
      * Parses a {@code String date} into a {@code int}.
      * Leading and trailing whitespaces will be trimmed.
