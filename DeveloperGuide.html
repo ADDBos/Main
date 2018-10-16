@@ -14,7 +14,7 @@
 <li><a href="#prerequisites">1.1. Prerequisites</a></li>
 <li><a href="#setting-up-the-project-in-your-computer">1.2. Setting up the project in your computer</a></li>
 <li><a href="#verifying-the-setup">1.3. Verifying the setup</a></li>
-<li><a href="#configurations-to-do-before-writing-code">1.4. Configurations to do before writing code</a></li>
+<li><a href="#configurations-before-writing-code">1.4. Configurations before writing code</a></li>
 </ul>
 </li>
 <li><a href="#design">2. Design</a>
@@ -30,9 +30,11 @@
 <li><a href="#implementation">3. Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#undo-redo-feature">3.1. Undo/Redo feature</a></li>
-<li><a href="#proposed-data-encryption">3.2. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">3.3. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.4. Configuration</a></li>
+<li><a href="#compose-feature">3.2. Compose feature</a></li>
+<li><a href="#calendar-feature">3.3. Calendar feature</a></li>
+<li><a href="#proposed-data-encryption">3.4. [Proposed] Data Encryption</a></li>
+<li><a href="#logging">3.5. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.6. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a>
@@ -89,8 +91,8 @@
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="prerequisites"><a class="link" href="#prerequisites">1.1. Prerequisites</a></h3>
-<div class="olist arabic">
-<ol class="arabic">
+<div class="ulist">
+<ul>
 <li>
 <p><strong>JDK <code>9</code></strong> or later</p>
 <div class="admonitionblock warning">
@@ -123,43 +125,46 @@ Do not disable them. If you have disabled them, go to <code>File</code> &gt; <co
 </table>
 </div>
 </li>
-</ol>
+</ul>
 </div>
 </div>
 <div class="sect2">
 <h3 id="setting-up-the-project-in-your-computer"><a class="link" href="#setting-up-the-project-in-your-computer">1.2. Setting up the project in your computer</a></h3>
+<div class="paragraph">
+<p>Follow these steps to set up the project on your computer:</p>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Fork this repo, and clone the fork to your computer</p>
+<p>Fork this repository, and clone the fork to your computer.</p>
 </li>
 <li>
-<p>Open IntelliJ (if you are not in the welcome screen, click <code>File</code> &gt; <code>Close Project</code> to close the existing project dialog first)</p>
+<p>Open IntelliJ (If you are not in the welcome screen, click <code>File</code> &gt; <code>Close Project</code> to close the existing project dialog first).</p>
 </li>
 <li>
-<p>Set up the correct JDK version for Gradle</p>
+<p>Set up the correct JDK version for Gradle.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Click <code>Configure</code> &gt; <code>Project Defaults</code> &gt; <code>Project Structure</code></p>
+<p>Click <code>Configure</code> &gt; <code>Project Defaults</code> &gt; <code>Project Structure</code>.</p>
 </li>
 <li>
-<p>Click <code>New&#8230;&#8203;</code> and find the directory of the JDK</p>
+<p>Click <code>New&#8230;&#8203;</code> and find the directory of the JDK.</p>
 </li>
 </ol>
 </div>
 </li>
 <li>
-<p>Click <code>Import Project</code></p>
+<p>Click <code>Import Project</code>.</p>
 </li>
 <li>
-<p>Locate the <code>build.gradle</code> file and select it. Click <code>OK</code></p>
+<p>Locate the <code>build.gradle</code> file and select it. Click <code>OK</code>.</p>
 </li>
 <li>
-<p>Click <code>Open as Project</code></p>
+<p>Click <code>Open as Project</code>.</p>
 </li>
 <li>
-<p>Click <code>OK</code> to accept the default settings</p>
+<p>Click <code>OK</code> to accept the default settings.</p>
 </li>
 <li>
 <p>Open a console and run the command <code>gradlew processResources</code> (Mac/Linux: <code>./gradlew processResources</code>). It should finish with the <code>BUILD SUCCESSFUL</code> message.<br>
@@ -170,10 +175,13 @@ This will generate all resources required by the application and tests.</p>
 </div>
 <div class="sect2">
 <h3 id="verifying-the-setup"><a class="link" href="#verifying-the-setup">1.3. Verifying the setup</a></h3>
+<div class="paragraph">
+<p>Follow these steps to verify the setup:</p>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Run the <code>seedu.address.MainApp</code> and try a few commands</p>
+<p>Run the <code>seedu.address.MainApp</code> and try a few commands.</p>
 </li>
 <li>
 <p><a href="#Testing">Run the tests</a> to ensure they all pass.</p>
@@ -182,29 +190,29 @@ This will generate all resources required by the application and tests.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="configurations-to-do-before-writing-code"><a class="link" href="#configurations-to-do-before-writing-code">1.4. Configurations to do before writing code</a></h3>
+<h3 id="configurations-before-writing-code"><a class="link" href="#configurations-before-writing-code">1.4. Configurations before writing code</a></h3>
 <div class="sect3">
 <h4 id="configuring-the-coding-style"><a class="link" href="#configuring-the-coding-style">1.4.1. Configuring the coding style</a></h4>
 <div class="paragraph">
-<p>This project follows <a href="https://github.com/oss-generic/process/blob/master/docs/CodingStandards.adoc">oss-generic coding standards</a>. IntelliJ&#8217;s default style is mostly compliant with ours but it uses a different import order from ours. To rectify,</p>
+<p>This project follows <a href="https://github.com/oss-generic/process/blob/master/docs/CodingStandards.adoc">oss-generic coding standards</a>. IntelliJ&#8217;s default style is mostly compliant with ours but it uses a different import order from ours. To rectify:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Go to <code>File</code> &gt; <code>Settings&#8230;&#8203;</code> (Windows/Linux), or <code>IntelliJ IDEA</code> &gt; <code>Preferences&#8230;&#8203;</code> (macOS)</p>
+<p>Go to <code>File</code> &gt; <code>Settings&#8230;&#8203;</code> (Windows/Linux), or <code>IntelliJ IDEA</code> &gt; <code>Preferences&#8230;&#8203;</code> (macOS).</p>
 </li>
 <li>
-<p>Select <code>Editor</code> &gt; <code>Code Style</code> &gt; <code>Java</code></p>
+<p>Select <code>Editor</code> &gt; <code>Code Style</code> &gt; <code>Java</code>.</p>
 </li>
 <li>
-<p>Click on the <code>Imports</code> tab to set the order</p>
+<p>Click on the <code>Imports</code> tab to set the order.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>For <code>Class count to use import with '*'</code> and <code>Names count to use static import with '*'</code>: Set to <code>999</code> to prevent IntelliJ from contracting the import statements</p>
+<p>For <code>Class count to use import with '*'</code> and <code>Names count to use static import with '*'</code>: Set to <code>999</code> to prevent IntelliJ from contracting the import statements.</p>
 </li>
 <li>
-<p>For <code>Import Layout</code>: The order is <code>import static all other imports</code>, <code>import java.*</code>, <code>import javax.*</code>, <code>import org.*</code>, <code>import com.*</code>, <code>import all other imports</code>. Add a <code>&lt;blank line&gt;</code> between each <code>import</code></p>
+<p>For <code>Import Layout</code>: The order is <code>import static all other imports</code>, <code>import java.*</code>, <code>import javax.*</code>, <code>import org.*</code>, <code>import com.*</code>, <code>import all other imports</code>. Add a <code>&lt;blank line&gt;</code> between each <code>import</code>.</p>
 </li>
 </ul>
 </div>
@@ -273,17 +281,17 @@ Having both Travis and AppVeyor ensures your App works on both Unix-based platfo
 <div class="sect3">
 <h4 id="getting-started-with-coding"><a class="link" href="#getting-started-with-coding">1.4.4. Getting started with coding</a></h4>
 <div class="paragraph">
-<p>When you are ready to start coding,</p>
+<p>When you are ready to start coding:</p>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
+<div class="ulist">
+<ul>
 <li>
 <p>Get some sense of the overall design by reading <a href="#Design-Architecture">Section 2.1, &#8220;Architecture&#8221;</a>.</p>
 </li>
 <li>
 <p>Take a look at <a href="#GetStartedProgramming">Appendix A, <em>Suggested Programming Tasks to Get Started</em></a>.</p>
 </li>
-</ol>
+</ul>
 </div>
 </div>
 </div>
@@ -301,7 +309,7 @@ Having both Travis and AppVeyor ensures your App works on both Unix-based platfo
 <div class="title">Figure 1. Architecture Diagram</div>
 </div>
 <div class="paragraph">
-<p>The <strong><em>Architecture Diagram</em></strong> given above explains the high-level design of the App. Given below is a quick overview of each component.</p>
+<p>The <strong><em>Architecture Diagram</em></strong> given above explains the high-level design of the App. Given below is a quick overview of each component:</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -316,15 +324,15 @@ The <code>.pptx</code> files used to create diagrams in this document can be fou
 </table>
 </div>
 <div class="paragraph">
-<p><code>Main</code> has only one class called <a href="https://github.com/CS2103-AY1819S1-W16-1/main/tree/master/src/main/java/seedu/address/MainApp.java"><code>MainApp</code></a>. It is responsible for,</p>
+<p><code>Main</code> has only one class called <a href="https://github.com/CS2103-AY1819S1-W16-1/main/tree/master/src/main/java/seedu/address/MainApp.java"><code>MainApp</code></a>. It is responsible for:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>At app launch: Initializes the components in the correct sequence, and connects them up with each other.</p>
+<p>At app launch: Initialising the components in the correct sequence, and connecting them up with each other.</p>
 </li>
 <li>
-<p>At shut down: Shuts down the components and invokes cleanup method where necessary.</p>
+<p>At shut down: Shutting down the components and invoking cleanup method where necessary.</p>
 </li>
 </ul>
 </div>
@@ -334,7 +342,7 @@ The <code>.pptx</code> files used to create diagrams in this document can be fou
 <div class="ulist">
 <ul>
 <li>
-<p><code>EventsCenter</code> : This class (written using <a href="https://github.com/google/guava/wiki/EventBusExplained">Google&#8217;s Event Bus library</a>) is used by components to communicate with other components using events (i.e. a form of <em>Event Driven</em> design)</p>
+<p><code>EventsCenter</code> : This class (written using <a href="https://github.com/google/guava/wiki/EventBusExplained">Google&#8217;s Event Bus library</a>) is used by components to communicate with other components using events (i.e. a form of <em>Event Driven</em> design).</p>
 </li>
 <li>
 <p><code>LogsCenter</code> : Used by many classes to write log messages to the App&#8217;s log file.</p>
@@ -342,7 +350,7 @@ The <code>.pptx</code> files used to create diagrams in this document can be fou
 </ul>
 </div>
 <div class="paragraph">
-<p>The rest of the App consists of four components.</p>
+<p>The rest of the App consists of four components:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -788,20 +796,165 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.2. [Proposed] Data Encryption</a></h3>
+<h3 id="compose-feature"><a class="link" href="#compose-feature">3.2. Compose feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">3.2.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The Compose feature works using a third-party dependency, <a href="http://www.simplejavamail.org/#/about">Simple Java Mail</a>.
+It allows <code>.eml</code> files to be saved onto the computer.
+The feature is facilitated by <code>EmailModel</code> and <code>EmailDirStorage</code>.
+It implements the following operations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>EmailModel#saveEmail(Email email)</code>&#8201;&#8212;&#8201;Stores each newly composed email in the <code>EmailModel</code>.</p>
+</li>
+<li>
+<p><code>EmailDirStorage#saveEmail(EmailModel email)</code>&#8201;&#8212;&#8201;Saves the newly composed email in the <code>EmailModel</code> to the computer.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These operations are exposed in the <code>Model</code> interface as <code>Model#saveEmail(Email email)</code>, and in the <code>Storage</code> interface as <code>Storage#saveEmail(EmailModel email)</code> respectively.</p>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the Compose feature behaves at each step:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The user executes the <code>Compose</code> command, which creates an email.
+The <code>Compose</code> command calls <code>Model#saveEmail(Email email)</code>, saving the email to <code>EmailModel</code>.</p>
+</li>
+<li>
+<p>Once the email is saved in the <code>EmailModel</code>, the <code>ModelManager</code> raises an <code>EmailSavedEvent</code>, to indicate that a new email is saved to the <code>EmailModel</code>.</p>
+</li>
+<li>
+<p>The <code>EmailSavedEvent</code> goes to the <code>EventsCenter</code>, and is then handled by <code>StorageManager#handleEmailSavedEvent(EmailSavedEvent event)</code>, which then calls <code>EmailDirStorage#saveEmail(EmailModel email)</code>.
+This saves the email to a specified local directory.</p>
+</li>
+<li>
+<p>A preview of the email is displayed on the main window.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.2.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-file-format"><a class="link" href="#aspect-file-format">Aspect: File format</a></h5>
+<div class="paragraph">
+<p>The <code>.eml</code> file format is compliant with the RFC-822 format, which is industry recognised, and can be opened and viewed using many applications.
+<code>.eml</code> files can also contain attachments.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-using-a-href-http-www-simplejavamail-org-about-simple-java-mail-a"><a class="link" href="#aspect-using-a-href-http-www-simplejavamail-org-about-simple-java-mail-a">Aspect: Using <a href="http://www.simplejavamail.org/#/about">Simple Java Mail</a></a></h5>
+<div class="paragraph">
+<p><a href="http://www.simplejavamail.org/#/about">Simple Java Mail</a> contains various methods to conveniently create emails.
+It can also be used to send emails if Hallper is extended to include online capabilities.
+The library is easy to understand so any new developer can easily extend the current features.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-html-text"><a class="link" href="#aspect-html-text">Aspect: HTML Text</a></h5>
+<div class="paragraph">
+<p>User input for email content is saved as HTML Text so that users with HTML Text Formatting knowledge can easily format the body of the email.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="calendar-feature"><a class="link" href="#calendar-feature">3.3. Calendar feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">3.3.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The calendar feature in Hallper is implemented using a third-party dependency, <a href="https://github.com/ical4j/ical4j">iCal4j</a>.
+It allows <code>.ics</code> files to be saved onto the computer. Calendars in Hallper are created as monthly calendars, a <code>Map&lt;Year, Set&lt;Month&gt;&gt;</code> in <code>CalendarModel</code> keeps a record of existing calendars in Hallper.
+It implements the following command:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>create_calendar</code>&#8201;&#8212;&#8201;Creates a monthly calendar and store it in local memory.</p>
+</li>
+</ul>
+</div>
+<div class="sect4">
+<h5 id="create_calendar-command"><a class="link" href="#create_calendar-command">Create_Calendar Command</a></h5>
+<div class="paragraph">
+<p>This command is facilitated by <code>CalendarModel</code> and <code>IcsCalendarStorage</code>.
+It implements the following operations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>CalendarModel#createCalendar(Year year, Month month)</code>&#8201;&#8212;&#8201;Initializes a calendar object in the <code>CalendarModel</code>.</p>
+</li>
+<li>
+<p><code>CalendarModel#isExistingCalendar(Year year, Month month)</code>&#8201;&#8212;&#8201;Checks if the calendar already exists in Hallper.</p>
+</li>
+<li>
+<p><code>IcsCalendarStorage#createCalendar(Calendar calendar, String calendarName)</code>&#8201;&#8212;&#8201;Saves the calendar passed from <code>CalendarModel</code> to the computer.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These operations are exposed in the 'Model` interface as <code>Model#createCalendar(Year year, Month month)</code>, <code>Model#isExistingCalendar(Year year, Month month)</code> and in the <code>Storage</code> interface as <code>Storage#createCalendar(Calendar calendar, String calendarName)</code> respectively.</p>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the create_calendar command behaves at each step:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The user executes the <code>create_calendar</code> command by specifying the <code>Month</code> and <code>Year</code>.
+The <code>create_calendar</code> command then calls <code>Model#isExistingCalendar(Year year, Month month)</code>, to check whether the calendar already exists inside Hallper. If it exists, the command does nothing and reflects to the user that the calendar already exists. Else the command will then call <code>Model#createCalendar(Year year, Month month)</code>, initializing a calendar object inside <code>CalendarModel</code>.</p>
+</li>
+<li>
+<p>Once the calendar object is initialized in the <code>CalendarModel</code>, the <code>ModelManager</code> raises a <code>CalendarCreatedEvent</code>, to indicate that a calendar object has been initialized in the <code>CalendarModel</code>.</p>
+</li>
+<li>
+<p>The <code>CalendarCreatedEvent</code> goes to the <code>EventsCenter</code>, and is then handled by <code>StorageManager#handleCalendarCreatedEvent(CalendarCreatedEvent event)</code>, which then calls <code>IcsCalendarStorage#createCalendar(Calendar calendar, String calendarName)</code>.
+This saves the calendar to a specified local directory.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.3.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-file-format-2"><a class="link" href="#aspect-file-format-2">Aspect: File format</a></h5>
+<div class="paragraph">
+<p>The <code>.ics</code> file format is compliant with the RFC 5545 format, which is industry recognised, and can be opened and viewed using many applications, including Microsoft Outlook, Google Calendar, and Apple Calendar.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-using-a-href-https-github-com-ical4j-ical4j-ical4j-a"><a class="link" href="#aspect-using-a-href-https-github-com-ical4j-ical4j-ical4j-a">Aspect: Using <a href="https://github.com/ical4j/ical4j">iCal4j</a></a></h5>
+<div class="paragraph">
+<p><a href="https://github.com/ical4j/ical4j">iCal4j</a> contains various methods that make creating, parsing and editing <code>.ics</code> files convenient.
+The library is widely used and easy to understand so any new develeper can easily extend the current features.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.4. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p><em>{Explain here how the data encryption feature will be implemented}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.3. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.5. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.4, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.6, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -832,7 +985,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.4. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.6. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -3155,4 +3308,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-10 17:35:49 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-16 16:04:07 UTC</div></div></div></body></html>

@@ -25,22 +25,24 @@
 <li><a href="#undoing-previous-command-code-undo-code">3.10. Undoing previous command : <code>undo</code></a></li>
 <li><a href="#redoing-the-previously-undone-command-code-redo-code">3.11. Redoing the previously undone command : <code>redo</code></a></li>
 <li><a href="#clearing-all-specified-tags-code-erase-code">3.12. Clearing all specified tags : <code>erase</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code">3.13. Clearing all entries : <code>clear</code></a></li>
-<li><a href="#adds-a-picture-to-resident-detail-code-image-code">3.14. Adds a picture to resident detail : <code>image</code></a></li>
-<li><a href="#uploading-contact-information-code-import-code">3.15. Uploading contact information : <code>import</code></a></li>
-<li><a href="#composing-email-code-compose-code">3.16. Composing email : <code>compose</code></a></li>
-<li><a href="#creating-calendar-code-create_calendar-code">3.17. Creating calendar : <code>create_calendar</code></a></li>
-<li><a href="#viewing-calendar-code-view_calendar-code">3.18. Viewing calendar : <code>view_calendar</code></a></li>
-<li><a href="#adding-event-into-calendar-code-add_event-code">3.19. Adding event into calendar : <code>add_event</code></a></li>
-<li><a href="#viewing-the-budget-for-all-ccas-code-budget-code">3.20. Viewing the budget for all CCAs : <code>budget</code></a></li>
-<li><a href="#viewing-cca-budget-code-view_cca-code">3.21. Viewing CCA budget : <code>view_cca</code></a></li>
-<li><a href="#adding-a-cca-s-budget-code-add_cca-code">3.22. Adding a CCA&#8217;s budget : <code>add_cca</code></a></li>
-<li><a href="#deleting-a-cca-s-budget-code-delete_cca-code">3.23. Deleting a CCA&#8217;s budget : <code>delete_cca</code></a></li>
-<li><a href="#modifying-a-cca-s-budget-code-modify_cca-code">3.24. Modifying a CCA&#8217;s budget : <code>modify_cca</code></a></li>
-<li><a href="#adding-a-transaction-to-the-budget-code-add_transaction-code">3.25. Adding a transaction to the budget : <code>add_transaction</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.26. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.27. Saving the data</a></li>
-<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.28. Encrypting data files <code>[coming in v2.0]</code></a></li>
+<li><a href="#clearing-all-entries-code-clear-all-code">3.13. Clearing all entries : <code>clear all</code></a></li>
+<li><a href="#clearing-specific-entries-code-clear-code">3.14. Clearing specific entries : <code>clear</code></a></li>
+<li><a href="#adds-a-picture-to-resident-detail-code-image-code">3.15. Adds a picture to resident detail : <code>image</code></a></li>
+<li><a href="#uploading-contact-information-code-import-code">3.16. Uploading contact information : <code>import</code></a></li>
+<li><a href="#composing-email-code-compose-code">3.17. Composing email : <code>compose</code></a></li>
+<li><a href="#creating-calendar-code-create_calendar-code">3.18. Creating calendar : <code>create_calendar</code></a></li>
+<li><a href="#viewing-calendar-code-view_calendar-code">3.19. Viewing calendar : <code>view_calendar</code></a></li>
+<li><a href="#adding-event-into-calendar-code-add_event-code">3.20. Adding event into calendar : <code>add_event</code></a></li>
+<li><a href="#viewing-the-budget-for-all-ccas-code-budget-code">3.21. Viewing the budget for all CCAs : <code>budget</code></a></li>
+<li><a href="#budget-feature">3.22. Budget feature</a></li>
+<li><a href="#viewing-cca-budget-code-view_cca-code">3.23. Viewing CCA budget : <code>view_cca</code></a></li>
+<li><a href="#adding-a-cca-s-budget-code-add_cca-code">3.24. Adding a CCA&#8217;s budget : <code>add_cca</code></a></li>
+<li><a href="#deleting-a-cca-s-budget-code-delete_cca-code">3.25. Deleting a CCA&#8217;s budget : <code>delete_cca</code></a></li>
+<li><a href="#modifying-a-cca-s-budget-code-modify_cca-code">3.26. Modifying a CCA&#8217;s budget : <code>modify_cca</code></a></li>
+<li><a href="#adding-a-transaction-to-the-budget-code-add_transaction-code">3.27. Adding a transaction to the budget : <code>add_transaction</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.28. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">3.29. Saving the data</a></li>
+<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.30. Encrypting data files <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -182,8 +184,22 @@ Format: <code>list</code></p>
 <div class="sect2">
 <h3 id="searching-all-persons-under-specified-tag-code-search-code"><a class="link" href="#searching-all-persons-under-specified-tag-code-search-code">3.4. Searching all persons under specified tag : <code>search</code></a></h3>
 <div class="paragraph">
-<p>Shows a list of all persons in the address book that are tagged with the specified tag.<br>
-Format: <code>search TAG</code></p>
+<p>Shows a list of all persons in the address book that are associated with the specified keyword.<br>
+Format: <code>search KEYWORD</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>KEYWORD can be ROOM or CCA.</p>
+</li>
+<li>
+<p>KEYWORD is case-sensitive.</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -191,10 +207,12 @@ Format: <code>search TAG</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>search basketball</code></p>
+<p><code>search basketball</code><br>
+Searches Hallper and lists all contacts associated with <code>basketball</code>.</p>
 </li>
 <li>
-<p><code>search school of computing</code></p>
+<p><code>search A123</code><br>
+Searches Hallper and lists all contacts associated with <code>A123</code>.</p>
 </li>
 </ul>
 </div>
@@ -472,8 +490,25 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 <div class="sect2">
 <h3 id="clearing-all-specified-tags-code-erase-code"><a class="link" href="#clearing-all-specified-tags-code-erase-code">3.12. Clearing all specified tags : <code>erase</code></a></h3>
 <div class="paragraph">
-<p>Clears all spcified tags from all contacts from the address book.<br>
+<p>Clears all spcified tags from all contacts from Hallper.<br>
 Format: <code>erase CCA</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Erases the CCA specified for all associated contacts.</p>
+</li>
+<li>
+<p>The CCA specified must be an existing CCA.</p>
+</li>
+<li>
+<p>Multiple CCAs can be specified at once.</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 <div class="paragraph">
 <p>Example:</p>
@@ -481,20 +516,86 @@ Format: <code>erase CCA</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>erase basketball</code></p>
+<p><code>erase basketball</code><br>
+Erases <code>basketball</code> from contacts associated with this CCA.<br></p>
+</li>
+<li>
+<p><code>erase basketball netball</code><br>
+Erases <code>basketball</code> and <code>netball</code> from contacts associated with these CCAs.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.13. Clearing all entries : <code>clear</code></a></h3>
+<h3 id="clearing-all-entries-code-clear-all-code"><a class="link" href="#clearing-all-entries-code-clear-all-code">3.13. Clearing all entries : <code>clear all</code></a></h3>
 <div class="paragraph">
-<p>Clears all entries from the address book.<br>
-Format: <code>clear</code></p>
+<p>Clears all entries from Hallper.<br>
+Format: <code>clear all</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>'all' is case-sensitive.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>clear all</code><br>
+Clears <code>all</code> entries in Hallper.</p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="adds-a-picture-to-resident-detail-code-image-code"><a class="link" href="#adds-a-picture-to-resident-detail-code-image-code">3.14. Adds a picture to resident detail : <code>image</code></a></h3>
+<h3 id="clearing-specific-entries-code-clear-code"><a class="link" href="#clearing-specific-entries-code-clear-code">3.14. Clearing specific entries : <code>clear</code></a></h3>
+<div class="paragraph">
+<p>Clears specified entries from Hallper.<br>
+Format: <code>clear KEYWORD</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Clears contacts associated with KEYWORD.</p>
+</li>
+<li>
+<p>KEYWORD refers to either a CCA or ROOM.</p>
+</li>
+<li>
+<p>KEYWORD is case-sensitive.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>clear basketball</code><br>
+Clears all entries associated with CCA <code>basketball</code>.</p>
+</li>
+<li>
+<p><code>clear A123</code><br>
+Clears all entries associated with room <code>A123</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adds-a-picture-to-resident-detail-code-image-code"><a class="link" href="#adds-a-picture-to-resident-detail-code-image-code">3.15. Adds a picture to resident detail : <code>image</code></a></h3>
 <div class="paragraph">
 <p>Uploads the image of the resident to the address book.<br>
 Format: <code>image</code></p>
@@ -515,10 +616,10 @@ Format: <code>image</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="uploading-contact-information-code-import-code"><a class="link" href="#uploading-contact-information-code-import-code">3.15. Uploading contact information : <code>import</code></a></h3>
+<h3 id="uploading-contact-information-code-import-code"><a class="link" href="#uploading-contact-information-code-import-code">3.16. Uploading contact information : <code>import</code></a></h3>
 <div class="paragraph">
-<p>Uploads file containing contact information of all contacts.<br>
-Format: <code>upload</code></p>
+<p>Imports file containing contact information and updates Hallper accordingly.<br>
+Format: <code>import f/FILEPATH</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -534,18 +635,60 @@ Format: <code>upload</code></p>
 </div>
 </div>
 </div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>import f/C://Users/Files/data.xml</code><br>
+Imports <code>data.xml</code> file to be read and for database to be updated accordingly.</p>
+</li>
+</ul>
+</div>
 </div>
 <div class="sect2">
-<h3 id="composing-email-code-compose-code"><a class="link" href="#composing-email-code-compose-code">3.16. Composing email : <code>compose</code></a></h3>
+<h3 id="composing-email-code-compose-code"><a class="link" href="#composing-email-code-compose-code">3.17. Composing email : <code>compose</code></a></h3>
 <div class="paragraph">
 <p>Composes a <strong><code>.eml</code></strong> file that can be used to send emails to residents.<br>
-Format: <code>compose</code></p>
+Format: <code>compose from/FROM to/TO subject/SUBJECT content/CONTENT</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>FROM and TO must be valid email addresses e.g. <a href="mailto:johndoe@example.com">johndoe@example.com</a></p>
+</li>
+<li>
+<p>SUBJECT has a word limit of 10 words.</p>
+</li>
+<li>
+<p>CONTENT has no word limit.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>compose from/johndoe@example.com to/samsee@example.com subject/Meeting this Friday
+content/Hey there&#8217;s a meeting this friday.</code><br>
+Composes an email from <code>johndoe@example.com</code> to <code>samsee@example.com</code> with subject
+<code>Meeting this Friday</code> and email body <code>Hey there&#8217;s a meeting this friday.</code> and saves
+it as a <strong><code>.eml</code></strong> file.</p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="creating-calendar-code-create_calendar-code"><a class="link" href="#creating-calendar-code-create_calendar-code">3.17. Creating calendar : <code>create_calendar</code></a></h3>
+<h3 id="creating-calendar-code-create_calendar-code"><a class="link" href="#creating-calendar-code-create_calendar-code">3.18. Creating calendar : <code>create_calendar</code></a></h3>
 <div class="paragraph">
-<p>Creates a calendar file in the address book for updating of events.<br>
+<p>Creates a calendar file in Hallper for updating of events.<br>
 Format: <code>create_calendar month/MONTH year/YEAR</code></p>
 </div>
 <div class="sidebarblock">
@@ -571,13 +714,15 @@ Format: <code>create_calendar month/MONTH year/YEAR</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>create_calendar month/Feb year/2018</code></p>
+<p><code>create_calendar month/Feb year/2018</code><br>
+Creates a calendar for the month of <code>Feb</code> and year <code>2018</code> and
+saves it as a <strong><code>.ics</code></strong> file.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="viewing-calendar-code-view_calendar-code"><a class="link" href="#viewing-calendar-code-view_calendar-code">3.18. Viewing calendar : <code>view_calendar</code></a></h3>
+<h3 id="viewing-calendar-code-view_calendar-code"><a class="link" href="#viewing-calendar-code-view_calendar-code">3.19. Viewing calendar : <code>view_calendar</code></a></h3>
 <div class="paragraph">
 <p>Views the calendar of the specified month.<br>
 Format: <code>view_calendar MONTH</code></p>
@@ -588,13 +733,14 @@ Format: <code>view_calendar MONTH</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>view_calendar Feb</code></p>
+<p><code>view_calendar Feb</code><br>
+Displays view of calendar for the month of <code>Feb</code>.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-event-into-calendar-code-add_event-code"><a class="link" href="#adding-event-into-calendar-code-add_event-code">3.19. Adding event into calendar : <code>add_event</code></a></h3>
+<h3 id="adding-event-into-calendar-code-add_event-code"><a class="link" href="#adding-event-into-calendar-code-add_event-code">3.20. Adding event into calendar : <code>add_event</code></a></h3>
 <div class="paragraph">
 <p>Adds an event into the calendar.<br>
 Format: `add_event m/MONTH d/DATE st/START TIME et/END TIME n/NAME OF EVENT</p>
@@ -605,13 +751,15 @@ Format: `add_event m/MONTH d/DATE st/START TIME et/END TIME n/NAME OF EVENT</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>add_event m/Feb d/2 st/1800 et/2100 n/Enthral</code></p>
+<p><code>add_event m/Feb d/2 st/1800 et/2100 n/Enthral</code><br>
+Adds an event titled <code>Enthral</code> with date <code>2</code> nd <code>Feb</code> which lasts from <code>1800</code> hours
+to <code>2100</code> hours to the calendar.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="viewing-the-budget-for-all-ccas-code-budget-code"><a class="link" href="#viewing-the-budget-for-all-ccas-code-budget-code">3.20. Viewing the budget for all CCAs : <code>budget</code></a></h3>
+<h3 id="viewing-the-budget-for-all-ccas-code-budget-code"><a class="link" href="#viewing-the-budget-for-all-ccas-code-budget-code">3.21. Viewing the budget for all CCAs : <code>budget</code></a></h3>
 <div class="paragraph">
 <p>Allows for the viewing of the budgets for all the CCAs.<br>
 Format: <code>budget</code></p>
@@ -629,7 +777,14 @@ Format: <code>budget</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="viewing-cca-budget-code-view_cca-code"><a class="link" href="#viewing-cca-budget-code-view_cca-code">3.21. Viewing CCA budget : <code>view_cca</code></a></h3>
+<h3 id="budget-feature"><a class="link" href="#budget-feature">3.22. Budget feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation"><a class="link" href="#current-implementation">3.22.1. Current Implementation</a></h4>
+
+</div>
+</div>
+<div class="sect2">
+<h3 id="viewing-cca-budget-code-view_cca-code"><a class="link" href="#viewing-cca-budget-code-view_cca-code">3.23. Viewing CCA budget : <code>view_cca</code></a></h3>
 <div class="paragraph">
 <p>Allows for the viewing of the budget and past transactions of the specified CCA.<br>
 Format: <code>view_cca CCA</code></p>
@@ -640,13 +795,14 @@ Format: <code>view_cca CCA</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>view_cca soccer</code></p>
+<p><code>view_cca soccer</code><br>
+Displays budget and past transactions of <code>soccer</code> CCA.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-a-cca-s-budget-code-add_cca-code"><a class="link" href="#adding-a-cca-s-budget-code-add_cca-code">3.22. Adding a CCA&#8217;s budget : <code>add_cca</code></a></h3>
+<h3 id="adding-a-cca-s-budget-code-add_cca-code"><a class="link" href="#adding-a-cca-s-budget-code-add_cca-code">3.24. Adding a CCA&#8217;s budget : <code>add_cca</code></a></h3>
 <div class="paragraph">
 <p>Adds a CCA&#8217;s budget.<br>
 Format: <code>add_cca CCA BUDGET</code></p>
@@ -663,7 +819,7 @@ Format: <code>add_cca CCA BUDGET</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-cca-s-budget-code-delete_cca-code"><a class="link" href="#deleting-a-cca-s-budget-code-delete_cca-code">3.23. Deleting a CCA&#8217;s budget : <code>delete_cca</code></a></h3>
+<h3 id="deleting-a-cca-s-budget-code-delete_cca-code"><a class="link" href="#deleting-a-cca-s-budget-code-delete_cca-code">3.25. Deleting a CCA&#8217;s budget : <code>delete_cca</code></a></h3>
 <div class="paragraph">
 <p>Deletes the CCA&#8217;s exisiting budget.<br>
 Format: <code>delete_cca CCA</code></p>
@@ -680,7 +836,7 @@ Format: <code>delete_cca CCA</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="modifying-a-cca-s-budget-code-modify_cca-code"><a class="link" href="#modifying-a-cca-s-budget-code-modify_cca-code">3.24. Modifying a CCA&#8217;s budget : <code>modify_cca</code></a></h3>
+<h3 id="modifying-a-cca-s-budget-code-modify_cca-code"><a class="link" href="#modifying-a-cca-s-budget-code-modify_cca-code">3.26. Modifying a CCA&#8217;s budget : <code>modify_cca</code></a></h3>
 <div class="paragraph">
 <p>Modifies the budget of specified CCA.<br>
 Format: <code>modify_cca CCA BUDGET</code></p>
@@ -697,7 +853,7 @@ Format: <code>modify_cca CCA BUDGET</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-a-transaction-to-the-budget-code-add_transaction-code"><a class="link" href="#adding-a-transaction-to-the-budget-code-add_transaction-code">3.25. Adding a transaction to the budget : <code>add_transaction</code></a></h3>
+<h3 id="adding-a-transaction-to-the-budget-code-add_transaction-code"><a class="link" href="#adding-a-transaction-to-the-budget-code-add_transaction-code">3.27. Adding a transaction to the budget : <code>add_transaction</code></a></h3>
 <div class="paragraph">
 <p>Adds a transaction to the budget of specified CCA.<br>
 Format: <code>add_transaction CCA AMOUNT TYPE PERSON_IN_CHARGE</code></p>
@@ -731,21 +887,21 @@ Format: <code>add_transaction CCA AMOUNT TYPE PERSON_IN_CHARGE</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.26. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.28. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.27. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.29. Saving the data</a></h3>
 <div class="paragraph">
 <p>Address book data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.28. Encrypting data files <code>[coming in v2.0]</code></a></h3>
+<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.30. Encrypting data files <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p><em>{explain how the user can enable/disable data encryption}</em></p>
 </div>
@@ -794,7 +950,11 @@ e.g. <code>view_cca basketball</code></p>
 e.g. <code>add_transaction soccer 500 debit James</code></p>
 </li>
 <li>
-<p><strong>Clear</strong> : <code>clear</code></p>
+<p><strong>Clear all</strong> : <code>clear all</code></p>
+</li>
+<li>
+<p><strong>Clear</strong> : <code>clear KEYWORD [MORE_KEYWORDS]</code><br>
+e.g. <code>clear basketball A123</code></p>
 </li>
 <li>
 <p><strong>Delete</strong> : <code>delete INDEX</code><br>
@@ -813,11 +973,11 @@ e.g. <code>edit 2 n/James Lee e/jameslee@example.com</code></p>
 e.g. <code>find James Jake</code></p>
 </li>
 <li>
-<p><strong>Search</strong> : <code>search TAG [MORE_TAGS]</code><br>
-e.g. <code>search basketball</code></p>
+<p><strong>Search</strong> : <code>search KEYWORD [MORE_KEYWORDS]</code><br>
+e.g. <code>search basketball A123</code></p>
 </li>
 <li>
-<p><strong>Compose</strong> : <code>compose</code></p>
+<p><strong>Compose</strong> : <code>compose from/FROM to/TO subject/SUBJECT content/CONTENT</code></p>
 </li>
 <li>
 <p><strong>List</strong> : <code>list</code></p>
@@ -845,7 +1005,7 @@ e.g. <code>add_event m/Feb d/2 st/1800 et/2100 n/Enthral</code></p>
 <p><strong>Image</strong> : <code>image</code></p>
 </li>
 <li>
-<p><strong>Import</strong> : <code>import</code></p>
+<p><strong>Import</strong> : <code>import f/FILEPATH</code></p>
 </li>
 <li>
 <p><strong>History</strong> : <code>history</code>
@@ -860,4 +1020,4 @@ e.g. <code>view 2</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-10 17:35:49 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-16 16:04:07 UTC</div></div></div></body></html>
