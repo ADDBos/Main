@@ -12,7 +12,9 @@ import javafx.scene.layout.Region;
 import javafx.scene.web.WebView;
 import seedu.address.MainApp;
 import seedu.address.commons.core.LogsCenter;
+import seedu.address.commons.events.ui.EmailViewEvent;
 import seedu.address.commons.events.ui.PersonPanelSelectionChangedEvent;
+import seedu.address.model.EmailModel;
 import seedu.address.model.person.Person;
 
 /**
@@ -69,4 +71,20 @@ public class BrowserPanel extends UiPart<Region> {
         logger.info(LogsCenter.getEventHandlingLogMessage(event));
         loadPersonPage(event.getNewSelection());
     }
+
+    //@@author EatOrBeEaten
+    @Subscribe
+    private void handleEmailViewEvent(EmailViewEvent event) {
+        logger.info(LogsCenter.getEventHandlingLogMessage(event));
+        loadEmail(event.getEmailModel());
+    }
+
+    /**
+     * Loads HTML text preview of email.
+     * @param emailModel The emailModel containing the saved email.
+     */
+    public void loadEmail(EmailModel emailModel) {
+        Platform.runLater(() -> browser.getEngine().loadContent(emailModel.getPreview()));
+    }
+
 }

@@ -6,7 +6,6 @@ import java.util.Arrays;
 
 import seedu.address.logic.commands.EraseCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.person.ContactContainsTagPredicate;
 
 //@@author kengwoon
 /**
@@ -28,8 +27,7 @@ public class EraseCommandParser implements Parser<EraseCommand> {
 
         String[] nameKeywords = trimmedArgs.split("\\s+");
 
-        return new EraseCommand(Arrays.asList(nameKeywords),
-                new ContactContainsTagPredicate(Arrays.asList(nameKeywords)));
+        return new EraseCommand(Arrays.asList(nameKeywords));
     }
 
 }

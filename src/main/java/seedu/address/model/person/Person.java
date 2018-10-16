@@ -21,12 +21,13 @@ public class Person {
     private final Email email;
 
     // Data fields
+    private final ProfilePicture profilePicture;
     private final School school;
     private final Room room;
     private final Set<Tag> tags = new HashSet<>();
 
     /**
-     * Every field must be present and not null.
+     * All fields except {@code profilePicture} are present and not null.
      */
     public Person(Name name, Phone phone, Email email, Room room, School school, Set<Tag> tags) {
         requireAllNonNull(name, phone, email, room, tags);
@@ -35,6 +36,21 @@ public class Person {
         this.email = email;
         this.room = room;
         this.school = school;
+        this.profilePicture = new ProfilePicture("-.jpg");
+        this.tags.addAll(tags);
+    }
+
+    /**
+     * Every field must be present and not null.
+     */
+    public Person(Name name, Phone phone, Email email, Room room, School school, ProfilePicture profilePicture,
+                  Set<Tag> tags) {
+        this.name = name;
+        this.phone = phone;
+        this.email = email;
+        this.room = room;
+        this.school = school;
+        this.profilePicture = profilePicture;
         this.tags.addAll(tags);
     }
 
@@ -45,6 +61,7 @@ public class Person {
         this.email = null;
         this.room = null;
         this.school = null;
+        this.profilePicture = new ProfilePicture("-.jpg");
     }
 
     public Name getName() {
@@ -65,6 +82,10 @@ public class Person {
 
     public School getSchool() {
         return school;
+    }
+
+    public ProfilePicture getProfilePicture() {
+        return profilePicture;
     }
 
     /**
@@ -143,6 +164,8 @@ public class Person {
                 .append(getRoom())
                 .append(" School: ")
                 .append(getSchool())
+                .append(" Profile Picture: ")
+                .append(getProfilePicture())
                 .append(" Tags: ");
         getTags().forEach(builder::append);
         return builder.toString();

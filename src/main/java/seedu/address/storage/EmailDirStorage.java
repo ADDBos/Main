@@ -27,9 +27,9 @@ public class EmailDirStorage implements EmailStorage {
     }
 
     @Override
-    public void saveEmail(EmailModel email) throws IOException {
-        Path fileName = Paths.get(dirPath.toString(), email.getEmail().getSubject().concat(".eml"));
-        String toSave = EmailConverter.emailToEML(email.getEmail());
+    public void saveEmail(EmailModel emailModel) throws IOException {
+        Path fileName = Paths.get(dirPath.toString(), emailModel.getEmail().getSubject().concat(".eml"));
+        String toSave = EmailConverter.emailToEML(emailModel.getEmail());
         FileUtil.createIfMissing(fileName);
         FileUtil.writeToFile(fileName, toSave);
     }

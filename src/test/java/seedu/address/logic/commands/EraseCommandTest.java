@@ -1,18 +1,16 @@
 package seedu.address.logic.commands;
 
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
-import static seedu.address.logic.commands.EraseCommand.MESSAGE_NOTHING_ERASED;
-import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_PERSON;
+import static seedu.address.logic.commands.EraseCommand.MESSAGE_ERASE_SUCCESS;
 import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import org.junit.jupiter.api.Test;
 
 import seedu.address.logic.CommandHistory;
+import seedu.address.model.AddressBook;
 import seedu.address.model.BudgetBook;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
@@ -20,6 +18,7 @@ import seedu.address.model.UserPrefs;
 import seedu.address.model.person.ContactContainsTagPredicate;
 import seedu.address.model.person.Person;
 import seedu.address.model.tag.Tag;
+import seedu.address.testutil.PersonBuilder;
 
 //@@author kengwoon
 class EraseCommandTest {
@@ -31,28 +30,46 @@ class EraseCommandTest {
     void execute_eraseTag_success() {
         List<String> target = new ArrayList<>();
         List<Person> original = new ArrayList<>();
-        Set<Tag> editedTags = new HashSet<>();
         List<Person> erased = new ArrayList<>();
+        String targetTag = "track";
+        target.add(targetTag);
+        EraseCommand eraseCommand = new EraseCommand(target);
 
-        ModelManager expectedModel = new ModelManager(model.getAddressBook(), new BudgetBook(), new UserPrefs());
-        Person originalPerson = expectedModel.getFilteredPersonList().get(INDEX_FIRST_PERSON.getZeroBased());
-        original.add(originalPerson);
-        Object[] tags = originalPerson.getTags().toArray();
-        target.add(tags[0].toString());
-        for (int i = 1; i < tags.length; i++) {
-            editedTags.add((Tag) tags[i]);
+        String expectedMessage = String.format(MESSAGE_ERASE_SUCCESS, '[' + target.get(0) + ']');
+
+
+        ModelManager expectedModel = new ModelManager(new AddressBook(model.getAddressBook()),
+                new BudgetBook(), new UserPrefs());
+        List<Person> fullList = model.getFilteredPersonList();
+
+        for (Person p : fullList) {
+            if (new ContactContainsTagPredicate(target).test(p)) {
+                ArrayList<String> editedTags = new ArrayList<>();
+                //int index = 0;
+                for (Tag t : p.getTags()) {
+                    if (!t.toStringOnly().equals(targetTag)) {
+                        editedTags.add(t.toStringOnly());
+                    }
+                }
+                PersonBuilder personErase = new PersonBuilder(p);
+                if (!editedTags.isEmpty()) {
+                    String[] stringArray = editedTags.toArray(new String[0]);
+                    Person editedPerson = personErase.withTags(stringArray).build();
+                    original.add(p);
+                    erased.add(editedPerson);
+                } else {
+                    Person editedPerson = personErase.withTags().build();
+                    original.add(p);
+                    erased.add(editedPerson);
+                }
+            }
         }
-        Person newPerson = new Person(originalPerson.getName(), originalPerson.getPhone(), originalPerson.getEmail(),
-                originalPerson.getRoom(), originalPerson.getSchool(), editedTags);
-        erased.add(newPerson);
+
         expectedModel.removeTagsFromPersons(erased, original);
+        expectedModel.updateFilteredPersonList(Model.PREDICATE_SHOW_ALL_PERSONS);
         expectedModel.commitAddressBook();
 
-        ContactContainsTagPredicate predicate = new ContactContainsTagPredicate(target);
-        EraseCommand eraseCommand = new EraseCommand(target, predicate);
-
-        assertCommandSuccess(eraseCommand, model, commandHistory,
-                String.format(MESSAGE_NOTHING_ERASED, '[' + target.get(0) + ']'), expectedModel);
+        assertCommandSuccess(eraseCommand, model, commandHistory, expectedMessage, expectedModel);
     }
 
 }

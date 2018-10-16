@@ -24,12 +24,12 @@ public class ComposeCommand extends Command {
             + PREFIX_FROM + "EMAIL "
             + PREFIX_TO + "EMAIL "
             + PREFIX_SUBJECT + "SUBJECT "
-            + PREFIX_CONTENT + "CONTENT\n"
+            + PREFIX_CONTENT + "CONTENT(Input <br /> for newline)\n"
             + "Example: " + COMMAND_WORD + " "
             + PREFIX_FROM + "johndoe@example.com "
             + PREFIX_TO + "samsee@example.com "
             + PREFIX_SUBJECT + "Meeting this Friday "
-            + PREFIX_CONTENT + "Hey there's a meeting this friday. ";
+            + PREFIX_CONTENT + "Dear Sam<br /><br />Remember our meeting this friday.<br /><br />John";
 
     public static final String MESSAGE_SUCCESS = "Email composed: %s";
 
@@ -44,5 +44,12 @@ public class ComposeCommand extends Command {
     public CommandResult execute(Model model, CommandHistory history) {
         model.saveEmail(toCompose);
         return new CommandResult(String.format(MESSAGE_SUCCESS, toCompose.getSubject()));
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        return other == this // short circuit if same object
+                || (other instanceof ComposeCommand // instanceof handles nulls
+                && toCompose.equals(((ComposeCommand) other).toCompose));
     }
 }

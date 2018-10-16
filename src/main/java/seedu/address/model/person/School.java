@@ -9,7 +9,7 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
 //@@author javenseow
 public class School {
     public static final String MESSAGE_SCHOOL_CONSTRAINTS =
-            "School should only contain alphanumeric characters and spaces, and it should not be blank.";
+            "School should only contain alphanumeric characters, and it should not be blank or contain spaces.";
     public static final String SCHOOL_VALIDATION_REGEX = "\\p{Alnum}+";
 
     public final String value;

@@ -13,11 +13,15 @@ import org.simplejavamail.email.Email;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
+import net.fortuna.ical4j.data.ParserException;
 import seedu.address.commons.core.ComponentManager;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.commons.events.model.AddressBookChangedEvent;
 import seedu.address.commons.events.model.BudgetBookChangedEvent;
+import seedu.address.commons.events.model.AllDayEventAddedEvent;
 import seedu.address.commons.events.model.CalendarCreatedEvent;
+import seedu.address.commons.events.model.CalendarEventAddedEvent;
+import seedu.address.commons.events.model.CalendarEventDeletedEvent;
 import seedu.address.commons.events.model.EmailSavedEvent;
 import seedu.address.commons.util.StringUtil;
 import seedu.address.model.calendar.Month;
@@ -163,7 +167,7 @@ public class ModelManager extends ComponentManager implements Model {
     @Override
     public void clearMultiplePersons(List<Person> target) {
         for (Person p : target) {
-            versionedAddressBook.removePerson(p);
+            deletePerson(p);
         }
         indicateAddressBookChanged();
     }
@@ -181,6 +185,15 @@ public class ModelManager extends ComponentManager implements Model {
     public void addPerson(Person person) {
         versionedAddressBook.addPerson(person);
         updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
+        indicateAddressBookChanged();
+    }
+
+    //@@author kengwoon
+    @Override
+    public void addMultiplePersons(List<Person> personList) {
+        for (Person p : personList) {
+            addPerson(p);
+        }
         indicateAddressBookChanged();
     }
 
@@ -205,6 +218,14 @@ public class ModelManager extends ComponentManager implements Model {
 
         versionedBudgetBook.updateCca(target, editedCca);
         indicateBudgetBookChanged();
+  
+    //@@author kengwoon
+    @Override
+    public void updateMultiplePersons(List<Person> target, List<Person> editedPerson) {
+        for (int i = 0; i < target.size(); i++) {
+            updatePerson(target.get(i), editedPerson.get(i));
+        }
+        indicateAddressBookChanged();
     }
 
     //=========== Filtered Person List Accessors =============================================================
@@ -279,10 +300,52 @@ public class ModelManager extends ComponentManager implements Model {
         raise(new CalendarCreatedEvent(calendarModel));
     }
 
+    /**
+     * Raises an event to indicate that an all day event was created
+     */
+    private void indicateAllDayEventCreated(Year year, Month month, int date, String title) {
+        raise(new AllDayEventAddedEvent(year, month, date, title));
+    }
+
+    /**
+     * Raises an event to indicate that an event was created
+     */
+    private void indicateCalendarEventCreated(Year year, Month month, int startDate, int startHour, int startMin,
+                                              int endDate, int endHour, int endMin, String title) {
+        raise(new CalendarEventAddedEvent(year, month, startDate, startHour, startMin,
+                endDate, endHour, endMin, title));
+    }
+
+    /**
+     * Raises an event to indicate that an event was deleted
+     */
+    private void indicateCalendarEventDeleted(Year year, Month month, int startDate, int endDate, String title) {
+        raise(new CalendarEventDeletedEvent(year, month, startDate, endDate, title));
+    }
+
     @Override
     public boolean isExistingCalendar(Year year, Month month) {
         requireAllNonNull(year, month);
         return calendarModel.isExistingCalendar(year, month);
+    }
+
+    @Override
+    public boolean isValidDate(Year year, Month month, int date) {
+        requireAllNonNull(year, month, date);
+        return calendarModel.isValidDate(year, month, date);
+    }
+
+    @Override
+    public boolean isValidTime(int hour, int minute) {
+        requireAllNonNull(hour, minute);
+        return calendarModel.isValidTime(hour, minute);
+    }
+
+    @Override
+    public boolean isValidTimeFrame(int startDate, int startHour, int startMinute,
+                                    int endDate, int endHour, int endMinute) {
+        requireAllNonNull(startDate, startHour, startMinute, endDate, endHour, endMinute);
+        return calendarModel.isValidTimeFrame(startDate, startHour, startMinute, endDate, endHour, endMinute);
     }
 
     @Override
@@ -293,6 +356,59 @@ public class ModelManager extends ComponentManager implements Model {
             indicateCalendarModelChanged();
         } catch (IOException e) {
             logger.warning("Failed to save calendar(ics) file : " + StringUtil.getDetails(e));
+        }
+    }
+
+    @Override
+    public void loadCalendar(Year year, Month month) {
+        try {
+            calendarModel.loadCalendar(year, month);
+            //TODO
+            //Raise load calendar event
+        } catch (IOException | ParserException e) {
+            logger.warning("Failed to load calendar(ics) file : " + StringUtil.getDetails(e));
+        }
+    }
+
+    @Override
+    public void createAllDayEvent(Year year, Month month, int date, String title) {
+        try {
+            calendarModel.createAllDayEvent(year, month, date, title);
+            indicateAllDayEventCreated(year, month, date, title);
+        } catch (IOException | ParserException e) {
+            logger.warning("Failed to create all day event : " + StringUtil.getDetails(e));
+        }
+    }
+
+    @Override
+    public void createEvent(Year year, Month month, int startDate, int startHour, int startMin,
+                            int endDate, int endHour, int endMin, String title) {
+        try {
+            calendarModel.createEvent(year, month, startDate, startHour, startMin, endDate, endHour, endMin, title);
+            indicateCalendarEventCreated(year, month, startDate, startHour, startMin, endDate, endHour, endMin, title);
+        } catch (IOException | ParserException e) {
+            logger.warning("Failed to create event : " + StringUtil.getDetails(e));
+        }
+    }
+
+    @Override
+    public boolean isExistingEvent(Year year, Month month, int startDate, int endDate, String title) {
+        try {
+            requireAllNonNull(year, month, startDate, endDate, title);
+            return calendarModel.isExistingEvent(year, month, startDate, endDate, title);
+        } catch (IOException | ParserException e) {
+            logger.warning("Failed to delete event : " + StringUtil.getDetails(e));
+            return false;
+        }
+    }
+
+    @Override
+    public void deleteEvent(Year year, Month month, int startDate, int endDate, String title) {
+        try {
+            calendarModel.deleteEvent(year, month);
+            indicateCalendarEventDeleted(year, month, startDate, endDate, title);
+        } catch (IOException e) {
+            logger.warning("Failed to delete event : " + StringUtil.getDetails(e));
         }
     }
 
@@ -342,4 +458,5 @@ public class ModelManager extends ComponentManager implements Model {
     private void indicateEmailSaved() {
         raise(new EmailSavedEvent(emailModel));
     }
+
 }

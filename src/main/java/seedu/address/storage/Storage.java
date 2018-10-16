@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.util.Optional;
 
+import net.fortuna.ical4j.data.ParserException;
 import net.fortuna.ical4j.model.Calendar;
 import seedu.address.commons.events.model.AddressBookChangedEvent;
 import seedu.address.commons.events.model.BudgetBookChangedEvent;
@@ -76,5 +77,8 @@ public interface Storage extends AddressBookStorage, BudgetBookStorage, UserPref
 
     @Override
     void createCalendar(Calendar calendar, String calendarName) throws IOException;
+
+    @Override
+    Calendar loadCalendar(String calendarName) throws IOException, ParserException;
 
 }

@@ -36,6 +36,7 @@ public class XmlAdaptedPerson {
     @XmlElement(required = true)
     private String school;
 
+
     @XmlElement
     private List<XmlAdaptedTag> tagged = new ArrayList<>();
 
@@ -46,10 +47,25 @@ public class XmlAdaptedPerson {
     public XmlAdaptedPerson() {}
 
     /**
+     * Constructs an {@code XmlAdaptedPerson} with the given person details
+     * except the {@code profilePicture}.
+     */
+    public XmlAdaptedPerson (String name, String phone, String email, String room, String school,
+                             List<XmlAdaptedTag> tagged) {
+        this.name = name;
+        this.phone = phone;
+        this.email = email;
+        this.room = room;
+        this.school = school;
+        if (tagged != null) {
+            this.tagged = new ArrayList<>(tagged);
+        }
+    }
+    /**
      * Constructs an {@code XmlAdaptedPerson} with the given person details.
      */
     public XmlAdaptedPerson(String name, String phone, String email, String room, String school,
-                            List<XmlAdaptedTag> tagged) {
+                            String profilePicture, List<XmlAdaptedTag> tagged) {
         this.name = name;
         this.phone = phone;
         this.email = email;

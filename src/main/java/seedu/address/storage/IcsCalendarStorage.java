@@ -1,12 +1,15 @@
 package seedu.address.storage;
 
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Objects;
 
+import net.fortuna.ical4j.data.CalendarBuilder;
 import net.fortuna.ical4j.data.CalendarOutputter;
+import net.fortuna.ical4j.data.ParserException;
 import net.fortuna.ical4j.model.Calendar;
 import seedu.address.commons.util.FileUtil;
 
@@ -34,6 +37,17 @@ public class IcsCalendarStorage implements CalendarStorage {
         FileOutputStream fout = new FileOutputStream(pathToSave.toFile());
         CalendarOutputter outputter = new CalendarOutputter();
         outputter.output(calendar, fout);
+    }
+
+    @Override
+    public Calendar loadCalendar(String calendarName) throws IOException, ParserException {
+        String fileName = calendarName + ".ics";
+        Path pathToSave = Paths.get(dirPath.toString(), fileName);
+        FileInputStream fin = new FileInputStream(pathToSave.toFile());
+        CalendarBuilder builder = new CalendarBuilder();
+        Calendar calendar = builder.build(fin);
+
+        return calendar;
     }
 
     @Override

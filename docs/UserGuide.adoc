@@ -3,6 +3,7 @@
 :toc:
 :toc-title:
 :toc-placement: preamble
+:toclevels: 3
 :sectnums:
 :imagesDir: images
 :stylesDir: stylesheets
@@ -18,23 +19,24 @@ By: `Team W16-1`      Since: `Aug 2018`      Licence: `MIT`
 
 == Introduction
 
-Hallper is a desktop app for the JCRC that allows *for better and faster management of residents' contacts*. More importantly, Hallper is *optimized for those who prefer to work with a Command Line Interface* (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, Hallper can get your contact management tasks done faster than traditional GUI apps. Interested? Jump to the <<Quick Start>> to get started. Enjoy!
+Hallper is a desktop app for the JCRC that allows *for better and faster management of residents' contacts*. More importantly, Hallper is *optimized for those who prefer to work with a Command Line Interface* (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, Hallper can get your contact management tasks done faster than traditional GUI apps. Interested? Jump to <<Quick Start>> to get started. Enjoy!
 
 == Quick Start
 
 .  Ensure you have Java version `9` or later installed in your Computer.
-.  Download the latest `addressbook.jar` link:{repoURL}/releases[here].
-.  Copy the file to the folder you want to use as the home folder for your Address Book.
+.  Download the latest `Hallper.jar` link:{repoURL}/releases[here].
+
+.  Copy the file to the folder you want to use as the home folder for your Hallper.
 .  Double-click the file to start the app. The GUI should appear in a few seconds.
 +
-image::Ui.png[width="790"]
+image::Ui_1.2.png[width="790"]
 +
 .  Type the command in the command box and press kbd:[Enter] to execute it. +
-e.g. typing *`help`* and pressing kbd:[Enter] will open the help window.
+e.g. typing *`help`* and pressing kbd:[Enter] will open the User Guide window.
 .  Some example commands you can try:
 
 * *`list`* : lists all contacts
-* **`add`**`n/John Doe p/98765432 e/johnd@example.com b/A r/110 s/Faculty of Science c/basketball` : adds a contact named `John Doe` to the Address Book.
+* **`add`**`n/John Doe p/98765432 e/johnd@example.com b/A r/110 s/FoS t/basketball` : adds a contact named `John Doe` to Hallper.
 * **`delete`**`3` : deletes the 3rd contact shown in the current list
 * *`exit`* : exits the app
 
@@ -47,47 +49,31 @@ e.g. typing *`help`* and pressing kbd:[Enter] will open the help window.
 *Command Format*
 
 * Words in `UPPER_CASE` are the parameters to be supplied by the user e.g. in `add n/NAME`, `NAME` is a parameter which can be used as `add n/John Doe`.
-* Items in square brackets are optional e.g `n/NAME [c/CCA]` can be used as `n/John Doe c/soccer` or as `n/John Doe`.
-* Items with `…`​ after them can be used multiple times including zero times e.g. `[c/CCA]...` can be used as `{nbsp}` (i.e. 0 times), `c/soccer`, `c/soccer c/basketball` etc.
+* Items in square brackets are optional e.g `n/NAME [t/CCA]` can be used as `n/John Doe c/soccer` or as `n/John Doe`.
+* Items with `…`​ after them can be used multiple times including zero times e.g. `[t/CCA]...` can be used as `{nbsp}` (i.e. 0 times), `t/soccer`, `t/soccer t/basketball` etc.
 * Parameters can be in any order e.g. if the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
 ====
 
-=== Viewing help : `help`
+=== Updating Hallper
+This section lists features related to updating contacts in Hallper.
 
-Format: `help`
+==== Adding a person: `add`
 
-=== Adding a person: `add`
-
-Adds a person to the address book +
-Format: `add n/NAME p/PHONE_NUMBER e/EMAIL b/BLOCK r/ROOM NUMBER s/SCHOOL [c/CCA]...`
+Adds a person to Hallper. +
+Format: `add n/NAME p/PHONE_NUMBER e/EMAIL r/ROOM NUMBER s/SCHOOL [t/CCA]...`
 
 [TIP]
 A person can have any number of CCAs (including 0)
 
 Examples:
 
-* `add n/John Doe p/98765432 e/johnd@example.com b/C r/420 s/School of Computing c/Basketball`
-* `add n/Betsy Crowe c/Soccer e/betsycrowe@example.com b/A p/1234567 r/213 s/Business`
+* `add n/John Doe p/98765432 e/johnd@example.com r/C420 s/SoC t/Basketball`
+* `add n/Betsy Crowe t/Soccer e/betsycrowe@example.com p/1234567 r/B213 s/Business`
 
-=== Listing all persons : `list`
+==== Editing a person : `edit`
 
-Shows a list of all persons in the address book. +
-Format: `list`
-
-=== Searching all persons under specified tag : `search`
-
-Shows a list of all persons in the address book that are tagged with the specified tag. +
-Format: `search TAG`
-
-Examples:
-
-* `search basketball`
-* `search school of computing`
-
-=== Editing a person : `edit`
-
-Edits an existing person in the address book. +
-Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [c/CCA]...`
+Edits an existing person in Hallper. +
+Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/CCA]...`
 
 ****
 * Edits the person at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index *must be a positive integer* 1, 2, 3, ...
@@ -104,8 +90,124 @@ Edits the phone number and email address of the 1st person to be `91234567` and 
 * `edit 2 n/Betsy Crower c/` +
 Edits the name of the 2nd person to be `Betsy Crower` and clears all existing tags.
 
-=== Locating persons by name: `find`
 
+==== Deleting a person : `delete`
+
+Deletes the specified person from Hallper. +
+Format: `delete INDEX`
+
+****
+* Deletes the person at the specified `INDEX`.
+* The index refers to the index number shown in the displayed person list.
+* The index *must be a positive integer* 1, 2, 3, ...
+****
+
+Examples:
+
+* `list` +
+`delete 2` +
+Deletes the 2nd person in Hallper.
+* `find Betsy` +
+`delete 1` +
+Deletes the 1st person in the results of the `find` command.
+
+==== Clearing all specified tags : `erase`
+
+Clears all spcified tags from all contacts from Hallper. +
+Format: `erase CCA`
+
+****
+* Erases the CCA specified for all associated contacts.
+* The CCA specified must be an existing CCA.
+* Multiple CCAs can be specified at once.
+****
+
+Example:
+
+* `erase basketball` +
+Erases `basketball` from contacts associated with this CCA. +
+* `erase basketball netball` +
+Erases `basketball` and `netball` from contacts associated with these CCAs.
+
+==== Clearing specific entries : `clear`
+
+Clears specified entries from Hallper. +
+Format: `clear KEYWORD`
+
+****
+* Clears contacts associated with KEYWORD.
+* KEYWORD refers to either a CCA or ROOM.
+* KEYWORD is case-sensitive.
+****
+
+Example:
+
+* `clear basketball` +
+Clears all entries associated with CCA `basketball`.
+* `clear A123` +
+Clears all entries associated with room `A123`.
+
+==== Clearing all entries : `clear all`
+
+Clears all entries from Hallper. +
+Format: `clear all`
+
+****
+* 'all' is case-sensitive.
+****
+
+Example:
+
+* `clear all` +
+Clears `all` entries in Hallper.
+
+==== Uploading contact information : `import`
+
+Imports file containing contact information and updates Hallper accordingly. +
+Format: `import f/FILEPATH`
+
+****
+* Allow for the mass upload of contact information.
+* The file to be uploaded must be a *`.xml`* file.
+****
+
+Example:
+
+* `import f/C://Users/Files/data.xml` +
+Imports `data.xml` file to be read and for database to be updated accordingly.
+
+==== Adds a picture to resident detail : `image`
+
+Uploads the image of resident staying in the specified room to Hallper. +
+Format: `image ROOM`
+
+****
+* Allow for the upload of the profile picture of resident.
+* The image must be in *`.jpg`* or *`.png`*.
+****
+
+=== Viewing Hallper
+This section lists features related to viewing all or specific contacts in Hallper.
+
+==== Searching all persons under specified tag : `search`
+
+Shows a list of all persons in the Hallper that are associated with the specified keyword. +
+Format: `search KEYWORD [MORE_KEYWORDS]`
+****
+* KEYWORD can be ROOM or CCA.
+* KEYWORD is not case-sensitive.
+****
+
+Examples:
+
+* `search basketball` +
+Searches Hallper and lists all contacts associated with `basketball`.
+* `search A123` +
+Searches Hallper and lists all contacts associated with `A123`.
+* `search basketball A123` +
+Searches Hallper and lists all contacts associated with `basketball` and `A123`.
+
+==== Locating persons by name: `find`
 Finds persons whose names contain any of the given keywords. +
 Format: `find KEYWORD [MORE_KEYWORDS]`
 
@@ -124,47 +226,167 @@ Returns `john` and `John Doe`
 * `find Betsy Tim John` +
 Returns any person having names `Betsy`, `Tim`, or `John`
 
-=== Deleting a person : `delete`
+==== Listing all persons : `list`
 
-Deletes the specified person from the address book. +
-Format: `delete INDEX`
+Shows a list of all persons in Hallper. +
+Format: `list`
 
-****
-* Deletes the person at the specified `INDEX`.
-* The index refers to the index number shown in the displayed person list.
-* The index *must be a positive integer* 1, 2, 3, ...
-****
+=== Email
+This section lists features related to email in Hallper.
 
-Examples:
-
-* `list` +
-`delete 2` +
-Deletes the 2nd person in the address book.
-* `find Betsy` +
-`delete 1` +
-Deletes the 1st person in the results of the `find` command.
-
-=== Selecting a person : `select`
-
-Selects the person identified by the index number used in the displayed person list. +
-Format: `select INDEX`
+==== Composing an email: `compose`
+Composes a *`.eml`* file that can be used to send emails to residents. +
+Format: `compose from/FROM to/TO subject/SUBJECT content/CONTENT`
 
 ****
-* Selects the person and loads theprofile page of the person at the specified `INDEX`.
-* The index refers to the index number shown in the displayed person list.
-* The index *must be a positive integer* `1, 2, 3, ...`
+* FROM and TO must be valid email addresses e.g. johndoe@example.com
+* SUBJECT has a word limit of 10 words.
+* CONTENT has no word limit.
 ****
 
-Examples:
+Example:
 
-* `list` +
-`select 2` +
-Selects the 2nd person in the address book.
-* `find Betsy` +
-`select 1` +
-Selects the 1st person in the results of the `find` command.
+* `compose from/johndoe@example.com to/samsee@example.com subject/Meeting this Friday
+content/Hey there's a meeting this friday.` +
+Composes an email from `johndoe@example.com` to `samsee@example.com` with subject
+`Meeting this Friday` and email body `Hey there's a meeting this friday.` and saves
+it as a *`.eml`* file.
 
-=== Listing entered commands : `history`
+=== Calendar
+This section lists features related to managing the calendar in Hallper.
+
+==== Creating calendar : `create_calendar`
+
+Creates a calendar file in Hallper for updating of events. +
+Format: `create_calendar month/MONTH year/YEAR`
+
+****
+* Creates a calendar as a *`.ics`* file.
+* The month *must be specified as MMM*
+* The year *musst be specified as YYYY*
+****
+Example:
+
+* `create_calendar month/Feb year/2018` +
+Creates a calendar for the month of `Feb` and year `2018` and
+saves it as a *`.ics`* file.
+
+==== Viewing calendar : `view_calendar`
+
+Views the calendar of the specified month. +
+Format: `view_calendar MONTH`
+
+Example:
+
+* `view_calendar Feb` +
+Displays view of calendar for the month of `Feb`.
+
+==== Adding event into calendar : `add_event`
+
+Adds an event into the calendar. +
+Format: `add_event m/MONTH d/DATE st/START TIME et/END TIME n/NAME OF EVENT`
+
+Example:
+
+* `add_event m/Feb d/2 st/1800 et/2100 n/Enthral` +
+Adds an event titled `Enthral` with date `2` nd `Feb` which lasts from `1800` hours
+to `2100` hours to the calendar.
+
+=== Budget and CCA
+This section lists features related to CCA budget management in Hallper.
+
+=== Create new CCA : `create`
+
+Adds a CCA into the budget book with the initial given budget. +
+Format: `create n/CCA bud/BUDGET`
+
+Example:
+
+`create n/basketball bud/200`
+
+=== Viewing the budget for all CCAs : `budget`
+
+Allows for the viewing of the budgets for all the CCAs. +
+Format: `budget`
+
+****
+* BP displays the total budget allocated to the CCAs, total outstanding amount and budget information of each CCA, in alphabetical order.
+****
+
+==== Viewing CCA budget : `view_cca`
+
+Allows for the viewing of the budget and past transactions of the specified CCA. +
+Format: `view_cca CCA`
+
+Example:
+
+* `view_cca soccer` +
+Displays view of budget and past transactions for `soccer` CCA.
+
+==== Creating a CCA's budget : `create`
+
+Adds a CCA into the budget book with the initial given budget. +
+Format: `create n/CCA bud/BUDGET`
+
+****
+* BUDGET currency is in SGD.
+****
+
+Example:
+
+* `create n/basketball bud/200` +
+Adds `basketball` CCA with SGD`200` budget to Hallper.
+
+
+==== Deleting a CCA's budget : `delete_cca`
+
+Deletes the CCA's existing budget. +
+Format: `delete_cca CCA`
+
+Example:
+
+* `delete_cca soccer` +
+Deletes `soccer` CCA's existing budget.
+
+==== Modifying a CCA's budget : `modify_cca`
+
+Modifies the budget of specified CCA. +
+Format: `modify_cca CCA BUDGET`
+
+****
+* BUDGET currency is in SGD.
+****
+
+Example:
+
+* `modify_cca soccer 500` +
+Modifies `soccer` CCA's current budget to SGD `500` .
+
+==== Adding a transaction to the budget : `add_transaction`
+
+Adds a transaction to the budget of specified CCA. +
+Format: `add_transaction CCA AMOUNT TYPE PERSON_IN_CHARGE`
+
+****
+* Adds a transaction to the budget of specifed CCA.
+* The types available are  either *`credit`* or *`debit`*.
+* The *`PERSON-IN-CHARGE`* must be a resident in Hallper.
+****
+
+Example:
+
+* `add_transaction badminton 500 credit James`
+Adds a `credit` transaction of SGD `500` to `James` from `badminton` CCA.
+
+=== Miscellaneous
+This section lists miscellaneous commands for navigating Hallper.
+
+==== Viewing help : `help`
+
+Opens up the User Guide in a new window. +
+Format: `help`
+
+==== Listing entered commands : `history`
 
 Lists all the commands that you have entered in reverse chronological order. +
 Format: `history`
@@ -175,14 +397,14 @@ Pressing the kbd:[&uarr;] and kbd:[&darr;] arrows will display the previous and 
 ====
 
 // tag::undoredo[]
-=== Undoing previous command : `undo`
+==== Undoing previous command : `undo`
 
-Restores the address book to the state before the previous _undoable_ command was executed. +
+Restores Hallper to the state before the previous _undoable_ command was executed. +
 Format: `undo`
 
 [NOTE]
 ====
-Undoable commands: those commands that modify the address book's content (`add`, `delete`, `edit` and `clear`).
+Undoable commands: those commands that modify Hallper's content (`add`, `delete`, `edit` and `clear`).
 ====
 
 Examples:
@@ -201,7 +423,7 @@ The `undo` command fails as there are no undoable commands executed previously.
 `undo` (reverses the `clear` command) +
 `undo` (reverses the `delete 1` command) +
 
-=== Redoing the previously undone command : `redo`
+==== Redoing the previously undone command : `redo`
 
 Reverses the most recent `undo` command. +
 Format: `redo`
@@ -224,207 +446,66 @@ The `redo` command fails as there are no `undo` commands executed previously.
 `redo` (reapplies the `clear` command) +
 // end::undoredo[]
 
-=== Clearing all specified tags : `erase`
-
-Clears all spcified tags from all contacts from the address book. +
-Format: `erase CCA`
-
-Example:
-
-* `erase basketball`
-
-=== Clearing all entries : `clear`
-
-Clears all entries from the address book. +
-Format: `clear`
-
-=== Adds a picture to resident detail : `image`
-
-Uploads the image of the resident to the address book. +
-Format: `image`
-
-****
-* Allow for the upload of the profile picture of resident.
-* The image must be in *`.jpeg`*.
-****
-
-=== Uploading contact information : `import`
-
-Uploads file containing contact information of all contacts. +
-Format: `upload`
-
-****
-* Allow for the mass upload of contact information.
-* The file to be uploaded must be a *`.xml`* file.
-****
-
-=== Composing email : `compose`
-
-Composes a *`.eml`* file that can be used to send emails to residents. +
-Format: `compose`
-
-=== Creating calendar : `create_calendar`
-
-Creates a calendar file in the address book for updating of events. +
-Format: `create_calendar month/MONTH year/YEAR`
-
-****
-* Creates a calendar as a *`.ics`* file.
-* The month *must be specified as MMM*
-* The year *musst be specified as YYYY*
-****
-Example:
-
-* `create_calendar month/Feb year/2018`
-
-=== Viewing calendar : `view_calendar`
-
-Views the calendar of the specified month. +
-Format: `view_calendar MONTH`
-
-Example:
-
-* `view_calendar Feb`
-
-=== Adding event into calendar : `add_event`
-
-Adds an event into the calendar. +
-Format: `add_event m/MONTH d/DATE st/START TIME et/END TIME n/NAME OF EVENT
-
-Example:
-
-* `add_event m/Feb d/2 st/1800 et/2100 n/Enthral`
-
-=== Create new CCA : `create`
-
-Adds a CCA into the budget book with the initial given budget. +
-Format: `create n/CCA bud/BUDGET`
-
-Example:
-
-`create n/basketball bud/200`
-
-=== Viewing the budget for all CCAs : `budget`
-
-Allows for the viewing of the budgets for all the CCAs. +
-Format: `budget`
-
-****
-* BP displays the total budget allocated to the CCAs, total outstanding amount and budget information of each CCA, in alphabetical order.
-****
-
-=== Viewing CCA budget : `view_cca`
-
-Allows for the viewing of the budget and past transactions of the specified CCA. +
-Format: `view_cca CCA`
-
-Example:
-
-* `view_cca soccer`
-
-=== Adding a CCA's budget : `add_cca`
-
-Adds a CCA's budget. +
-Format: `add_cca CCA BUDGET`
-
-Example:
-
-* `add_cca badminton 500`
-
-=== Deleting a CCA's budget : `delete_cca`
-
-Deletes the CCA's exisiting budget. +
-Format: `delete_cca CCA`
-
-Example:
-
-* `delete_cca soccer`
-
-=== Modifying a CCA's budget : `modify_cca`
-
-Modifies the budget of specified CCA. +
-Format: `modify_cca CCA BUDGET`
-
-Example:
-
-* `modify_cca soccer 500`
-
-=== Adding a transaction to the budget : `add_transaction`
-
-Adds a transaction to the budget of specified CCA. +
-Format: `add_transaction CCA AMOUNT TYPE PERSON_IN_CHARGE`
-
-****
-* Adds a transaction to the budget of specifed CCA.
-* The types available are  either *`credit`* or *`debit`*.
-* The *`PERSON-IN-CHARGE`* must be a resident in the address book.
-****
-
-Example:
-
-* `add_transaction badminton 500 credit James`
-
-=== Exiting the program : `exit`
+==== Exiting the program : `exit`
 
 Exits the program. +
 Format: `exit`
 
-=== Saving the data
+==== Saving the data
 
-Address book data are saved in the hard disk automatically after any command that changes the data. +
+Hallper data are saved in the hard disk automatically after any command that changes the data. +
 There is no need to save manually.
-
-// tag::dataencryption[]
-=== Encrypting data files `[coming in v2.0]`
-
-_{explain how the user can enable/disable data encryption}_
-// end::dataencryption[]
 
 == FAQ
 
 *Q*: How do I transfer my data to another Computer? +
-*A*: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Address Book folder.
+*A*: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Hallper folder.
 
 == Command Summary
 
 * *Add* : `add n/NAME p/PHONE_NUMBER e/EMAIL b/BLOCK r/ROOM NUMBER s/SCHOOL [c/CCA]...` +
 e.g. `add n/James Ho p/22224444 e/jamesho@example.com b/C r/420 s/School of Computing c/Basketball`
-* *Add CCA* : `add_cca CCA BUDGET` +
-e.g. `add_cca Basketball 500`
-* *Budget* : `budget`
-* *Modify CCA* : `modify_cca CCA BUDGET` +
-e.g. `modify_cca basketball 500`
-* *Delete CCA* : `delete_cca CCA` +
-e.g. `delete_cca basketball`
-* *View CCA* : `view_cca CCA` +
-e.g. `view_cca basketball`
-* *Add Transaction* : `add_transaction CCA AMOUNT TYPE PERSON-IN-CHARGE` +
-e.g. `add_transaction soccer 500 debit James`
-* *Clear* : `clear`
+* *Edit* : `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [c/CCA]...` +
+e.g. `edit 2 n/James Lee e/jameslee@example.com`
 * *Delete* : `delete INDEX` +
 e.g. `delete 3`
 * *Erase* : `erase CCA` +
 e.g. `erase basketball`
-* *Edit* : `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [c/CCA]...` +
-e.g. `edit 2 n/James Lee e/jameslee@example.com`
+* *Clear* : `clear KEYWORD [MORE_KEYWORDS]` +
+e.g. `clear basketball A123`
+* *Clear all* : `clear all`
+* *Import* : `import f/FILEPATH`
+* *Image* : `image`
+* *Search* : `search KEYWORD [MORE_KEYWORDS]` +
+e.g. `search basketball A123`
 * *Find* : `find KEYWORD [MORE_KEYWORDS]` +
 e.g. `find James Jake`
-* *Search* : `search TAG [MORE_TAGS]` +
-e.g. `search basketball`
-* *Compose* : `compose`
 * *List* : `list`
-* *Help* : `help`
-* *Select* : `select INDEX` +
-e.g. `select 2`
+* *Compose* : `compose from/FROM to/TO subject/SUBJECT content/CONTENT`
 * *Create Calendar* : `create_calendar MONTH` +
 e.g. `create_calendar month/Feb year/2018`
 * *View Calendar* : `view_calendar MONTH` +
 e.g. `view_calendar Feb`
 * *Add Event* : `add_event m/MONTH d/DATE st/START TIME et/END TIME n/NAME OF EVENT` +
 e.g. `add_event m/Feb d/2 st/1800 et/2100 n/Enthral`
-* *Image* : `image`
-* *Import* : `import`
+* *Create CCA Budget* : `create n/CCA bud/BUDGET` +
+e.g. `create Basketball 500`
+* *Budget* : `budget`
+* *View CCA* : `view_cca CCA` +
+e.g. `view_cca basketball`
+* *Delete CCA* : `delete_cca CCA` +
+e.g. `delete_cca basketball`
+* *Modify CCA* : `modify_cca CCA BUDGET` +
+e.g. `modify_cca basketball 500`
+* *Add Transaction* : `add_transaction CCA AMOUNT TYPE PERSON-IN-CHARGE` +
+e.g. `add_transaction soccer 500 debit James`
+* *Help* : `help`
 * *History* : `history`
 e.g. `view 2`
 * *Undo* : `undo`
 * *Redo* : `redo`
+* *Exit* : `exit`
+
+== Glossary
+
+* `JCRC`: Junior Common Room Committee in charge of administrative duties within their respective halls.

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addressbook>
+    <persons>
+        <name>John</name>
+        <phone>12345678</phone>
+        <email>john@gmail.com</email>
+        <room>C234</room>
+        <school>Computing</school>
+        <tagged>basketball</tagged>
+    </persons>
+</addressbook>

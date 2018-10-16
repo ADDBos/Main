@@ -16,6 +16,8 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.email.Content;
+import seedu.address.model.email.Subject;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
@@ -29,6 +31,8 @@ public class ParserUtilTest {
     private static final String INVALID_ADDRESS = " ";
     private static final String INVALID_EMAIL = "example.com";
     private static final String INVALID_TAG = "#friend";
+    private static final String INVALID_CONTENT = " ";
+    private static final String INVALID_SUBJECT = " ";
 
     private static final String VALID_NAME = "Rachel Walker";
     private static final String VALID_PHONE = "123456";
@@ -36,6 +40,8 @@ public class ParserUtilTest {
     private static final String VALID_EMAIL = "rachel@example.com";
     private static final String VALID_TAG_1 = "friend";
     private static final String VALID_TAG_2 = "neighbour";
+    private static final String VALID_CONTENT = "Dear Billy<br /><br />See you tomorrow!<br /><br />Alice";
+    private static final String VALID_SUBJECT = "Meeting on Friday";
 
     private static final String WHITESPACE = " \t\r\n";
 
@@ -204,5 +210,52 @@ public class ParserUtilTest {
         Set<Tag> expectedTagSet = new HashSet<Tag>(Arrays.asList(new Tag(VALID_TAG_1), new Tag(VALID_TAG_2)));
 
         assertEquals(expectedTagSet, actualTagSet);
+    }
+
+    //@@author EatOrBeEaten
+    @Test
+    public void parseContent_null_throwsNullPointerException() {
+        Assert.assertThrows(NullPointerException.class, () -> ParserUtil.parseContent((String) null));
+    }
+
+    @Test
+    public void parseContent_invalidValue_throwsParseException() {
+        Assert.assertThrows(ParseException.class, () -> ParserUtil.parseContent(INVALID_CONTENT));
+    }
+
+    @Test
+    public void parseContent_validValueWithoutWhitespace_returnsContent() throws Exception {
+        Content expectedContent = new Content(VALID_CONTENT);
+        assertEquals(expectedContent, ParserUtil.parseContent(VALID_CONTENT));
+    }
+
+    @Test
+    public void parseContent_validValueWithWhitespace_returnsTrimmedContent() throws Exception {
+        String contentWithWhitespace = WHITESPACE + VALID_CONTENT + WHITESPACE;
+        Content expectedContent = new Content(VALID_CONTENT);
+        assertEquals(expectedContent, ParserUtil.parseContent(contentWithWhitespace));
+    }
+
+    @Test
+    public void parseSubject_null_throwsNullPointerException() {
+        Assert.assertThrows(NullPointerException.class, () -> ParserUtil.parseSubject((String) null));
+    }
+
+    @Test
+    public void parseSubject_invalidValue_throwsParseException() {
+        Assert.assertThrows(ParseException.class, () -> ParserUtil.parseSubject(INVALID_SUBJECT));
+    }
+
+    @Test
+    public void parseSubject_validValueWithoutWhitespace_returnsSubject() throws Exception {
+        Subject expectedSubject = new Subject(VALID_SUBJECT);
+        assertEquals(expectedSubject, ParserUtil.parseSubject(VALID_SUBJECT));
+    }
+
+    @Test
+    public void parseSubject_validValueWithWhitespace_returnsTrimmedSubject() throws Exception {
+        String subjectWithWhitespace = WHITESPACE + VALID_SUBJECT + WHITESPACE;
+        Subject expectedSubject = new Subject(VALID_SUBJECT);
+        assertEquals(expectedSubject, ParserUtil.parseSubject(subjectWithWhitespace));
     }
 }

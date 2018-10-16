@@ -44,7 +44,7 @@ public class ComposeCommandParser implements Parser<ComposeCommand> {
                 .from(from)
                 .to(to)
                 .withSubject(subject)
-                .withPlainText(content)
+                .withHTMLText(content)
                 .buildEmail();
 
         return new ComposeCommand(email);

@@ -20,11 +20,12 @@ import seedu.address.model.person.Room;
 public class ClearCommand extends Command {
 
     public static final String COMMAND_WORD = "clear";
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Clears all persons tagged with or under "
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Clears all persons associated with "
             + "the specified keywords(case-insensitive) or clears all persons for keyword 'all'.\n"
             + "Parameters: KEYWORD\n"
             + "Example: " + COMMAND_WORD + " all\n"
-            + "Example: " + COMMAND_WORD + " basketball";
+            + "Example: " + COMMAND_WORD + " basketball\n"
+            + "Example: " + COMMAND_WORD + "A123";
     public static final String MESSAGE_CLEAR_ALL_SUCCESS = "Hallper has been cleared!";
     public static final String MESSAGE_CLEAR_SPECIFIC_SUCCESS = "Cleared persons under %1$s in Hallper";
     public static final String MESSAGE_CLEAR_NOTHING = "No persons found under %1$s in Hallper";
@@ -34,7 +35,6 @@ public class ClearCommand extends Command {
 
     private final List<String> target;
     private ArrayList<Person> toClear;
-    private List<Person> fullList;
     private boolean clearAll;
     private boolean clearRoom;
 
@@ -45,7 +45,6 @@ public class ClearCommand extends Command {
         this.clearAll = false;
         this.clearRoom = false;
         this.toClear = new ArrayList<>();
-        this.fullList = new ArrayList<>();
     }
 
     @Override
@@ -87,7 +86,7 @@ public class ClearCommand extends Command {
      */
     private CommandResult clearSpecific(Model model) {
         toClear.clear();
-        fullList = model.getAddressBook().getPersonList();
+        List<Person> fullList = model.getAddressBook().getPersonList();
         for (Person p : fullList) {
             if (clearRoom ? predicateRoom.test(p) : predicateTag.test(p)) {
                 toClear.add(p);
@@ -99,6 +98,7 @@ public class ClearCommand extends Command {
         }
 
         model.clearMultiplePersons(toClear);
+        model.updateFilteredPersonList(Model.PREDICATE_SHOW_ALL_PERSONS);
         model.commitAddressBook();
         return new CommandResult(String.format(MESSAGE_CLEAR_SPECIFIC_SUCCESS, target));
     }

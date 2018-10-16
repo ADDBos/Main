@@ -87,10 +87,16 @@ public interface Model {
     void addPerson(Person person);
 
     /**
+
      * Adds the given CCa.
      * {@code cca} must not already exist in the budget book.
      */
     void addCca(Cca cca);
+
+     * Adds the given persons in list.
+     * {@code personList} must not contain persons already exist in the address book.
+     */
+    void addMultiplePersons(List<Person> personList);
 
     /**
      * Replaces the given person {@code target} with {@code editedPerson}.
@@ -105,6 +111,12 @@ public interface Model {
      * The person identity of {@code editedPerson} must not be the same as another existing person in the address book.
      */
     void updateCca(Cca target, Cca editedCca);
+  
+     * Replaces the given persons {@code target} with {@code editedPerson}.
+     * {@code target} must exist in the address book.
+     * The person identity of {@code editedPerson} must not be the same as another existing person in the address book.
+     */
+    void updateMultiplePersons(List<Person> target, List<Person> editedPerson);
 
     /**
      * Returns an unmodifiable view of the filtered person list
@@ -161,7 +173,7 @@ public interface Model {
     ObservableList<Cca> getFilteredCcaList();
 
     /**
-     * Saves the email to hard disk
+     * Saves the email to the email model
      */
     void saveEmail(Email email);
 
@@ -171,10 +183,52 @@ public interface Model {
     boolean isExistingCalendar(Year year, Month month);
 
     /**
+     * Returns true if the date is valid in that particular month, year.
+     */
+    boolean isValidDate(Year year, Month month, int date);
+
+    /**
+     * Returns true if the hours and minutes are valid.
+     */
+    boolean isValidTime(int hour, int minute);
+
+    /**
+     * Returns true if the start date is earlier than the end date.
+     */
+    boolean isValidTimeFrame(int startDate, int startHour, int startMinute, int endDate, int endHour, int endMinute);
+
+    /**
      * Creates the given calendar
      * {@code year} and {@code month} must not already be an existing calendar
      */
     void createCalendar(Year year, Month month);
+
+    /**
+     * Load and parse the requested Calendar from storage.
+     * {@code year} and {@code month} must already be an existing calendar
+     */
+    void loadCalendar(Year year, Month month);
+
+    /**
+     * Creates a new all day event in the monthly calendar specified.
+     */
+    void createAllDayEvent(Year year, Month month, int date, String title);
+
+    /**
+     * Creates an event in the monthly Calendar with the specified time frame.
+     */
+    void createEvent(Year year, Month month, int startDate, int startHour, int startMin,
+                     int endDate, int endHour, int endMin, String title);
+
+    /**
+     * Checks if this specific event exists in the monthly calendar.
+     */
+    boolean isExistingEvent(Year year, Month month, int startDate, int endDate, String title);
+
+    /**
+     * Deletes an event in the monthly Calendar.
+     */
+    void deleteEvent(Year year, Month month, int startDate, int endDate, String title);
 
     /**
      * Updates the existing calendar map inside UserPrefs Json file

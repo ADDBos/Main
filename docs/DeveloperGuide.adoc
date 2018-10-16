@@ -20,13 +20,13 @@ By: `Team W16-1`      Since: `Aug 2018`      Licence: `MIT`
 
 === Prerequisites
 
-. *JDK `9`* or later
+* *JDK `9`* or later
 +
 [WARNING]
 JDK `10` on Windows will fail to run tests in <<UsingGradle#Running-Tests, headless mode>> due to a https://github.com/javafxports/openjdk-jfx/issues/66[JavaFX bug].
 Windows developers are highly recommended to use JDK `9`.
 
-. *IntelliJ* IDE
+* *IntelliJ* IDE
 +
 [NOTE]
 IntelliJ by default has Gradle and JavaFx plugins installed. +
@@ -35,35 +35,39 @@ Do not disable them. If you have disabled them, go to `File` > `Settings` > `Plu
 
 === Setting up the project in your computer
 
-. Fork this repo, and clone the fork to your computer
-. Open IntelliJ (if you are not in the welcome screen, click `File` > `Close Project` to close the existing project dialog first)
-. Set up the correct JDK version for Gradle
-.. Click `Configure` > `Project Defaults` > `Project Structure`
-.. Click `New...` and find the directory of the JDK
-. Click `Import Project`
-. Locate the `build.gradle` file and select it. Click `OK`
-. Click `Open as Project`
-. Click `OK` to accept the default settings
+Follow these steps to set up the project on your computer:
+
+. Fork this repository, and clone the fork to your computer.
+. Open IntelliJ (If you are not in the welcome screen, click `File` > `Close Project` to close the existing project dialog first).
+. Set up the correct JDK version for Gradle.
+.. Click `Configure` > `Project Defaults` > `Project Structure`.
+.. Click `New...` and find the directory of the JDK.
+. Click `Import Project`.
+. Locate the `build.gradle` file and select it. Click `OK`.
+. Click `Open as Project`.
+. Click `OK` to accept the default settings.
 . Open a console and run the command `gradlew processResources` (Mac/Linux: `./gradlew processResources`). It should finish with the `BUILD SUCCESSFUL` message. +
 This will generate all resources required by the application and tests.
 
 === Verifying the setup
 
-. Run the `seedu.address.MainApp` and try a few commands
+Follow these steps to verify the setup:
+
+. Run the `seedu.address.MainApp` and try a few commands.
 . <<Testing,Run the tests>> to ensure they all pass.
 
-=== Configurations to do before writing code
+=== Configurations before writing code
 
 ==== Configuring the coding style
 
-This project follows https://github.com/oss-generic/process/blob/master/docs/CodingStandards.adoc[oss-generic coding standards]. IntelliJ's default style is mostly compliant with ours but it uses a different import order from ours. To rectify,
+This project follows https://github.com/oss-generic/process/blob/master/docs/CodingStandards.adoc[oss-generic coding standards]. IntelliJ's default style is mostly compliant with ours but it uses a different import order from ours. To rectify:
 
-. Go to `File` > `Settings...` (Windows/Linux), or `IntelliJ IDEA` > `Preferences...` (macOS)
-. Select `Editor` > `Code Style` > `Java`
-. Click on the `Imports` tab to set the order
+. Go to `File` > `Settings...` (Windows/Linux), or `IntelliJ IDEA` > `Preferences...` (macOS).
+. Select `Editor` > `Code Style` > `Java`.
+. Click on the `Imports` tab to set the order.
 
-* For `Class count to use import with '\*'` and `Names count to use static import with '*'`: Set to `999` to prevent IntelliJ from contracting the import statements
-* For `Import Layout`: The order is `import static all other imports`, `import java.\*`, `import javax.*`, `import org.\*`, `import com.*`, `import all other imports`. Add a `<blank line>` between each `import`
+* For `Class count to use import with '\*'` and `Names count to use static import with '*'`: Set to `999` to prevent IntelliJ from contracting the import statements.
+* For `Import Layout`: The order is `import static all other imports`, `import java.\*`, `import javax.*`, `import org.\*`, `import com.*`, `import all other imports`. Add a `<blank line>` between each `import`.
 
 Optionally, you can follow the <<UsingCheckstyle#, UsingCheckstyle.adoc>> document to configure Intellij to check style-compliance as you write code.
 
@@ -93,10 +97,10 @@ Having both Travis and AppVeyor ensures your App works on both Unix-based platfo
 
 ==== Getting started with coding
 
-When you are ready to start coding,
+When you are ready to start coding:
 
-1. Get some sense of the overall design by reading <<Design-Architecture>>.
-2. Take a look at <<GetStartedProgramming>>.
+* Get some sense of the overall design by reading <<Design-Architecture>>.
+* Take a look at <<GetStartedProgramming>>.
 
 == Design
 
@@ -106,22 +110,22 @@ When you are ready to start coding,
 .Architecture Diagram
 image::Architecture.png[width="600"]
 
-The *_Architecture Diagram_* given above explains the high-level design of the App. Given below is a quick overview of each component.
+The *_Architecture Diagram_* given above explains the high-level design of the App. Given below is a quick overview of each component:
 
 [TIP]
 The `.pptx` files used to create diagrams in this document can be found in the link:{repoURL}/docs/diagrams/[diagrams] folder. To update a diagram, modify the diagram in the pptx file, select the objects of the diagram, and choose `Save as picture`.
 
-`Main` has only one class called link:{repoURL}/src/main/java/seedu/address/MainApp.java[`MainApp`]. It is responsible for,
+`Main` has only one class called link:{repoURL}/src/main/java/seedu/address/MainApp.java[`MainApp`]. It is responsible for:
 
-* At app launch: Initializes the components in the correct sequence, and connects them up with each other.
-* At shut down: Shuts down the components and invokes cleanup method where necessary.
+* At app launch: Initialising the components in the correct sequence, and connecting them up with each other.
+* At shut down: Shutting down the components and invoking cleanup method where necessary.
 
 <<Design-Commons,*`Commons`*>> represents a collection of classes used by multiple other components. Two of those classes play important roles at the architecture level.
 
-* `EventsCenter` : This class (written using https://github.com/google/guava/wiki/EventBusExplained[Google's Event Bus library]) is used by components to communicate with other components using events (i.e. a form of _Event Driven_ design)
+* `EventsCenter` : This class (written using https://github.com/google/guava/wiki/EventBusExplained[Google's Event Bus library]) is used by components to communicate with other components using events (i.e. a form of _Event Driven_ design).
 * `LogsCenter` : Used by many classes to write log messages to the App's log file.
 
-The rest of the App consists of four components.
+The rest of the App consists of four components:
 
 * <<Design-Ui,*`UI`*>>: The UI of the App.
 * <<Design-Logic,*`Logic`*>>: The command executor.
@@ -318,6 +322,92 @@ image::UndoRedoActivityDiagram.png[width="650"]
 ** Pros: We do not need to maintain a separate list, and just reuse what is already in the codebase.
 ** Cons: Requires dealing with commands that have already been undone: We must remember to skip these commands. Violates Single Responsibility Principle and Separation of Concerns as `HistoryManager` now needs to do two different things.
 // end::undoredo[]
+
+//tag::compose[]
+=== Compose feature
+==== Current Implementation
+
+The Compose feature works using a third-party dependency, http://www.simplejavamail.org/#/about[Simple Java Mail].
+It allows `.eml` files to be saved onto the computer.
+The feature is facilitated by `EmailModel` and `EmailDirStorage`.
+It implements the following operations:
+
+* `EmailModel#saveEmail(Email email)` -- Stores each newly composed email in the `EmailModel`.
+* `EmailDirStorage#saveEmail(EmailModel email)` -- Saves the newly composed email in the `EmailModel` to the computer.
+
+These operations are exposed in the `Model` interface as `Model#saveEmail(Email email)`, and in the `Storage` interface as `Storage#saveEmail(EmailModel email)` respectively.
+
+Given below is an example usage scenario and how the Compose feature behaves at each step:
+
+. The user executes the `Compose` command, which creates an email.
+The `Compose` command calls `Model#saveEmail(Email email)`, saving the email to `EmailModel`.
+
+. Once the email is saved in the `EmailModel`, the `ModelManager` raises an `EmailSavedEvent`, to indicate that a new email is saved to the `EmailModel`.
+
+. The `EmailSavedEvent` goes to the `EventsCenter`, and is then handled by `StorageManager#handleEmailSavedEvent(EmailSavedEvent event)`, which then calls `EmailDirStorage#saveEmail(EmailModel email)`.
+This saves the email to a specified local directory.
+
+. A preview of the email is displayed on the main window.
+
+==== Design Considerations
+
+===== Aspect: File format
+
+The `.eml` file format is compliant with the RFC-822 format, which is industry recognised, and can be opened and viewed using many applications.
+`.eml` files can also contain attachments.
+
+===== Aspect: Using http://www.simplejavamail.org/#/about[Simple Java Mail]
+
+http://www.simplejavamail.org/#/about[Simple Java Mail] contains various methods to conveniently create emails.
+It can also be used to send emails if Hallper is extended to include online capabilities.
+The library is easy to understand so any new developer can easily extend the current features.
+
+===== Aspect: HTML Text
+
+User input for email content is saved as HTML Text so that users with HTML Text Formatting knowledge can easily format the body of the email.
+//end::compose[]
+
+// tag::calendar[]
+=== Calendar feature
+==== Current Implementation
+
+The calendar feature in Hallper is implemented using a third-party dependency, https://github.com/ical4j/ical4j[iCal4j].
+It allows `.ics` files to be saved onto the computer. Calendars in Hallper are created as monthly calendars, a `Map<Year, Set<Month>>` in `CalendarModel` keeps a record of existing calendars in Hallper.
+It implements the following command:
+
+* `create_calendar` -- Creates a monthly calendar and store it in local memory.
+
+===== Create_Calendar Command
+This command is facilitated by `CalendarModel` and `IcsCalendarStorage`.
+It implements the following operations:
+
+* `CalendarModel#createCalendar(Year year, Month month)` -- Initializes a calendar object in the `CalendarModel`.
+* `CalendarModel#isExistingCalendar(Year year, Month month)` -- Checks if the calendar already exists in Hallper.
+* `IcsCalendarStorage#createCalendar(Calendar calendar, String calendarName)` -- Saves the calendar passed from `CalendarModel` to the computer.
+
+These operations are exposed in the 'Model` interface as `Model#createCalendar(Year year, Month month)`, `Model#isExistingCalendar(Year year, Month month)` and in the `Storage` interface as `Storage#createCalendar(Calendar calendar, String calendarName)` respectively.
+
+Given below is an example usage scenario and how the create_calendar command behaves at each step:
+
+. The user executes the `create_calendar` command by specifying the `Month` and `Year`.
+The `create_calendar` command then calls `Model#isExistingCalendar(Year year, Month month)`, to check whether the calendar already exists inside Hallper. If it exists, the command does nothing and reflects to the user that the calendar already exists. Else the command will then call `Model#createCalendar(Year year, Month month)`, initializing a calendar object inside `CalendarModel`.
+
+. Once the calendar object is initialized in the `CalendarModel`, the `ModelManager` raises a `CalendarCreatedEvent`, to indicate that a calendar object has been initialized in the `CalendarModel`.
+
+. The `CalendarCreatedEvent` goes to the `EventsCenter`, and is then handled by `StorageManager#handleCalendarCreatedEvent(CalendarCreatedEvent event)`, which then calls `IcsCalendarStorage#createCalendar(Calendar calendar, String calendarName)`.
+This saves the calendar to a specified local directory.
+
+==== Design Considerations
+
+===== Aspect: File format
+
+The `.ics` file format is compliant with the RFC 5545 format, which is industry recognised, and can be opened and viewed using many applications, including Microsoft Outlook, Google Calendar, and Apple Calendar.
+
+===== Aspect: Using https://github.com/ical4j/ical4j[iCal4j]
+
+https://github.com/ical4j/ical4j[iCal4j] contains various methods that make creating, parsing and editing `.ics` files convenient.
+The library is widely used and easy to understand so any new develeper can easily extend the current features.
+// end::calendar[]
 
 // tag::dataencryption[]
 === [Proposed] Data Encryption
