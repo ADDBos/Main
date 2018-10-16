@@ -17,8 +17,8 @@ import net.fortuna.ical4j.data.ParserException;
 import seedu.address.commons.core.ComponentManager;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.commons.events.model.AddressBookChangedEvent;
-import seedu.address.commons.events.model.BudgetBookChangedEvent;
 import seedu.address.commons.events.model.AllDayEventAddedEvent;
+import seedu.address.commons.events.model.BudgetBookChangedEvent;
 import seedu.address.commons.events.model.CalendarCreatedEvent;
 import seedu.address.commons.events.model.CalendarEventAddedEvent;
 import seedu.address.commons.events.model.CalendarEventDeletedEvent;
@@ -219,7 +219,6 @@ public class ModelManager extends ComponentManager implements Model {
         versionedBudgetBook.updateCca(target, editedCca);
         indicateBudgetBookChanged();
     }
-  
     //@@author kengwoon
     @Override
     public void updateMultiplePersons(List<Person> target, List<Person> editedPerson) {
