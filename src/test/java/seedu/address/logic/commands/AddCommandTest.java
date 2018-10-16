@@ -100,6 +100,11 @@ public class AddCommandTest {
         }
 
         @Override
+        public void addCca(Cca cca) {
+
+        }
+
+        @Override
         public void resetData(ReadOnlyAddressBook newData) {
             throw new AssertionError("This method should not be called.");
         }
@@ -122,6 +127,16 @@ public class AddCommandTest {
         @Override
         public boolean hasPerson(Person person) {
             throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public boolean hasCca(Cca cca) {
+            return false;
+        }
+
+        @Override
+        public boolean hasCca(Person toAdd) {
+            return false;
         }
 
         @Override
@@ -182,6 +197,11 @@ public class AddCommandTest {
         @Override
         public void commitAddressBook() {
             throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public void commitBudgetBook() {
+
         }
 
         @Override

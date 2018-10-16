@@ -15,10 +15,10 @@ import seedu.address.model.cca.Cca;
 /**
  * An Immutable BudgetBook that is serializable to XML format
  */
-@XmlRootElement(name = "budgetbook")
+@XmlRootElement(name = "ccabook")
 public class XmlSerializableBudgetBook {
 
-    public static final String MESSAGE_DUPLICATE_CCA = "Budget list contains duplicate CCA(s).";
+    public static final String MESSAGE_DUPLICATE_CCA = "CCA list contains duplicate CCA(s).";
 
     @XmlElement
     private List<XmlAdaptedCca> ccas;

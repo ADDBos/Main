@@ -9,6 +9,7 @@ import javafx.collections.ObservableList;
 import seedu.address.model.calendar.Month;
 import seedu.address.model.calendar.Year;
 import seedu.address.model.cca.Cca;
+import seedu.address.model.cca.CcaName;
 import seedu.address.model.person.Person;
 
 /**
@@ -19,6 +20,11 @@ public interface Model {
      * {@code Predicate} that always evaluate to true
      */
     Predicate<Person> PREDICATE_SHOW_ALL_PERSONS = unused -> true;
+
+    /**
+     * {@code Predicate} that always evaluate to true
+     */
+    Predicate<Cca> PREDICATE_SHOW_ALL_CCAS = unused -> true;
 
     /**
      * Clears existing backing model and replaces with the provided new data.
@@ -39,6 +45,22 @@ public interface Model {
      * Returns true if a person with the same identity as {@code person} exists in the address book.
      */
     boolean hasPerson(Person person);
+
+    boolean hasCca(CcaName ccaName);
+
+    /**
+     * Returns true if a CCA with the same identity as {@code cca} exists in the budget book.
+     *
+     * @author ericyjw
+     */
+    boolean hasCca(Cca cca);
+
+    /**
+     * Returns true if a person's CCA tag has the same name as the {@code cca} that exists in the budget book.
+     *
+     * @author ericyjw
+     */
+    boolean hasCca(Person toAdd);
 
     /**
      * Deletes the given person.
@@ -65,11 +87,24 @@ public interface Model {
     void addPerson(Person person);
 
     /**
+     * Adds the given CCa.
+     * {@code cca} must not already exist in the budget book.
+     */
+    void addCca(Cca cca);
+
+    /**
      * Replaces the given person {@code target} with {@code editedPerson}.
      * {@code target} must exist in the address book.
      * The person identity of {@code editedPerson} must not be the same as another existing person in the address book.
      */
     void updatePerson(Person target, Person editedPerson);
+
+    /**
+     * Replaces the given person {@code target} with {@code editedPerson}.
+     * {@code target} must exist in the address book.
+     * The person identity of {@code editedPerson} must not be the same as another existing person in the address book.
+     */
+    void updateCca(Cca target, Cca editedCca);
 
     /**
      * Returns an unmodifiable view of the filtered person list
@@ -114,6 +149,11 @@ public interface Model {
      * Saves the current address book state for undo/redo.
      */
     void commitAddressBook();
+
+    /**
+     * Saves the current budget book state for undo/redo.
+     */
+    void commitBudgetBook();
 
     /**
      * Returns an unmodifiable view of the filtered CCA list

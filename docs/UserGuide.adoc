@@ -295,6 +295,15 @@ Example:
 
 * `add_event m/Feb d/2 st/1800 et/2100 n/Enthral`
 
+=== Create new CCA : `create`
+
+Adds a CCA into the budget book with the initial given budget. +
+Format: `create n/CCA bud/BUDGET`
+
+Example:
+
+`create n/basketball bud/200`
+
 === Viewing the budget for all CCAs : `budget`
 
 Allows for the viewing of the budgets for all the CCAs. +

@@ -9,8 +9,13 @@ import java.util.Set;
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.budget.Transaction;
 import seedu.address.model.calendar.Month;
 import seedu.address.model.calendar.Year;
+import seedu.address.model.cca.Budget;
+import seedu.address.model.cca.CcaName;
+import seedu.address.model.cca.Outstanding;
+import seedu.address.model.cca.Spent;
 import seedu.address.model.email.Content;
 import seedu.address.model.email.Subject;
 import seedu.address.model.person.Address;
@@ -223,4 +228,83 @@ public class ParserUtil {
         return new Year(trimmedYear);
     }
 
+    /**
+     * Parses a {@code String Budget} into a {@code Budget}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @author ericyjw
+     * @throws ParseException if the given {@code budget} is invalid.
+     */
+    public static Budget parseBudget(String budget) throws ParseException {
+        requireNonNull(budget);
+        String trimmedBudget = budget.trim();
+        if (!Budget.isValidBudget(trimmedBudget)) {
+            throw new ParseException(Budget.MESSAGE_BUDGET_CONSTRAINTS);
+        }
+        return new Budget(Integer.parseInt(trimmedBudget));
+    }
+
+    /**
+     * Parses a {@code String ccaName} into a {@code CcaName}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @author ericyjw
+     * @throws ParseException if the given {@code ccaName} is invalid.
+     */
+    public static CcaName parseCcaName(String ccaName) throws ParseException {
+        requireNonNull(ccaName);
+        String trimmedCcaName = ccaName.trim();
+        if (!CcaName.isValidCcaName(trimmedCcaName)) {
+            throw new ParseException(CcaName.MESSAGE_NAME_CONSTRAINTS);
+        }
+        return new CcaName(trimmedCcaName);
+    }
+
+    /**
+     * Parses a {@code String Spent} into a {@code Spent}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @author ericyjw
+     * @throws ParseException if the given {@code Spent} is invalid.
+     */
+    public static Spent parseSpent(String spent) throws ParseException {
+        requireNonNull(spent);
+        String trimmedSpent = spent.trim();
+        if (!Spent.isValidSpent(trimmedSpent)) {
+            throw new ParseException(Spent.MESSAGE_SPENT_CONSTRAINTS);
+        }
+        return new Spent(Integer.parseInt(trimmedSpent));
+    }
+
+    /**
+     * Parses a {@code String outstanding} into a {@code Outstanding}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @author ericyjw
+     * @throws ParseException if the given {@code Outstanding} is invalid.
+     */
+    public static Outstanding parseOutstanding(String outstanding) throws ParseException {
+        requireNonNull(outstanding);
+        String trimmedOutstanding = outstanding.trim();
+        if (!Outstanding.isValidOutstanding(trimmedOutstanding)) {
+            throw new ParseException(Outstanding.MESSAGE_OUTSTANDING_CONSTRAINTS);
+        }
+        return new Outstanding(Integer.parseInt(trimmedOutstanding));
+    }
+
+    /**
+     * Parses a {@code String transaction} into a {@code Transaction}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @author ericyjw
+     * @throws ParseException if the given {@code Transaction} is invalid.
+     */
+    public static Transaction parseTransaction(String transaction) throws ParseException {
+        requireNonNull(transaction);
+        String trimmedTransaction = transaction.trim();
+        if (!Transaction.isValidTranscation(trimmedTransaction)) {
+            throw new ParseException(Transaction.MESSAGE_TRANSACTION_CONSTRAINTS);
+        }
+        return new Transaction(trimmedTransaction);
+    }
 }
