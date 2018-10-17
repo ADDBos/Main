@@ -23,7 +23,7 @@ public class BudgetWindow extends UiPart<Stage> {
     private Logic logic;
 
     // Independent Ui parts residing in this Ui container
-    private BudgetBrowserPanel budgetBrowserPanel;
+    // private BudgetBrowserPanel budgetBrowserPanel;
     private CcaListPanel ccaListPanel;
 
     @FXML
@@ -46,7 +46,7 @@ public class BudgetWindow extends UiPart<Stage> {
      * Fills up all the placeholders of this window.
      */
     void fillInnerParts() {
-        budgetBrowserPanel = new BudgetBrowserPanel();
+        BudgetBrowserPanel budgetBrowserPanel = new BudgetBrowserPanel();
         browserPlaceholder.getChildren().add(budgetBrowserPanel.getRoot());
 
         ccaListPanel = new CcaListPanel(logic.getFilteredCcaList());
@@ -64,7 +64,11 @@ public class BudgetWindow extends UiPart<Stage> {
     public CcaListPanel getCcaListPanel() {
         return ccaListPanel;
     }
-
+    /*
+        void releaseResources() {
+            budgetBrowserPanel.freeResources();
+        }
+    */
     /**
      * Show budget window
      */
