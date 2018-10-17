@@ -29,7 +29,7 @@ Hallper is a desktop app for the JCRC that allows *for better and faster managem
 .  Copy the file to the folder you want to use as the home folder for your Hallper.
 .  Double-click the file to start the app. The GUI should appear in a few seconds.
 +
-image::Ui_1.2.png[width="790"]
+image::Ui.png[width="790"]
 +
 .  Type the command in the command box and press kbd:[Enter] to execute it. +
 e.g. typing *`help`* and pressing kbd:[Enter] will open the User Guide window.
@@ -264,8 +264,8 @@ Format: `create_calendar month/MONTH year/YEAR`
 
 ****
 * Creates a calendar as a *`.ics`* file.
-* The month *must be specified as MMM*
-* The year *musst be specified as YYYY*
+* The MONTH *must be specified as MMM*.
+* The YEAR *must be specified as YYYY*.
 ****
 Example:
 
@@ -286,13 +286,20 @@ Displays view of calendar for the month of `Feb`.
 ==== Adding event into calendar : `add_event`
 
 Adds an event into the calendar. +
-Format: `add_event m/MONTH d/DATE st/START TIME et/END TIME n/NAME OF EVENT`
+Format: `add_event month/MONTH year/YEAR sdate/START DATE shour/START HOUR smin/START MIN
+edate/END DATE ehour/END HOUR emin/END MINUTE title/NAME OF EVENT`
+
+****
+* The *MONTH must be specified as MMM*.
+* The *YEAR must be specified as YYYY*.
+* *DATE, HOUR, MINUTE must be specified as XX*.
+****
 
 Example:
 
-* `add_event m/Feb d/2 st/1800 et/2100 n/Enthral` +
-Adds an event titled `Enthral` with date `2` nd `Feb` which lasts from `1800` hours
-to `2100` hours to the calendar.
+* `add_event month/Feb year/2018 sdate/01 shour/12 smin/00 edate/01 ehour/15 emin/00 title/Enthral` +
+Adds an event titled `Enthral` into calendar for `Feb 2018` which starts on the `1` st at `1200` and ends on
+the `1` st at `1500`.
 
 === Budget and CCA
 This section lists features related to CCA budget management in Hallper.
