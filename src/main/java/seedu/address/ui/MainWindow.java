@@ -185,7 +185,7 @@ public class MainWindow extends UiPart<Stage> {
      */
     @FXML
     public void handleBudget() {
-        budgetWindow = new BudgetWindow(logic, prefs);
+        budgetWindow = new BudgetWindow(logic);
         if (!budgetWindow.isShowing()) {
             budgetWindow.show();
         } else {

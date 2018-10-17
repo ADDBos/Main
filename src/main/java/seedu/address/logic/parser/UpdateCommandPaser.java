@@ -55,16 +55,6 @@ public class UpdateCommandPaser implements Parser<UpdateCommand> {
         if (argMultimap.getValue(PREFIX_SPENT).isPresent()) {
             editCcaDescriptor.setSpent(ParserUtil.parseSpent(argMultimap.getValue(PREFIX_SPENT).get()));
         }
-        if (argMultimap.getValue(PREFIX_OUTSTANDING).isPresent()) {
-            editCcaDescriptor.setOutstanding(
-                ParserUtil.parseOutstanding(argMultimap.getValue(PREFIX_OUTSTANDING).get())
-            );
-        }
-        if (argMultimap.getValue(PREFIX_TRANSACTION).isPresent()) {
-            editCcaDescriptor.setTransaction(
-                ParserUtil.parseTransaction(argMultimap.getValue(PREFIX_TRANSACTION).get())
-            );
-        }
 
         if (!editCcaDescriptor.isAnyFieldEdited()) {
             throw new ParseException(UpdateCommand.MESSAGE_NOT_UPDATED);

@@ -224,7 +224,7 @@ public class AddCommandTest {
 
         @Override
         public void commitBudgetBook() {
-
+            throw new AssertionError("This method should not be called.");
         }
 
         @Override
@@ -275,7 +275,7 @@ public class AddCommandTest {
         }
 
         @Override
-        public boolean isExistingEvent (Year year, Month month, int startDate, int endDate, String title) {
+        public boolean isExistingEvent(Year year, Month month, int startDate, int endDate, String title) {
             throw new AssertionError("This method should not be called.");
         }
 
