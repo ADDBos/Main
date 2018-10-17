@@ -65,10 +65,6 @@ public class BudgetWindow extends UiPart<Stage> {
         return ccaListPanel;
     }
 
-    void releaseResources() {
-        budgetBrowserPanel.freeResources();
-    }
-
     /**
      * Show budget window
      */
