@@ -7,6 +7,7 @@ import java.util.Optional;
 import net.fortuna.ical4j.data.ParserException;
 import net.fortuna.ical4j.model.Calendar;
 import seedu.address.commons.events.model.AddressBookChangedEvent;
+import seedu.address.commons.events.model.BudgetBookChangedEvent;
 import seedu.address.commons.events.model.EmailSavedEvent;
 import seedu.address.commons.events.storage.DataSavingExceptionEvent;
 import seedu.address.commons.exceptions.DataConversionException;
@@ -51,6 +52,15 @@ public interface Storage extends AddressBookStorage, BudgetBookStorage, UserPref
      * Raises {@link DataSavingExceptionEvent} if there was an error during saving.
      */
     void handleAddressBookChangedEvent(AddressBookChangedEvent abce);
+
+    /**
+     * Saves the current version of the Budget Book to the hard disk.
+     * Creates the data file if it is missing.
+     * Raises {@link DataSavingExceptionEvent} if there was an error during saving.
+     *
+     * @author ericyjw
+     */
+    void handleBudgetBookChangedEvent(BudgetBookChangedEvent bbce);
 
     //@@author EatOrBeEaten
 

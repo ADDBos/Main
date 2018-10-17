@@ -16,11 +16,15 @@ import seedu.address.model.cca.Cca;
  * A utility class containing a list of {@code Cca} objects to be used in tests.
  */
 //@@author javenseow
+//@author ericyjw
 public class TypicalCcas {
-    public static final Cca TRACK = new CcaBuilder().withCcaName("track").withHead(ALICE).withViceHead(DANIEL)
-            .withBudget(500).build();
-    public static final Cca BADMINTON = new CcaBuilder().withCcaName("badminton").withHead(BENSON).withViceHead(CARL)
-            .withBudget(500).build();
+    public static final Cca TRACK =
+        new CcaBuilder().withCcaName("track").withHead(ALICE.getName()).withViceHead(DANIEL.getName())
+            .withBudget(500).withSpent(100).withOutstanding(400).withTransaction("Spent on energy drinks/$100").build();
+    public static final Cca BADMINTON =
+        new CcaBuilder().withCcaName("badminton").withHead(BENSON.getName()).withViceHead(CARL.getName())
+            .withBudget(500).withSpent(300).withOutstanding(100).withTransaction("Spent on equipments/$200\nSpent on "
+            + "welfare/$100\n").build();
 
     private TypicalCcas() {} // prevents instantiation
 

@@ -18,6 +18,7 @@ import seedu.address.commons.core.ComponentManager;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.commons.events.model.AddressBookChangedEvent;
 import seedu.address.commons.events.model.AllDayEventAddedEvent;
+import seedu.address.commons.events.model.BudgetBookChangedEvent;
 import seedu.address.commons.events.model.CalendarCreatedEvent;
 import seedu.address.commons.events.model.CalendarEventAddedEvent;
 import seedu.address.commons.events.model.CalendarEventDeletedEvent;
@@ -26,6 +27,7 @@ import seedu.address.commons.util.StringUtil;
 import seedu.address.model.calendar.Month;
 import seedu.address.model.calendar.Year;
 import seedu.address.model.cca.Cca;
+import seedu.address.model.cca.CcaName;
 import seedu.address.model.person.Person;
 import seedu.address.storage.CalendarStorage;
 import seedu.address.storage.IcsCalendarStorage;
@@ -122,10 +124,37 @@ public class ModelManager extends ComponentManager implements Model {
         raise(new AddressBookChangedEvent(versionedAddressBook));
     }
 
+    /**
+     * Raises an event to indicate the model has changed
+     *
+     * @author ericyjw
+     */
+    private void indicateBudgetBookChanged() {
+        raise(new BudgetBookChangedEvent(versionedBudgetBook));
+    }
+
     @Override
     public boolean hasPerson(Person person) {
         requireNonNull(person);
         return versionedAddressBook.hasPerson(person);
+    }
+
+    @Override
+    public boolean hasCca(Person person) {
+        requireNonNull(person);
+        return versionedBudgetBook.hasCca(person);
+    }
+
+    @Override
+    public boolean hasCca(CcaName ccaName) {
+        requireNonNull(ccaName);
+        return versionedBudgetBook.hasCca(ccaName);
+    }
+
+    @Override
+    public boolean hasCca(Cca cca) {
+        requireNonNull(cca);
+        return versionedBudgetBook.hasCca(cca);
     }
 
     @Override
@@ -169,6 +198,13 @@ public class ModelManager extends ComponentManager implements Model {
     }
 
     @Override
+    public void addCca(Cca cca) {
+        versionedBudgetBook.addCca(cca);
+        updateFilteredCcaList(PREDICATE_SHOW_ALL_CCAS);
+        indicateBudgetBookChanged();
+    }
+
+    @Override
     public void updatePerson(Person target, Person editedPerson) {
         requireAllNonNull(target, editedPerson);
 
@@ -176,6 +212,13 @@ public class ModelManager extends ComponentManager implements Model {
         indicateAddressBookChanged();
     }
 
+    @Override
+    public void updateCca(Cca target, Cca editedCca) {
+        requireAllNonNull(target, editedCca);
+
+        versionedBudgetBook.updateCca(target, editedCca);
+        indicateBudgetBookChanged();
+    }
     //@@author kengwoon
     @Override
     public void updateMultiplePersons(List<Person> target, List<Person> editedPerson) {
@@ -240,6 +283,11 @@ public class ModelManager extends ComponentManager implements Model {
     @Override
     public void commitAddressBook() {
         versionedAddressBook.commit();
+    }
+
+    @Override
+    public void commitBudgetBook() {
+        versionedBudgetBook.commit();
     }
 
     //@@author GilgameshTC

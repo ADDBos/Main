@@ -7,7 +7,7 @@
         <email>alice@example.com</email>
         <room>B314</room>
         <school>FoS</school>
-        <tagged>track</tagged>
+        <tagged>Basketball</tagged>
     </persons>
     <persons>
         <name>Benson Meier</name>
@@ -15,8 +15,8 @@
         <email>johnd@example.com</email>
         <room>D111</room>
         <school>Medicine</school>
-        <tagged>soccer</tagged>
-        <tagged>badminton</tagged>
+        <tagged>Soccer</tagged>
+        <tagged>Floorball</tagged>
     </persons>
     <persons>
         <name>Carl Kurz</name>
@@ -24,8 +24,8 @@
         <email>heinz@example.com</email>
         <room>A421</room>
         <school>SDE</school>
-        <tagged>geyao</tagged>
-        <tagged>badminton</tagged>
+        <tagged>Floorball</tagged>
+        <tagged>Handball</tagged>
     </persons>
     <persons>
         <name>Daniel Meier</name>
@@ -33,8 +33,8 @@
         <email>cornelia@example.com</email>
         <room>C120</room>
         <school>Biz</school>
-        <tagged>geyao</tagged>
-        <tagged>track</tagged>
+        <tagged>Floorball</tagged>
+        <tagged>Handball</tagged>
     </persons>
     <persons>
         <name>Elle Meyer</name>

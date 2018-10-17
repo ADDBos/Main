@@ -102,24 +102,29 @@ public class MainApp extends Application {
         ReadOnlyBudgetBook initialBudgetData;
         try {
             addressBookOptional = storage.readAddressBook();
-            budgetBookOptional = storage.readBudgetBook();
             if (!addressBookOptional.isPresent()) {
                 logger.info("Data file not found. Will be starting with a sample AddressBook");
             }
+            initialAddressData = addressBookOptional.orElseGet(SampleDataUtil::getSampleAddressBook);
+        } catch (DataConversionException e) {
+            logger.warning("Data file not in the correct format. Will be starting with an empty AddressBook");
+            initialAddressData = new AddressBook();
+        } catch (IOException e) {
+            logger.warning("Problem while reading from the file. Will be starting with an empty AddressBook");
+            initialAddressData = new AddressBook();
+        }
+
+        try {
+            budgetBookOptional = storage.readBudgetBook();
             if (!budgetBookOptional.isPresent()) {
                 logger.info("Data file not found. Will be starting with a sample BudgetBook");
             }
-            initialAddressData = addressBookOptional.orElseGet(SampleDataUtil::getSampleAddressBook);
             initialBudgetData = budgetBookOptional.orElseGet(SampleDataUtil::getSampleBudgetBook);
         } catch (DataConversionException e) {
-            logger.warning("Data file not in the correct format. Will be starting with an empty AddressBook");
             logger.warning("Data file not in the correct format. Will be starting with an empty BudgetBook");
-            initialAddressData = new AddressBook();
             initialBudgetData = new BudgetBook();
         } catch (IOException e) {
-            logger.warning("Problem while reading from the file. Will be starting with an empty AddressBook");
             logger.warning("Data file not in the correct format. Will be starting with an empty BudgetBook");
-            initialAddressData = new AddressBook();
             initialBudgetData = new BudgetBook();
         }
 

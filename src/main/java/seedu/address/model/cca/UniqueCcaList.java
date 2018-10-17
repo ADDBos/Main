@@ -25,6 +25,22 @@ public class UniqueCcaList implements Iterable<Cca> {
         return internalCcaList.stream().anyMatch(toCheck::isSameCca);
     }
 
+    //TODO: check why directly checking the name doesn't work
+
+    /**
+     * Returns true if the list contains an equivalent tag as the given argument.
+     *
+     * @author ericyjw
+     */
+    public boolean contains(String ccaName) {
+        requireNonNull(ccaName);
+        Cca toCheck = new Cca(ccaName);
+        // return internalCcaList.stream().anyMatch(ccaName::isSameCcaName);
+        return internalCcaList.stream().anyMatch(toCheck::isSameCcaName);
+
+    }
+
+
     /**
      * Adds a CCA to the unique CCA list.
      * The CCA must not already exist in the list.

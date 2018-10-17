@@ -80,7 +80,6 @@ public class MainWindow extends UiPart<Stage> {
         registerAsAnEventHandler(this);
 
         helpWindow = new HelpWindow();
-        budgetWindow = new BudgetWindow(logic, prefs);
     }
 
     public Stage getPrimaryStage() {
@@ -186,6 +185,7 @@ public class MainWindow extends UiPart<Stage> {
      */
     @FXML
     public void handleBudget() {
+        budgetWindow = new BudgetWindow(logic);
         if (!budgetWindow.isShowing()) {
             budgetWindow.show();
         } else {

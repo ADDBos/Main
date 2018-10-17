@@ -25,6 +25,7 @@ import seedu.address.model.ReadOnlyBudgetBook;
 import seedu.address.model.calendar.Month;
 import seedu.address.model.calendar.Year;
 import seedu.address.model.cca.Cca;
+import seedu.address.model.cca.CcaName;
 import seedu.address.model.person.Person;
 import seedu.address.testutil.PersonBuilder;
 
@@ -94,8 +95,14 @@ public class AddCommandTest {
      * A default model stub that have all of the methods failing.
      */
     private class ModelStub implements Model {
+
         @Override
         public void addPerson(Person person) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public void addCca(Cca cca) {
             throw new AssertionError("This method should not be called.");
         }
 
@@ -125,6 +132,21 @@ public class AddCommandTest {
         }
 
         @Override
+        public boolean hasCca(CcaName ccaName) {
+            return false;
+        }
+
+        @Override
+        public boolean hasCca(Cca cca) {
+            return false;
+        }
+
+        @Override
+        public boolean hasCca(Person toAdd) {
+            return false;
+        }
+
+        @Override
         public void deletePerson(Person target) {
             throw new AssertionError("This method should not be called.");
         }
@@ -145,12 +167,18 @@ public class AddCommandTest {
         }
 
         @Override
+        public void updateCca(Cca target, Cca editedCca) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
         public void updateMultiplePersons(List<Person> target, List<Person> editedPerson) {
             throw new AssertionError("This method should not be called.");
         }
 
         @Override
         public void addMultiplePersons(List<Person> personList) {
+
             throw new AssertionError("This method should not be called.");
         }
 
@@ -191,6 +219,11 @@ public class AddCommandTest {
 
         @Override
         public void commitAddressBook() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public void commitBudgetBook() {
             throw new AssertionError("This method should not be called.");
         }
 
@@ -242,7 +275,7 @@ public class AddCommandTest {
         }
 
         @Override
-        public boolean isExistingEvent (Year year, Month month, int startDate, int endDate, String title) {
+        public boolean isExistingEvent(Year year, Month month, int startDate, int endDate, String title) {
             throw new AssertionError("This method should not be called.");
         }
 

@@ -31,7 +31,7 @@ class EraseCommandTest {
         List<String> target = new ArrayList<>();
         List<Person> original = new ArrayList<>();
         List<Person> erased = new ArrayList<>();
-        String targetTag = "track";
+        String targetTag = "Basketball";
         target.add(targetTag);
         EraseCommand eraseCommand = new EraseCommand(target);
 

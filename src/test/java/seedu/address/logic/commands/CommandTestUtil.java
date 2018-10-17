@@ -39,8 +39,8 @@ public class CommandTestUtil {
     public static final String VALID_ROOM_BOB = "A410";
     public static final String VALID_SCHOOL_AMY = "SDE";
     public static final String VALID_SCHOOL_BOB = "Biz";
-    public static final String VALID_TAG_AMY = "choir";
-    public static final String VALID_TAG_BOB = "soccer";
+    public static final String VALID_TAG_AMY = "Handball";
+    public static final String VALID_TAG_BOB = "Floorball";
     public static final String VALID_CONTENT_AMY = "Dear Bob<br /><br />See you tomorrow!<br /><br />Amy";
     public static final String VALID_CONTENT_BOB = "Dear Amy<br /><br />See you tomorrow!<br /><br />Bob";
     public static final String VALID_SUBJECT_AMY = "Meeting Tomorrow";

@@ -295,7 +295,16 @@ to `2100` hours to the calendar.
 === Budget and CCA
 This section lists features related to CCA budget management in Hallper.
 
-==== Viewing the budget for all CCAs : `budget`
+=== Create new CCA : `create`
+
+Adds a CCA into the budget book with the initial given budget. +
+Format: `create n/CCA bud/BUDGET`
+
+Example:
+
+`create n/basketball bud/200`
+
+=== Viewing the budget for all CCAs : `budget`
 
 Allows for the viewing of the budgets for all the CCAs. +
 Format: `budget`

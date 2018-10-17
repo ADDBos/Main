@@ -1,62 +1,35 @@
 package seedu.address.storage;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
 import java.util.Objects;
-import java.util.Set;
 
 import javax.xml.bind.annotation.XmlElement;
 
 import seedu.address.commons.exceptions.IllegalValueException;
-import seedu.address.model.budget.Budget;
 import seedu.address.model.budget.Transaction;
+import seedu.address.model.cca.Budget;
 import seedu.address.model.cca.Cca;
-import seedu.address.model.person.Email;
+import seedu.address.model.cca.CcaName;
+import seedu.address.model.cca.Outstanding;
+import seedu.address.model.cca.Spent;
 import seedu.address.model.person.Name;
-import seedu.address.model.person.Person;
-import seedu.address.model.person.Phone;
-import seedu.address.model.person.Room;
-import seedu.address.model.person.School;
-import seedu.address.model.tag.Tag;
 
 /**
- * JAXB-friendly adapted version of the CCA.
+ * JAXB-friendly version of the CCA.
+ *
+ * @author ericyjw
  */
 public class XmlAdaptedCca {
+
     public static final String MISSING_FIELD_MESSAGE_FORMAT = "CCA's %s field is missing!";
 
     @XmlElement(required = true)
-    private String ccaName;
-
+    private String name;
     @XmlElement(required = true)
-    private String headName;
+    private String head;
     @XmlElement(required = true)
-    private String headPhone;
+    private String viceHead;
     @XmlElement(required = true)
-    private String headEmail;
-    @XmlElement(required = true)
-    private String headRoom;
-    @XmlElement(required = true)
-    private String headSchool;
-    @XmlElement
-    private List<XmlAdaptedTag> headTagged = new ArrayList<>();
-
-    @XmlElement(required = true)
-    private String viceHeadName;
-    @XmlElement(required = true)
-    private String viceHeadPhone;
-    @XmlElement(required = true)
-    private String viceHeadEmail;
-    @XmlElement(required = true)
-    private String viceHeadRoom;
-    @XmlElement(required = true)
-    private String viceHeadSchool;
-    @XmlElement
-    private List<XmlAdaptedTag> viceHeadTagged = new ArrayList<>();
-
-    @XmlElement(required = true)
-    private String givenBudget;
+    private String budget;
     @XmlElement(required = true)
     private String spent;
     @XmlElement(required = true)
@@ -64,164 +37,115 @@ public class XmlAdaptedCca {
     @XmlElement(required = true)
     private String transaction;
 
-    private Budget budget = new Budget(Integer.parseInt(givenBudget), Integer.parseInt(spent),
-        Integer.parseInt(outstanding), new Transaction(transaction));
-
-
     /**
-     * Constructs an XmlAdaptedTag.
+     * Constructs an XmlAdaptedCca.
      * This is the no-arg constructor that is required by JAXB.
      */
     public XmlAdaptedCca() {
     }
 
     /**
-     * Constructs a {@code XmlAdaptedCca} with the given {@code ccaName}.
+     * Constructs an {@code XmlAdaptedCca} with the given CCA details.
      */
-    public XmlAdaptedCca(String tagName) {
-        this.ccaName = ccaName;
+    public XmlAdaptedCca(String name, String head, String viceHead, String budget, String spent, String outstanding,
+                         String transaction) {
+        this.name = name;
+        this.head = head;
+        this.viceHead = viceHead;
+        this.budget = budget;
+        this.spent = spent;
+        this.outstanding = outstanding;
+        this.transaction = transaction;
     }
 
     /**
      * Converts a given CCA into this class for JAXB use.
      *
-     * @param source future changes to this will not affect the created
+     * @param source future changes to this will not affect the created XmlAdaptedCca
      */
     public XmlAdaptedCca(Cca source) {
-        ccaName = source.getCcaName();
+        name = source.getCcaName();
+        budget = String.valueOf(source.getGivenBudgetAmount());
+
+        head = source.getHeadName();
+        viceHead = source.getViceHeadName();
+        budget = String.valueOf(source.getGivenBudgetAmount());
+        spent = String.valueOf(source.getSpentAmount());
+        outstanding = String.valueOf(source.getOutstandingAmount());
+        transaction = source.getTransactionLog();
     }
 
     /**
-     * Converts this jaxb-friendly adapted CCA object into the model's CCA object.
+     * Converts this jaxb-friendly adapted cca object into the model's CCA object.
      *
-     * @throws IllegalValueException if there were any data constraints violated in the adapted CCA
+     * @throws IllegalValueException if there were any data constraints violated in the adapted cca
      */
     public Cca toModelType() throws IllegalValueException {
-        if (ccaName == null) {
-            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Tag.class.getSimpleName()));
+        if (name == null) {
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, CcaName.class.getSimpleName()));
         }
-        if (!Tag.isValidTagName(ccaName)) {
-            throw new IllegalValueException(Name.MESSAGE_NAME_CONSTRAINTS);
+        if (!CcaName.isValidCcaName(name)) {
+            throw new IllegalValueException(CcaName.MESSAGE_NAME_CONSTRAINTS);
         }
-        final Tag modelCcaName = new Tag(ccaName);
+        final CcaName modelName = new CcaName(name);
 
-        final List<Tag> headTags = new ArrayList<>();
-        for (XmlAdaptedTag tag : headTagged) {
-            headTags.add(tag.toModelType());
-        }
-
-        if (headName == null) {
+        if (head == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Name.class.getSimpleName()));
         }
-        if (!Name.isValidName(headName)) {
+        if (!Name.isValidName(head)) {
             throw new IllegalValueException(Name.MESSAGE_NAME_CONSTRAINTS);
         }
-        final Name modelHeadName = new Name(headName);
 
-        if (headPhone == null) {
-            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Phone.class.getSimpleName()));
-        }
-        if (!Phone.isValidPhone(headPhone)) {
-            throw new IllegalValueException(Phone.MESSAGE_PHONE_CONSTRAINTS);
-        }
-        final Phone modelHeadPhone = new Phone(headPhone);
+        final Name modelHeadName = new Name(head);
 
-        if (headEmail == null) {
-            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Email.class.getSimpleName()));
-        }
-        if (!Email.isValidEmail(headEmail)) {
-            throw new IllegalValueException(Email.MESSAGE_EMAIL_CONSTRAINTS);
-        }
-        final Email modelHeadEmail = new Email(headEmail);
-
-        if (headRoom == null) {
-            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Room.class.getSimpleName()));
-        }
-        if (!Room.isValidRoom(headRoom)) {
-            throw new IllegalValueException(Room.MESSAGE_ROOM_CONSTRAINTS);
-        }
-        final Room modelHeadRoom = new Room(headRoom);
-
-        if (headSchool == null) {
-            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, School.class.getSimpleName()));
-        }
-        if (!School.isValidSchool(headSchool)) {
-            throw new IllegalValueException(School.MESSAGE_SCHOOL_CONSTRAINTS);
-        }
-        final School modelHeadSchool = new School(headSchool);
-
-        final Set<Tag> modelHeadTags = new HashSet<>(headTags);
-
-        Person modelHead = new Person(modelHeadName, modelHeadPhone, modelHeadEmail, modelHeadRoom,
-                modelHeadSchool, modelHeadTags);
-
-
-        final List<Tag> viceHeadTags = new ArrayList<>();
-        for (XmlAdaptedTag tag : viceHeadTagged) {
-            viceHeadTags.add(tag.toModelType());
-        }
-
-        if (viceHeadName == null) {
+        if (viceHead == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Name.class.getSimpleName()));
         }
-        if (!Name.isValidName(viceHeadName)) {
+        if (!Name.isValidName(viceHead)) {
             throw new IllegalValueException(Name.MESSAGE_NAME_CONSTRAINTS);
         }
-        final Name modelViceHeadName = new Name(viceHeadName);
 
-        if (viceHeadPhone == null) {
-            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Phone.class.getSimpleName()));
-        }
-        if (!Phone.isValidPhone(viceHeadPhone)) {
-            throw new IllegalValueException(Phone.MESSAGE_PHONE_CONSTRAINTS);
-        }
-        final Phone modelViceHeadPhone = new Phone(viceHeadPhone);
+        final Name modelViceHeadName = new Name(viceHead);
 
-        if (viceHeadEmail == null) {
-            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Email.class.getSimpleName()));
-        }
-        if (!Email.isValidEmail(viceHeadEmail)) {
-            throw new IllegalValueException(Email.MESSAGE_EMAIL_CONSTRAINTS);
-        }
-        final Email modelViceHeadEmail = new Email(viceHeadEmail);
-
-        if (viceHeadRoom == null) {
-            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Room.class.getSimpleName()));
-        }
-        if (!Room.isValidRoom(viceHeadRoom)) {
-            throw new IllegalValueException(Room.MESSAGE_ROOM_CONSTRAINTS);
-        }
-        final Room modelViceHeadRoom = new Room(viceHeadRoom);
-
-        if (viceHeadSchool == null) {
-            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, School.class.getSimpleName()));
-        }
-        if (!School.isValidSchool(viceHeadSchool)) {
-            throw new IllegalValueException(School.MESSAGE_SCHOOL_CONSTRAINTS);
-        }
-        final School modelViceHeadSchool = new School(viceHeadSchool);
-
-        final Set<Tag> modelViceHeadTags = new HashSet<>(viceHeadTags);
-
-        Person modelViceHead = new Person(modelViceHeadName, modelViceHeadPhone, modelViceHeadEmail,
-            modelViceHeadRoom, modelViceHeadSchool, modelViceHeadTags);
-
-        // TODO: BUDGET
-        //Budget
-        if (givenBudget == null) {
+        if (budget == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Budget.class.getSimpleName()));
         }
+        if (!Budget.isValidBudget(budget)) {
+            throw new IllegalValueException(Budget.MESSAGE_BUDGET_CONSTRAINTS);
+        }
+        final Budget modelBudget = new Budget(Integer.parseInt(budget));
 
-        int modelGivenBudget = Integer.parseInt(givenBudget);
-        int modelSpent = Integer.parseInt(spent);
-        int modelOutstanding = Integer.parseInt(outstanding);
-        Transaction modelTransaction = new Transaction(transaction);
+        if (spent == null) {
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Spent.class.getSimpleName()));
+        }
+        if (!Spent.isValidSpent(spent)) {
+            throw new IllegalValueException(Spent.MESSAGE_SPENT_CONSTRAINTS);
+        }
 
-        Budget modelBudget = new Budget(modelGivenBudget, modelSpent, modelOutstanding, modelTransaction);
+        final Spent modelSpent = new Spent(Integer.parseInt(spent));
 
-        return new Cca(modelCcaName, modelHead, modelViceHead, modelBudget);
+        if (outstanding == null) {
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
+                Outstanding.class.getSimpleName()));
+        }
+        if (!Outstanding.isValidOutstanding(outstanding)) {
+            throw new IllegalValueException(Outstanding.MESSAGE_OUTSTANDING_CONSTRAINTS);
+        }
+
+        final Outstanding modelOutstanding = new Outstanding(Integer.parseInt(outstanding));
+
+        if (transaction == null) {
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
+                Transaction.class.getSimpleName()));
+        }
+        if (!Transaction.isValidTranscation(transaction)) {
+            throw new IllegalValueException(Transaction.MESSAGE_TRANSACTION_CONSTRAINTS);
+        }
+        final Transaction modelTransaction = new Transaction(transaction);
+
+        return new Cca(modelName, modelHeadName, modelViceHeadName, modelBudget, modelSpent, modelOutstanding,
+            modelTransaction);
     }
-
 
     @Override
     public boolean equals(Object other) {
@@ -233,20 +157,13 @@ public class XmlAdaptedCca {
             return false;
         }
 
-        XmlAdaptedCca otherPerson = (XmlAdaptedCca) other;
-        return Objects.equals(ccaName, otherPerson.ccaName)
-            && Objects.equals(headName, otherPerson.headName)
-            && Objects.equals(headPhone, otherPerson.headPhone)
-            && Objects.equals(headEmail, otherPerson.headEmail)
-            && Objects.equals(headRoom, otherPerson.headRoom)
-            && Objects.equals(headSchool, otherPerson.headSchool)
-            && headTagged.equals(otherPerson.headTagged)
-            && Objects.equals(viceHeadName, otherPerson.viceHeadName)
-            && Objects.equals(viceHeadPhone, otherPerson.viceHeadPhone)
-            && Objects.equals(viceHeadEmail, otherPerson.viceHeadEmail)
-            && Objects.equals(viceHeadRoom, otherPerson.viceHeadRoom)
-            && Objects.equals(viceHeadSchool, otherPerson.viceHeadSchool)
-            && viceHeadTagged.equals(otherPerson.viceHeadTagged)
-            && budget.equals(((XmlAdaptedCca) other).budget);
+        XmlAdaptedCca otherCca = (XmlAdaptedCca) other;
+        return Objects.equals(name, otherCca.name)
+            && Objects.equals(head, otherCca.head)
+            && Objects.equals(viceHead, otherCca.viceHead)
+            && Objects.equals(budget, otherCca.budget)
+            && Objects.equals(spent, otherCca.spent)
+            && Objects.equals(outstanding, otherCca.outstanding)
+            && Objects.equals(transaction, otherCca.transaction);
     }
 }
