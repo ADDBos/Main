@@ -946,12 +946,21 @@ The library is easy to understand so any new developer can easily extend the cur
 <p>The calendar feature in Hallper is implemented using a third-party dependency, <a href="https://github.com/ical4j/ical4j">iCal4j</a>.
 It creates <code>.ics</code> files and saves them onto the local computer. Calendars in Hallper are created as monthly
 calendars, a <code>Map&lt;Year, Set&lt;Month&gt;&gt;</code> in <code>CalendarModel</code> keeps a record of existing calendars in Hallper.
-It implements the following command:</p>
+It implements the following commands:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
 <p><code>create_calendar</code>&#8201;&#8212;&#8201;Creates a monthly calendar and store it in local memory.</p>
+</li>
+<li>
+<p><code>add_all_day_event</code>&#8201;&#8212;&#8201;Adds an all day event into the monthly calendar specified.</p>
+</li>
+<li>
+<p><code>add_event</code>&#8201;&#8212;&#8201;Adds an event of a specified time frame into the monthly calendar.</p>
+</li>
+<li>
+<p><code>delete_event</code>&#8201;&#8212;&#8201;Deletes an existing event in the monthly calendar.</p>
 </li>
 </ul>
 </div>
@@ -978,15 +987,15 @@ It implements the following operations:</p>
 <p>These operations are exposed in the 'Model` interface as <code>Model#createCalendar(Year year, Month month)</code>, <code>Model#isExistingCalendar(Year year, Month month)</code> and in the <code>Storage</code> interface as <code>Storage#createCalendar(Calendar calendar, String calendarName)</code> respectively.</p>
 </div>
 <div class="paragraph">
-<p>Given below is an example usage scenario and how the create_calendar command behaves at each step:</p>
+<p>Given below is an example usage scenario and how the <code>create_calendar</code> command behaves at each step:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>The user executes the <code>create_calendar</code> command by specifying the <code>Month</code> and <code>Year</code>.
+<p>The user executes the <code>create_calendar</code> command by specifying the month and year.
 The <code>create_calendar</code> command then calls <code>Model#isExistingCalendar(Year year, Month month)</code>, to check whether the
 calendar already exists inside Hallper. If it exists, the command does nothing and reflects to the user that the
-calendar already exists. Else, the command will then call <code>Model#createCalendar(Year year, Month month)</code>, initializing a calendar object inside <code>CalendarModel</code>.</p>
+calendar already exists. Else, the command calls <code>Model#createCalendar(Year year, Month month)</code>, initializing a calendar object inside <code>CalendarModel</code>.</p>
 </li>
 <li>
 <p>Once the calendar object is initialized in the <code>CalendarModel</code>, the <code>ModelManager</code> raises a <code>CalendarCreatedEvent</code>,
@@ -996,6 +1005,230 @@ to indicate that a calendar object has been initialized in the <code>CalendarMod
 <p>The <code>CalendarCreatedEvent</code> goes to the <code>EventsCenter</code>, and is then handled by
 <code>StorageManager#handleCalendarCreatedEvent(CalendarCreatedEvent event)</code>, which then calls <code>IcsCalendarStorage#createCalendar(Calendar calendar, String calendarName)</code>.
 This saves the calendar to a specified local directory.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect4">
+<h5 id="add-event-commands"><a class="link" href="#add-event-commands">Add Event Commands</a></h5>
+<div class="paragraph">
+<p>The <code>add_all_day_event</code> and <code>add_event</code> command have many similarities, they differ only by their parameters and the number of checks called to verify the validity of the event to be added. Events in Hallper are created as VEvent objects as implemented in the <a href="https://github.com/ical4j/ical4j">iCal4j</a> library.
+Both commands are facilitated by <code>CalendarModel</code> and <code>IcsCalendarStorage</code>. It implements the following operations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>CalendarModel#createAllDayEvent(Year year, Month month, int date, String title)</code>&#8201;&#8212;&#8201;Creates an all day event object and saves it inside the loaded calendar in <code>CalendarModel</code>.</p>
+</li>
+<li>
+<p><code>CalendarModel#createEvent(Year year, Month month, int startDate, int startHour, int startMin, int endDate, int endHour, int endMin, String title)</code>&#8201;&#8212;&#8201;Creates an event object with the specified time frame and saves it inside the loaded calendar in <code>CalendarModel</code>.</p>
+</li>
+<li>
+<p><code>CalendarModel#loadCalendar(Year year, Month month)</code>&#8201;&#8212;&#8201;Loads the monthly calendar specified into <code>CalendarModel</code>.</p>
+</li>
+<li>
+<p><code>CalendarModel#isExistingCalendar(Year year, Month month)</code>&#8201;&#8212;&#8201;Checks if the calendar already exists in Hallper.</p>
+</li>
+<li>
+<p><code>CalendarModel#isValidDate(Year year, Month month, int date)</code>&#8201;&#8212;&#8201;Checks if the date is a valid date in accordance to the Gregorian calendar.</p>
+</li>
+<li>
+<p><code>CalendarModel#isValidTime(int hour, int min)</code>&#8201;&#8212;&#8201;Checks if the hour and minutes are valid in accordance to the 24 hour format.</p>
+</li>
+<li>
+<p><code>CalendarModel#isValidTimeFrame(int startDate, int startHour, int startMin, int endDate, int endHour, int endMin)</code>&#8201;&#8212;&#8201;Checks that the end date and time doesn&#8217;t occur before the start date and time.</p>
+</li>
+<li>
+<p><code>IcsCalendarStorage#loadCalendar(String calendarName)</code>&#8201;&#8212;&#8201;Loads the specified calendar from the local directory into local memory.</p>
+</li>
+<li>
+<p><code>IcsCalendarStorage#createCalendar(Calendar calendar, String calendarName)</code>&#8201;&#8212;&#8201;Saves the calendar passed from <code>CalendarModel</code> to the local directory.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These operations are exposed in the <code>Model</code> and <code>Storage</code> interface as :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Model#createAllDayEvent(Year year, Month month, int date, String title)</code></p>
+</li>
+<li>
+<p><code>Model#createEvent(Year year, Month month, int startDate, int startHour, int startMin, int endDate, int endHour, int endMin, String title)</code></p>
+</li>
+<li>
+<p><code>Model#loadCalendar(Year year, Month month)</code></p>
+</li>
+<li>
+<p><code>Model#isExistingCalendar(Year year, Month month)</code></p>
+</li>
+<li>
+<p><code>Model#isValidDate(Year year, Month month, int date)</code></p>
+</li>
+<li>
+<p><code>Model#isValidTime(int hour, int min)</code></p>
+</li>
+<li>
+<p><code>Model#isValidTimeFrame(int startDate, int startHour, int startMin, int endDate, int endHour, int endMin)</code></p>
+</li>
+<li>
+<p><code>Storage#loadCalendar(String calendarName)</code></p>
+</li>
+<li>
+<p><code>Storage#createCalendar(Calendar calendar, String calendarName)</code></p>
+</li>
+</ul>
+</div>
+<div class="sect5">
+<h6 id="add_all_day_event-command"><a class="link" href="#add_all_day_event-command">Add_All_Day_Event Command</a></h6>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the <code>add_all_day_event</code> command behaves at each step:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The user executes the <code>add_all_day_event</code> command by specifying the month, year, date and title.
+The <code>add_all_day_event</code> command then calls <code>Model#isExistingCalendar(Year year, Month month)</code>, <code>Model#isValidDate(Year year, Month month, int date)</code>, to perform checks on whether the
+request to create event is valid. If it fails any one of the checks, the command does nothing and reflects to the user that the request to create event is not valid.
+Else, the command calls <code>Model#createAllDayEvent(Year year, Month month, int date, String title)</code>, which calls <code>CalendarModel#createAllDayEvent(Year year, Month month, int date, String title)</code>.</p>
+</li>
+<li>
+<p><code>CalendarModel</code> first calls <code>CalendarModel#loadCalendar(Year year, Month month)</code> to load the calendar into <code>CalendarModel</code>.</p>
+</li>
+<li>
+<p>Once the calendar object is loaded in the <code>CalendarModel</code>, it creates an event object and loads it with all the relevant information.</p>
+</li>
+<li>
+<p>The <code>ModelManager</code> then raises a <code>AllDayEventAddedEvent</code>, to indicate an all day event has been created in the <code>CalendarModel</code>.</p>
+</li>
+<li>
+<p>The <code>AllDayEventAddedEvent</code> goes to the <code>EventsCenter</code>, and is then handled by
+<code>StorageManager#handleAllDayEventAddedEvent(AllDayEventAddedEvent event)</code>, which then calls <code>IcsCalendarStorage#createCalendar(Calendar calendar, String calendarName)</code>.
+This saves the updated calendar back to the local directory.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect5">
+<h6 id="add_event-command"><a class="link" href="#add_event-command">Add_Event Command</a></h6>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the <code>add_event</code> command behaves at each step:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The user executes the <code>add_event</code> command by specifying the month, year, starting date, starting time, ending date, ending time and title.
+The <code>add_event</code> command then calls <code>Model#isExistingCalendar(Year year, Month month)</code>, <code>Model#isValidDate(Year year, Month month, int date)</code>,
+<code>Model#isValidTime(int hour, int min)</code> and <code>Model#isValidTimeFrame(int startDate, int startHour, int startMin, int endDate, int endHour, int endMin)</code> to perform checks on whether the
+request to create event is valid. If it fails any one of the checks, the command does nothing and reflects to the user that the request to create event is not valid.
+Else, the command calls <code>Model#createEvent(Year year, Month month, int startDate, int startHour, int startMin, int endDate, int endHour, int endMin, String title)</code>, which calls <code>CalendarModel#loadCalendar(Year year, Month month)</code>.</p>
+</li>
+<li>
+<p><code>CalendarModel</code> first calls <code>CalendarModel#loadCalendar(Year year, Month month)</code> to load the calendar into <code>CalendarModel</code>.</p>
+</li>
+<li>
+<p>Once the calendar object is loaded in the <code>CalendarModel</code>, it creates an event object and loads it with all the relevant information.</p>
+</li>
+<li>
+<p>The <code>ModelManager</code> then raises a <code>CalendarEventAddedEvent</code>, to indicate an event with a specified time frame has been created in the <code>CalendarModel</code>.</p>
+</li>
+<li>
+<p>The <code>CalendarEventAddedEvent</code> goes to the <code>EventsCenter</code>, and is then handled by <code>StorageManager#handleCalendarEventAddedEvent(CalendarEventAddedEvent event)</code>, which then calls <code>IcsCalendarStorage#createCalendar(Calendar calendar, String calendarName)</code>.
+This saves the updated calendar back to the local directory.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="delete_event-command"><a class="link" href="#delete_event-command">Delete_Event Command</a></h5>
+<div class="paragraph">
+<p>This command is facilitated by <code>CalendarModel</code> and <code>IcsCalendarStorage</code>.
+It implements the following operations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>CalendarModel#loadCalendar(Year year, Month month)</code>&#8201;&#8212;&#8201;Loads the monthly calendar specified into <code>CalendarModel</code>.</p>
+</li>
+<li>
+<p><code>CalendarModel#deleteEvent(Year year, Month month)</code>&#8201;&#8212;&#8201;Deletes an existing event in the monthly calendar.</p>
+</li>
+<li>
+<p><code>CalendarModel#retrieveEvent(int startDate, int endDate, String title)</code>&#8201;&#8212;&#8201;Retrieves the event object from the calendar.</p>
+</li>
+<li>
+<p><code>CalendarModel#isSameEvent(int startDate, int endDate, String title, VEvent event)</code>&#8201;&#8212;&#8201;Checks whether the requested event to be deleted is the same event object in the calendar.</p>
+</li>
+<li>
+<p><code>CalendarModel#isExistingCalendar(Year year, Month month)</code>&#8201;&#8212;&#8201;Checks if the calendar already exists in Hallper.</p>
+</li>
+<li>
+<p><code>CalendarModel#isValidDate(Year year, Month month, int date)</code>&#8201;&#8212;&#8201;Checks if the date is a valid date in accordance to the Gregorian calendar.</p>
+</li>
+<li>
+<p><code>CalendarModel#isExistingEvent(Year year, Month month, int startDate, int endDate, String title)</code>&#8201;&#8212;&#8201;Checks if an event exists in the monthly calendar.</p>
+</li>
+<li>
+<p><code>IcsCalendarStorage#loadCalendar(String calendarName)</code>&#8201;&#8212;&#8201;Loads the specified calendar from the local directory into local memory.</p>
+</li>
+<li>
+<p><code>IcsCalendarStorage#createCalendar(Calendar calendar, String calendarName)</code>&#8201;&#8212;&#8201;Saves the calendar passed from <code>CalendarModel</code> to the local directory.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These operations are exposed in the <code>Model</code> and <code>Storage</code> interface as :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Model#loadCalendar(Year year, Month month)</code></p>
+</li>
+<li>
+<p><code>Model#deleteEvent(Year year, Month month, int startDate, int endDate, String title)</code></p>
+</li>
+<li>
+<p><code>Model#isExistingCalendar(Year year, Month month)</code></p>
+</li>
+<li>
+<p><code>Model#isValidDate(Year year, Month month, int date)</code></p>
+</li>
+<li>
+<p><code>Model#isExistingEvent(Year year, Month month, int startDate, int endDate, String title)</code></p>
+</li>
+<li>
+<p><code>Storage#loadCalendar(String calendarName)</code></p>
+</li>
+<li>
+<p><code>Storage#createCalendar(Calendar calendar, String calendarName)</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the <code>delete_event</code> command behaves at each step:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The user executes the <code>delete_event</code> command by specifying the month, year, starting date, ending date, and title.
+The <code>delete_event</code> command then calls <code>Model#isExistingCalendar(Year year, Month month)</code>, <code>Model#isValidDate(Year year, Month month, int date)</code> and
+<code>Model#isExistingEvent(Year year, Month month, int startDate, int endDate, String title)</code> to perform checks on whether the request to delete event is valid.
+If it fails any one of the checks, the command does nothing and reflects to the user that the request to delete event is not valid. Else, the <code>Model#isExistingEvent</code> check will retrieve the event and load it inside the <code>CalendarModel</code>. It then calls <code>Model#deleteEvent(Year year, Month month, int startDate, int endDate, String title)</code>.</p>
+</li>
+<li>
+<p>The <code>Model#isExistingEvent</code> check first calls <code>CalendarModel#loadCalendar(Year year, Month month)</code> to load the calendar into <code>CalendarModel</code>. Once the calendar object is loaded in the <code>CalendarModel</code>, it then calls <code>CalendarModel#retrieveEvent(int startDate, int endDate, String title)</code> to retrieve the event and store it inside the <code>CalendarModel</code> as event to be deleted.</p>
+</li>
+<li>
+<p>The call to <code>Model#deleteEvent(Year year, Month month, int startDate, int endDate, String title)</code> calls <code>CalendarModel#deleteEvent(Year year, Month month)</code> which removes the event to be deleted in <code>CalendarModel</code> from the monthly calendar.</p>
+</li>
+<li>
+<p>The <code>ModelManager</code> then raises a <code>CalendarEventDeletedEvent</code>, to indicate an event has been deleted in the <code>CalendarModel</code>.</p>
+</li>
+<li>
+<p>The <code>CalendarEventDeletedEvent</code> goes to the <code>EventsCenter</code>, and is then handled by <code>StorageManager#handleCalendarEventDeletedEvent(CalendarEventDeletedEvent event)</code>, which then calls <code>IcsCalendarStorage#createCalendar(Calendar calendar, String calendarName)</code>.
+This saves the updated calendar back to the local directory.</p>
 </li>
 </ol>
 </div>
@@ -1060,11 +1293,11 @@ directory. It implements the following command:</p>
 <p>The user create a new CCA by including the <code>CCA name</code> and the 'budget` allocated to the CCA.</p>
 </li>
 <li>
-<p><code>create</code> command will check for existing CCA name using <code>BudgetBook#hasCca(Cca toAdd)</code>. If a CCA with the same
-name exists, the CCA will not be created. Otherwise, it will be added into the <code>BudgetBook</code> in the <code>Model</code>.</p>
+<p><code>create</code> command checks for existing CCA name using <code>BudgetBook#hasCca(Cca toAdd)</code>. If a CCA with the same
+name exists, the CCA is not created. Otherwise, it is added into the <code>BudgetBook</code> in the <code>Model</code>.</p>
 </li>
 <li>
-<p><code>BudgetBook#addCca(Cca cca)</code> will invoke <code>ModelManger#indicateBudgetBookChange()</code> to raise a
+<p><code>BudgetBook#addCca(Cca cca)</code> then invokes <code>ModelManger#indicateBudgetBookChange()</code> to raise a
 <code>BudgetBookChangedEvent</code>, which is handled by <code>EventsCenter</code>.</p>
 </li>
 <li>
@@ -3501,4 +3734,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-18 13:08:29 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-20 06:38:06 UTC</div></div></div></body></html>
