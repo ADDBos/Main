@@ -185,4 +185,30 @@ public class StorageManager extends ComponentManager implements Storage {
         return calendarStorage.loadCalendar(calendarName);
     }
 
+    /*
+    @Override
+    @Subscribe
+    public void handleCalendarCreatedEvent(CalendarCreatedEvent event) {
+
+    }
+
+    @Override
+    @Subscribe
+    public void handleAllDayEventAddedEvent(AllDayEventAddedEvent event) {
+
+    }
+
+    @Override
+    @Subscribe
+    public void handleCalendarEventAddedEvent(CalendarEventAddedEvent event) {
+
+    }
+
+    @Override
+    @Subscribe
+    public void handleCalendarEventDeletedEvent(CalendarEventDeletedEvent event) {{
+
+    }
+     */
+
 }
