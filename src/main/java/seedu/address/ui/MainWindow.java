@@ -41,7 +41,6 @@ public class MainWindow extends UiPart<Stage> {
     private UserPrefs prefs;
     private HelpWindow helpWindow;
     private BudgetWindow budgetWindow;
-    private ProfileWindow profileWindow;
 
     @FXML
     private StackPane browserPlaceholder;
@@ -82,8 +81,6 @@ public class MainWindow extends UiPart<Stage> {
 
         helpWindow = new HelpWindow();
         budgetWindow = new BudgetWindow(logic, prefs);
-        profileWindow = new ProfileWindow();
-
     }
 
     public Stage getPrimaryStage() {
