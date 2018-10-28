@@ -15,6 +15,8 @@ import seedu.address.model.tag.Tag;
  */
 public class Person {
 
+    private final String DEFAULT_PROFILE_PICTURE =
+            "C:\\Users\\javen\\Desktop\\My Workspace\\Y2S1\\CS2103T\\Addbos AB4\\docs\\imagesSeEduLogo.png";
     // Identity fields
     private final Name name;
     private final Phone phone;
@@ -36,7 +38,7 @@ public class Person {
         this.email = email;
         this.room = room;
         this.school = school;
-        this.profilePicture = new ProfilePicture("-.jpg");
+        this.profilePicture = null;
         this.tags.addAll(tags);
     }
 
@@ -61,7 +63,7 @@ public class Person {
         this.email = null;
         this.room = null;
         this.school = null;
-        this.profilePicture = new ProfilePicture("-.jpg");
+        this.profilePicture = null;
     }
 
     public Name getName() {

@@ -24,7 +24,6 @@ public class EventsCenter {
         }
         return instance;
     }
-
     public static void clearSubscribers() {
         instance = null;
     }

@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Class-Path: emailaddress-rfc2822-1.0.1.jar jaxb-impl-2.3.0.jar junit-j
+ upiter-api-5.1.0.jar jackson-databind-2.7.4.jar testfx-core-4.0.12-al
+ pha.jar activation-1.1.1.jar apiguardian-api-1.0.0.jar slf4j-api-1.7.
+ 25.jar jaxb-core-2.3.0.jar assertj-core-3.9.1.jar jackson-core-2.7.4.
+ jar simple-java-mail-5.0.4.jar junit-4.12.jar junit-platform-engine-1
+ .1.0.jar opentest4j-1.0.0.jar hamcrest-core-1.3.jar javax.mail-1.6.0.
+ jar ical4j-3.0.1.jar junit-platform-commons-1.1.0.jar jackson-annotat
+ ions-2.7.0.jar jaxb-api-2.2.8.jar jsr305-3.0.1.jar testfx-internal-ja
+ va9-4.0.12-alpha.jar jackson-datatype-jsr310-2.7.4.jar controlsfx-8.4
+ 0.11.jar junit-jupiter-engine-5.1.0.jar testfx-junit-4.0.12-alpha.jar
+  openjfx-monocle-jdk-9+181.jar testfx-internal-java8-4.0.12-alpha.jar
+  guava-19.0.jar junit-vintage-engine-5.1.0.jar commons-collections4-4
+ .1.jar commons-codec-1.10.jar commons-lang3-3.6.jar
+Main-Class: 
+

@@ -1,9 +1,13 @@
 package seedu.address.model.person;
 
+import seedu.address.logic.commands.exceptions.CommandException;
+
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
-import java.awt.image.BufferedImage;
+import java.io.File;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 /**
  * Represents a Person's profile picture file path in the address book.
@@ -12,41 +16,41 @@ import java.awt.image.BufferedImage;
 public class ProfilePicture {
 
     public static final String MESSAGE_PROFILE_PICTURE_CONSTRAINTS =
-            "Profile picture should be either a .jpeg or .png file, and not empty";
+            "Profile picture should be either a .jpg or .png file, and not empty";
 
+    public static final String PROFILE_PICTURE_PATH = "/profile_picture/";
     /*
      * The first character of the file path must not be a whitespace,
      * otherwise " " (a blank string) becomes a valid input.
      */
-    public static final String PROFILE_PICTURE_VALIDATION_REGEX = "([^\\s]+(\\.(?i)(jpg|png))$)";
-    public final String filePath;
-    private BufferedImage picture;
+    public static final String PROFILE_PICTURE_VALIDATION_REGEX = "([a-zA-Z]:)?(\\\\[a-zA-Z0-9_-]+)+\\\\?";
+    public final Path filePath;
 
     /**
      * Constructs a {@code ProfilePicture}.
      *
      * @param path a valid file path.
      */
-    public ProfilePicture(String path) {
+    public ProfilePicture(Path path) {
         requireNonNull(path);
-        checkArgument(isValidProfilePicture(path), MESSAGE_PROFILE_PICTURE_CONSTRAINTS);
-        filePath = path;
+        //checkArgument(isValidProfilePicture(path), MESSAGE_PROFILE_PICTURE_CONSTRAINTS);
+        filePath = Paths.get(path.toString());
     }
 
-    public BufferedImage getPicture() {
-        return picture;
+    public Path getPicture() {
+        return filePath;
     }
 
     /**
-     * Returns true if a given string ends with .jpeg or .png.
+     * Returns true if a given string ends with .jpg or .png.
      */
-    public static boolean isValidProfilePicture(String test) {
-        return test.matches(PROFILE_PICTURE_VALIDATION_REGEX);
+    public static boolean isValidProfilePicture(File test) {
+        return test.getAbsolutePath().matches(PROFILE_PICTURE_VALIDATION_REGEX);
     }
 
     @Override
     public String toString() {
-        return filePath;
+        return filePath.toString();
     }
 
     @Override

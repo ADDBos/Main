@@ -9,6 +9,7 @@ import java.util.Set;
 
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.StringUtil;
+import seedu.address.logic.commands.ImageCommand;
 import seedu.address.logic.commands.ImportCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.budget.Transaction;
@@ -186,6 +187,20 @@ public class ParserUtil {
         String trimmedFile = file.trim();
         if (!trimmedFile.contains(".xml")) {
             throw new ParseException(ImportCommand.MESSAGE_USAGE);
+        }
+        return new File(trimmedFile);
+    }
+
+    //@@author javenseow
+    /**
+     * Parses a {@code String file} into a {@code File}.
+     * Leading and trailing whitespaces will be trimmed.
+     */
+    public static File parseImage(String file) throws ParseException {
+        requireNonNull(file);
+        String trimmedFile = file.trim();
+        if (!trimmedFile.contains(".jpg") && !trimmedFile.contains(".png")) {
+            throw new ParseException(ImageCommand.MESSAGE_USAGE);
         }
         return new File(trimmedFile);
     }

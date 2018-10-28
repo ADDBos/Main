@@ -22,6 +22,7 @@ public class UserPrefs {
     private Path ccaXslFilePath = Paths.get("data", "ccabook.xsl");
     private Path emailPath = Paths.get("email");
     private Path calendarPath = Paths.get("calendar");
+    private Path profilePicturePath = Paths.get("profile_picture/");
     private Map<Year, Set<Month>> existingCalendar;
 
     public UserPrefs() {
@@ -86,6 +87,11 @@ public class UserPrefs {
 
     public void setExistingCalendar(Map<Year, Set<Month>> existingCalendar) {
         this.existingCalendar = existingCalendar;
+    }
+
+    //@@author javenseow
+    public Path getProfilePicturePath() {
+        return profilePicturePath;
     }
 
     //@@author

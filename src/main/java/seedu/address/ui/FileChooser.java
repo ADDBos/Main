@@ -7,7 +7,7 @@ import javax.swing.JFileChooser;
 /**
  * The file chooser dialogue box of the app.
  */
-//@@author
+//@@author javenseow
 public class FileChooser {
 
     private static String outcome;
