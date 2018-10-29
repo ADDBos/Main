@@ -18,7 +18,7 @@ public class ProfilePicture {
     public static final String MESSAGE_PROFILE_PICTURE_CONSTRAINTS =
             "Profile picture should be either a .jpg or .png file, and not empty";
 
-    public static final String PROFILE_PICTURE_PATH = "/profile_picture/";
+    public static final String PROFILE_PICTURE_PATH = "src/main/java/seedu.address/commons/docs/profile_picture/";
     /*
      * The first character of the file path must not be a whitespace,
      * otherwise " " (a blank string) becomes a valid input.
