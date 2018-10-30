@@ -17,13 +17,15 @@
 <li><a href="#updating-hallper">4.1. Updating Hallper</a>
 <ul class="sectlevel3">
 <li><a href="#adding-a-person-code-add-code">4.1.1. Adding a person: <code>add</code></a></li>
-<li><a href="#editing-a-person-code-edit-code">4.1.2. Editing a person : <code>edit</code></a></li>
-<li><a href="#deleting-a-person-code-delete-code">4.1.3. Deleting a person : <code>delete</code></a></li>
+<li><a href="#adding-a-picture-to-resident-detail-code-image-code">4.1.2. Adding a picture to resident detail : <code>image</code></a></li>
+<li><a href="#clearing-all-entries-code-clear-all-code">4.1.3. Clearing all entries : <code>clear all</code></a></li>
 <li><a href="#clearing-all-specified-tags-code-erase-code">4.1.4. Clearing all specified tags : <code>erase</code></a></li>
 <li><a href="#clearing-specific-entries-code-clear-code">4.1.5. Clearing specific entries : <code>clear</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-all-code">4.1.6. Clearing all entries : <code>clear all</code></a></li>
-<li><a href="#uploading-contact-information-code-import-code">4.1.7. Uploading contact information : <code>import</code></a></li>
-<li><a href="#adds-a-picture-to-resident-detail-code-image-code">4.1.8. Adds a picture to resident detail : <code>image</code></a></li>
+<li><a href="#editing-a-person-code-edit-code">4.1.6. Editing a person : <code>edit</code></a></li>
+<li><a href="#exporting-contact-information-code-export-code">4.1.7. Exporting contact information: <code>export</code></a></li>
+<li><a href="#deleting-a-person-code-delete-code">4.1.8. Deleting a person : <code>delete</code></a></li>
+<li><a href="#deleting-a-transaction-entry-code-delete_trans-code">4.1.9. Deleting a transaction entry : <code>delete_trans</code></a></li>
+<li><a href="#importing-contact-information-code-import-code">4.1.10. Importing contact information : <code>import</code></a></li>
 </ul>
 </li>
 <li><a href="#viewing-hallper">4.2. Viewing Hallper</a>
@@ -35,24 +37,29 @@
 </li>
 <li><a href="#email">4.3. Email</a>
 <ul class="sectlevel3">
-<li><a href="#composing-an-email-code-compose-code">4.3.1. Composing an email: <code>compose</code></a></li>
+<li><a href="#composing-an-email-to-selected-indexes-code-compose_email_index-code">4.3.1. Composing an email to selected indexes: <code>compose_email_index</code></a></li>
+<li><a href="#composing-an-email-to-currently-listed-people-code-compose_email_list-code">4.3.2. Composing an email to currently listed people: <code>compose_email_list</code></a></li>
+<li><a href="#deleting-an-email-code-delete_email-code">4.3.3. Deleting an email : <code>delete_email</code></a></li>
+<li><a href="#listing-all-emails-code-list_emails-code">4.3.4. Listing all emails : <code>list_emails</code></a></li>
+<li><a href="#viewing-an-email-code-view_email-code">4.3.5. Viewing an email : <code>view_email</code></a></li>
 </ul>
 </li>
 <li><a href="#calendar">4.4. Calendar</a>
 <ul class="sectlevel3">
-<li><a href="#creating-calendar-code-create_calendar-code">4.4.1. Creating calendar : <code>create_calendar</code></a></li>
-<li><a href="#viewing-calendar-code-view_calendar-code">4.4.2. Viewing calendar : <code>view_calendar</code></a></li>
-<li><a href="#adding-event-into-calendar-code-add_event-code">4.4.3. Adding event into calendar : <code>add_event</code></a></li>
+<li><a href="#adding-all-day-event-into-calendar-code-add_all_day_event-code">4.4.1. Adding all day event into calendar : <code>add_all_day_event</code></a></li>
+<li><a href="#adding-event-into-calendar-code-add_event-code">4.4.2. Adding event into calendar : <code>add_event</code></a></li>
+<li><a href="#creating-calendar-code-create_calendar-code">4.4.3. Creating calendar : <code>create_calendar</code></a></li>
+<li><a href="#delete-event-from-calendar-code-delete_event-code">4.4.4. Delete event from calendar : <code>delete_event</code></a></li>
+<li><a href="#viewing-calendar-code-view_calendar-code">4.4.5. Viewing calendar : <code>view_calendar</code></a></li>
 </ul>
 </li>
 <li><a href="#budget-and-cca">4.5. Budget and CCA</a>
 <ul class="sectlevel3">
-<li><a href="#viewing-the-budget-for-all-ccas-code-budget-code">4.5.1. Viewing the budget for all CCAs : <code>budget</code></a></li>
-<li><a href="#viewing-cca-budget-code-view_cca-code">4.5.2. Viewing CCA budget : <code>view_cca</code></a></li>
-<li><a href="#creating-a-cca-s-budget-code-create-code">4.5.3. Creating a CCA&#8217;s budget : <code>create</code></a></li>
-<li><a href="#deleting-a-cca-s-budget-code-delete_cca-code">4.5.4. Deleting a CCA&#8217;s budget : <code>delete_cca</code></a></li>
-<li><a href="#modifying-a-cca-s-budget-code-modify_cca-code">4.5.5. Modifying a CCA&#8217;s budget : <code>modify_cca</code></a></li>
-<li><a href="#adding-a-transaction-to-the-budget-code-add_transaction-code">4.5.6. Adding a transaction to the budget : <code>add_transaction</code></a></li>
+<li><a href="#adding-a-cca-code-create-code">4.5.1. Adding a cca: <code>create</code></a></li>
+<li><a href="#adding-a-transaction-code-add_trans-code">4.5.2. Adding a transaction: <code>add_trans</code></a></li>
+<li><a href="#deleting-a-cca-code-delete_cca-code">4.5.3. Deleting a cca : <code>delete_cca</code></a></li>
+<li><a href="#updating-a-cca-code-update-code">4.5.4. Updating a cca : <code>update</code></a></li>
+<li><a href="#viewing-all-the-ccas-budget-code-budget-code">4.5.5. Viewing all the ccas' budget : <code>budget</code></a></li>
 </ul>
 </li>
 <li><a href="#miscellaneous">4.6. Miscellaneous</a>
@@ -202,7 +209,146 @@ A person can have any number of CCAs (including 0)
 </div>
 </div>
 <div class="sect3">
-<h4 id="editing-a-person-code-edit-code"><a class="link" href="#editing-a-person-code-edit-code">4.1.2. Editing a person : <code>edit</code></a></h4>
+<h4 id="adding-a-picture-to-resident-detail-code-image-code"><a class="link" href="#adding-a-picture-to-resident-detail-code-image-code">4.1.2. Adding a picture to resident detail : <code>image</code></a></h4>
+<div class="paragraph">
+<p>Uploads the image of resident staying in the specified room to Hallper.<br>
+Format: <code>image r/ROOM f/FILEPATH</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The image must be in <strong><code>.jpg</code></strong> or <strong><code>.png</code></strong>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>image r/a123 f/C://Users/Files/a123.jpg</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="clearing-all-entries-code-clear-all-code"><a class="link" href="#clearing-all-entries-code-clear-all-code">4.1.3. Clearing all entries : <code>clear all</code></a></h4>
+<div class="paragraph">
+<p>Clears all entries from Hallper.<br>
+Format: <code>clear all</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>'all' is case-sensitive.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>clear all</code><br>
+Clears <code>all</code> entries in Hallper.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="clearing-all-specified-tags-code-erase-code"><a class="link" href="#clearing-all-specified-tags-code-erase-code">4.1.4. Clearing all specified tags : <code>erase</code></a></h4>
+<div class="paragraph">
+<p>Clears all specified tags from all persons from Hallper.<br>
+Format: <code>erase CCA&#8230;&#8203;</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Erases the CCA specified for all associated persons.</p>
+</li>
+<li>
+<p>The CCA specified must be an existing CCA.</p>
+</li>
+<li>
+<p>Multiple CCAs can be specified at once.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>erase basketball</code><br>
+Erases <code>basketball</code> from persons associated with this CCA.<br></p>
+</li>
+<li>
+<p><code>erase basketball netball</code><br>
+Erases <code>basketball</code> and <code>netball</code> from persons associated with these CCAs.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="clearing-specific-entries-code-clear-code"><a class="link" href="#clearing-specific-entries-code-clear-code">4.1.5. Clearing specific entries : <code>clear</code></a></h4>
+<div class="paragraph">
+<p>Clears specified entries from Hallper.<br>
+Format: <code>clear KEYWORD&#8230;&#8203;</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Clears persons associated with KEYWORD.</p>
+</li>
+<li>
+<p>KEYWORD refers to either a CCA or ROOM.</p>
+</li>
+<li>
+<p>Multiple KEYWORDS can be specified at once in any order.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>clear basketball</code><br>
+Clears all persons associated with CCA <code>basketball</code>.</p>
+</li>
+<li>
+<p><code>clear A123</code><br>
+Clears all persons associated with room <code>A123</code>.</p>
+</li>
+<li>
+<p><code>clear baseball C456</code><br>
+Clears all persons associated with CCA <code>baseball</code> and room <code>C456</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="editing-a-person-code-edit-code"><a class="link" href="#editing-a-person-code-edit-code">4.1.6. Editing a person : <code>edit</code></a></h4>
 <div class="paragraph">
 <p>Edits an existing person in Hallper.<br>
 Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/CCA]&#8230;&#8203;</code></p>
@@ -247,7 +393,36 @@ Edits the name of the 2nd person to be <code>Betsy Crower</code> and clears all 
 </div>
 </div>
 <div class="sect3">
-<h4 id="deleting-a-person-code-delete-code"><a class="link" href="#deleting-a-person-code-delete-code">4.1.3. Deleting a person : <code>delete</code></a></h4>
+<h4 id="exporting-contact-information-code-export-code"><a class="link" href="#exporting-contact-information-code-export-code">4.1.7. Exporting contact information: <code>export</code></a></h4>
+<div class="paragraph">
+<p>Exports file containing existing contact information in Hallper.<br>
+Formate: <code>export dst/PATH fn/FILENAME</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The file exported will be a <strong><code>.xml</code></strong> file.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>export dst/C://Users/Files fn/data.xml</code><br>
+Exports Hallper contacts data into <code>data.xml</code> located at <code>C://Users/Files</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="deleting-a-person-code-delete-code"><a class="link" href="#deleting-a-person-code-delete-code">4.1.8. Deleting a person : <code>delete</code></a></h4>
 <div class="paragraph">
 <p>Deletes the specified person from Hallper.<br>
 Format: <code>delete INDEX</code></p>
@@ -288,114 +463,62 @@ Deletes the 1st person in the results of the <code>find</code> command.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="clearing-all-specified-tags-code-erase-code"><a class="link" href="#clearing-all-specified-tags-code-erase-code">4.1.4. Clearing all specified tags : <code>erase</code></a></h4>
+<h4 id="deleting-a-transaction-entry-code-delete_trans-code"><a class="link" href="#deleting-a-transaction-entry-code-delete_trans-code">4.1.9. Deleting a transaction entry : <code>delete_trans</code></a></h4>
 <div class="paragraph">
-<p>Clears all spcified tags from all contacts from Hallper.<br>
-Format: <code>erase CCA</code></p>
+<p>Deletes the specified transaction entry from the specified CCA from Hallper.<br>
+Format: <code>delete_trans c/NAME_OF_CCA trans/ENTRY_NUMBER</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Erases the CCA specified for all associated contacts.</p>
+<p>Deletes the specific transaction entry from the CCA with the specified name.</p>
 </li>
 <li>
-<p>The CCA specified must be an existing CCA.</p>
-</li>
-<li>
-<p>Multiple CCAs can be specified at once.</p>
+<p>The transaction entry number must be a <strong>positive interger</strong> (e.g. 1,2,3,4&#8230;&#8203;).</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The CCA specifed must exist in the Hallper.</p>
+</li>
+<li>
+<p>The transaction entry number must exist for the specified CCA.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
-<p>Example:</p>
+<p>Examples:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>erase basketball</code><br>
-Erases <code>basketball</code> from contacts associated with this CCA.<br></p>
+<p><code>delete_cca c/netball trans/1</code></p>
 </li>
 <li>
-<p><code>erase basketball netball</code><br>
-Erases <code>basketball</code> and <code>netball</code> from contacts associated with these CCAs.</p>
+<p><code>delete_cca c/Basketball F trans/3</code></p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="clearing-specific-entries-code-clear-code"><a class="link" href="#clearing-specific-entries-code-clear-code">4.1.5. Clearing specific entries : <code>clear</code></a></h4>
-<div class="paragraph">
-<p>Clears specified entries from Hallper.<br>
-Format: <code>clear KEYWORD</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Clears contacts associated with KEYWORD.</p>
-</li>
-<li>
-<p>KEYWORD refers to either a CCA or ROOM.</p>
-</li>
-<li>
-<p>KEYWORD is case-sensitive.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>clear basketball</code><br>
-Clears all entries associated with CCA <code>basketball</code>.</p>
-</li>
-<li>
-<p><code>clear A123</code><br>
-Clears all entries associated with room <code>A123</code>.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="clearing-all-entries-code-clear-all-code"><a class="link" href="#clearing-all-entries-code-clear-all-code">4.1.6. Clearing all entries : <code>clear all</code></a></h4>
-<div class="paragraph">
-<p>Clears all entries from Hallper.<br>
-Format: <code>clear all</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>'all' is case-sensitive.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>clear all</code><br>
-Clears <code>all</code> entries in Hallper.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="uploading-contact-information-code-import-code"><a class="link" href="#uploading-contact-information-code-import-code">4.1.7. Uploading contact information : <code>import</code></a></h4>
+<h4 id="importing-contact-information-code-import-code"><a class="link" href="#importing-contact-information-code-import-code">4.1.10. Importing contact information : <code>import</code></a></h4>
 <div class="paragraph">
 <p>Imports file containing contact information and updates Hallper accordingly.<br>
 Format: <code>import f/FILEPATH</code></p>
@@ -405,7 +528,10 @@ Format: <code>import f/FILEPATH</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>Allow for the mass upload of contact information.</p>
+<p>Allows for the mass upload of contact information.</p>
+</li>
+<li>
+<p>Allows for the mass upload of CCA lists.</p>
 </li>
 <li>
 <p>The file to be uploaded must be a <strong><code>.xml</code></strong> file.</p>
@@ -413,6 +539,25 @@ Format: <code>import f/FILEPATH</code></p>
 </ul>
 </div>
 </div>
+</div>
+<div class="paragraph">
+<p>File formats for imported <code>.xml</code> files are as shown below.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AddressBookExample.png" alt="AddressBookExample" width="790">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.1.7.1: Contacts information <code>.xml</code> file format.</em></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/CCAListExample.png" alt="CCAListExample" width="790">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.1.7.2: CCA list <code>.xml</code> file format.</em></p>
 </div>
 <div class="paragraph">
 <p>Example:</p>
@@ -424,27 +569,6 @@ Format: <code>import f/FILEPATH</code></p>
 Imports <code>data.xml</code> file to be read and for database to be updated accordingly.</p>
 </li>
 </ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="adds-a-picture-to-resident-detail-code-image-code"><a class="link" href="#adds-a-picture-to-resident-detail-code-image-code">4.1.8. Adds a picture to resident detail : <code>image</code></a></h4>
-<div class="paragraph">
-<p>Uploads the image of resident staying in the specified room to Hallper.<br>
-Format: <code>image ROOM</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Allow for the upload of the profile picture of resident.</p>
-</li>
-<li>
-<p>The image must be in <strong><code>.jpg</code></strong> or <strong><code>.png</code></strong>.</p>
-</li>
-</ul>
-</div>
-</div>
 </div>
 </div>
 </div>
@@ -464,7 +588,7 @@ Format: <code>search KEYWORD [MORE_KEYWORDS]</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>KEYWORD can be ROOM or CCA.</p>
+<p>KEYWORD can be ROOM, CCA or SCHOOL.</p>
 </li>
 <li>
 <p>KEYWORD is not case-sensitive.</p>
@@ -552,20 +676,26 @@ Format: <code>list</code></p>
 <p>This section lists features related to email in Hallper.</p>
 </div>
 <div class="sect3">
-<h4 id="composing-an-email-code-compose-code"><a class="link" href="#composing-an-email-code-compose-code">4.3.1. Composing an email: <code>compose</code></a></h4>
+<h4 id="composing-an-email-to-selected-indexes-code-compose_email_index-code"><a class="link" href="#composing-an-email-to-selected-indexes-code-compose_email_index-code">4.3.1. Composing an email to selected indexes: <code>compose_email_index</code></a></h4>
 <div class="paragraph">
-<p>Composes a <strong><code>.eml</code></strong> file that can be used to send emails to residents.<br>
-Format: <code>compose from/FROM to/TO subject/SUBJECT content/CONTENT</code></p>
+<p>Composes a <strong><code>.eml</code></strong> file that can be used to send emails to residents specified by index.<br>
+Format: <code>compose_email_index from/FROM to/INDEXES subject/SUBJECT content/CONTENT</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>FROM and TO must be valid email addresses e.g. <a href="mailto:johndoe@example.com">johndoe@example.com</a></p>
+<p>FROM must be a valid email address e.g. <a href="mailto:johndoe@example.com">johndoe@example.com</a></p>
 </li>
 <li>
-<p>SUBJECT has a word limit of 10 words.</p>
+<p>INDEXES refer to the index numbers shown in the displayed person list.</p>
+</li>
+<li>
+<p>INDEXES <strong>must be positive integers</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+<li>
+<p>SUBJECT has no word limit.</p>
 </li>
 <li>
 <p>CONTENT has no word limit.</p>
@@ -580,11 +710,120 @@ Format: <code>compose from/FROM to/TO subject/SUBJECT content/CONTENT</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>compose from/johndoe@example.com to/samsee@example.com subject/Meeting this Friday
+<p><code>compose_email_index from/johndoe@example.com to/1 6 10 subject/Meeting this Friday
 content/Hey there&#8217;s a meeting this friday.</code><br>
-Composes an email from <code>johndoe@example.com</code> to <code>samsee@example.com</code> with subject
+Composes an email from <code>johndoe@example.com</code> to people at indexes 1, 6 and 10 with subject
 <code>Meeting this Friday</code> and email body <code>Hey there&#8217;s a meeting this friday.</code> and saves
 it as a <strong><code>.eml</code></strong> file.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="composing-an-email-to-currently-listed-people-code-compose_email_list-code"><a class="link" href="#composing-an-email-to-currently-listed-people-code-compose_email_list-code">4.3.2. Composing an email to currently listed people: <code>compose_email_list</code></a></h4>
+<div class="paragraph">
+<p>Composes a <strong><code>.eml</code></strong> file that can be used to send emails to currently listed residents.<br>
+Format: <code>compose_email_list from/FROM subject/SUBJECT content/CONTENT</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>FROM must be a valid email address e.g. <a href="mailto:johndoe@example.com">johndoe@example.com</a></p>
+</li>
+<li>
+<p>SUBJECT has no word limit.</p>
+</li>
+<li>
+<p>CONTENT has no word limit.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>compose_email_list from/johndoe@example.com subject/Meeting this Friday
+content/Hey there&#8217;s a meeting this friday.</code><br>
+Composes an email from <code>johndoe@example.com</code> to currently listed people with subject
+<code>Meeting this Friday</code> and email body <code>Hey there&#8217;s a meeting this friday.</code> and saves
+it as a <strong><code>.eml</code></strong> file.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="deleting-an-email-code-delete_email-code"><a class="link" href="#deleting-an-email-code-delete_email-code">4.3.3. Deleting an email : <code>delete_email</code></a></h4>
+<div class="paragraph">
+<p>Deletes an email.<br>
+Format: <code>delete_email SUBJECT</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>SUBJECT is the subject of an existing email.</p>
+</li>
+<li>
+<p>SUBJECT is case-sensitive.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>delete_email Meeting on Friday</code><br>
+Deletes the email with the subject <code>Meeting on Friday</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="listing-all-emails-code-list_emails-code"><a class="link" href="#listing-all-emails-code-list_emails-code">4.3.4. Listing all emails : <code>list_emails</code></a></h4>
+<div class="paragraph">
+<p>Displays a list of all emails in Hallper.<br>
+Format: <code>list_emails</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="viewing-an-email-code-view_email-code"><a class="link" href="#viewing-an-email-code-view_email-code">4.3.5. Viewing an email : <code>view_email</code></a></h4>
+<div class="paragraph">
+<p>Displays an email.<br>
+Format: <code>view_email SUBJECT</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>SUBJECT is the subject of an existing email.</p>
+</li>
+<li>
+<p>SUBJECT is case-sensitive.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>view_email Meeting on Friday</code><br>
+Displays the email with the subject <code>Meeting on Friday</code>.</p>
 </li>
 </ul>
 </div>
@@ -596,20 +835,136 @@ it as a <strong><code>.eml</code></strong> file.</p>
 <p>This section lists features related to managing the calendar in Hallper.</p>
 </div>
 <div class="sect3">
-<h4 id="creating-calendar-code-create_calendar-code"><a class="link" href="#creating-calendar-code-create_calendar-code">4.4.1. Creating calendar : <code>create_calendar</code></a></h4>
+<h4 id="adding-all-day-event-into-calendar-code-add_all_day_event-code"><a class="link" href="#adding-all-day-event-into-calendar-code-add_all_day_event-code">4.4.1. Adding all day event into calendar : <code>add_all_day_event</code></a></h4>
 <div class="paragraph">
-<p>Creates a calendar file in Hallper for updating of events.<br>
-Format: <code>create_calendar month/MONTH year/YEAR</code></p>
+<p>Adds an all day event into the calendar.<br>
+Format: <code>add_all_day_event month/MMM year/YYYY date/DD title/NAME OF EVENT</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Creates a calendar as a <strong><code>.ics</code></strong> file.</p>
+<p>The MONTH <strong>must be specified as MMM</strong>.</p>
+</li>
+<li>
+<p>The MONTH <strong>is not case-sensitive</strong>.</p>
+</li>
+<li>
+<p>The YEAR <strong>must be specified as YYYY</strong>.</p>
+</li>
+<li>
+<p>The DATE <strong>must be specified as DD</strong>.</p>
+</li>
+<li>
+<p>The TITLE <strong>is case-sensitive</strong>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="paragraph">
+<p>Before executing command</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/add_all_day_event_diagram_before.png" alt="add all day event diagram before" width="790">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add_all_day_event month/Oct year/2018 date/08 title/Hall open day</code><br>
+Adds an all day event titled <code>Hall open day</code> into the <code>OCT-2018.ics</code> calendar which happens on the <code>8th</code> of <code>Oct</code>.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/add_all_day_event_diagram_after.png" alt="add all day event diagram after" width="790">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="adding-event-into-calendar-code-add_event-code"><a class="link" href="#adding-event-into-calendar-code-add_event-code">4.4.2. Adding event into calendar : <code>add_event</code></a></h4>
+<div class="paragraph">
+<p>Adds an event with a specific time frame into the calendar.<br>
+Format: <code>add_event month/MMM year/YYYY sdate/DD shour/HH smin/mm
+edate/DD ehour/HH emin/mm title/NAME OF EVENT</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The MONTH <strong>must be specified as MMM</strong>.</p>
+</li>
+<li>
+<p>The MONTH <strong>is not case-sensitive</strong>.</p>
+</li>
+<li>
+<p>The YEAR <strong>must be specified as YYYY</strong>.</p>
+</li>
+<li>
+<p>The DATE <strong>must be specified as DD</strong>.</p>
+</li>
+<li>
+<p>DATE, HOUR, MINUTE <strong>must be specified as XX</strong>.</p>
+</li>
+<li>
+<p>The TITLE <strong>is case-sensitive</strong>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="paragraph">
+<p>Before executing command</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/add_event_diagram_before.png" alt="add event diagram before" width="790">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add_event month/Oct year/2018 sdate/10 shour/15 smin/30 edate/10 ehour/18 emin/00 title/Block Committee Audit</code><br>
+Adds an event titled <code>Block Committee Audit</code> into the <code>OCT-2018.ics</code> calendar which starts on the <code>10th</code> at <code>1530</code> and ends on
+the <code>10th</code> at <code>1800</code>.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/add_event_diagram_after.png" alt="add event diagram after" width="790">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="creating-calendar-code-create_calendar-code"><a class="link" href="#creating-calendar-code-create_calendar-code">4.4.3. Creating calendar : <code>create_calendar</code></a></h4>
+<div class="paragraph">
+<p>Creates a calendar file in Hallper for updating of events.<br>
+Format: <code>create_calendar month/MMM year/YYYY</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Creates a monthly calendar as a <strong><code>.ics</code></strong> file.</p>
 </li>
 <li>
 <p>The MONTH <strong>must be specified as MMM</strong>.</p>
+</li>
+<li>
+<p>MONTH <strong>is not case-sensitive</strong>.</p>
 </li>
 <li>
 <p>The YEAR <strong>must be specified as YYYY</strong>.</p>
@@ -632,42 +987,94 @@ saves it as a <strong><code>.ics</code></strong> file.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="viewing-calendar-code-view_calendar-code"><a class="link" href="#viewing-calendar-code-view_calendar-code">4.4.2. Viewing calendar : <code>view_calendar</code></a></h4>
+<h4 id="delete-event-from-calendar-code-delete_event-code"><a class="link" href="#delete-event-from-calendar-code-delete_event-code">4.4.4. Delete event from calendar : <code>delete_event</code></a></h4>
 <div class="paragraph">
-<p>Views the calendar of the specified month.<br>
-Format: <code>view_calendar MONTH</code></p>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>view_calendar Feb</code><br>
-Displays view of calendar for the month of <code>Feb</code>.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="adding-event-into-calendar-code-add_event-code"><a class="link" href="#adding-event-into-calendar-code-add_event-code">4.4.3. Adding event into calendar : <code>add_event</code></a></h4>
-<div class="paragraph">
-<p>Adds an event into the calendar.<br>
-Format: <code>add_event month/MONTH year/YEAR sdate/START DATE shour/START HOUR smin/START MIN
-edate/END DATE ehour/END HOUR emin/END MINUTE title/NAME OF EVENT</code></p>
+<p>Deletes an event from the calendar.<br>
+Format: <code>delete_event month/MMM year/YYYY sdate/DD edate/DD title/NAME OF EVENT</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>The <strong>MONTH must be specified as MMM</strong>.</p>
+<p>An event is considered identical when it has the same start date, end date and title. Regardless of starting time and ending time.</p>
 </li>
 <li>
-<p>The <strong>YEAR must be specified as YYYY</strong>.</p>
+<p>The MONTH <strong>must be specified as MMM</strong>.</p>
 </li>
 <li>
-<p><strong>DATE, HOUR, MINUTE must be specified as XX</strong>.</p>
+<p>The MONTH <strong>is not case-sensitive</strong>.</p>
+</li>
+<li>
+<p>The YEAR <strong>must be specified as YYYY</strong>.</p>
+</li>
+<li>
+<p>The DATE <strong>must be specified as DD</strong>.</p>
+</li>
+<li>
+<p>The TITLE <strong>is case-sensitive</strong>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="paragraph">
+<p>Before executing command<br></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/delete_event_diagram_before.png" alt="delete event diagram before" width="790">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Deleting a non-existing event (Title is case sensitive)<br>
+<code>delete_event month/Oct year/2018 sdate/10 edate/10 title/block committee audit</code></p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/delete_event_diagram_after_invalid.png" alt="delete event diagram after invalid" width="790">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Deleting an existing event<br>
+<code>delete_event month/Oct year/2018 sdate/10 edate/10 title/Block Committee Audit</code><br>
+Deletes an event titled <code>Block Committee Audit</code> from the <code>OCT-2018.ics</code> calendar which happens from the <code>10th</code> of <code>Oct</code> to <code>10th</code> of <code>Oct</code>.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/delete_event_diagram_after_valid.png" alt="delete event diagram after valid" width="790">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="viewing-calendar-code-view_calendar-code"><a class="link" href="#viewing-calendar-code-view_calendar-code">4.4.5. Viewing calendar : <code>view_calendar</code></a></h4>
+<div class="paragraph">
+<p>Loads the specified monthly calendar <code>.ics</code> file into the UI. UI by default displays the current week.<br>
+Format: <code>view_calendar month/MMM year/YYYY</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The MONTH <strong>must be specified as MMM</strong>.</p>
+</li>
+<li>
+<p>MONTH <strong>is not case-sensitive</strong>.</p>
+</li>
+<li>
+<p>The YEAR <strong>must be specified as YYYY</strong>.</p>
 </li>
 </ul>
 </div>
@@ -679,11 +1086,15 @@ edate/END DATE ehour/END HOUR emin/END MINUTE title/NAME OF EVENT</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>add_event month/Feb year/2018 sdate/01 shour/12 smin/00 edate/01 ehour/15 emin/00 title/Enthral</code><br>
-Adds an event titled <code>Enthral</code> into calendar for <code>Feb 2018</code> which starts on the <code>1</code> st at <code>1200</code> and ends on
-the <code>1</code> st at <code>1500</code>.</p>
+<p><code>view_calendar month/Oct year/2018</code><br>
+Displays view of calendar with current week as default page with the events loaded from <code>OCT-2018.ics</code>.</p>
 </li>
 </ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/calendar_view_diagram.png" alt="calendar view diagram" width="790">
+</div>
 </div>
 </div>
 </div>
@@ -693,148 +1104,283 @@ the <code>1</code> st at <code>1500</code>.</p>
 <p>This section lists features related to CCA budget management in Hallper.</p>
 </div>
 <div class="sect3">
-<h4 id="viewing-the-budget-for-all-ccas-code-budget-code"><a class="link" href="#viewing-the-budget-for-all-ccas-code-budget-code">4.5.1. Viewing the budget for all CCAs : <code>budget</code></a></h4>
+<h4 id="adding-a-cca-code-create-code"><a class="link" href="#adding-a-cca-code-create-code">4.5.1. Adding a cca: <code>create</code></a></h4>
 <div class="paragraph">
-<p>Allows for the viewing of the budgets for all the CCAs.<br>
-Format: <code>budget</code></p>
+<p>Adds a CCA to Hallper.<br>
+Format: <code>create n/NAME_OF_CCA budget/500</code></p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You can add in the name of the head and vice-head after you create the CCA.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><code>undo</code> and <code>redo</code> command does not apply to <code>create</code>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>create n/Netball budget/500</code></p>
+</li>
+<li>
+<p><code>create n/Basketball F budget/400</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="adding-a-transaction-code-add_trans-code"><a class="link" href="#adding-a-transaction-code-add_trans-code">4.5.2. Adding a transaction: <code>add_trans</code></a></h4>
+<div class="paragraph">
+<p>Adds a transaction entry to the specified CCA in Hallper.<br>
+Format: <code>add_trans c/NAME_OF_CCA date/DATE amount/AMOUNT remarks/REMARKS</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Transaction entry can only be added one at a time.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><code>undo</code> and <code>redo</code> command does not apply to <code>add_trans</code>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add_trans c/Basketball date/31.01.2018 amount/-200 remarks/Competition Fee</code><br>
+Adds a transaction entry to <code>Basketball</code>. The date, amount and remarks of the transaction entry are <code>31.01
+.2018</code>, <code>-200</code> and <code>Competition Fee</code> respectively.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="deleting-a-cca-code-delete_cca-code"><a class="link" href="#deleting-a-cca-code-delete_cca-code">4.5.3. Deleting a cca : <code>delete_cca</code></a></h4>
+<div class="paragraph">
+<p>Deletes the specified CCA from Hallper.<br>
+Format: <code>delete c/NAME_OF_CCA</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Deletes the CCA with the specified name.</p>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The CCA specifed must exist in the Hallper.</p>
+</li>
+<li>
+<p><code>undo</code> and <code>redo</code> command does not apply to <code>create</code>.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>delete_cca c/netball</code></p>
+</li>
+<li>
+<p><code>delete_cca c/Basketball F</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="updating-a-cca-code-update-code"><a class="link" href="#updating-a-cca-code-update-code">4.5.4. Updating a cca : <code>update</code></a></h4>
+<div class="paragraph">
+<p>Updates an existing CCA in Hallper.<br>
+Format: <code>update c/CCA_NAME [n/NEW_CCA_NAME] [h/NAME_OF_HEAD] [vh/NAME_OF_VIC_HEAD] [budget/BUDGET]
+[trans/ENTRY_NUMBER] [date/DATE] [amount/AMOUNT] [remarks/REMARKS]</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>BP displays the total budget allocated to the CCAs, total outstanding amount and budget information of each CCA, in alphabetical order.</p>
+<p>Edits the CCA specified with <code>c/</code>. <code>c/</code> is required.</p>
+</li>
+<li>
+<p>At least one of the optional fields must be provided.</p>
+</li>
+<li>
+<p>When <code>trans/</code> is included, at least one of the fields in the transaction entry must be provided.</p>
+</li>
+<li>
+<p>Existing values will be updated to the input values.</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The CCA specifed must exist in the Hallper.</p>
+</li>
+<li>
+<p>The transaction number specified with <code>trans/</code> must exist.</p>
+</li>
+<li>
+<p><code>undo</code> and <code>redo</code> command does not apply to <code>update</code>.</p>
+</li>
+</ul>
 </div>
-<div class="sect3">
-<h4 id="viewing-cca-budget-code-view_cca-code"><a class="link" href="#viewing-cca-budget-code-view_cca-code">4.5.2. Viewing CCA budget : <code>view_cca</code></a></h4>
-<div class="paragraph">
-<p>Allows for the viewing of the budget and past transactions of the specified CCA.<br>
-Format: <code>view_cca CCA</code></p>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>Example:</p>
+<p>Examples:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>view_cca soccer</code><br>
-Displays view of budget and past transactions for <code>soccer</code> CCA.</p>
+<p><code>update c/basketball n/basketball m h/Alex vh/Peter budget/700</code><br>
+Updates <code>basketball</code> to <code>basketball m</code>, budget to <code>700</code> and its head and vice-head to <code>Alex</code> and <code>Peter</code> respectively.</p>
+</li>
+<li>
+<p><code>update c/Netball trans/2 date/30.05.2018 amount/-200 remarks/Purchase of Equipment</code><br>
+Updates the date, amount and remarks of the 2nd transaction entry of <code>Netball</code> with <code>30.05.2018</code>, <code>-200</code> and
+<code>Purchase of Equipment</code> respectively.</p>
+</li>
+<li>
+<p><code>update c/track n/Track F h/Alice vh/June Ong budget/500 trans/1 date/28.02.2018 amount/100 remarks/Fund Raising</code><br>
+Updates <code>track</code> to <code>Track F</code>, its budget to <code>500</code> and its head and vice-head to <code>Alice</code> and <code>June Ong</code> respectively,
+and updates the date, amount and remarks of the 1st transaction entry with <code>28.02.2018</code>, <code>100</code> and <code>Fund Raising</code>
+respectively.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="creating-a-cca-s-budget-code-create-code"><a class="link" href="#creating-a-cca-s-budget-code-create-code">4.5.3. Creating a CCA&#8217;s budget : <code>create</code></a></h4>
+<h4 id="viewing-all-the-ccas-budget-code-budget-code"><a class="link" href="#viewing-all-the-ccas-budget-code-budget-code">4.5.5. Viewing all the ccas' budget : <code>budget</code></a></h4>
 <div class="paragraph">
-<p>Adds a CCA into the budget book with the initial given budget.<br>
-Format: <code>create n/CCA bud/BUDGET</code></p>
+<p>Opens up a Budget Book in a new window.<br>
+Format: <code>budget [c/CCA_NAME]</code></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/BudgetWindowEmpty.png" alt="BudgetWindowEmpty" width="500">
+</div>
+<div class="title">Figure 1. Budget Window with a blank screen</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/BudgetWindowCca.png" alt="BudgetWindowCca" width="500"">
+</div>
+<div class="title">Figure 2. Budget Window showing the transaction history of Softball</div>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>BUDGET currency is in SGD.</p>
+<p><code>budget</code> shows the list of CCAs existing in Hallper.</p>
+</li>
+<li>
+<p>If <code>c/</code> is used, the new window will open up, showing the transaction information of the CCA specified.</p>
+</li>
+<li>
+<p>Otherwise, the new window will open up and show a blank screen until a CCA is selected from the CCA panel.</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
 <div class="paragraph">
-<p>Example:</p>
+<p>The CCA specifed must exist in the Hallper.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>create n/basketball bud/200</code><br>
-Adds <code>basketball</code> CCA with SGD`200` budget to Hallper.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="deleting-a-cca-s-budget-code-delete_cca-code"><a class="link" href="#deleting-a-cca-s-budget-code-delete_cca-code">4.5.4. Deleting a CCA&#8217;s budget : <code>delete_cca</code></a></h4>
-<div class="paragraph">
-<p>Deletes the CCA&#8217;s existing budget.<br>
-Format: <code>delete_cca CCA</code></p>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>delete_cca soccer</code><br>
-Deletes <code>soccer</code> CCA&#8217;s existing budget.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="modifying-a-cca-s-budget-code-modify_cca-code"><a class="link" href="#modifying-a-cca-s-budget-code-modify_cca-code">4.5.5. Modifying a CCA&#8217;s budget : <code>modify_cca</code></a></h4>
-<div class="paragraph">
-<p>Modifies the budget of specified CCA.<br>
-Format: <code>modify_cca CCA BUDGET</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>BUDGET currency is in SGD.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>modify_cca soccer 500</code><br>
-Modifies <code>soccer</code> CCA&#8217;s current budget to SGD <code>500</code> .</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="adding-a-transaction-to-the-budget-code-add_transaction-code"><a class="link" href="#adding-a-transaction-to-the-budget-code-add_transaction-code">4.5.6. Adding a transaction to the budget : <code>add_transaction</code></a></h4>
-<div class="paragraph">
-<p>Adds a transaction to the budget of specified CCA.<br>
-Format: <code>add_transaction CCA AMOUNT TYPE PERSON_IN_CHARGE</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Adds a transaction to the budget of specifed CCA.</p>
+<p><code>budget</code><br>
+Opens up the Budget Window.</p>
 </li>
 <li>
-<p>The types available are  either <strong><code>credit</code></strong> or <strong><code>debit</code></strong>.</p>
-</li>
-<li>
-<p>The <strong><code>PERSON-IN-CHARGE</code></strong> must be a resident in Hallper.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>add_transaction badminton 500 credit James</code>
-Adds a <code>credit</code> transaction of SGD <code>500</code> to <code>James</code> from <code>badminton</code> CCA.</p>
+<p><code>budget c/Softball</code><br>
+Opens up the Budget Window, showing the transaction history of <code>Softball</code>.</p>
 </li>
 </ul>
 </div>
@@ -1008,7 +1554,10 @@ e.g. <code>clear basketball A123</code></p>
 <p><strong>Import</strong> : <code>import f/FILEPATH</code></p>
 </li>
 <li>
-<p><strong>Image</strong> : <code>image</code></p>
+<p><strong>Export</strong> : <code>export dst/PATH fn/FILENAME</code></p>
+</li>
+<li>
+<p><strong>Image</strong> : <code>image r/ROOM f/FILEPATH</code></p>
 </li>
 <li>
 <p><strong>Search</strong> : <code>search KEYWORD [MORE_KEYWORDS]</code><br>
@@ -1022,7 +1571,19 @@ e.g. <code>find James Jake</code></p>
 <p><strong>List</strong> : <code>list</code></p>
 </li>
 <li>
-<p><strong>Compose</strong> : <code>compose from/FROM to/TO subject/SUBJECT content/CONTENT</code></p>
+<p><strong>Compose Email (Index)</strong> : <code>compose_email_index from/FROM to/INDEXES subject/SUBJECT content/CONTENT</code><br>
+e.g. <code>compose_email_index from/johndoe@example.com to/1 6 10 subject/Meeting this Friday content/Hey there&#8217;s a meeting this friday.</code></p>
+</li>
+<li>
+<p><strong>Compose Email (List)</strong> : <code>compose_email_list from/FROM subject/SUBJECT content/CONTENT</code><br>
+e.g. <code>compose_email_list from/johndoe@example.com subject/Meeting this Friday content/Hey there&#8217;s a meeting this friday.</code></p>
+</li>
+<li>
+<p><strong>List Emails</strong>: <code>list_emails</code></p>
+</li>
+<li>
+<p><strong>View Email</strong>: <code>view_email SUBJECT</code><br>
+e.g. <code>view_email Meeting this Friday</code></p>
 </li>
 <li>
 <p><strong>Create Calendar</strong> : <code>create_calendar MONTH</code><br>
@@ -1094,4 +1655,4 @@ e.g. <code>view 2</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-30 13:08:07 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-30 16:21:27 UTC</div></div></div></body></html>
