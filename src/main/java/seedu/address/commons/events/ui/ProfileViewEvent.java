@@ -7,7 +7,7 @@ import seedu.address.model.person.Person;
 /**
  * Indicates a request to view a person's profile.
  */
-public class ProfileViewEvent extends BaseEvent{
+public class ProfileViewEvent extends BaseEvent {
     private final Person personSelected;
 
     public ProfileViewEvent(Person personSelected) {

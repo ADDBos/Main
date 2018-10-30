@@ -12,12 +12,14 @@ import com.google.common.eventbus.Subscribe;
 import net.fortuna.ical4j.data.ParserException;
 import net.fortuna.ical4j.model.Calendar;
 import seedu.address.commons.core.ComponentManager;
+import seedu.address.commons.core.EventsCenter;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.commons.events.model.AddressBookChangedEvent;
 import seedu.address.commons.events.model.BudgetBookChangedEvent;
 import seedu.address.commons.events.model.EmailSavedEvent;
 import seedu.address.commons.events.model.NewImageEvent;
 import seedu.address.commons.events.storage.DataSavingExceptionEvent;
+import seedu.address.commons.events.storage.ImageReadingExceptionEvent;
 import seedu.address.commons.events.ui.EmailViewEvent;
 import seedu.address.commons.exceptions.DataConversionException;
 import seedu.address.model.EmailModel;
@@ -202,7 +204,11 @@ public class StorageManager extends ComponentManager implements Storage {
 
     @Override
     public BufferedImage readProfilePicture(File file) throws IOException {
-        return profilePictureStorage.readProfilePicture(file);
+        try {
+            return profilePictureStorage.readProfilePicture(file);
+        } catch (IOException e) {
+            throw e;
+        }
     }
 
     @Override
@@ -213,19 +219,22 @@ public class StorageManager extends ComponentManager implements Storage {
     @Override
     @Subscribe
     public void handleNewImageEvent(NewImageEvent event) {
-        logger.info(LogsCenter.getEventHandlingLogMessage(event, "image read, writing to file"));
+        logger.info(LogsCenter.getEventHandlingLogMessage(event, "reading image"));
         BufferedImage image = null;
 
         try {
             image = readProfilePicture(event.file);
         } catch (IOException e) {
-            e.printStackTrace();
+            EventsCenter.getInstance().post(new ImageReadingExceptionEvent(e));
         }
 
-        try {
-            saveProfilePicture(image, event.room);
-        } catch (IOException e) {
-            e.printStackTrace();
+        logger.info(LogsCenter.getEventHandlingLogMessage(event, "image read, writing file"));
+        if (image != null) {
+            try {
+                saveProfilePicture(image, event.room);
+            } catch (IOException e) {
+                EventsCenter.getInstance().post(new DataSavingExceptionEvent(e));
+            }
         }
     }
 }

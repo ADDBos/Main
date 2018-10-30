@@ -12,5 +12,5 @@ Class-Path: emailaddress-rfc2822-1.0.1.jar jaxb-impl-2.3.0.jar junit-j
   openjfx-monocle-jdk-9+181.jar testfx-internal-java8-4.0.12-alpha.jar
   guava-19.0.jar junit-vintage-engine-5.1.0.jar commons-collections4-4
  .1.jar commons-codec-1.10.jar commons-lang3-3.6.jar
-Main-Class: 
+Main-Class:
 

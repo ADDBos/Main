@@ -26,23 +26,23 @@ public class ProfilePictureDirStorage implements ProfilePictureStorage {
     }
 
     @Override
-    public BufferedImage readProfilePicture(File file) {
+    public BufferedImage readProfilePicture(File file) throws IOException {
         BufferedImage image = null;
         try {
             image = ImageIO.read(file);
         } catch (IOException e) {
-            e.printStackTrace();
+            throw e;
         }
         return image;
     }
 
     @Override
-    public void saveProfilePicture(BufferedImage image, Room number) {
+    public void saveProfilePicture(BufferedImage image, Room number) throws IOException {
         try {
             File copiedFile = new File(dirPath + "/" + number.value + ".jpg");
             ImageIO.write(image, "jpg", copiedFile);
         } catch (IOException e) {
-            e.printStackTrace();
+            throw e;
         }
     }
 }

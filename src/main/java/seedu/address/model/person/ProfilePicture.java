@@ -1,11 +1,8 @@
 package seedu.address.model.person;
 
-import seedu.address.logic.commands.exceptions.CommandException;
-
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
-import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -18,12 +15,12 @@ public class ProfilePicture {
     public static final String MESSAGE_PROFILE_PICTURE_CONSTRAINTS =
             "Profile picture should be either a .jpg or .png file, and not empty";
 
-    public static final String PROFILE_PICTURE_PATH = "src/main/java/seedu.address/commons/docs/profile_picture/";
     /*
      * The first character of the file path must not be a whitespace,
      * otherwise " " (a blank string) becomes a valid input.
      */
-    public static final String PROFILE_PICTURE_VALIDATION_REGEX = "([a-zA-Z]:)?(\\\\[a-zA-Z0-9_-]+)+\\\\?";
+    public static final String PROFILE_PICTURE_VALIDATION_REGEX =
+            "(?:([^:/?#]+):)?(?://([^/?#]*))?([^?#]*\\.(?:jpg|png))(?:\\?([^#]*))?(?:#(.*))?";
     public final Path filePath;
 
     /**
@@ -33,7 +30,7 @@ public class ProfilePicture {
      */
     public ProfilePicture(Path path) {
         requireNonNull(path);
-        //checkArgument(isValidProfilePicture(path), MESSAGE_PROFILE_PICTURE_CONSTRAINTS);
+        checkArgument(isValidProfilePicture(path), MESSAGE_PROFILE_PICTURE_CONSTRAINTS);
         filePath = Paths.get(path.toString());
     }
 
@@ -44,8 +41,8 @@ public class ProfilePicture {
     /**
      * Returns true if a given string ends with .jpg or .png.
      */
-    public static boolean isValidProfilePicture(File test) {
-        return test.getAbsolutePath().matches(PROFILE_PICTURE_VALIDATION_REGEX);
+    public static boolean isValidProfilePicture(Path test) {
+        return test.toString().matches(PROFILE_PICTURE_VALIDATION_REGEX);
     }
 
     @Override

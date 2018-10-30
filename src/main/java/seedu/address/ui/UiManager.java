@@ -14,6 +14,7 @@ import seedu.address.commons.core.ComponentManager;
 import seedu.address.commons.core.Config;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.commons.events.storage.DataSavingExceptionEvent;
+import seedu.address.commons.events.storage.ImageReadingExceptionEvent;
 import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.Logic;
 import seedu.address.model.UserPrefs;
@@ -28,6 +29,7 @@ public class UiManager extends ComponentManager implements Ui {
     public static final String FILE_OPS_ERROR_DIALOG_STAGE_TITLE = "File Op Error";
     public static final String FILE_OPS_ERROR_DIALOG_HEADER_MESSAGE = "Could not save data";
     public static final String FILE_OPS_ERROR_DIALOG_CONTENT_MESSAGE = "Could not save data to file";
+    public static final String IMAGE_OPS_ERROR_DIALOG_CONTENT_MESSAGE = "Could not read image";
 
     private static final Logger logger = LogsCenter.getLogger(UiManager.class);
     private static final String ICON_APPLICATION = "/images/address_book_32.png";
@@ -116,6 +118,14 @@ public class UiManager extends ComponentManager implements Ui {
     private void handleDataSavingExceptionEvent(DataSavingExceptionEvent event) {
         logger.info(LogsCenter.getEventHandlingLogMessage(event));
         showFileOperationAlertAndWait(FILE_OPS_ERROR_DIALOG_HEADER_MESSAGE, FILE_OPS_ERROR_DIALOG_CONTENT_MESSAGE,
+                event.exception);
+    }
+
+    //@@author javenseow
+    @Subscribe
+    private void handleImageReadingExceptionEvent(ImageReadingExceptionEvent event) {
+        logger.info(LogsCenter.getEventHandlingLogMessage(event));
+        showFileOperationAlertAndWait(FILE_OPS_ERROR_DIALOG_HEADER_MESSAGE, IMAGE_OPS_ERROR_DIALOG_CONTENT_MESSAGE,
                 event.exception);
     }
 }
