@@ -220,7 +220,7 @@ A person can have any number of CCAs (including 0)
 <div class="sect3">
 <h4 id="adding-a-picture-to-resident-detail-code-image-code"><a class="link" href="#adding-a-picture-to-resident-detail-code-image-code">4.1.2. Adding a picture to resident detail : <code>image</code></a></h4>
 <div class="paragraph">
-<p>Uploads the image of resident staying in the specified room to Hallper.<br>
+<p>Uploads the image of resident staying in the specified room to Hallper and opens the profile page of the resident (<strong>without the profile picture</strong>).<br>
 Format: <code>image r/ROOM f/FILEPATH</code></p>
 </div>
 <div class="sidebarblock">
@@ -228,7 +228,7 @@ Format: <code>image r/ROOM f/FILEPATH</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>The image must be in <strong><code>.jpg</code></strong> or <strong><code>.png</code></strong>.</p>
+<p>The image must be in <strong><code>.jpg</code></strong>.</p>
 </li>
 </ul>
 </div>
@@ -612,16 +612,20 @@ Format: <code>search KEYWORD [MORE_KEYWORDS]</code></p>
 <div class="ulist">
 <ul>
 <li>
+<p><code>search SoC</code><br>
+Searches Hallper and lists all residents that are studying in <code>SoC</code>.</p>
+</li>
+<li>
 <p><code>search basketball</code><br>
-Searches Hallper and lists all contacts associated with <code>basketball</code>.</p>
+Searches Hallper and lists all residents that are in <code>basketball</code>.</p>
 </li>
 <li>
 <p><code>search A123</code><br>
-Searches Hallper and lists all contacts associated with <code>A123</code>.</p>
+Searches Hallper and lists all residents that are staying in room <code>A123</code>.</p>
 </li>
 <li>
-<p><code>search basketball A123</code><br>
-Searches Hallper and lists all contacts associated with <code>basketball</code> and <code>A123</code>.</p>
+<p><code>search basketball A123 Soc</code><br>
+Searches Hallper and lists all residents that are in <code>basketball</code>, staying in room`A123` and studying in <code>SoC</code>.</p>
 </li>
 </ul>
 </div>
@@ -1710,4 +1714,4 @@ e.g. <code>view 2</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-01 16:27:18 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-01 16:50:13 UTC</div></div></div></body></html>
