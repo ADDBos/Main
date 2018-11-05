@@ -3,6 +3,7 @@ package seedu.address.model.cca;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
+//@@author ericyjw
 /**
  * Represents a CCA's name in the cca book.
  * Guarantees: immutable; is valid as declared in {@link #isValidCcaName(String)}
@@ -10,22 +11,20 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
  * @author ericyjw
  */
 public class CcaName {
-
     public static final String MESSAGE_NAME_CONSTRAINTS =
-        "CCA names should only contain alphanumeric characters and spaces, and it should not be blank";
-
+        "CCA names should only contain alphabet characters and spaces, and it should not be blank";
     /*
      * The first character of the address must not be a whitespace,
      * otherwise " " (a blank string) becomes a valid input.
      */
-    public static final String NAME_VALIDATION_REGEX = "[\\p{Alnum}][\\p{Alnum} ]*";
+    public static final String NAME_VALIDATION_REGEX = "[\\p{Alpha}][\\p{Alpha} ]*";
 
-    public final String ccaName;
+    private final String ccaName;
 
     /**
-     * Constructs a {@code Name}.
+     * Constructs a {@code CcaName}.
      *
-     * @param name A valid CCA name.
+     * @param name a valid CCA name
      */
     public CcaName(String name) {
         requireNonNull(name);
@@ -41,7 +40,7 @@ public class CcaName {
         ccaName = sb.toString().trim();
     }
 
-    public String getCcaName() {
+    public String getNameOfCca() {
         return ccaName;
     }
 
@@ -51,11 +50,10 @@ public class CcaName {
     public static boolean isValidCcaName(String test) {
         return test.matches(NAME_VALIDATION_REGEX);
     }
-    // TODO: Cross check with the address book CCA
 
     @Override
     public String toString() {
-        return ccaName;
+        return this.ccaName;
     }
 
     @Override
@@ -69,5 +67,4 @@ public class CcaName {
     public int hashCode() {
         return ccaName.hashCode();
     }
-
 }

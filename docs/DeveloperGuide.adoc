@@ -361,7 +361,7 @@ image::UndoRedoActivityDiagram.png[width="650"]
 // end::undoredo[]
 
 //tag::compose[]
-=== Compose feature
+=== Compose email feature
 ==== Current Implementation
 
 The Compose feature works using a third-party dependency, http://www.simplejavamail.org/#/about[Simple Java Mail].
@@ -369,42 +369,46 @@ It allows `.eml` files to be saved onto the computer.
 The feature is facilitated by `EmailModel` and `EmailDirStorage`.
 It implements the following operations:
 
-* `EmailModel#saveEmail(Email email)` -- Stores each newly composed email in the `EmailModel`.
+* `EmailModel#saveComposedEmail(Email email)` -- Stores each newly composed email in the `EmailModel`.
 * `EmailDirStorage#saveEmail(EmailModel email)` -- Saves the newly composed email in the `EmailModel` to the computer.
 
-These operations are exposed in the `Model` interface as `Model#saveEmail(Email email)`, and in the `Storage` interface as `Storage#saveEmail(EmailModel email)` respectively.
+These operations are exposed in the `Model` interface as `Model#saveComposedEmail(Email email)`, and in the `Storage` interface as `Storage#saveEmail(EmailModel email)` respectively.
 
 Given below is an example usage scenario and how the Compose feature behaves at each step:
 
-. The user executes the `Compose` command, which creates an email.
-The `Compose` command calls `Model#saveEmail(Email email)`, saving the email to `EmailModel`.
+Step 1. The user executes either the `ComposeEmailList` command or `ComposeEmailIndex` command, which creates an email.
+The `ComposeEmailList`/`ComposeEmailIndex` command calls `Model#saveComposedEmail(Email email)`, saving the email to `EmailModel`.
 
-. Once the email is saved in the `EmailModel`, the `ModelManager` raises an `EmailSavedEvent`, to indicate that a new
+Step 2. Once the email is saved in the `EmailModel`, the `ModelManager` raises an `EmailSavedEvent`, to indicate that a new
  email is saved to the `EmailModel`.
 
-. The `EmailSavedEvent` goes to the `EventsCenter`, and is then handled by `StorageManager#handleEmailSavedEvent
+Step 3. The `EmailSavedEvent` goes to the `EventsCenter`, and is then handled by `StorageManager#handleEmailSavedEvent
 (EmailSavedEvent event)`, which then calls `EmailDirStorage#saveEmail(EmailModel email)`.
 This saves the email to a specified local directory.
 
-. A preview of the email is displayed on the main window.
+Step 4. A preview of the email is displayed on the main window.
 
 ==== Design Considerations
 
-===== Aspect: File format
+===== Aspect: Method to create emails
 
-* **Pros:** The `.eml` file format is compliant with the RFC-822 format, which is industry recognised, and can be
-opened and viewed using many applications.`.eml` files can also contain attachments.
-* **Cons:** `.eml` file alone is not useful alone. More implementations are required to make `.eml` useful in Hallper.
-
-===== Aspect: Using http://www.simplejavamail.org/#/about[Simple Java Mail]
-
-http://www.simplejavamail.org/#/about[Simple Java Mail] contains various methods to conveniently create emails.
-It can also be used to send emails if Hallper is extended to include online capabilities.
+* **Alternative 1 (current choice):** Use http://www.simplejavamail.org/#/about[Simple Java Mail].
+** Pros: http://www.simplejavamail.org/#/about[Simple Java Mail] contains various methods to conveniently create emails.
 The library is easy to understand so any new developer can easily extend the current features.
+** Cons: The design of created emails is limited to the http://www.simplejavamail.org/#/about[Simple Java Mail] API.
+* **Alternative 2:** Write a custom email builder.
+** Pros: The design of created emails can be freely manipulated.
+** Cons: Much more code has to be written.
 
-===== Aspect: HTML Text
+===== Aspect: Text type
 
-User input for email content is saved as HTML Text so that users with HTML Text Formatting knowledge can easily format the body of the email.
+* **Alternative 1 (current choice):** HTML text
+** Pros: Users with HTML knowledge can manipulate the content of the email.
+** Cons: Users unfamiliar with HTML minimally has to learn how the `<br>` tag works.
+* **Alternative 2:** Plain text
+** Pros: Plain text is easily understood by almost any user.
+** Cons: The design of the email content is limited.
+
 //end::compose[]
 
 // tag::calendar[]
@@ -604,7 +608,161 @@ storing information.
 ** Pros: Faster in parsing information.
 ** Cons: Limited in terms of what objects can be modeled.
 
-// end::undoredo[]
+// end::createcca[]
+
+// tag::import[]
+=== Import feature
+==== Current Implementation
+The import feature allows `.xml` files of different formats to be imported from the computer.
+
+It implements the following operations and classes:
+
+* `ImportCommand#parseFile()` -- Parses specified path into document for reading.
+* `ImportAddressBook#execute(Document doc, Model model)` -- Imports `.xml` file from the specified path to update
+Hallper data.
+* `ImportCcaList#execute(Document doc, Model model)` -- Imports `.xml` file from the specified path to update Hallper
+contacts' CCAs.
+
+These operations are exposed in the `Model` interface as `Model#commitAddressBook()`, `Model#addMultiplePersons()`
+and `Model#updateMultiplePersons`.
+
+Given below is an example usage scenario and how the import mechanism behaves at each step.
+
+. The user imports `.xml` file by specifying the path of the file.
+
+. `ImportCommandParser` checks for the validity of the path and `.xml` file format. If `.xml` file has an invalid
+format, the specified file will not be imported.
+
+. `ImportCommand#parseFile()` then prepares the file for reading by parsing into a document.
+
+. `ImportCommand.execute(Model model, CommandHistory history)` then invokes `ImportAddressBook#execute(Document doc,
+Model model)` to read the document.
+
+. After the document data is read,  `ImportAddressBook#execute(Document doc, Model model)` then invokes
+`ModelManager#addMultiplePersons(List<Person> personList)` to update Hallper's internal list and
+`ModelManager#indicateAddressBookChanged()`, which raises an `AddressBookChangedEvent` which is handled by
+`EventsCenter`.
+
+. `AddressBookChangedEvent` is then handled by
+`StorageManager#handleAddressBookChangedEvent(AddressBookChangedEvent event)`.
+`StorageManager#saveAddressBook(ReadOnlyAddressBook data)` is then called to update the existing `addressbook.xml` file
+with the new contacts.
+
+==== Design Considerations
+
+===== Aspect: Choice of component to read imported file
+
+* **Alternative 1 (current choice):** Reads file in `Logic`.
+** Pros: Easy to change parsing of `.xml` file when `.xml` file format changes. New `.xml` file formats can be added
+without disrupting the existing parsers.
+** Cons: Importing from the computer is a storage-related feature but the reading of the file is located outside of
+Storage component.
+
+* **Alternative 2:** Reads file in `Storage`.
+** Pros: Proper grouping of import implementation inside related component.
+** Cons: More complicated implementation if more `.xml` file formats are added to be parsed in the future.
+
+// end::import[]
+
+// tag::export[]
+=== Export feature
+==== Current Implementation
+The export feature allows Hallper data to be exported as an `xml` file to the computer.
+
+It implements the following operation:
+
+* `ExportCommand#execute(Model model, CommandHistory history)` -- Exports current Hallper data as an `xml` file to
+the specified path.
+
+This operation is exposed in the `Model` interface as `Model#exportAddressBook(Path filePath)`.
+
+Given below is an example usage scenario and how the export mechanism behaves at each step.
+
+. The user exports an 'xml' file by specifying the destination path and name of the exported file.
+
+. `ExportCommandParser` checks for the validity of the path and file name. If path or file name are invalid, Hallper
+data will not be exported. Otherwise, path and filename will be parsed into a single, full path.
+
+. `ExportCommand#execute(Model model, CommandHistory history)` then invokes
+`ModelManager#exportAddressBook(Path filePath)` which raises an `ExportAddressBookEvent`.
+
+. `ExportAddressBookEvent` is then handled by
+`StorageManager#handleExportAddressBookEvent(ExportAddressBookEvent event)`.
+`StorageManager#exportAddressBook(ReadOnlyAddressBook addressBook, Path path)` is then called to export Hallper's
+storage data to the specified path.
+
+==== Design Considerations
+
+===== Aspect: Choice of export format
+
+* **Alternative 1 (current choice):** Export `.xml` format only.
+** Pros: Easy for user to update and re-import the `.xml` file. Standardised format for Hallper-related data files.
+** Cons: Difficult to convert/transfer data to other applications due to limited export format. Need to use external
+applications to convert `.xml` file.
+
+* **Alternative 2:** Export `.xml`, `.txt` and `.xlsx` formats.
+** Pros: More options for user to export Hallper data. Exported files can be read across different applications.
+** Cons: Unused file formats. `.xml` is the format that is mainly used by Hallper so `.txt` and `.xlsx` may be
+underused or unused.
+
+// end:export[]
+
+// tag::image[]
+=== Image feature
+
+==== Current Implementation
+The image feature allows `.jpg` image files to be uploaded into Hallper to a specific person from the computer.
+The feature is facilitated by `ProfilePictureDirStorage`. It implements the follow operations:
+
+* `ProfilePictureDirStorage#readProfilePicture(File file)` -- Reads the file that is specified by the user through
+a path and returns a copy of the image that is being read.
+* `ProfilePictureDirStorage#saveProfilePicture(BufferedImage image, Room number)` -- Saves the copied image into the
+computer.
+
+Both operations are exposed in the `Storage` interface as `Storage#readProfilePicture(File file)` and
+`Storage#saveProfilePicture(BufferedImage image, Room number)` respectively.
+
+Given below is an example usage scenario and how the image mechanism behaves at each step:
+
+Step 1. The user specifies the file path of the `.jpg` image to be uploaded and the person's room number.
+
+Step 2. `ImageCommandParser` passes the room number and file that is specified by the file path to `ImageCommand`.
+
+Step 3. `ImageCommand` searches Hallper for the person that is tagged with the specified room number. It returns an
+error message if the room number specified is not tagged to any person.
+
+Step 4. Once the room number is verified, a `NewImageEvent` is raised from the `ImageCommand` to initiate the reading
+and copying of the image from the given file path.
+
+Step 5. The `NewImageEvent` goes to the `EventCenter`, and is then handled by
+`StorageManager#handleNewImageEvent(NewImageEvent event)`. `ProfilePictureStorage#readProfilePicture(File file)` is
+then called to read the image file. After reading a valid image file, the
+`ProfilePictureStorage#saveProfilePicture(BufferedImage image, Room number)` is called to save the image into the
+computer.
+
+Step 6. The profile of the person is displayed on the browser panel.
+
+==== Design Considerations
+===== Aspect: Choice of component to read and save the file
+
+* **Alternative 1 (current choice):** Read and save image file through `Storage`.
+** Pro: Reading and saving files through `Storage` follows the architecture that the project is built upon.
+** Con: Informing the user of invalid file path is much more complicated.
+
+* **Alternative 2:** Read and save image file through `ImageCommand`.
+** Pro: Informing the user of invalid file path will be similar to when an invalid command is given.
+** Con: Reading and saving the image file from `ImageCommand` breaks the architecture of the project.
+
+==== Aspect: Image type
+* **Alternative 1 (current choice):** Only `.jpg` image files.
+** Pro: Copying the image will be easier since all images saved will be in the form of `.jpg`.
+** Con: Limiting users to only being able to upload one type of image file.
+
+* **Alternative 2:** Allow for multiple image file types i.e `.jpg`, `.png`.
+** Pro: Increasing the valid image file types allows users to have more choices when choosing the picture to upload.
+** Con: Copying of the image will be more complicated since all images will be saved as a `.jpg` image file type.
+
+// end::image[]
 
 // tag::dataencryption[]
 === [Proposed] Data encryption
@@ -1149,6 +1307,12 @@ Priorities: High (must have) - `* * \*`, Medium (nice to have) - `* \*`, Low (un
 
 |`* * *` |JCRC member |compose emails |ease the process of sending emails to groups of hall residents
 
+|`* * *` |JCRC member |delete emails |remove email files that I no longer need
+
+|`* * *` |JCRC member |list all emails |see what emails exist
+
+|`* * *` |JCRC member |view emails |see the contents of an email
+
 |`* * *` |JCRC member |publish calenders |prevent clashes between events and inform hall residents of upcoming events
 
 |`* * *` |JCRC Finance Director |keep track of each CCA's budget |prevent problems during an audit
@@ -1259,10 +1423,10 @@ Use case ends.
 *Extensions*
 
 [none]
-* 1a. JCRC member requests to clear persons with specific tag
+* 1a. JCRC member requests to clear persons with specific tag(s)
 +
 [none]
-** 1a1. Hallper clears all persons with specified tag
+** 1a1. Hallper clears all persons with specified tag(s)
 +
 Use case ends.
 
@@ -1271,10 +1435,28 @@ Use case ends.
 
 *MSS*
 
-1. JCRC member requests to import contacts
-2. Hallper requests for file location
-3. JCRC member enters file location
-4. Hallper imports contacts
+1. JCRC member requests to import contacts from file location
+2. Hallper imports contacts
++
+Use case ends.
+
+*Extensions*
+
+[none]
+* 3a. File is invalid
++
+[none]
+** 3a1. Hallper shows error message
++
+Use case ends.
+
+[discrete]
+=== Use case: Export contacts
+
+*MSS*
+
+1. JCRC member requests to export contacts to location
+2. Hallper exports contacts to location
 +
 Use case ends.
 
@@ -1293,22 +1475,101 @@ Use case ends.
 
 *MSS*
 
-1. JCRC member requests to erase a specific tag
-2. Hallper erases specified tag from all persons
+1. JCRC member requests to erase specific tag(s)
+2. Hallper erases specified tag(s) from all persons
++
+Use case ends.
+
+*Extensions*
+
+[none]
+* 3a. Tag does not exist
++
+[none]
+** 3a1. Hallper shows error message
 +
 Use case ends.
 
 [discrete]
-=== Use case: Compose email
+=== Use case: Compose email (index)
 
 *MSS*
 
-1. JCRC member requests to compose email
-2. Hallper requests for all details of email (Sender, recipient, subject, content, attachment)
-3. JCRC member enters all details
-4. Hallper saves an output file in the computer
+1. JCRC member requests to list persons.
+2. Hallper shows list of persons.
+3. JCRC member requests to compose an email to specific people in the list
+4. Hallper requests for all details of email (Sender, indexes, subject, content)
+5. JCRC member enters all details
+6. Hallper saves an output file in the computer
 +
 Use case ends.
+
+*Extensions*
+
+[none]
+* 2a. The list is empty.
++
+Use case ends.
+
+* 5a. The given index is invalid.
++
+[none]
+** 5a1. Hallper shows an error message.
++
+Use case resumes at step 4.
+
+[discrete]
+=== Use case: Compose email (list)
+
+*MSS*
+
+1. JCRC member requests to list persons
+2. Hallper shows list of persons
+3. JCRC member requests to compose an email to the current list of persons
+4. Hallper requests for all details of email (Sender, subject, content)
+5. JCRC member enters all details
+6. Hallper saves an output file in the computer
++
+Use case ends.
+
+*Extensions*
+
+[none]
+* 2a. The list is empty.
++
+Use case ends.
+
+[discrete]
+=== Use case: List emails
+
+*MSS*
+
+1. JCRC member requests to list emails
+2. Hallper shows list of all emails
++
+Use case ends.
+
+[discrete]
+=== Use case: View email
+
+*MSS*
+
+1. JCRC member requests to view an email
+2. Hallper requests for email subject
+3. JCRC member enters subject
+4. Hallper displays email with given subject
++
+Use case ends.
+
+*Extensions*
+
+[none]
+* 3a. Email with given subject does not exist.
++
+[none]
+** 3a1. Hallper shows an error message.
++
+Use case resumes at step 2.
 
 [discrete]
 === Use case: Select person

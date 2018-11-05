@@ -3,25 +3,28 @@ package seedu.address.model.cca;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
+//@@author ericyjw
 /**
+ * Represents a CCA's outstanding amount in the cca book.
+ * Guarantees: immutable; is valid as declared in {@link #isValidOutstanding(String)}
+ *
  * @author ericyjw
  */
 public class Outstanding {
     public static final String MESSAGE_OUTSTANDING_CONSTRAINTS =
         "Outstanding should only contain numbers and it should not be blank";
-
     /*
      * The first character of the address must not be a whitespace,
      * otherwise " " (a blank string) becomes a valid input.
      */
     public static final String OUTSTANDING_VALIDATION_REGEX = "\\d+";
 
-    public final Integer outstanding;
+    private final Integer outstanding;
 
     /**
-     * Constructs an {@code outstanding} amount.
+     * Constructs an {@code Outstanding} amount.
      *
-     * @param amount valid outstanding amount.
+     * @param amount a valid outstanding amount
      */
     public Outstanding(Integer amount) {
         requireNonNull(amount);
@@ -35,9 +38,8 @@ public class Outstanding {
     public static boolean isValidOutstanding(String test) {
         return test.matches(OUTSTANDING_VALIDATION_REGEX);
     }
-    // TODO: To do the arithmetic
 
-    public int getOutstanding() {
+    public Integer getOutstandingValue() {
         return this.outstanding;
     }
 

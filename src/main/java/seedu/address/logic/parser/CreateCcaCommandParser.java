@@ -18,7 +18,6 @@ import seedu.address.model.cca.CcaName;
  * @author ericyjw
  */
 public class CreateCcaCommandParser implements Parser<CreateCcaCommand> {
-
     /**
      * Parses the given {@code String} of arguments in the context of the CreateCcaCommand
      * and returns a CreateCcaCommand object for execution.

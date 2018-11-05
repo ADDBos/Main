@@ -4,6 +4,9 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
 /**
+ * Represents a CCA's budget in the cca book.
+ * Guarantees: immutable; is valid as declared in {@link #isValidBudget(String)}
+ *
  * @author ericyjw
  */
 public class Budget {
@@ -19,7 +22,7 @@ public class Budget {
     public final Integer budget;
 
     /**
-     * Constructs a {@code Budget} amount.
+     * Constructs a {@code Budget} amount object.
      *
      * @param amount A valid budget amount.
      */
@@ -35,9 +38,8 @@ public class Budget {
     public static boolean isValidBudget(String test) {
         return test.matches(BUDGET_VALIDATION_REGEX);
     }
-    // TODO: Cross check with the address book CCA
 
-    public int getBudget() {
+    public Integer getBudgetValue() {
         return this.budget;
     }
 

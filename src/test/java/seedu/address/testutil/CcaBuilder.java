@@ -1,29 +1,31 @@
 package seedu.address.testutil;
 
+import static seedu.address.testutil.TypicalEntries.TRANSACTION_EMPTY;
 import static seedu.address.testutil.TypicalPersons.CARL;
 import static seedu.address.testutil.TypicalPersons.DANIEL;
 
-import seedu.address.model.budget.Transaction;
+import java.util.Set;
+
 import seedu.address.model.cca.Budget;
 import seedu.address.model.cca.Cca;
 import seedu.address.model.cca.CcaName;
 import seedu.address.model.cca.Outstanding;
 import seedu.address.model.cca.Spent;
 import seedu.address.model.person.Name;
+import seedu.address.model.transaction.Entry;
 
+//@@author javenseow ericyjw
 /**
  * A utility class to help with building Cca objects.
  */
-//@@author javenseow
-//@author ericyjw
 public class CcaBuilder {
-    public static final String DEFAULT_CCANAME = "jcrc";
+    public static final String DEFAULT_CCANAME = "JCRC";
     public static final Name DEFAULT_HEAD = CARL.getName();
     public static final Name DEFAULT_VICEHEAD = DANIEL.getName();
     public static final int DEFAULT_BUDGET = 500;
-    public static final int DEFAULT_SPENT = 100;
-    public static final int DEFAULT_OUTSTANDING = 400;
-    public static final String DEFAULT_TRANSACTION = "Bought equipments/-$150\nTeam Fund/$50\n";
+    public static final int DEFAULT_SPENT = 300;
+    public static final int DEFAULT_OUTSTANDING = 200;
+    public static final Set<Entry> DEFAULT_TRANSACTION = TRANSACTION_EMPTY;
 
     private CcaName ccaName;
     private Name head;
@@ -31,16 +33,29 @@ public class CcaBuilder {
     private Budget budget;
     private Spent spent;
     private Outstanding outstanding;
-    private Transaction transaction;
+    private Set<Entry> transactionEntries;
 
     public CcaBuilder() {
         this.ccaName = new CcaName(DEFAULT_CCANAME);
         this.head = DEFAULT_HEAD;
-        this.viceHead = DEFAULT_HEAD;
+        this.viceHead = DEFAULT_VICEHEAD;
         this.budget = new Budget(DEFAULT_BUDGET);
         this.spent = new Spent(DEFAULT_SPENT);
         this.outstanding = new Outstanding(DEFAULT_OUTSTANDING);
-        this.transaction = new Transaction(DEFAULT_TRANSACTION);
+        this.transactionEntries = DEFAULT_TRANSACTION;
+    }
+
+    /**
+     * Initializes the CcaBuilder with the data of {@code ccaToCopy}.
+     */
+    public CcaBuilder(Cca ccaToCopy) {
+        this.ccaName = ccaToCopy.getName();
+        this.head = ccaToCopy.getHead();
+        this.viceHead = ccaToCopy.getViceHead();
+        this.budget = ccaToCopy.getBudget();
+        this.spent = ccaToCopy.getSpent();
+        this.outstanding = ccaToCopy.getOutstanding();
+        this.transactionEntries = ccaToCopy.getEntries();
     }
 
     /**
@@ -54,16 +69,16 @@ public class CcaBuilder {
     /**
      * Sets the head of the {@code Cca} we are building.
      */
-    public CcaBuilder withHead(Name head) {
-        this.head = head;
+    public CcaBuilder withHead(String head) {
+        this.head = new Name(head);
         return this;
     }
 
     /**
      * Sets the vice head of the {@code Cca} we are building.
      */
-    public CcaBuilder withViceHead(Name viceHead) {
-        this.viceHead = viceHead;
+    public CcaBuilder withViceHead(String viceHead) {
+        this.viceHead = new Name(viceHead);
         return this;
     }
 
@@ -92,15 +107,15 @@ public class CcaBuilder {
     }
 
     /**
-     * Sets the {@code Outstanding} of the {@code Cca} we are building.
+     * Sets the {@code entries} of the {@code Cca} we are building.
      */
-    public CcaBuilder withTransaction(String transaction) {
-        this.transaction = new Transaction(transaction);
+    public CcaBuilder withTransaction(Set<Entry> entries) {
+        this.transactionEntries = entries;
         return this;
     }
 
     public Cca build() {
-        return new Cca(ccaName, head, viceHead, budget, spent, outstanding, transaction);
+        return new Cca(ccaName, head, viceHead, budget, spent, outstanding, transactionEntries);
     }
 
 }

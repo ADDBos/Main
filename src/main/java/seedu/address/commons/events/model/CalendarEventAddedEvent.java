@@ -1,5 +1,6 @@
 package seedu.address.commons.events.model;
 
+import net.fortuna.ical4j.model.Calendar;
 import seedu.address.commons.events.BaseEvent;
 import seedu.address.model.calendar.Month;
 import seedu.address.model.calendar.Year;
@@ -17,9 +18,10 @@ public class CalendarEventAddedEvent extends BaseEvent {
     public final int endHour;
     public final int endMin;
     public final String title;
+    public final Calendar calendar;
 
     public CalendarEventAddedEvent(Year year, Month month, int startDate, int startHour, int startMin,
-                                   int endDate, int endHour, int endMin, String title) {
+                                   int endDate, int endHour, int endMin, String title, Calendar calendar) {
         this.year = year;
         this.month = month;
         this.startDate = startDate;
@@ -29,6 +31,7 @@ public class CalendarEventAddedEvent extends BaseEvent {
         this.endHour = endHour;
         this.endMin = endMin;
         this.title = title;
+        this.calendar = calendar;
 
     }
 

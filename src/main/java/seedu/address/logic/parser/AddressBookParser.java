@@ -9,28 +9,37 @@ import java.util.regex.Pattern;
 import seedu.address.logic.commands.AddAllDayEventCommand;
 import seedu.address.logic.commands.AddCommand;
 import seedu.address.logic.commands.AddEventCommand;
+import seedu.address.logic.commands.AddTransactionCommand;
 import seedu.address.logic.commands.BudgetCommand;
 import seedu.address.logic.commands.ClearCommand;
 import seedu.address.logic.commands.Command;
-import seedu.address.logic.commands.ComposeCommand;
+import seedu.address.logic.commands.ComposeEmailIndexCommand;
+import seedu.address.logic.commands.ComposeEmailListCommand;
 import seedu.address.logic.commands.CreateCalendarCommand;
 import seedu.address.logic.commands.CreateCcaCommand;
+import seedu.address.logic.commands.DeleteCcaCommand;
 import seedu.address.logic.commands.DeleteCommand;
+import seedu.address.logic.commands.DeleteEmailCommand;
 import seedu.address.logic.commands.DeleteEventCommand;
+import seedu.address.logic.commands.DeleteTransactionCommand;
 import seedu.address.logic.commands.EditCommand;
 import seedu.address.logic.commands.EraseCommand;
 import seedu.address.logic.commands.ExitCommand;
+import seedu.address.logic.commands.ExportCommand;
 import seedu.address.logic.commands.FindCommand;
 import seedu.address.logic.commands.HelpCommand;
 import seedu.address.logic.commands.HistoryCommand;
 import seedu.address.logic.commands.ImageCommand;
 import seedu.address.logic.commands.ImportCommand;
 import seedu.address.logic.commands.ListCommand;
+import seedu.address.logic.commands.ListEmailsCommand;
 import seedu.address.logic.commands.RedoCommand;
 import seedu.address.logic.commands.SearchCommand;
 import seedu.address.logic.commands.SelectCommand;
 import seedu.address.logic.commands.UndoCommand;
 import seedu.address.logic.commands.UpdateCommand;
+import seedu.address.logic.commands.ViewCalendarCommand;
+import seedu.address.logic.commands.ViewEmailCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 
 /**
@@ -87,6 +96,9 @@ public class AddressBookParser {
         case ListCommand.COMMAND_WORD:
             return new ListCommand();
 
+        case ListEmailsCommand.COMMAND_WORD:
+            return new ListEmailsCommand();
+
         case HistoryCommand.COMMAND_WORD:
             return new HistoryCommand();
 
@@ -108,8 +120,17 @@ public class AddressBookParser {
         case BudgetCommand.COMMAND_WORD:
             return new BudgetCommandParser().parse(arguments);
 
-        case ComposeCommand.COMMAND_WORD:
-            return new ComposeCommandParser().parse(arguments);
+        case ComposeEmailIndexCommand.COMMAND_WORD:
+            return new ComposeEmailIndexCommandParser().parse(arguments);
+
+        case ComposeEmailListCommand.COMMAND_WORD:
+            return new ComposeEmailListCommandParser().parse(arguments);
+
+        case ViewEmailCommand.COMMAND_WORD:
+            return new ViewEmailCommandParser().parse(arguments);
+
+        case DeleteEmailCommand.COMMAND_WORD:
+            return new DeleteEmailCommandParser().parse(arguments);
 
         case CreateCalendarCommand.COMMAND_WORD:
             return new CreateCalendarCommandParser().parse(arguments);
@@ -123,6 +144,9 @@ public class AddressBookParser {
         case ImportCommand.COMMAND_WORD:
             return new ImportCommandParser().parse(arguments);
 
+        case ExportCommand.COMMAND_WORD:
+            return new ExportCommandParser().parse(arguments);
+
         case AddAllDayEventCommand.COMMAND_WORD:
             return new AddAllDayEventCommandParser().parse(arguments);
 
@@ -131,6 +155,18 @@ public class AddressBookParser {
 
         case DeleteEventCommand.COMMAND_WORD:
             return new DeleteEventCommandParser().parse(arguments);
+
+        case ViewCalendarCommand.COMMAND_WORD:
+            return new ViewCalendarCommandParser().parse(arguments);
+
+        case DeleteCcaCommand.COMMAND_WORD:
+            return new DeleteCcaCommandParser().parse(arguments);
+
+        case AddTransactionCommand.COMMAND_WORD:
+            return new AddTransactionCommandPaser().parse(arguments);
+
+        case DeleteTransactionCommand.COMMAND_WORD:
+            return new DeleteTransactionCommandParser().parse(arguments);
 
         default:
             throw new ParseException(MESSAGE_UNKNOWN_COMMAND);

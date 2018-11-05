@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<List>
-	<CCA cca="golf">
+<list>
+    <cca name="Golf">
     	<room>B420</room>
-	</CCA>
-</List>
+    </cca>
+</list>

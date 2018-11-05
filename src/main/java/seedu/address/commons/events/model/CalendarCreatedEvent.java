@@ -1,20 +1,22 @@
 package seedu.address.commons.events.model;
 
+import net.fortuna.ical4j.model.Calendar;
 import seedu.address.commons.events.BaseEvent;
-import seedu.address.model.CalendarModel;
 
 //@@author GilgameshTC
 /** Indicates a calendar has been created*/
 public class CalendarCreatedEvent extends BaseEvent {
 
-    public final CalendarModel data;
+    public final Calendar calendar;
+    public final String calendarName;
 
-    public CalendarCreatedEvent(CalendarModel data) {
-        this.data = data;
+    public CalendarCreatedEvent(Calendar calendar, String calendarName) {
+        this.calendar = calendar;
+        this.calendarName = calendarName;
     }
 
     @Override
     public String toString() {
-        return "number of calendars " + data.size();
+        return "calendar " + calendarName + " created";
     }
 }

@@ -29,7 +29,7 @@ public class UniquePersonListTest {
     @Test
     public void contains_nullPerson_throwsNullPointerException() {
         thrown.expect(NullPointerException.class);
-        uniquePersonList.contains(null);
+        uniquePersonList.contains((Person) null);
     }
 
     @Test

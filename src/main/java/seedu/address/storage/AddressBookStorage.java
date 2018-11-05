@@ -42,4 +42,13 @@ public interface AddressBookStorage {
      */
     void saveAddressBook(ReadOnlyAddressBook addressBook, Path filePath) throws IOException;
 
+    /**
+     * Exports given {@link ReadOnlyAddressBook} to given {@link Path}.
+     *
+     * @param addressBook
+     * @param filePath
+     * @throws IOException if there was any problem writing to the path.
+     */
+    void exportAddressBook(ReadOnlyAddressBook addressBook, Path filePath) throws IOException;
+
 }

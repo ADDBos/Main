@@ -9,21 +9,21 @@ import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.cca.Cca;
 
+//@@author ericyjw
 /**
- * Adds a person to the address book.
+ * Adds a cca to the cca book.
+ *
+ * @author ericyjw
  */
 public class CreateCcaCommand extends Command {
-
     public static final String COMMAND_WORD = "create";
-
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Create a new CCA to the address book. "
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Create a new CCA to the address book.\n"
         + "Parameters: "
         + PREFIX_NAME + "CCA NAME "
         + PREFIX_BUDGET + "BUDGET \n"
         + "Example: " + COMMAND_WORD + " "
         + PREFIX_NAME + "Basketball "
         + PREFIX_BUDGET + "500";
-
     public static final String MESSAGE_SUCCESS = "New CCA added: %1$s";
     public static final String MESSAGE_DUPLICATE_CCA = "This CCA already exists in the budget book";
 
@@ -31,6 +31,8 @@ public class CreateCcaCommand extends Command {
 
     /**
      * Creates an CreateCcaCommand to add the specified {@code Cca}
+     *
+     * @param cca the cca to be added
      */
     public CreateCcaCommand(Cca cca) {
         requireNonNull(cca);

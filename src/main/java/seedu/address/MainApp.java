@@ -3,6 +3,7 @@ package seedu.address;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.util.Optional;
+import java.util.Set;
 import java.util.logging.Logger;
 
 import com.google.common.eventbus.Subscribe;
@@ -75,7 +76,8 @@ public class MainApp extends Application {
         AddressBookStorage addressBookStorage = new XmlAddressBookStorage(userPrefs.getAddressBookFilePath());
         BudgetBookStorage budgetBookStorage = new XmlBudgetBookStorage(userPrefs.getBudgetBookFilePath());
         EmailStorage emailStorage = new EmailDirStorage(userPrefs.getEmailPath());
-        ProfilePictureStorage profilePictureStorage = new ProfilePictureDirStorage(userPrefs.getProfilePicturePath());
+        ProfilePictureStorage profilePictureStorage = new ProfilePictureDirStorage(userPrefs.getProfilePicturePath(),
+                userPrefs.getOutputProfilePicturePath());
         CalendarStorage calendarStorage = new IcsCalendarStorage(userPrefs.getCalendarPath());
         storage = new StorageManager(addressBookStorage, budgetBookStorage, userPrefsStorage, calendarStorage,
             emailStorage, profilePictureStorage);
@@ -131,7 +133,9 @@ public class MainApp extends Application {
             initialBudgetData = new BudgetBook();
         }
 
-        return new ModelManager(initialAddressData, initialBudgetData, userPrefs);
+        Set<String> emailNamesSet = storage.readEmailFiles();
+
+        return new ModelManager(initialAddressData, initialBudgetData, userPrefs, emailNamesSet);
     }
 
     private void initLogging(Config config) {

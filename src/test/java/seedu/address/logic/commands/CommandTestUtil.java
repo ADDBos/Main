@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_CONTENT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_FROM;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ROOM;
@@ -41,10 +42,28 @@ public class CommandTestUtil {
     public static final String VALID_SCHOOL_BOB = "Biz";
     public static final String VALID_TAG_AMY = "Handball";
     public static final String VALID_TAG_BOB = "Floorball";
+
+    public static final String VALID_EMAIL_EXCURSION = "excursion@example.com";
+    public static final String VALID_EMAIL_CAMP = "camp@example.com";
+    public static final String VALID_CONTENT_EXCURSION = "We have an excursion on Monday";
+    public static final String VALID_CONTENT_CAMP = "We have a camp on Tuesday";
+    public static final String VALID_SUBJECT_EXCURSION = "Excursion";
+    public static final String VALID_SUBJECT_CAMP = "Camp";
     public static final String VALID_CONTENT_AMY = "Dear Bob<br /><br />See you tomorrow!<br /><br />Amy";
     public static final String VALID_CONTENT_BOB = "Dear Amy<br /><br />See you tomorrow!<br /><br />Bob";
     public static final String VALID_SUBJECT_AMY = "Meeting Tomorrow";
     public static final String VALID_SUBJECT_BOB = "Conference Tomorrow";
+    public static final String VALID_CCA_NAME_BASKETBALL = "Basketball";
+    public static final String VALID_CCA_NAME_BADMINTON = "BADMINTON";
+    public static final String VALID_CCA_NAME_TRACK = "track";
+    public static final String VALID_CCA_NAME_FLOORBALL = "FLOORBALL M";
+    public static final String VALID_CCA_NAME_HOCKEY = "hockey f";
+    public static final String VALID_BUDGET = "700";
+    public static final String VALID_ENTRY_NUM = "1";
+    public static final String VALID_DATE = "12.12.2018";
+    public static final String VALID_AMOUNT = "-100";
+    public static final String VALID_REMARKS = "Purchase of Equipment";
+
 
     public static final String NAME_DESC_AMY = " " + PREFIX_NAME + VALID_NAME_AMY;
     public static final String NAME_DESC_BOB = " " + PREFIX_NAME + VALID_NAME_BOB;
@@ -58,10 +77,13 @@ public class CommandTestUtil {
     public static final String SCHOOL_DESC_BOB = " " + PREFIX_SCHOOL + VALID_SCHOOL_BOB;
     public static final String TAG_DESC_AMY = " " + PREFIX_TAG + VALID_TAG_AMY;
     public static final String TAG_DESC_BOB = " " + PREFIX_TAG + VALID_TAG_BOB;
-    public static final String CONTENT_DESC_AMY = " " + PREFIX_CONTENT + VALID_CONTENT_AMY;
-    public static final String CONTENT_DESC_BOB = " " + PREFIX_CONTENT + VALID_CONTENT_BOB;
-    public static final String SUBJECT_DESC_AMY = " " + PREFIX_SUBJECT + VALID_SUBJECT_AMY;
-    public static final String SUBJECT_DESC_BOB = " " + PREFIX_SUBJECT + VALID_SUBJECT_BOB;
+
+    public static final String FROM_DESC_EXCURSION = " " + PREFIX_FROM + VALID_EMAIL_EXCURSION;
+    public static final String FROM_DESC_CAMP = " " + PREFIX_FROM + VALID_EMAIL_CAMP;
+    public static final String CONTENT_DESC_EXCURSION = " " + PREFIX_CONTENT + VALID_CONTENT_EXCURSION;
+    public static final String CONTENT_DESC_CAMP = " " + PREFIX_CONTENT + VALID_CONTENT_CAMP;
+    public static final String SUBJECT_DESC_EXCURSION = " " + PREFIX_SUBJECT + VALID_SUBJECT_EXCURSION;
+    public static final String SUBJECT_DESC_CAMP = " " + PREFIX_SUBJECT + VALID_SUBJECT_CAMP;
 
     public static final String INVALID_NAME_DESC = " " + PREFIX_NAME + "James&"; // '&' not allowed in names
     public static final String INVALID_PHONE_DESC = " " + PREFIX_PHONE + "911a"; // 'a' not allowed in phones
@@ -70,6 +92,10 @@ public class CommandTestUtil {
     public static final String INVALID_SCHOOL_DESC = " " + PREFIX_SCHOOL
             + "School of Computing"; // spacing no allowed for school
     public static final String INVALID_TAG_DESC = " " + PREFIX_TAG + "hubby*"; // '*' not allowed in tags
+
+    public static final String INVALID_FROM_DESC = " " + PREFIX_FROM + "excursion!yahoo"; // missing '@' symbol
+    public static final String INVALID_SUBJECT_DESC = " " + PREFIX_SUBJECT; // empty string not allowed for subjects
+    public static final String INVALID_CONTENT_DESC = " " + PREFIX_CONTENT; // empty string not allowed for contents
 
     public static final String PREAMBLE_WHITESPACE = "\t  \r  \n";
     public static final String PREAMBLE_NON_EMPTY = "NonEmptyPreamble";

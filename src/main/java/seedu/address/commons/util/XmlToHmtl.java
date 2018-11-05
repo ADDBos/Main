@@ -1,4 +1,4 @@
-package seedu.address;
+package seedu.address.commons.util;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -12,6 +12,7 @@ import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
+import javax.xml.transform.stream.StreamSource;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.NamedNodeMap;
@@ -42,10 +43,10 @@ public class XmlToHmtl {
             File xmlFile = new File(ccaBook);
             File xslFile = new File(ccaBookXsl);
             Transformer transformer = tFactory.newTransformer
-                    (new javax.xml.transform.stream.StreamSource(xslFile));
+                (new StreamSource(xslFile));
 
             transformer.transform(new javax.xml.transform.stream.StreamSource(xmlFile),
-                    new javax.xml.transform.stream.StreamResult(new FileOutputStream(outputHtml)));
+                new StreamResult(new FileOutputStream(outputHtml)));
         } catch (Exception e) {
             e.printStackTrace();
         }

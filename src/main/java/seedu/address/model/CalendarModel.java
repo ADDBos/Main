@@ -8,19 +8,15 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-import net.fortuna.ical4j.data.ParserException;
 import net.fortuna.ical4j.model.Calendar;
 import net.fortuna.ical4j.model.Component;
 import net.fortuna.ical4j.model.ComponentList;
 import net.fortuna.ical4j.model.Date;
 import net.fortuna.ical4j.model.DateTime;
-import net.fortuna.ical4j.model.TimeZone;
-import net.fortuna.ical4j.model.TimeZoneRegistry;
-import net.fortuna.ical4j.model.TimeZoneRegistryFactory;
 import net.fortuna.ical4j.model.component.CalendarComponent;
 import net.fortuna.ical4j.model.component.VEvent;
-import net.fortuna.ical4j.model.component.VTimeZone;
 import net.fortuna.ical4j.model.property.CalScale;
+import net.fortuna.ical4j.model.property.Categories;
 import net.fortuna.ical4j.model.property.DtEnd;
 import net.fortuna.ical4j.model.property.DtStart;
 import net.fortuna.ical4j.model.property.ProdId;
@@ -29,7 +25,6 @@ import net.fortuna.ical4j.util.FixedUidGenerator;
 import net.fortuna.ical4j.util.UidGenerator;
 import seedu.address.model.calendar.Month;
 import seedu.address.model.calendar.Year;
-import seedu.address.storage.CalendarStorage;
 
 //@@author GilgameshTC
 /**
@@ -37,18 +32,21 @@ import seedu.address.storage.CalendarStorage;
  */
 public class CalendarModel {
 
-    private CalendarStorage calendarStorage;
+    // Light Blue
+    public static final String EVENT_COLOR_IN_CAL = "group13";
+
     private Map<Year, Set<Month>> existingCalendar;
     // Field to store calendar loaded by user if any.
     // User can only load at most one calendar at any point of time.
     private Calendar loadedCalendar;
+    private String loadedCalendarName;
     private VEvent eventToBeRemoved;
     private Map<Month, Integer> monthToConstantMap;
 
-    public CalendarModel(CalendarStorage calendarStorage, Map<Year, Set<Month>> existingCalendar) {
-        this.calendarStorage = calendarStorage;
+    public CalendarModel(Map<Year, Set<Month>> existingCalendar) {
         this.existingCalendar = existingCalendar;
         this.loadedCalendar = null;
+        this.loadedCalendarName = null;
         this.eventToBeRemoved = null;
         this.monthToConstantMap = initializeMonthToStringMap();
 
@@ -87,6 +85,18 @@ public class CalendarModel {
         return false;
     }
 
+    /**
+     * Checks if calendar to be edited is already loaded.
+     */
+    public boolean isLoadedCalendar(Year year, Month month) {
+        String calendarName = month + "-" + year;
+        if (this.loadedCalendar == null) {
+            return false;
+        } else {
+            return (this.loadedCalendarName.compareTo(calendarName) == 0);
+        }
+    }
+
     /** Checks if date is valid in a particular month. */
     public boolean isValidDate(Year year, Month month, int date) {
         java.util.Calendar cal = java.util.Calendar.getInstance();
@@ -111,39 +121,67 @@ public class CalendarModel {
         if (startDate < endDate) {
             return true;
         } else {
-            return startDate == endDate && startHour <= endHour && startMinute <= endMinute;
+            if (startDate > endDate) {
+                return false;
+            } else if (startHour < endHour) {
+                return true;
+            } else if (startHour > endHour) {
+                return false;
+            } else {
+                return startMinute < endMinute;
+            }
         }
     }
 
     /** Setter method for loadedCalendar field. */
-    private void setLoadedCalendar(Calendar calendar) {
+    private void setLoadedCalendar(Calendar calendar, String calendarName) {
         this.loadedCalendar = calendar;
-
+        this.loadedCalendarName = calendarName;
     }
 
     /** Creates the calendar file. */
-    public void createCalendar(Year year, Month month) throws IOException {
+    public Calendar createCalendar(Year year, Month month) throws IOException {
         // Initialize the calendar
-        String calendarName = month + "-" + year;
         Calendar calendar = new Calendar();
         calendar.getProperties().add(new ProdId("-//Ben Fortuna//iCal4j 1.0//EN"));
         calendar.getProperties().add(Version.VERSION_2_0);
         calendar.getProperties().add(CalScale.GREGORIAN);
 
-        // Dummy Event
-        java.util.Calendar cal = java.util.Calendar.getInstance();
-        cal.set(java.util.Calendar.MONTH, java.util.Calendar.DECEMBER);
-        cal.set(java.util.Calendar.DAY_OF_MONTH, 25);
+        // ----- Create dummy Christmas event -----
+        // Start Date
+        java.util.Calendar sDate = new GregorianCalendar();
+        sDate.set(java.util.Calendar.YEAR, Integer.parseInt(year.toString()));
+        sDate.set(java.util.Calendar.MONTH, java.util.Calendar.NOVEMBER);
+        sDate.set(java.util.Calendar.DAY_OF_MONTH, 25);
+        sDate.set(java.util.Calendar.HOUR_OF_DAY, 0);
+        sDate.set(java.util.Calendar.MINUTE, 0);
+        sDate.set(java.util.Calendar.SECOND, 0);
 
-        // Initialise as an all day event
-        VEvent christmas = new VEvent(new net.fortuna.ical4j.model.Date(cal.getTime()), "Christmas Day");
+        // End Date
+        java.util.Calendar eDate = new GregorianCalendar();
+        eDate.set(java.util.Calendar.YEAR, Integer.parseInt(year.toString()));
+        eDate.set(java.util.Calendar.MONTH, java.util.Calendar.NOVEMBER);
+        eDate.set(java.util.Calendar.DAY_OF_MONTH, 25);
+        eDate.set(java.util.Calendar.HOUR_OF_DAY, 23);
+        eDate.set(java.util.Calendar.MINUTE, 59);
+        eDate.set(java.util.Calendar.SECOND, 59);
+
+        // Create the event
+        DateTime start = new DateTime(sDate.getTime());
+        DateTime end = new DateTime(eDate.getTime());
+        VEvent christmas = new VEvent(start, end, "Christmas Day");
+
+        // Add Category Color to event
+        Categories categories = new Categories();
+        // light blue color in iCalendarAgenda
+        categories.setValue(EVENT_COLOR_IN_CAL);
+        christmas.getProperties().add(categories);
+
         // Generate a UID for the event
         UidGenerator ug = new FixedUidGenerator("1");
         christmas.getProperties().add(ug.generateUid());
         calendar.getComponents().add(christmas);
-
-        // Create the calendar
-        calendarStorage.createCalendar(calendar, calendarName);
+        // ------------------------------
 
         // Update existing calendar map
         Set<Month> yearOfCal = existingCalendar.get(year);
@@ -154,29 +192,19 @@ public class CalendarModel {
         } else {
             yearOfCal.add(month);
         }
+
+        return calendar;
     }
 
     /** Load and parse the requested calendar file. */
-    public void loadCalendar(Year year, Month month) throws IOException, ParserException {
-        String calendarName = month + "-" + year;
-        Calendar calendarToBeLoaded = calendarStorage.loadCalendar(calendarName);
-        setLoadedCalendar(calendarToBeLoaded);
-
+    public void loadCalendar(Calendar calendarToBeLoaded, String calendarName) {
+        setLoadedCalendar(calendarToBeLoaded, calendarName);
     }
 
     /** Creates a new all day event in the loaded Calendar. */
-    public void createAllDayEvent(Year year, Month month, int date, String title) throws IOException, ParserException {
-        // Load the calendar
-        loadCalendar(year, month);
-
-        // Create a TimeZone
-        TimeZoneRegistry registry = TimeZoneRegistryFactory.getInstance().createRegistry();
-        TimeZone timezone = registry.getTimeZone("Asia/Singapore");
-        VTimeZone tz = timezone.getVTimeZone();
-
+    public Calendar createAllDayEvent(Year year, Month month, int date, String title) throws IOException {
         // Start Date
         java.util.Calendar sDate = new GregorianCalendar();
-        sDate.setTimeZone(timezone);
         sDate.set(java.util.Calendar.YEAR, Integer.parseInt(year.toString()));
         sDate.set(java.util.Calendar.MONTH, monthToConstantMap.get(month));
         sDate.set(java.util.Calendar.DAY_OF_MONTH, date);
@@ -186,7 +214,6 @@ public class CalendarModel {
 
         // End Date
         java.util.Calendar eDate = new GregorianCalendar();
-        eDate.setTimeZone(timezone);
         eDate.set(java.util.Calendar.YEAR, Integer.parseInt(year.toString()));
         eDate.set(java.util.Calendar.MONTH, monthToConstantMap.get(month));
         eDate.set(java.util.Calendar.DAY_OF_MONTH, date);
@@ -199,34 +226,27 @@ public class CalendarModel {
         DateTime end = new DateTime(eDate.getTime());
         VEvent newEvent = new VEvent(start, end, title);
 
-        // Add timezone info
-        newEvent.getProperties().add(tz.getTimeZoneId());
+        // Add Category Color to event
+        Categories categories = new Categories();
+        // light blue color in iCalendarAgenda
+        categories.setValue(EVENT_COLOR_IN_CAL);
+        newEvent.getProperties().add(categories);
 
         // Generate a UID for the event
         UidGenerator ug = new FixedUidGenerator("1");
         newEvent.getProperties().add(ug.generateUid());
         loadedCalendar.getComponents().add(newEvent);
 
-        String calendarName = month + "-" + year;
-        // Save the updated calendar to storage
-        calendarStorage.createCalendar(loadedCalendar, calendarName);
+        // Return the updated calendar
+        return loadedCalendar;
 
     }
 
     /** Creates an event in the loaded Calendar with the specified time frame. */
-    public void createEvent(Year year, Month month, int startDate, int startHour, int startMin,
-                            int endDate, int endHour, int endMin, String title) throws IOException, ParserException {
-        // Load the calendar
-        loadCalendar(year, month);
-
-        // Create a TimeZone
-        TimeZoneRegistry registry = TimeZoneRegistryFactory.getInstance().createRegistry();
-        TimeZone timezone = registry.getTimeZone("Asia/Singapore");
-        VTimeZone tz = timezone.getVTimeZone();
-
+    public Calendar createEvent(Year year, Month month, int startDate, int startHour, int startMin,
+                                int endDate, int endHour, int endMin, String title) throws IOException {
         // Start Date
         java.util.Calendar sDate = new GregorianCalendar();
-        sDate.setTimeZone(timezone);
         sDate.set(java.util.Calendar.YEAR, Integer.parseInt(year.toString()));
         sDate.set(java.util.Calendar.MONTH, monthToConstantMap.get(month));
         sDate.set(java.util.Calendar.DAY_OF_MONTH, startDate);
@@ -236,7 +256,6 @@ public class CalendarModel {
 
         // End Date
         java.util.Calendar eDate = new GregorianCalendar();
-        eDate.setTimeZone(timezone);
         eDate.set(java.util.Calendar.YEAR, Integer.parseInt(year.toString()));
         eDate.set(java.util.Calendar.MONTH, monthToConstantMap.get(month));
         eDate.set(java.util.Calendar.DAY_OF_MONTH, endDate);
@@ -249,17 +268,19 @@ public class CalendarModel {
         DateTime end = new DateTime(eDate.getTime());
         VEvent newEvent = new VEvent(start, end, title);
 
-        // Add timezone info
-        newEvent.getProperties().add(tz.getTimeZoneId());
+        // Add Category Color to event
+        Categories categories = new Categories();
+        // light blue color in iCalendarAgenda
+        categories.setValue(EVENT_COLOR_IN_CAL);
+        newEvent.getProperties().add(categories);
 
         // Generate a UID for the event
         UidGenerator ug = new FixedUidGenerator("1");
         newEvent.getProperties().add(ug.generateUid());
         loadedCalendar.getComponents().add(newEvent);
 
-        String calendarName = month + "-" + year;
-        // Save the updated calendar to storage
-        calendarStorage.createCalendar(loadedCalendar, calendarName);
+        // Return the updated calendar
+        return loadedCalendar;
     }
 
     /**
@@ -310,11 +331,7 @@ public class CalendarModel {
     }
 
     /** Checks if this specific event exists in the loaded Calendar. */
-    public boolean isExistingEvent(Year year, Month month, int startDate, int endDate, String title) throws IOException,
-            ParserException {
-        // Load the calendar
-        loadCalendar(year, month);
-
+    public boolean isExistingEvent(int startDate, int endDate, String title) {
         // Store the event into private field eventToBeRemoved
         this.eventToBeRemoved = retrieveEvent(startDate, endDate, title);
         return isExistingEvent(this.eventToBeRemoved);
@@ -330,14 +347,12 @@ public class CalendarModel {
      * Deletes an event in the loaded Calendar.
      * A call to the public isExistingEvent method has to precede this method call.
      */
-    public void deleteEvent(Year year, Month month) throws IOException {
+    public Calendar deleteEvent() {
         if (isExistingEvent(this.eventToBeRemoved)) {
             loadedCalendar.getComponents().remove(this.eventToBeRemoved);
         }
 
-        String calendarName = month + "-" + year;
-        // Save the updated calendar to storage
-        calendarStorage.createCalendar(loadedCalendar, calendarName);
+        return loadedCalendar;
     }
 
     /** Returns the updated Map: existingCalendar. */
@@ -368,12 +383,11 @@ public class CalendarModel {
 
         CalendarModel o = (CalendarModel) other;
 
-        return calendarStorage.equals(o.calendarStorage)
-                && existingCalendar.equals(o.existingCalendar);
+        return existingCalendar.equals(o.existingCalendar);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(calendarStorage, existingCalendar);
+        return Objects.hash(existingCalendar);
     }
 }

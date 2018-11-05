@@ -12,8 +12,9 @@ import seedu.address.model.cca.UniqueCcaList;
 import seedu.address.model.person.Person;
 import seedu.address.model.tag.Tag;
 
+//@@author ericyjw
 /**
- * Wraps all budget data at the budget-book level
+ * Wraps all cca data at the budget-book level
  * Duplicates in CCA tags are not allowed (by .isSameCCA comparison)
  *
  * @author ericyjw
@@ -30,6 +31,8 @@ public class BudgetBook implements ReadOnlyBudgetBook {
 
     /**
      * Creates a Budget Book using the CCAs in the {@code toBeCopied}
+     *
+     * @param toBeCopied a {@code ReadOnlyBudgetBook} with a unique list of Cca
      */
     public BudgetBook(ReadOnlyBudgetBook toBeCopied) {
         this();
@@ -40,6 +43,8 @@ public class BudgetBook implements ReadOnlyBudgetBook {
 
     /**
      * Resets the existing data of this {@code BudgetBook} with {@code newData}.
+     *
+     * @param newData a {@code ReadOnlyBudgetBook} with a unique list of Cca
      */
     public void resetData(ReadOnlyBudgetBook newData) {
         requireNonNull(newData);
@@ -48,17 +53,21 @@ public class BudgetBook implements ReadOnlyBudgetBook {
     }
 
     /**
-     * Replaces the contents of the CCA list with {@code CCAs}.
-     * {@code CCAs} must not contain duplicate CCAs.
+     * Replaces the contents of the unique Cca list with {@code Ccas}.
+     *
+     * @param ccas a list of Cca that does not have duplicate Ccas
      */
     public void setCcas(List<Cca> ccas) {
         this.ccas.setCcas(ccas);
     }
 
-    //// CCA-level operations
+    //// Cca-level operations
 
     /**
-     * Returns true if a CCA {@code tag} exists in the Budget Book.
+     * Returns true if a Cca {@code tag} exists in the budget book.
+     * Used to check if the {@code person}'s cca are in the {@code UniqueCcaList}.
+     *
+     * @param person a person to be added
      */
     public boolean hasCca(Person person) {
         requireNonNull(person);
@@ -73,15 +82,22 @@ public class BudgetBook implements ReadOnlyBudgetBook {
     }
 
     /**
-     * Return true is a CCA name exists in the Budget Book
+     * Return true is a Cca name exists in the budget book.
+     * Used to check if the {@code ccaName} is in the {@code UniqueCcaList}.
+     * A weaker check as compared to checking the whole Cca.
+     *
+     * @param ccaName the name of the Cca to be checked
      */
     public boolean hasCca(CcaName ccaName) {
         requireNonNull(ccaName);
-        return ccas.contains(ccaName.toString());
+        return ccas.contains(ccaName.getNameOfCca());
     }
 
     /**
-     * Returns true if a CCA {@code tag} exists in the Budget Book.
+     * Returns true if a {@code cca} exists in the budget book.
+     * Used to check is the {@code cca} is in the {@code UniqueCcaList}.
+     *
+     * @param cca the Cca to be checked
      */
     public boolean hasCca(Cca cca) {
         requireNonNull(cca);
@@ -89,17 +105,22 @@ public class BudgetBook implements ReadOnlyBudgetBook {
     }
 
     /**
-     * Adds a CCA to the Budget Book.
-     * The CCA must not already exist in the Budget Book.
+     * Adds a Cca to the {@code UniqueCcaList}.
+     * The {@code cca} must not already exist in the {@code UniqueCcaList}, in the budget book.
+     *
+     * @param cca a valid cca to be added
      */
     public void addCca(Cca cca) {
         ccas.add(cca);
     }
 
     /**
-     * Replaces the given CCA {@code target} in the list with {@code editedCca}.
-     * {@code target} must exist in the Budget Book.
-     * The CCA {@code editedCCA} must not be the same as another existing CCA in the Budget Book.
+     * Replaces the given Cca {@code target} in the list with {@code editedCca}.
+     * {@code target} must exist in the {@code UniqueCcaList}, in the Budget Book.
+     * The Cca {@code editedCCA} must not be the same as another existing Cca in the budget book.
+     *
+     * @param target the cca to be replaced
+     * @param editedCca the cca with the updated information
      */
     public void updateCca(Cca target, Cca editedCca) {
         requireNonNull(editedCca);
@@ -108,18 +129,19 @@ public class BudgetBook implements ReadOnlyBudgetBook {
     }
 
     /**
-     * Removes {@code cca} from this {@code BudgetBook}.
-     * {@code cca} must exist in the Budget book.
+     * Removes {@code cca} from this {@code UniqueCcaList}.
+     * {@code cca} must exist in the {@code UniqueCcaList}, in the budget book.
+     *
+     * @param cca the cca to be removed
      */
-    public void removeCca(Cca key) {
-        ccas.remove(key);
+    public void removeCca(Cca cca) {
+        ccas.remove(cca);
     }
 
     //// util methods
     @Override
     public String toString() {
         return ccas.asUnmodifiableObservableList().size() + " CCAs";
-        // TODO: refine later
     }
 
     @Override

@@ -22,7 +22,7 @@ public class ContactContainsTagPredicate implements Predicate<Person> {
         Set<Tag> tags = person.getTags();
         for (String s : keywords) {
             for (Tag t : tags) {
-                if (s.equals(t.toStringOnly())) {
+                if (s.equalsIgnoreCase(t.toStringOnly().toLowerCase())) {
                     return true;
                 }
             }

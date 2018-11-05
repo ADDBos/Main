@@ -3,47 +3,60 @@
 :imagesDir: ../images
 :stylesDir: ../stylesheets
 
-== PROJECT: ADDBos
-
----
-
-_{#To be edited#}_
+== PROJECT: Hallper
 
 == Overview
 
-AddressBook - Level 4 is a desktop address book application used for teaching Software Engineering principles. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 10 kLoC.
+This Project Portfolio Page aims to illustrate what I have learnt while working on Hallper, as well as to document my
+contributions to the project. The different sections below will specify my contributions to different aspects of the
+project.
+
+Hallper is a desktop application that is a centralized management system which is catered for the use by the Junior
+Common Room Committee (JCRC) of the halls in any school. Most of my team mates have stayed or are still staying in a hall
+and we identified that the JCRC in our respective halls seem to be having a hard time dealing with their administrative
+duties as there they have to liaise with many different parties. As a result, my team decided to build a centralized
+management system as our project for our software engineering module so as to help alleviate the inconvenience that
+they encounter while executing their duties. Hallper is an easy to use application which brings about much convenience to
+the JCRC since not much mouse interaction is required from them as everything can be done just by typing the commands
+available. By consolidating the types of features needed all into a single application, this will save the JCRC the
+trouble of having to open many different applications on their computer.
+
+The main features included in Hallper are email writing, budget management, calendar creation, profile picture
+uploading as well as import and export of Hallper. With all these features in place, we believe that Hallper will be the
+one-stop solution for all JCRCs.
 
 == Summary of contributions
 
-* *Major enhancement*: added *the ability to undo/redo previous commands*
-** What it does: allows the user to undo all previous commands one at a time. Preceding undo commands can be reversed by using the redo command.
-** Justification: This feature improves the product significantly because a user can make mistakes in commands and the app should provide a convenient way to rectify them.
-** Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands.
-** Credits: _{mention here if you reused any code/ideas from elsewhere or if a third-party library is heavily used in the feature so that a reader can make a more accurate judgement of how much effort went into the feature}_
+* *Major enhancement 1*: added a *image function to upload profile pictures into Hallper*
+** What it does: This feature allows the user to upload profile pictures for residents that the user specifies.
+** Justification: This feature adds value to the product as the JCRC will then be able to see the faces of each resident
+through Hallper.
+** Highlights: This feature required the HTML file that is used to display the profile to receive relevant information,
+along with the tagged profile picture of the specified resident.
 
-* *Minor enhancement*: added a history command that allows the user to navigate to previous commands using up/down keys.
+* *Major enhancement 2*: added a *search function to search for residents by room number, school or CCA*
+** What it does: This feature allows the user to search for residents based on room numbers, schools or even the CCAs that the residents are in.
+** Justification: This feature improves the product significantly because a user might want to find residents based on certain specifications.
+** Highlights: This enhancement required manipulation of existing data fields of the residents since multiple specifications can be used as a search criteria
+
+* *Minor enhancement*: updated the data fields that were required for each resident.
 
 * *Code contributed*: [https://github.com[Functional code]] [https://github.com[Test code]] _{give links to collated code files}_
 
 * *Other contributions*:
 
 ** Project management:
-*** Managed releases `v1.3` - `v1.5rc` (3 releases) on GitHub
+*** Managed release `v1.3` on GitHub
 ** Enhancements to existing features:
-*** Updated the GUI color scheme (Pull requests https://github.com[#33], https://github.com[#34])
 *** Wrote additional tests for existing features to increase coverage from 88% to 92% (Pull requests https://github.com[#36], https://github.com[#38])
 ** Documentation:
-*** Did cosmetic tweaks to existing contents of the User Guide: https://github.com[#14]
+*** Reorganized the User Guide to make it more user-friendly: https://github.com[#14]
 ** Community:
 *** PRs reviewed (with non-trivial review comments): https://github.com[#12], https://github.com[#32], https://github.com[#19], https://github.com[#42]
-*** Contributed to forum discussions (examples:  https://github.com[1], https://github.com[2], https://github.com[3], https://github.com[4])
 *** Reported bugs and suggestions for other teams in the class (examples:  https://github.com[1], https://github.com[2], https://github.com[3])
-*** Some parts of the history feature I added was adopted by several other class mates (https://github.com[1], https://github.com[2])
 ** Tools:
-*** Integrated a third party library (Natty) to the project (https://github.com[#42])
-*** Integrated a new Github plugin (CircleCI) to the team repo
+*** Integrated a third party library (Apache Commons IO) to the project (https://github.com[#42])
 
-_{you can add/remove categories in the list above}_
 
 == Contributions to the User Guide
 
@@ -52,9 +65,10 @@ _{you can add/remove categories in the list above}_
 |_Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users._
 |===
 
-include::../UserGuide.adoc[tag=undoredo]
+include::../UserGuide.adoc[tag=search]
 
-include::../UserGuide.adoc[tag=dataencryption]
+
+include::../UserGuide.adoc[tag=image]
 
 == Contributions to the Developer Guide
 
@@ -62,13 +76,10 @@ include::../UserGuide.adoc[tag=dataencryption]
 |_Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project._
 |===
 
-include::../DeveloperGuide.adoc[tag=undoredo]
-
-include::../DeveloperGuide.adoc[tag=dataencryption]
+include::../DeveloperGuide.adoc[tag=image]
 
 
 == PROJECT: PowerPointLabs
 
 ---
 
-_{Optionally, you may include other projects in your portfolio.}_

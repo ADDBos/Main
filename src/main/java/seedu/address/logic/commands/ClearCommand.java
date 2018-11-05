@@ -12,6 +12,7 @@ import seedu.address.model.person.ContactContainsRoomPredicate;
 import seedu.address.model.person.ContactContainsTagPredicate;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Room;
+import seedu.address.model.tag.Tag;
 
 //@@author kengwoon
 /**
@@ -30,21 +31,16 @@ public class ClearCommand extends Command {
     public static final String MESSAGE_CLEAR_SPECIFIC_SUCCESS = "Cleared persons under %1$s in Hallper";
     public static final String MESSAGE_CLEAR_NOTHING = "No persons found under %1$s in Hallper";
 
-    private final ContactContainsTagPredicate predicateTag;
-    private final ContactContainsRoomPredicate predicateRoom;
-
     private final List<String> target;
-    private ArrayList<Person> toClear;
-    private boolean clearAll;
-    private boolean clearRoom;
+    private boolean isClearAll;
+    private boolean isClearRoom;
+    private boolean isClearTag;
 
     public ClearCommand(List<String> target) {
-        this.predicateTag = new ContactContainsTagPredicate(target);
-        this.predicateRoom = new ContactContainsRoomPredicate(target);
         this.target = target;
-        this.clearAll = false;
-        this.clearRoom = false;
-        this.toClear = new ArrayList<>();
+        this.isClearAll = false;
+        this.isClearRoom = false;
+        this.isClearTag = false;
     }
 
     @Override
@@ -52,16 +48,18 @@ public class ClearCommand extends Command {
         requireNonNull(model);
         for (String s : target) {
             if (s.toLowerCase().equals("all")) {
-                this.clearAll = true;
+                this.isClearAll = true;
                 break;
             }
             if (Room.isValidRoom(s)) {
-                this.clearRoom = true;
-                break;
+                this.isClearRoom = true;
+            }
+            if (Tag.isValidTagName(s)) {
+                this.isClearTag = true;
             }
         }
 
-        if (clearAll) {
+        if (isClearAll) {
             return clearAll(model);
         } else {
             return clearSpecific(model);
@@ -85,10 +83,15 @@ public class ClearCommand extends Command {
      * @return CommandResult
      */
     private CommandResult clearSpecific(Model model) {
-        toClear.clear();
+        ContactContainsTagPredicate predicateTag = new ContactContainsTagPredicate(target);
+        ContactContainsRoomPredicate predicateRoom = new ContactContainsRoomPredicate(target);
+        List<Person> toClear = new ArrayList<>();
         List<Person> fullList = model.getAddressBook().getPersonList();
         for (Person p : fullList) {
-            if (clearRoom ? predicateRoom.test(p) : predicateTag.test(p)) {
+            if (isClearRoom && predicateRoom.test(p)) {
+                toClear.add(p);
+            }
+            if (isClearTag && predicateTag.test(p)) {
                 toClear.add(p);
             }
         }
@@ -101,5 +104,12 @@ public class ClearCommand extends Command {
         model.updateFilteredPersonList(Model.PREDICATE_SHOW_ALL_PERSONS);
         model.commitAddressBook();
         return new CommandResult(String.format(MESSAGE_CLEAR_SPECIFIC_SUCCESS, target));
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        return other == this // short circuit if same object
+            || (other instanceof ClearCommand // instance of handles null
+            && target.equals(((ClearCommand) other).target));
     }
 }

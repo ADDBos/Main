@@ -37,7 +37,8 @@ public class StorageManagerTest {
         JsonUserPrefsStorage userPrefsStorage = new JsonUserPrefsStorage(getTempFilePath("prefs"));
         IcsCalendarStorage calendarStorage = new IcsCalendarStorage(getTempFilePath("cal"));
         EmailDirStorage emailStorage = new EmailDirStorage(getTempFilePath("em"));
-        ProfilePictureDirStorage profilePictureStorage = new ProfilePictureDirStorage((getTempFilePath("pro")));
+        ProfilePictureDirStorage profilePictureStorage = new ProfilePictureDirStorage((getTempFilePath("pro")),
+                getTempFilePath("outProfile"));
         storageManager = new StorageManager(addressBookStorage, budgetBookStorage, userPrefsStorage, calendarStorage,
             emailStorage, profilePictureStorage);
     }
@@ -87,7 +88,7 @@ public class StorageManagerTest {
             new JsonUserPrefsStorage(Paths.get("dummy")),
             new IcsCalendarStorage(Paths.get("dummy")),
             new EmailDirStorage(Paths.get("dummy")),
-            new ProfilePictureDirStorage((Paths.get("dummy"))));
+            new ProfilePictureDirStorage((Paths.get("dummy")), Paths.get("dummy")));
         storage.handleAddressBookChangedEvent(new AddressBookChangedEvent(new AddressBook()));
         assertTrue(eventsCollectorRule.eventsCollector.getMostRecent() instanceof DataSavingExceptionEvent);
     }

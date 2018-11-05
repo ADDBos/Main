@@ -20,5 +20,4 @@ src/main/resources/docs/
 out/
 email/
 calendar/
-src/main/resources/profile_picture
-profile
+src/main/resources/profile_picture/

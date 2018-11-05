@@ -11,39 +11,42 @@ import javafx.collections.ObservableList;
 import seedu.address.model.cca.exceptions.CcaNotFoundException;
 import seedu.address.model.cca.exceptions.DuplicateCcaException;
 
+//@@author ericyjw
 /**
- * A list of unique CCAs.
+ * A list of unique Ccas.
+ *
+ * @author ericyjw
  */
 public class UniqueCcaList implements Iterable<Cca> {
     private final ObservableList<Cca> internalCcaList = FXCollections.observableArrayList();
 
     /**
-     * Returns true if the list contains an equivalent tag as the given argument.
+     * Returns true if the list contains an equivalent Cca as the given argument.
+     *
+     * @param toCheck the Cca to check
      */
     public boolean contains(Cca toCheck) {
         requireNonNull(toCheck);
         return internalCcaList.stream().anyMatch(toCheck::isSameCca);
     }
 
-    //TODO: check why directly checking the name doesn't work
-
     /**
-     * Returns true if the list contains an equivalent tag as the given argument.
+     * Returns true if the list contains an equivalent Cca name as the given argument.
      *
-     * @author ericyjw
+     * @param ccaName the name of the Cca to check
      */
     public boolean contains(String ccaName) {
         requireNonNull(ccaName);
         Cca toCheck = new Cca(ccaName);
-        // return internalCcaList.stream().anyMatch(ccaName::isSameCcaName);
-        return internalCcaList.stream().anyMatch(toCheck::isSameCcaName);
-
+        return internalCcaList.stream().anyMatch(toCheck::isSameCca);
     }
 
 
     /**
-     * Adds a CCA to the unique CCA list.
-     * The CCA must not already exist in the list.
+     * Adds a Cca to the unique Cca list.
+     * The Cca must not already exist in the list.
+     *
+     * @param toAdd the cca to add
      */
     public void add(Cca toAdd) {
         if (contains(toAdd)) {
@@ -53,9 +56,12 @@ public class UniqueCcaList implements Iterable<Cca> {
     }
 
     /**
-     * Replaces the CCA {@code target} in the unique CCA list with {@code editedCCA}.
-     * {@code target} must exist in the unique CCA list.
-     * The CCA identity of {@code editedCCA} must not be the same as another existing CCA in the list.
+     * Replaces the {@code target} Cca in the unique Cca list with {@code editedCca}.
+     * {@code target} Cca must exist in the unique Cca list.
+     * The Cca identity of {@code editedCca} must not be the same as another existing Cca in the list.
+     *
+     * @param target the Cca to be replaced
+     * @param editedCca the Cca to replace the existing Cca
      */
     public void setCca(Cca target, Cca editedCca) {
         requireAllNonNull(target, editedCca);
@@ -72,14 +78,21 @@ public class UniqueCcaList implements Iterable<Cca> {
         internalCcaList.set(index, editedCca);
     }
 
+    /**
+     * Replaces the whole {@code UniqueCcaList}.
+     *
+     * @param replacement the unique Cca list to replace the existing one
+     */
     public void setCca(UniqueCcaList replacement) {
         requireNonNull(replacement);
         internalCcaList.setAll(replacement.internalCcaList);
     }
 
     /**
-     * Replaces the contents of this list with {@code CCAs}.
-     * {@code CCAs} must not contain duplicate CCAs.
+     * Replaces the contents of this list with {@code Ccas}.
+     * {@code Ccas} must not contain duplicate CCAs.
+     *
+     * @param ccas the list of Ccas that does not contain any duplicate Ccas
      */
     public void setCcas(List<Cca> ccas) {
         requireAllNonNull(ccas);
@@ -91,8 +104,10 @@ public class UniqueCcaList implements Iterable<Cca> {
     }
 
     /**
-     * Removes the equivalent tag from the unique tag list.
-     * The tag must exist in the list.
+     * Removes the equivalent Cca from the unique Cca list.
+     * The Cca must exist in the list.
+     *
+     * @param toRemove the Cca to be removed
      */
     public void remove(Cca toRemove) {
         requireNonNull(toRemove);
@@ -102,7 +117,7 @@ public class UniqueCcaList implements Iterable<Cca> {
     }
 
     /**
-     * Returns true if {@code CCAs} contains only unique CCAs.
+     * Returns true if the list of {@code Ccas} contains only unique Ccas.
      */
     private boolean ccasAreUnique(List<Cca> ccas) {
         for (int i = 0; i < ccas.size() - 1; i++) {
@@ -138,5 +153,4 @@ public class UniqueCcaList implements Iterable<Cca> {
     public int hashCode() {
         return internalCcaList.hashCode();
     }
-
 }

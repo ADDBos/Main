@@ -31,11 +31,11 @@ public class ProfilePictureTest {
         assertFalse(ProfilePicture.isValidProfilePicture(Paths.get("^"))); // only non-alphanumeric characters
         assertFalse(ProfilePicture
                 .isValidProfilePicture(Paths.get(".", "resources", "profile_picture"))); // does not end jpg or png
+        assertFalse(ProfilePicture.isValidProfilePicture(Paths.get("a.png"))); // ends with .png
 
         //valid profile picture
         assertTrue(ProfilePicture.isValidProfilePicture(Paths.get("a.jpg"))); // alphabets only
         assertTrue(ProfilePicture.isValidProfilePicture(Paths.get("A.jpg"))); // with capital letters
         assertTrue(ProfilePicture.isValidProfilePicture(Paths.get("IMG_0109.jpg"))); // alphanumeric characters
-        assertTrue(ProfilePicture.isValidProfilePicture(Paths.get("a.png"))); // ends with .png
     }
 }

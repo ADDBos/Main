@@ -8,7 +8,6 @@ import seedu.address.model.AddressBook;
 import seedu.address.model.BudgetBook;
 import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.ReadOnlyBudgetBook;
-import seedu.address.model.budget.Transaction;
 import seedu.address.model.cca.Budget;
 import seedu.address.model.cca.Cca;
 import seedu.address.model.cca.CcaName;
@@ -21,7 +20,7 @@ import seedu.address.model.person.Phone;
 import seedu.address.model.person.Room;
 import seedu.address.model.person.School;
 import seedu.address.model.tag.Tag;
-
+import seedu.address.model.transaction.Entry;
 
 /**
  * Contains utility methods for populating {@code AddressBook} with sample data.
@@ -53,13 +52,18 @@ public class SampleDataUtil {
     private static Cca[] getSampleCcas() {
         return new Cca[]{
             new Cca(
-                new CcaName("Hocke"),
+                new CcaName("Hockey"),
                 new Name("MrYanDao"),
                 new Name("XiaoMing"),
                 new Budget(500),
                 new Spent(300),
                 new Outstanding(200),
-                new Transaction("transaction log 1")),
+                getTransactionEntrySet(
+                    new Entry("1", "13.12.2013", "-100", "Purchase of Equipments"),
+                    new Entry("2", "20.06.2014", "-400", "Camp"),
+                    new Entry("3", "12.07.2014", "-200", "Fund Raising")
+                )
+            ),
             new Cca(
                 new CcaName("Floorball"),
                 new Name("XiaoBitch"),
@@ -67,7 +71,11 @@ public class SampleDataUtil {
                 new Budget(600),
                 new Spent(500),
                 new Outstanding(100),
-                new Transaction("transaction log 2")),
+                getTransactionEntrySet(
+                    new Entry("1", "13.11.2013", "-300", "Purchase of Equipment"),
+                    new Entry("2", "20.03.2014", "-200", "Competition Fund")
+                )
+            ),
             new Cca(
                 new CcaName("Handball"),
                 new Name("Steven Lim"),
@@ -75,7 +83,8 @@ public class SampleDataUtil {
                 new Budget(100),
                 new Spent(100),
                 new Outstanding(0),
-                new Transaction("transaction log 2")),
+                getTransactionEntrySet()
+            ),
         };
     }
 
@@ -101,6 +110,16 @@ public class SampleDataUtil {
     public static Set<Tag> getTagSet(String... strings) {
         return Arrays.stream(strings)
             .map(Tag::new)
+            .collect(Collectors.toSet());
+    }
+
+    //@@author ericyjw
+
+    /**
+     * Returns a transaction entry set containing the list of transaction entries given.
+     */
+    private static Set<Entry> getTransactionEntrySet(Entry... entries) {
+        return Arrays.stream(entries)
             .collect(Collectors.toSet());
     }
 }

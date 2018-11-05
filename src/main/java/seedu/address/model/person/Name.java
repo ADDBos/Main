@@ -39,17 +39,6 @@ public class Name {
         return test.matches(NAME_VALIDATION_REGEX);
     }
 
-    /**
-     * Returns true if a given string is a valid name.
-     * Allow whitespace for name of CCA leaders.
-     * If first character is not whitespace, test the whole string for valid name
-     */
-    public static boolean isValidNameForCca(String test) {
-        if (String.valueOf(test.charAt(0)).equals(" ")) {
-            return true;
-        }
-        return test.matches(NAME_VALIDATION_REGEX);
-    }
 
 
     @Override
@@ -68,5 +57,4 @@ public class Name {
     public int hashCode() {
         return fullName.hashCode();
     }
-
 }

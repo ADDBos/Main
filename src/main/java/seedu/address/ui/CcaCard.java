@@ -96,7 +96,7 @@ public class CcaCard extends UiPart<Region> {
 //        super(FXML);
 //        this.cca = cca;
 //        id.setText(displayedIndex + ". ");
-//        ccaName.setText(cca.getCcaName());
+//        ccaName.setText(cca.getNameOfCca());
 //    }
 //
 //    @Override

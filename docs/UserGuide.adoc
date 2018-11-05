@@ -72,6 +72,77 @@ Examples:
 * `add n/John Doe p/98765432 e/johnd@example.com r/C420 s/SoC t/Basketball`
 * `add n/Betsy Crowe t/Soccer e/betsycrowe@example.com p/1234567 r/B213 s/Business`
 
+// tag::image[]
+==== Adds a picture to resident detail : `image`
+
+Uploads the image of resident staying in the specified room to Hallper. +
+Format: `image ROOM`
+
+****
+* Allow for the upload of the profile picture of resident.
+* ROOM is not case-sensitive
+* The image must be in *`.jpg`*.
+****
+
+Examples:
+
+* `image r/a123 f/C:/user/images/e0000000.jpg` +
+Uploads the profile picture (in *`.jpg`*) of the resident living in room A123 into Hallper.
+
+// end::image[]
+
+==== Clearing all entries : `clear all`
+
+Clears all entries from Hallper. +
+Format: `clear all`
+
+****
+* 'all' is case-sensitive.
+****
+
+Example:
+
+* `clear all` +
+Clears `all` entries in Hallper.
+
+==== Clearing all specified tags : `erase`
+
+Clears all specified tags from all persons from Hallper. +
+Format: `erase CCA...`
+
+****
+* Erases the CCA specified for all associated persons.
+* The CCA specified must be an existing CCA.
+* Multiple CCAs can be specified at once.
+****
+
+Example:
+
+* `erase basketball` +
+Erases `basketball` from persons associated with this CCA. +
+* `erase basketball netball` +
+Erases `basketball` and `netball` from persons associated with these CCAs.
+
+==== Clearing specific entries : `clear`
+
+Clears specified entries from Hallper. +
+Format: `clear KEYWORD...`
+
+****
+* Clears persons associated with KEYWORD.
+* KEYWORD refers to either a CCA or ROOM.
+* Multiple KEYWORDS can be specified at once in any order.
+****
+
+Example:
+
+* `clear basketball` +
+Clears all persons associated with CCA `basketball`.
+* `clear A123` +
+Clears all persons associated with room `A123`.
+* `clear baseball C456` +
+Clears all persons associated with CCA `baseball` and room `C456`
+
 ==== Editing a person : `edit`
 
 Edits an existing person in Hallper. +
@@ -92,6 +163,19 @@ Edits the phone number and email address of the 1st person to be `91234567` and 
 * `edit 2 n/Betsy Crower c/` +
 Edits the name of the 2nd person to be `Betsy Crower` and clears all existing tags.
 
+==== Exporting contact information: `export`
+
+Exports file containing existing contact information in Hallper. +
+Formate: `export dst/PATH fn/FILENAME`
+
+****
+* The file exported will be a *`.xml`* file.
+****
+
+Example:
+
+* `export dst/C://Users/Files fn/data.xml` +
+Exports Hallper contacts data into `data.xml` located at `C://Users/Files`.
 
 ==== Deleting a person : `delete`
 
@@ -113,101 +197,76 @@ Deletes the 2nd person in Hallper.
 `delete 1` +
 Deletes the 1st person in the results of the `find` command.
 
-==== Clearing all specified tags : `erase`
+==== Deleting a transaction entry : `delete_trans`
 
-Clears all spcified tags from all contacts from Hallper. +
-Format: `erase CCA`
-
-****
-* Erases the CCA specified for all associated contacts.
-* The CCA specified must be an existing CCA.
-* Multiple CCAs can be specified at once.
-****
-
-Example:
-
-* `erase basketball` +
-Erases `basketball` from contacts associated with this CCA. +
-* `erase basketball netball` +
-Erases `basketball` and `netball` from contacts associated with these CCAs.
-
-==== Clearing specific entries : `clear`
-
-Clears specified entries from Hallper. +
-Format: `clear KEYWORD`
+Deletes the specified transaction entry from the specified CCA from Hallper. +
+Format: `delete_trans c/NAME_OF_CCA trans/ENTRY_NUMBER`
 
 ****
-* Clears contacts associated with KEYWORD.
-* KEYWORD refers to either a CCA or ROOM.
-* KEYWORD is case-sensitive.
+* Deletes the specific transaction entry from the CCA with the specified name.
+* The transaction entry number must be a *positive interger* (e.g. 1,2,3,4...).
 ****
 
-Example:
+[NOTE]
+====
+* The CCA specifed must exist in the Hallper.
+* The transaction entry number must exist for the specified CCA.
+====
 
-* `clear basketball` +
-Clears all entries associated with CCA `basketball`.
-* `clear A123` +
-Clears all entries associated with room `A123`.
+Examples:
 
-==== Clearing all entries : `clear all`
+* `delete_cca c/netball trans/1`
+* `delete_cca c/Basketball F trans/3`
 
-Clears all entries from Hallper. +
-Format: `clear all`
-
-****
-* 'all' is case-sensitive.
-****
-
-Example:
-
-* `clear all` +
-Clears `all` entries in Hallper.
-
-==== Uploading contact information : `import`
+==== Importing contact information : `import`
 
 Imports file containing contact information and updates Hallper accordingly. +
 Format: `import f/FILEPATH`
 
 ****
-* Allow for the mass upload of contact information.
+* Allows for the mass upload of contact information.
+* Allows for the mass upload of CCA lists.
 * The file to be uploaded must be a *`.xml`* file.
 ****
+
+
+File formats for imported `.xml` files are as shown below.
+
+image::AddressBookExample.png[width="790"]
+_Figure 4.1.7.1: Contacts information `.xml` file format._
+
+image::CCAListExample.png[width="790"]
+_Figure 4.1.7.2: CCA list `.xml` file format._
 
 Example:
 
 * `import f/C://Users/Files/data.xml` +
 Imports `data.xml` file to be read and for database to be updated accordingly.
 
-==== Adds a picture to resident detail : `image`
-
-Uploads the image of resident staying in the specified room to Hallper. +
-Format: `image ROOM`
-
-****
-* Allow for the upload of the profile picture of resident.
-* The image must be in *`.jpg`* or *`.png`*.
-****
-
 === Viewing Hallper
 This section lists features related to viewing all or specific contacts in Hallper.
 
+// tag::search[]
 ==== Searching all persons under specified tag : `search`
 
 Shows a list of all persons in the Hallper that are associated with the specified keyword. +
 Format: `search KEYWORD [MORE_KEYWORDS]`
 ****
-* KEYWORD can be ROOM or CCA.
+* KEYWORD can be ROOM, CCA or SCHOOL.
 * KEYWORD is not case-sensitive.
 ****
 
 Examples:
 
+* `search SoC` +
+Searches Hallper and lists all residents that are studying in `SoC`.
 * `search basketball` +
-Searches Hallper and lists all contacts associated with `basketball`.
+Searches Hallper and lists all residents that are in `basketball`.
 * `search A123` +
-Searches Hallper and lists all contacts associated with `A123`.
-* `search basketball A123` +
-Searches Hallper and lists all contacts associated with `basketball` and `A123`.
+Searches Hallper and lists all residents that are staying in room `A123`.
+* `search basketball A123 Soc` +
+Searches Hallper and lists all residents that are in `basketball`, staying in room`A123` and studying in `SoC`.
+// end::search[]
 
 ==== Locating persons by name: `find`
 Finds persons whose names contain any of the given keywords. +
@@ -236,35 +295,141 @@ Format: `list`
 === Email
 This section lists features related to email in Hallper.
 
-==== Composing an email: `compose`
-Composes a *`.eml`* file that can be used to send emails to residents. +
-Format: `compose from/FROM to/TO subject/SUBJECT content/CONTENT`
+==== Composing an email to selected indexes: `compose_email_index`
+Composes a *`.eml`* file that can be used to send emails to residents specified by index. +
+Format: `compose_email_index from/FROM to/INDEXES subject/SUBJECT content/CONTENT`
 
 ****
-* FROM and TO must be valid email addresses e.g. johndoe@example.com
-* SUBJECT has a word limit of 10 words.
+* FROM must be a valid email address e.g. johndoe@example.com
+* INDEXES refer to the index numbers shown in the displayed person list.
+* INDEXES *must be positive integers* 1, 2, 3, ...
+* SUBJECT has no word limit.
 * CONTENT has no word limit.
 ****
 
 Example:
 
-* `compose from/johndoe@example.com to/samsee@example.com subject/Meeting this Friday
+* `compose_email_index from/johndoe@example.com to/1 6 10 subject/Meeting this Friday
 content/Hey there's a meeting this friday.` +
-Composes an email from `johndoe@example.com` to `samsee@example.com` with subject
+Composes an email from `johndoe@example.com` to people at indexes 1, 6 and 10 with subject
 `Meeting this Friday` and email body `Hey there's a meeting this friday.` and saves
 it as a *`.eml`* file.
+
+==== Composing an email to currently listed people: `compose_email_list`
+Composes a *`.eml`* file that can be used to send emails to currently listed residents. +
+Format: `compose_email_list from/FROM subject/SUBJECT content/CONTENT`
+
+****
+* FROM must be a valid email address e.g. johndoe@example.com
+* SUBJECT has no word limit.
+* CONTENT has no word limit.
+****
+
+Example:
+
+* `compose_email_list from/johndoe@example.com subject/Meeting this Friday
+content/Hey there's a meeting this friday.` +
+Composes an email from `johndoe@example.com` to currently listed people with subject
+`Meeting this Friday` and email body `Hey there's a meeting this friday.` and saves
+it as a *`.eml`* file.
+
+==== Deleting an email : `delete_email`
+
+Deletes an email. +
+Format: `delete_email SUBJECT`
+****
+* SUBJECT is the subject of an existing email.
+* SUBJECT is case-sensitive.
+****
+
+Examples:
+
+* `delete_email Meeting on Friday` +
+Deletes the email with the subject `Meeting on Friday`.
+
+==== Listing all emails : `list_emails`
+
+Displays a list of all emails in Hallper. +
+Format: `list_emails`
+
+==== Viewing an email : `view_email`
+
+Displays an email. +
+Format: `view_email SUBJECT`
+****
+* SUBJECT is the subject of an existing email.
+* SUBJECT is case-sensitive.
+****
+
+Examples:
+
+* `view_email Meeting on Friday` +
+Displays the email with the subject `Meeting on Friday`.
 
 === Calendar
 This section lists features related to managing the calendar in Hallper.
 
+==== Adding all day event into calendar : `add_all_day_event`
+
+Adds an all day event into the calendar. +
+Format: `add_all_day_event month/MMM year/YYYY date/DD title/NAME OF EVENT`
+
+****
+* The MONTH *must be specified as MMM*.
+* The MONTH *is not case-sensitive*.
+* The YEAR *must be specified as YYYY*.
+* The DATE *must be specified as DD*.
+* The TITLE *is case-sensitive*.
+****
+
+Example:
+
+Before executing command
+
+image::add_all_day_event_diagram_before.png[width="790"]
+
+* `add_all_day_event month/Oct year/2018 date/08 title/Hall open day` +
+Adds an all day event titled `Hall open day` into the `OCT-2018.ics` calendar which happens on the `8th` of `Oct`.
+
+image::add_all_day_event_diagram_after.png[width="790"]
+
+
+==== Adding event into calendar : `add_event`
+
+Adds an event with a specific time frame into the calendar. +
+Format: `add_event month/MMM year/YYYY sdate/DD shour/HH smin/mm
+edate/DD ehour/HH emin/mm title/NAME OF EVENT`
+
+****
+* The MONTH *must be specified as MMM*.
+* The MONTH *is not case-sensitive*.
+* The YEAR *must be specified as YYYY*.
+* The DATE *must be specified as DD*.
+* DATE, HOUR, MINUTE *must be specified as XX*.
+* The TITLE *is case-sensitive*.
+****
+
+Example:
+
+Before executing command
+
+image::add_event_diagram_before.png[width="790"]
+
+* `add_event month/Oct year/2018 sdate/10 shour/15 smin/30 edate/10 ehour/18 emin/00 title/Block Committee Audit` +
+Adds an event titled `Block Committee Audit` into the `OCT-2018.ics` calendar which starts on the `10th` at `1530` and ends on
+the `10th` at `1800`.
+
+image::add_event_diagram_after.png[width="790"]
+
 ==== Creating calendar : `create_calendar`
 
 Creates a calendar file in Hallper for updating of events. +
-Format: `create_calendar month/MONTH year/YEAR`
+Format: `create_calendar month/MMM year/YYYY`
 
 ****
-* Creates a calendar as a *`.ics`* file.
+* Creates a monthly calendar as a *`.ics`* file.
 * The MONTH *must be specified as MMM*.
+* MONTH *is not case-sensitive*.
 * The YEAR *must be specified as YYYY*.
 ****
 Example:
@@ -273,110 +438,181 @@ Example:
 Creates a calendar for the month of `Feb` and year `2018` and
 saves it as a *`.ics`* file.
 
+==== Delete event from calendar : `delete_event`
+
+Deletes an event from the calendar. +
+Format: `delete_event month/MMM year/YYYY sdate/DD edate/DD title/NAME OF EVENT`
+
+****
+* An event is considered identical when it has the same start date, end date and title. Regardless of starting time and ending time.
+* The MONTH *must be specified as MMM*.
+* The MONTH *is not case-sensitive*.
+* The YEAR *must be specified as YYYY*.
+* The DATE *must be specified as DD*.
+* The TITLE *is case-sensitive*.
+****
+
+Example:
+
+Before executing command +
+
+image::delete_event_diagram_before.png[width="790"]
+
+* Deleting a non-existing event (Title is case sensitive) +
+`delete_event month/Oct year/2018 sdate/10 edate/10 title/block committee audit`
+
+image::delete_event_diagram_after_invalid.png[width="790"]
+
+* Deleting an existing event +
+`delete_event month/Oct year/2018 sdate/10 edate/10 title/Block Committee Audit` +
+Deletes an event titled `Block Committee Audit` from the `OCT-2018.ics` calendar which happens from the `10th` of `Oct` to `10th` of `Oct`.
+
+image::delete_event_diagram_after_valid.png[width="790"]
+
 ==== Viewing calendar : `view_calendar`
 
-Views the calendar of the specified month. +
-Format: `view_calendar MONTH`
-
-Example:
-
-* `view_calendar Feb` +
-Displays view of calendar for the month of `Feb`.
-
-==== Adding event into calendar : `add_event`
-
-Adds an event into the calendar. +
-Format: `add_event month/MONTH year/YEAR sdate/START DATE shour/START HOUR smin/START MIN
-edate/END DATE ehour/END HOUR emin/END MINUTE title/NAME OF EVENT`
+*Currently doesn't work on Mac OS* +
+Loads the specified monthly calendar `.ics` file into the UI. UI by default displays the current week. +
+Format: `view_calendar month/MMM year/YYYY`
 
 ****
-* The *MONTH must be specified as MMM*.
-* The *YEAR must be specified as YYYY*.
-* *DATE, HOUR, MINUTE must be specified as XX*.
+* The MONTH *must be specified as MMM*.
+* MONTH *is not case-sensitive*.
+* The YEAR *must be specified as YYYY*.
 ****
 
 Example:
 
-* `add_event month/Feb year/2018 sdate/01 shour/12 smin/00 edate/01 ehour/15 emin/00 title/Enthral` +
-Adds an event titled `Enthral` into calendar for `Feb 2018` which starts on the `1` st at `1200` and ends on
-the `1` st at `1500`.
+* `view_calendar month/Oct year/2018` +
+Displays view of calendar with current week as default page with the events loaded from `OCT-2018.ics`.
+
+image::calendar_view_diagram.png[width="790"]
 
 === Budget and CCA
 This section lists features related to CCA budget management in Hallper.
 
-==== Viewing the budget for all CCAs : `budget`
+==== Adding a cca: `create`
 
-Allows for the viewing of the budgets for all the CCAs. +
-Format: `budget`
+Adds a CCA to Hallper. +
+Format: `create n/NAME_OF_CCA budget/500`
 
-****
-* BP displays the total budget allocated to the CCAs, total outstanding amount and budget information of each CCA, in alphabetical order.
-****
+[TIP]
+====
+You can add in the name of the head and vice-head after you create the CCA.
+====
 
-==== Viewing CCA budget : `view_cca`
+[NOTE]
+====
+`undo` and `redo` command does not apply to `create`.
+====
 
-Allows for the viewing of the budget and past transactions of the specified CCA. +
-Format: `view_cca CCA`
+Examples:
 
-Example:
+* `create n/Netball budget/500`
+* `create n/Basketball F budget/400`
 
-* `view_cca soccer` +
-Displays view of budget and past transactions for `soccer` CCA.
+==== Adding a transaction: `add_trans`
 
-==== Creating a CCA's budget : `create`
+Adds a transaction entry to the specified CCA in Hallper. +
+Format: `add_trans c/NAME_OF_CCA date/DATE amount/AMOUNT remarks/REMARKS`
 
-Adds a CCA into the budget book with the initial given budget. +
-Format: `create n/CCA bud/BUDGET`
+[NOTE]
+====
+Transaction entry can only be added one at a time.
+====
 
-****
-* BUDGET currency is in SGD.
-****
+[NOTE]
+====
+`undo` and `redo` command does not apply to `add_trans`.
+====
 
-Example:
+Examples:
 
-* `create n/basketball bud/200` +
-Adds `basketball` CCA with SGD`200` budget to Hallper.
+* `add_trans c/Basketball date/31.01.2018 amount/-200 remarks/Competition Fee` +
+Adds a transaction entry to `Basketball`. The date, amount and remarks of the transaction entry are `31.01
+.2018`, `-200` and `Competition Fee` respectively.
 
+==== Deleting a cca : `delete_cca`
 
-==== Deleting a CCA's budget : `delete_cca`
-
-Deletes the CCA's existing budget. +
-Format: `delete_cca CCA`
-
-Example:
-
-* `delete_cca soccer` +
-Deletes `soccer` CCA's existing budget.
-
-==== Modifying a CCA's budget : `modify_cca`
-
-Modifies the budget of specified CCA. +
-Format: `modify_cca CCA BUDGET`
+Deletes the specified CCA from Hallper. +
+Format: `delete c/NAME_OF_CCA`
 
 ****
-* BUDGET currency is in SGD.
+Deletes the CCA with the specified name.
 ****
 
-Example:
+[NOTE]
+====
+* The CCA specifed must exist in the Hallper.
 
-* `modify_cca soccer 500` +
-Modifies `soccer` CCA's current budget to SGD `500` .
+* `undo` and `redo` command does not apply to `create`.
+====
 
-==== Adding a transaction to the budget : `add_transaction`
+Examples:
 
-Adds a transaction to the budget of specified CCA. +
-Format: `add_transaction CCA AMOUNT TYPE PERSON_IN_CHARGE`
+* `delete_cca c/netball`
+* `delete_cca c/Basketball F`
+
+==== Updating a cca : `update`
+
+Updates an existing CCA in Hallper. +
+Format: `update c/CCA_NAME [n/NEW_CCA_NAME] [h/NAME_OF_HEAD] [vh/NAME_OF_VIC_HEAD] [budget/BUDGET]
+[trans/ENTRY_NUMBER] [date/DATE] [amount/AMOUNT] [remarks/REMARKS]`
 
 ****
-* Adds a transaction to the budget of specifed CCA.
-* The types available are  either *`credit`* or *`debit`*.
-* The *`PERSON-IN-CHARGE`* must be a resident in Hallper.
+* Edits the CCA specified with `c/`. `c/` is required.
+* At least one of the optional fields must be provided.
+* When `trans/` is included, at least one of the fields in the transaction entry must be provided.
+* Existing values will be updated to the input values.
 ****
 
-Example:
+[NOTE]
+====
+* The CCA specifed must exist in the Hallper.
+* The transaction number specified with `trans/` must exist.
+* `undo` and `redo` command does not apply to `update`.
+====
 
-* `add_transaction badminton 500 credit James`
-Adds a `credit` transaction of SGD `500` to `James` from `badminton` CCA.
+Examples:
+
+* `update c/basketball n/basketball m h/Alex vh/Peter budget/700` +
+Updates `basketball` to `basketball m`, budget to `700` and its head and vice-head to `Alex` and `Peter` respectively.
+* `update c/Netball trans/2 date/30.05.2018 amount/-200 remarks/Purchase of Equipment` +
+Updates the date, amount and remarks of the 2nd transaction entry of `Netball` with `30.05.2018`, `-200` and
+`Purchase of Equipment` respectively.
+* `update c/track n/Track F h/Alice vh/June Ong budget/500 trans/1 date/28.02.2018 amount/100 remarks/Fund Raising` +
+Updates `track` to `Track F`, its budget to `500` and its head and vice-head to `Alice` and `June Ong` respectively,
+and updates the date, amount and remarks of the 1st transaction entry with `28.02.2018`, `100` and `Fund Raising`
+respectively.
+
+==== Viewing all the ccas' budget : `budget`
+
+Opens up a Budget Book in a new window. +
+Format: `budget [c/CCA_NAME]`
+
+
+.Budget Window with a blank screen
+image::BudgetWindowEmpty.png[width="500"]
+
+.Budget Window showing the transaction history of Softball
+image::BudgetWindowCca.png[width=500"]
+****
+* `budget` shows the list of CCAs existing in Hallper.
+* If `c/` is used, the new window will open up, showing the transaction information of the CCA specified.
+* Otherwise, the new window will open up and show a blank screen until a CCA is selected from the CCA panel.
+****
+
+[NOTE]
+====
+The CCA specifed must exist in the Hallper.
+====
+
+Examples:
+
+* `budget` +
+Opens up the Budget Window.
+* `budget c/Softball` +
+Opens up the Budget Window, showing the transaction history of `Softball`.
 
 === Miscellaneous
 This section lists miscellaneous commands for navigating Hallper.
@@ -463,49 +699,70 @@ There is no need to save manually.
 
 == Command Summary
 
+===== Updating Hallper
 * *Add* : `add n/NAME p/PHONE_NUMBER e/EMAIL b/BLOCK r/ROOM NUMBER s/SCHOOL [c/CCA]...` +
 e.g. `add n/James Ho p/22224444 e/jamesho@example.com b/C r/420 s/School of Computing c/Basketball`
-* *Edit* : `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [c/CCA]...` +
-e.g. `edit 2 n/James Lee e/jameslee@example.com`
-* *Delete* : `delete INDEX` +
-e.g. `delete 3`
-* *Erase* : `erase CCA` +
-e.g. `erase basketball`
 * *Clear* : `clear KEYWORD [MORE_KEYWORDS]` +
 e.g. `clear basketball A123`
 * *Clear all* : `clear all`
+* *Delete* : `delete INDEX` +
+e.g. `delete 3`
+* *Edit* : `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [c/CCA]...` +
+e.g. `edit 2 n/James Lee e/jameslee@example.com`
+* *Erase* : `erase CCA` +
+e.g. `erase basketball`
+* *Export* : `export dst/PATH fn/FILENAME`
 * *Import* : `import f/FILEPATH`
-* *Image* : `image`
-* *Search* : `search KEYWORD [MORE_KEYWORDS]` +
-e.g. `search basketball A123`
+* *Image* : `image r/ROOM f/FILEPATH`
+
+===== Viewing Hallper
 * *Find* : `find KEYWORD [MORE_KEYWORDS]` +
 e.g. `find James Jake`
 * *List* : `list`
-* *Compose* : `compose from/FROM to/TO subject/SUBJECT content/CONTENT`
-* *Create Calendar* : `create_calendar MONTH` +
-e.g. `create_calendar month/Feb year/2018`
-* *View Calendar* : `view_calendar MONTH` +
-e.g. `view_calendar Feb`
-* *Add Event* : `add_event month/MONTH year/YEAR sdate/START DATE shour/START HOUR smin/START MIN
-edate/END DATE ehour/END HOUR emin/END MINUTE title/NAME OF EVENT` +
-e.g. `add_event month/Feb year/2018 sdate/01 shour/12 smin/00 edate/01 ehour/15 emin/00 title/Enthral`
+* *Search* : `search KEYWORD [MORE_KEYWORDS]` +
+e.g. `search basketball A123`
+
+===== Email
+* *Compose Email (Index)* : `compose_email_index from/FROM to/INDEXES subject/SUBJECT content/CONTENT` +
+e.g. `compose_email_index from/johndoe@example.com to/1 6 10 subject/Meeting this Friday content/Hey there's a meeting this friday.`
+* *Compose Email (List)* : `compose_email_list from/FROM subject/SUBJECT content/CONTENT` +
+e.g. `compose_email_list from/johndoe@example.com subject/Meeting this Friday content/Hey there's a meeting this friday.`
+* *List Emails* : `list_emails`
+* *View Email* : `view_email SUBJECT` +
+e.g. `view_email Meeting this Friday`
+
+===== Calendar
+* *Add All Day Event* : `add_all_day_event month/MMM year/YYYY date/DD title/NAME OF EVENT` +
+e.g. `add_all_day_event month/Oct year/2018 date/08 title/Hall open day`
+* *Add Event* : `add_event month/MMM year/YYYY sdate/DD shour/HH smin/mm edate/DD ehour/HH emin/mm title/NAME OF EVENT` +
+e.g. `add_event month/Oct year/2018 sdate/10 shour/15 smin/30 edate/10 ehour/18 emin/00 title/Block Committee Audit`
+* *Create Calendar* : `create_calendar month/MMM year/YYYY` +
+e.g. `create_calendar month/Oct year/2018`
+* *Delete Event* : `delete_event month/MMM year/YYYY sdate/DD edate/DD title/NAME OF EVENT` +
+e.g. `delete_event month/Oct year/2018 sdate/10 edate/10 title/Block Committee Audit`
+* *View Calendar* : `view_calendar month/MMM year/YYYY` +
+e.g. `view_calendar month/Oct year/2018`
+
+===== Budget and CCA
+* *Add Transaction* : `add_transaction CCA AMOUNT TYPE PERSON-IN-CHARGE` +
+e.g. `add_transaction soccer 500 debit James`
+* *Budget* : `budget`
 * *Create CCA Budget* : `create n/CCA bud/BUDGET` +
 e.g. `create Basketball 500`
-* *Budget* : `budget`
-* *View CCA* : `view_cca CCA` +
-e.g. `view_cca basketball`
 * *Delete CCA* : `delete_cca CCA` +
 e.g. `delete_cca basketball`
 * *Modify CCA* : `modify_cca CCA BUDGET` +
 e.g. `modify_cca basketball 500`
-* *Add Transaction* : `add_transaction CCA AMOUNT TYPE PERSON-IN-CHARGE` +
-e.g. `add_transaction soccer 500 debit James`
+* *View CCA* : `view_cca CCA` +
+e.g. `view_cca basketball`
+
+===== Miscellaneous
+* *Exit* : `exit`
 * *Help* : `help`
 * *History* : `history`
 e.g. `view 2`
-* *Undo* : `undo`
 * *Redo* : `redo`
-* *Exit* : `exit`
+* *Undo* : `undo`
 
 == Glossary
 * `CCA`: Co-Curricular Activity that residents can join within their respective halls.

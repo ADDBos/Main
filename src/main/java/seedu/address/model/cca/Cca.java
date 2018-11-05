@@ -1,14 +1,22 @@
 package seedu.address.model.cca;
 
+import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
+import java.util.Collections;
+import java.util.LinkedHashSet;
 import java.util.Objects;
+import java.util.Set;
+import java.util.stream.Collectors;
 
-import seedu.address.model.budget.Transaction;
+import seedu.address.commons.core.Messages;
+import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.person.Name;
+import seedu.address.model.transaction.Entry;
 
+//@@author ericyjw
 /**
- * Represents a CCA in the cca book.
+ * Represents a Cca in the cca book.
  *
  * @author ericyjw
  */
@@ -23,23 +31,23 @@ public class Cca {
     private final Budget budget;
     private final Spent spent;
     private final Outstanding outstanding;
-    private final Transaction transaction;
+    private final Set<Entry> transactionEntries;
 
     /**
-     * Constructor for CCA
+     * Constructor for Cca where there is a vice-head.
      * Every identity field must be present and not null.
      * Data field can be null.
      *
-     * @param name name of CCA
-     * @param head name of head of CCA
-     * @param viceHead name of viceHead of CCA
-     * @param budget budget of CCA
-     * @param spent amount spent by the CCA
-     * @param outstanding outstanding amount of the CCA
-     * @param transaction transaction history of the CCA
+     * @param name name of Cca
+     * @param head name of head of Cca
+     * @param viceHead name of viceHead of Cca
+     * @param budget budget of Cca
+     * @param spent amount spent by the Cca
+     * @param outstanding outstanding amount of the Cca
+     * @param transactionEntries transaction entries of the Cca
      */
     public Cca(CcaName name, Name head, Name viceHead, Budget budget, Spent spent, Outstanding outstanding,
-               Transaction transaction) {
+               Set<Entry> transactionEntries) {
         requireAllNonNull(name, head, viceHead, budget, spent, outstanding);
         this.name = name;
         this.head = head;
@@ -47,54 +55,47 @@ public class Cca {
         this.budget = budget;
         this.spent = spent;
         this.outstanding = outstanding;
-        this.transaction = transaction;
+        this.transactionEntries = transactionEntries;
     }
 
     /**
-     * Alternative constructor, in the event that there is no vice-head in the CCA.
+     * Create a Cca object with a given {@code CcaName}.
+     * Used to check if the Cca is present in the {@code UniqueCcaList}
      *
-     * @param name name of the cca
-     * @param head name of the head of the CCA
-     * @param budget budget of the CCA
-     * @param spent amount spent by the CCA
-     * @param outstanding outstanding amount of the CCA
-     * @param transaction transaction history of the CCA
+     * @param ccaName the name of the Cca to be create
      */
-    public Cca(CcaName name, Name head, Budget budget, Spent spent, Outstanding outstanding,
-               Transaction transaction) {
-        requireAllNonNull(name, head, budget, spent, outstanding);
-        this.name = name;
-        this.head = head;
-        this.viceHead = null;
-        this.budget = budget;
-        this.spent = spent;
-        this.outstanding = outstanding;
-        this.transaction = transaction;
-    }
-
     public Cca(String ccaName) {
+        requireNonNull(ccaName);
         CcaName name = new CcaName(ccaName);
         this.name = name;
-        this.head = null;
-        this.viceHead = null;
-        this.budget = null;
-        this.spent = null;
-        this.outstanding = null;
-        this.transaction = null;
+        this.head = new Name("-");
+        this.viceHead = new Name("-");
+        this.budget = new Budget(0);
+        this.spent = new Spent(0);
+        this.outstanding = new Outstanding(budget.getBudgetValue());
+        this.transactionEntries = new LinkedHashSet<>();
     }
 
+    /**
+     * Create a Cca object with a given {@code CcaName} and a given {@code Budget}.
+     * Used for creating new Cca with a given budget from the {@code CreateCcaCommand}.
+     *
+     * @param ccaName the name of the Cca to be created
+     * @param budget the budget given to the Cca
+     */
     public Cca(CcaName ccaName, Budget budget) {
+        requireAllNonNull(ccaName, budget);
         this.name = ccaName;
         this.head = new Name("-");
         this.viceHead = new Name("-");
         this.budget = budget;
         this.spent = new Spent(0);
-        this.outstanding = new Outstanding(budget.getBudget());
-        this.transaction = new Transaction("-");
+        this.outstanding = new Outstanding(budget.getBudgetValue());
+        this.transactionEntries = new LinkedHashSet<>();
     }
 
     public String getCcaName() {
-        return name.getCcaName();
+        return name.getNameOfCca();
     }
 
     public String getHeadName() {
@@ -102,26 +103,27 @@ public class Cca {
     }
 
     public String getViceHeadName() {
-        if (!viceHead.equals(null)) {
-            return viceHead.fullName;
-        }
-        return "-";
+        return viceHead.fullName;
     }
 
-    public int getGivenBudgetAmount() {
-        return budget.getBudget();
+    public Integer getBudgetAmount() {
+        return budget.getBudgetValue();
     }
 
-    public int getSpentAmount() {
-        return spent.getSpent();
+    public Integer getSpentAmount() {
+        return spent.getSpentValue();
     }
 
     public int getOutstandingAmount() {
-        return outstanding.getOutstanding();
+        return outstanding.getOutstandingValue();
     }
 
-    public String getTransactionLog() {
-        return transaction.getTransactionLog();
+    /**
+     * Returns an immutable Transaction Entry set, which throws {@code UnsupportedOperationException}
+     * if modification is attempted.
+     */
+    public Set<Entry> getEntries() {
+        return Collections.unmodifiableSet(transactionEntries);
     }
 
     public CcaName getName() {
@@ -148,31 +150,75 @@ public class Cca {
         return budget;
     }
 
-    public Transaction getTransaction() {
-        return transaction;
+    /**
+     * Returns the number of transaction entries in the Cca.
+     */
+    public int getEntrySize() {
+        return this.transactionEntries.size();
     }
 
     /**
-     * Returns true if both CCA of the same name have at least one other identity field that is the same.
-     * This defines a weaker notion of equality between two CCAs.
+     * Adds a {@code newEntry} to the transaction list in the Cca.
+     *
+     * @param newEntry the new transaction entry to be added
      */
-    public boolean isSameCca(Cca otherCca) {
-        if (otherCca == this) {
-            return true;
+    public Cca addNewTransaction(Entry newEntry) {
+        this.transactionEntries.add(newEntry);
+
+        return this;
+    }
+
+    /**
+     * Returns a specific transaction entry of the Cca.
+     *
+     * @param entryIndex the entry index to be deleted
+     */
+    public Entry getEntry(Integer entryIndex) throws CommandException {
+        Entry[] transactionsArr = new Entry[transactionEntries.size()];
+        this.transactionEntries.toArray(transactionsArr);
+
+        if (entryIndex > transactionsArr.length || entryIndex < 1) {
+            throw new CommandException(Messages.MESSAGE_INVALID_TRANSACTION_INDEX);
         }
 
-        return otherCca != null
-            && otherCca.getCcaName().equals(getCcaName());
-        //&& (otherCca.getHeadName().equals(getHeadName()) || otherCca.getViceHeadName().equals(getViceHeadName()));
+        return transactionsArr[entryIndex - 1];
     }
 
     /**
-     * Return true if the CCA name is the same
+     * Removes the specified transaction entry from the Cca.
+     * Reorder the existing transaction entries in the Cca.
+     *
+     * @param entryToBeDeleted the entry to be deleted
+     */
+    public Cca removeTransaction(Entry entryToBeDeleted) throws CommandException {
+        if (!transactionEntries.contains(entryToBeDeleted)) {
+            throw new CommandException(Messages.MESSAGE_INVALID_TRANSACTION_ENTRY);
+        }
+
+        Set<Entry> deletableSet = transactionEntries.stream().collect(Collectors.toSet());
+        deletableSet.remove(entryToBeDeleted);
+        Entry[] transactionArr = new Entry[deletableSet.size()];
+        deletableSet.toArray(transactionArr);
+
+
+        int index = 1;
+        for (Entry e : deletableSet) {
+            e.updateEntryNum(index);
+            index++;
+        }
+
+        return new Cca (name, head, viceHead, budget, spent, outstanding, deletableSet);
+    }
+
+    /**
+     * Returns true if both Ccas have the same name
+     * This defines a weaker notion of equality between two CCAs.
      *
      * @param toCheck name of the CCA to be checked
      */
-    public boolean isSameCcaName(Cca toCheck) {
-        return getCcaName().equals(toCheck.getCcaName());
+    public boolean isSameCca(Cca toCheck) {
+        return toCheck != null
+            && toCheck.getCcaName().equals(getCcaName());
     }
 
     /**
@@ -189,9 +235,9 @@ public class Cca {
         }
 
         Cca otherCca = (Cca) other;
-        return otherCca.getCcaName().equals(getCcaName())
-            && otherCca.getHeadName().equals(getHeadName())
-            && otherCca.getViceHeadName().equals(getViceHeadName())
+        return otherCca.name.equals(this.name)
+            && otherCca.head.equals(this.head)
+            && otherCca.viceHead.equals(this.viceHead)
             && otherCca.budget.equals(this.budget);
     }
 
@@ -210,11 +256,9 @@ public class Cca {
             .append(" Vice-Head: ")
             .append(getViceHeadName())
             .append(" Budget: ")
-            .append(getGivenBudgetAmount())
+            .append(getBudgetAmount())
             .append(" Outstanding: ")
             .append(getOutstandingAmount());
         return builder.toString();
     }
-
 }
-

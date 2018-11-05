@@ -14,8 +14,8 @@ public class DefaultEmailBuilder {
 
     public static final String DEFAULT_FROM = "alice@gmail.com";
     public static final String DEFAULT_TO = "billy@gmail.com";
-    public static final String DEFAULT_SUBJECT = "Meeting on Friday";
-    public static final String DEFAULT_CONTENT = "Dear Billy<br /><br />See you tomorrow!<br /><br />Alice";
+    public static final String DEFAULT_SUBJECT = "Example Subject";
+    public static final String DEFAULT_CONTENT = "Dear Billy<br><br>See you tomorrow!<br><br>Alice";
 
     private Email from;
     private Email to;
@@ -30,6 +30,16 @@ public class DefaultEmailBuilder {
     }
 
     /**
+     * Initialises the DefaultEmailBuilder with the data of {@code emailToCopy}.
+     */
+    public DefaultEmailBuilder(org.simplejavamail.email.Email emailToCopy) {
+        from = new Email(emailToCopy.getFromRecipient().getAddress());
+        to = new Email(emailToCopy.getRecipients().get(0).getAddress());
+        subject = new Subject(emailToCopy.getSubject());
+        content = new Content(emailToCopy.getHTMLText());
+    }
+
+    /**
      * Sets the {@code Subject} of the {@code Email} that we are building.
      */
     public DefaultEmailBuilder withSubject(String subject) {
@@ -38,8 +48,31 @@ public class DefaultEmailBuilder {
     }
 
     /**
-     * Returns an Email object built.
-     * @return org.simplejavamail.email.Email object with builder values.
+     * Sets the 'from' of the {@code Email} that we are building.
+     */
+    public DefaultEmailBuilder withFrom(String from) {
+        this.from = new Email(from);
+        return this;
+    }
+
+    /**
+     * Sets the 'to' of the {@code Email} that we are building.
+     */
+    public DefaultEmailBuilder withTo(String to) {
+        this.to = new Email(to);
+        return this;
+    }
+
+    /**
+     * Sets the {@code Content} of the {@code Email} that we are building.
+     */
+    public DefaultEmailBuilder withContent(String content) {
+        this.content = new Content(content);
+        return this;
+    }
+
+    /**
+     * Returns an Email.
      */
     public org.simplejavamail.email.Email build() {
         return EmailBuilder.startingBlank()
@@ -48,5 +81,16 @@ public class DefaultEmailBuilder {
                 .withSubject(subject.value)
                 .withHTMLText(content.value)
                 .buildEmail();
+    }
+
+    /**
+     * Returns an Email without recipients.
+     */
+    public org.simplejavamail.email.Email buildWithoutTo() {
+        return EmailBuilder.startingBlank()
+            .from(from.value)
+            .withSubject(subject.value)
+            .withHTMLText(content.value)
+            .buildEmail();
     }
 }

@@ -30,7 +30,7 @@ public class ImportCommandParser implements Parser<ImportCommand> {
 
         File file = ParserUtil.parseFile(argMultimap.getValue(PREFIX_FILE).get());
 
-        return new ImportCommand(file);
+        return new ImportCommand(file.toPath());
     }
 
     /**

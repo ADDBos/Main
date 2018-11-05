@@ -34,6 +34,7 @@ public class AddAllDayEventCommand extends Command {
     public static final String MESSAGE_SUCCESS = "All day event added: %s";
     public static final String MESSAGE_NOT_EXISTING_CALENDAR = "This calendar doesn't exist in Hallper";
     public static final String MESSAGE_NOT_VALID_DATE = "This is not a valid date in %s";
+    public static final String MESSAGE_EXISTING_EVENT = "This event already exist in the calendar: %s";
 
     private final Month month;
     private final Year year;
@@ -57,6 +58,16 @@ public class AddAllDayEventCommand extends Command {
 
         if (!model.isValidDate(year, month, date)) {
             throw new CommandException(String.format(MESSAGE_NOT_VALID_DATE, month + " - " + year));
+        }
+
+        // Check whether calendar is already loaded
+        if (!model.isLoadedCalendar(year, month)) {
+            model.loadCalendar(year, month);
+        }
+
+        // Check whether event exists in calendar
+        if (model.isExistingEvent(year, month, date, date, title)) {
+            return new CommandResult(String.format(MESSAGE_EXISTING_EVENT, month + "-" + year));
         }
 
         model.createAllDayEvent(year, month, date, title);

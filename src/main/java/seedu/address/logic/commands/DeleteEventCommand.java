@@ -72,6 +72,11 @@ public class DeleteEventCommand extends Command {
             throw new CommandException(String.format(MESSAGE_NOT_VALID_DATE, endDate + "/" + month + "/" + year));
         }
 
+        // Check whether calendar is already loaded
+        if (!model.isLoadedCalendar(year, month)) {
+            model.loadCalendar(year, month);
+        }
+
         // Check whether event exists in calendar
         if (!model.isExistingEvent(year, month, startDate, endDate, title)) {
             return new CommandResult(String.format(MESSAGE_NOT_EXISTING_EVENT, month + "-" + year));

@@ -39,7 +39,7 @@ class EraseCommandTest {
 
 
         ModelManager expectedModel = new ModelManager(new AddressBook(model.getAddressBook()),
-                new BudgetBook(), new UserPrefs());
+            new BudgetBook(), new UserPrefs(), model.getExistingEmails());
         List<Person> fullList = model.getFilteredPersonList();
 
         for (Person p : fullList) {

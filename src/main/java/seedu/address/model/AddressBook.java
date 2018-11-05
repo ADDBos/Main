@@ -5,6 +5,7 @@ import static java.util.Objects.requireNonNull;
 import java.util.List;
 
 import javafx.collections.ObservableList;
+import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.UniquePersonList;
 
@@ -60,11 +61,27 @@ public class AddressBook implements ReadOnlyAddressBook {
     }
 
     /**
+     * Returns true if a person with the same {@code Name} as {@code name} exists in the address book.
+     */
+    public boolean hasPerson(Name name) {
+        requireNonNull(name);
+        return persons.contains(name);
+    }
+
+    /**
      * Adds a person to the address book.
      * The person must not already exist in the address book.
      */
     public void addPerson(Person p) {
         persons.add(p);
+    }
+
+    /**
+     * Adds persons to the address book.
+     * Exisiting persons will be ignored.
+     */
+    public void addMultiplePersons(List<Person> personList) {
+        persons.addMultiplePersons(personList);
     }
 
     /**

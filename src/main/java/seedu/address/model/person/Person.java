@@ -120,8 +120,22 @@ public class Person {
         }
 
         return otherPerson != null
-                && otherPerson.getName().equals(getName())
-                && (otherPerson.getPhone().equals(getPhone()) || otherPerson.getEmail().equals(getEmail()));
+            && otherPerson.getName().equals(getName())
+            && (otherPerson.getPhone().equals(getPhone()) || otherPerson.getEmail().equals(getEmail()));
+    }
+
+    //@@author ericyjw
+    /**
+     * Returns true if both persons of the same name.
+     * This defines a weaker notion of equality between two persons.
+     */
+    public boolean isSamePersonName(Person otherPerson) {
+        if (otherPerson == this) {
+            return true;
+        }
+
+        return otherPerson != null
+            && otherPerson.getName().equals(getName());
     }
 
     /**

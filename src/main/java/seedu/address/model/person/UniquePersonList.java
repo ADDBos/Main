@@ -35,6 +35,15 @@ public class UniquePersonList implements Iterable<Person> {
     }
 
     /**
+     * Returns true if the list contains a person name as the given argument.
+     */
+    public boolean contains(Name toCheck) {
+        requireNonNull(toCheck);
+        Person toCheckPerson = new Person(toCheck);
+        return internalList.stream().anyMatch(toCheckPerson::isSamePersonName);
+    }
+
+    /**
      * Adds a person to the list.
      * The person must not already exist in the list.
      */
@@ -44,6 +53,21 @@ public class UniquePersonList implements Iterable<Person> {
             throw new DuplicatePersonException();
         }
         internalList.add(toAdd);
+    }
+
+    //@@author kengwoon
+
+    /**
+     * Adds a person to the list.
+     * Existing persons will be ignored.
+     */
+    public void addMultiplePersons(List<Person> toAdd) {
+        requireNonNull(toAdd);
+        for (Person p : toAdd) {
+            if (!contains(p)) {
+                internalList.add(p);
+            }
+        }
     }
 
     /**

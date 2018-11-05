@@ -63,7 +63,7 @@ public class AddressBookTest {
     @Test
     public void hasPerson_nullPerson_throwsNullPointerException() {
         thrown.expect(NullPointerException.class);
-        addressBook.hasPerson(null);
+        addressBook.hasPerson((Person) null);
     }
 
     @Test

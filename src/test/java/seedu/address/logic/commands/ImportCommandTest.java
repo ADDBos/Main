@@ -43,10 +43,20 @@ public class ImportCommandTest {
     private CommandHistory commandHistory = new CommandHistory();
 
     @Test
-    public void execute_nullFile_throwsFileNotFoundException() throws Exception {
-        ImportCommand importCommand = new ImportCommand(new File("./imports/notAFile.xml"));
+    public void execute_nullFile_throwsFileNotFoundException() {
+        ImportCommand importCommand = new ImportCommand(new File("./imports/notAFile.xml").toPath());
 
         String expectedMessage = ImportCommand.MESSAGE_FILE_NOT_FOUND;
+
+        assertCommandFailure(importCommand, model, commandHistory, expectedMessage);
+    }
+
+    @Test
+    public void execute_invalidFileFormat() {
+        ImportCommand importCommand = new ImportCommand(
+            new File("./src/test/data/ImportCommandTest/invalidFormat.xml").toPath());
+
+        String expectedMessage = ImportCommand.MESSAGE_PARSE_ERR;
 
         assertCommandFailure(importCommand, model, commandHistory, expectedMessage);
     }
@@ -55,12 +65,12 @@ public class ImportCommandTest {
     public void execute_validContactsFile_success() {
         String fileName = "contactImports.xml";
         File file = new File("./src/test/data/ImportCommandTest/" + fileName);
-        ImportCommand importCommand = new ImportCommand(file);
+        ImportCommand importCommand = new ImportCommand(file.toPath());
 
         String expectedMessage = String.format(ImportCommand.MESSAGE_SUCCESS, fileName);
 
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()),
-                new BudgetBook(model.getBudgetBook()), new UserPrefs());
+            new BudgetBook(model.getBudgetBook()), new UserPrefs(), model.getExistingEmails());
         Set<Tag> tags = new HashSet<>();
         tags.add(new Tag("basketball"));
         Person newPerson = new Person(new Name(VALID_PERSON_NAME), new Phone(VALID_PERSON_PHONE),
@@ -76,16 +86,16 @@ public class ImportCommandTest {
     public void execute_validCcaFile_success() {
         String fileName = "ccaImports.xml";
         File file = new File("./src/test/data/ImportCommandTest/" + fileName);
-        ImportCommand importCommand = new ImportCommand(file);
+        ImportCommand importCommand = new ImportCommand(file.toPath());
 
         String expectedMessage = String.format(ImportCommand.MESSAGE_SUCCESS, fileName);
 
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()),
-                new BudgetBook(model.getBudgetBook()), new UserPrefs());
+            new BudgetBook(model.getBudgetBook()), new UserPrefs(), model.getExistingEmails());
         Index indexLastPerson = Index.fromOneBased(model.getFilteredPersonList().size());
         Person original = model.getFilteredPersonList().get(indexLastPerson.getZeroBased());
         PersonBuilder personInFile = new PersonBuilder(original);
-        Person edited = personInFile.withTags("golf").build();
+        Person edited = personInFile.withTags("Golf").build();
         expectedModel.updatePerson(original, edited);
         expectedModel.updateFilteredPersonList(Model.PREDICATE_SHOW_ALL_PERSONS);
         expectedModel.commitAddressBook();
