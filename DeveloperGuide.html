@@ -88,10 +88,15 @@
 <li><a href="#launch-and-shutdown">G.1. Launch and Shutdown</a></li>
 <li><a href="#deleting-a-person">G.2. Deleting a Person</a></li>
 <li><a href="#composing-an-email-to-all-currently-listed-residents">G.3. Composing an Email to All Currently Listed Residents</a></li>
-<li><a href="#clearing-persons">G.4. Clearing Persons</a></li>
-<li><a href="#erasing-ccas">G.5. Erasing CCAs</a></li>
-<li><a href="#exporting-data">G.6. Exporting data</a></li>
-<li><a href="#importing-data">G.7. Importing data</a></li>
+<li><a href="#creating-a-monthly-calendar">G.4. Creating a monthly Calendar</a></li>
+<li><a href="#viewing-a-monthly-calendar">G.5. Viewing a monthly Calendar</a></li>
+<li><a href="#add-all-day-event-into-monthly-calendar">G.6. Add all day event into monthly Calendar</a></li>
+<li><a href="#add-event-into-monthly-calendar">G.7. Add event into monthly Calendar</a></li>
+<li><a href="#delete-event-from-monthly-calendar">G.8. Delete event from monthly Calendar</a></li>
+<li><a href="#clearing-persons">G.9. Clearing Persons</a></li>
+<li><a href="#erasing-ccas">G.10. Erasing CCAs</a></li>
+<li><a href="#exporting-data">G.11. Exporting data</a></li>
+<li><a href="#importing-data">G.12. Importing data</a></li>
 </ul>
 </li>
 </ul>
@@ -4970,7 +4975,7 @@ Expected: Similar to previous.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Deleting an email while all persons are listed.</p>
+<p>Composing an email while all persons are listed.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
@@ -4992,7 +4997,7 @@ Expected: Email not displayed on the BrowserPanel. Error details shown in the st
 </div>
 </li>
 <li>
-<p>Deleting an email while no persons are listed.</p>
+<p>Composing an email while no persons are listed.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
@@ -5009,7 +5014,171 @@ Expected: Email not displayed on the BrowserPanel. Error details shown in the st
 </div>
 </div>
 <div class="sect2">
-<h3 id="clearing-persons"><a class="link" href="#clearing-persons">G.4. Clearing Persons</a></h3>
+<h3 id="creating-a-monthly-calendar"><a class="link" href="#creating-a-monthly-calendar">G.4. Creating a monthly Calendar</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Creating a new monthly calendar.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>create_calendar month/oct year/2018</code><br>
+Expected: "Calendar created: OCT-2018.ics". The GUI remains at the same state as it was before the command execution.</p>
+</li>
+<li>
+<p>Test case: <code>create_calendar month/october year/2018</code><br>
+Expected: The GUI remains at the same state as it was before the command execution. Error details shown in the status message.</p>
+</li>
+<li>
+<p>Test case: <code>create_calendar month/oct year/-2018</code><br>
+Expected: The GUI remains at the same state as it was before the command execution. Error details shown in the status message.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Creating an existing monthly calendar.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>create_calendar month/oct year/2018</code><br>
+Expected: The GUI remains at the same state as it was before the command execution. Error details shown in the status message.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>It is recommend to test the calendar and its relevant commands using the present month and year as arguments. This is because the calendar GUI will always display the current week as its default time frame.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="viewing-a-monthly-calendar"><a class="link" href="#viewing-a-monthly-calendar">G.5. Viewing a monthly Calendar</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Viewing an existing calendar.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>view_calendar month/oct year/2018</code><br>
+Expected: The monthly calendar displays on the UI with the current week as its default time frame.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Viewing a non-existing calendar.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>view_calendar month/sep year/1998</code><br>
+Expected: Error details shown in the status message. The GUI remains at the same state as it was before the command execution.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="add-all-day-event-into-monthly-calendar"><a class="link" href="#add-all-day-event-into-monthly-calendar">G.6. Add all day event into monthly Calendar</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Adding a new all day event into the calendar.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>add_all_day_event month/oct year/2018 date/25 title/Example</code><br>
+Expected: The updated calendar displays on the UI with the current week as its default time frame.</p>
+</li>
+<li>
+<p>Test case: <code>add_all_day_event month/oct year/2018 date/-1 title/Example</code><br>
+Expected: Error details shown in the status message. The GUI remains at the same state as it was before the command execution.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Adding an already existing identical all day event into the calendar.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>add_all_day_event month/oct year/2018 date/25 title/Example</code><br>
+Expected: Displays the monthly calendar on the UI with the current week as its default time frame. Status message shows that the event already exist in the calendar and its duplicate is not created.</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Events in Hallper are considered the same if they have the same start date, end date and title (case-sensitive).</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="add-event-into-monthly-calendar"><a class="link" href="#add-event-into-monthly-calendar">G.7. Add event into monthly Calendar</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Adding a new event with a specified time frame into the calendar.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>add_event month/oct year/2018 sdate/1 shour/8 smin/0 edate/2 ehour/17 emin/30 title/Example</code><br>
+Expected: The updated calendar displays on the UI with the current week as its default time frame.</p>
+</li>
+<li>
+<p>Test case: <code>add_event month/oct year/2018 sdate/1 shour/24 smin/0 edate/2 ehour/17 emin/30 title/Example</code><br>
+Expected: Error details shown in the status message. The GUI remains at the same state as it was before the command execution.</p>
+</li>
+<li>
+<p>Test case: <code>add_event month/oct year/2018 sdate/1 shour/8 smin/0 edate/2 ehour/17 emin/60 title/Example</code><br>
+Expected: Error details shown in the status message. The GUI remains at the same state as it was before the command execution.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Adding an already existing identical event into the calendar.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>add_event month/oct year/2018 sdate/1 shour/8 smin/0 edate/2 ehour/17 emin/30 title/Example</code><br>
+Expected: Displays the monthly calendar on the UI with the current week as its default time frame. Status message shows that the event already exist in the calendar and its duplicate is not created.</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="delete-event-from-monthly-calendar"><a class="link" href="#delete-event-from-monthly-calendar">G.8. Delete event from monthly Calendar</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Deleting an existing event from the monthly calendar.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>delete_event month/oct year/2018 sdate/25 edate/25 title/example</code><br>
+Expected: Displays the monthly calendar on the UI with the current week as its default time frame. Status message shows that the event doesn&#8217;t exist in the calendar and nothing is deleted. (Event titles are case-sensitive)</p>
+</li>
+<li>
+<p>Test case: <code>delete_event month/oct year/2018 sdate/25 edate/25 title/Example</code><br>
+Expected: The updated calendar displays on the UI with the current week as its default time frame.</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="clearing-persons"><a class="link" href="#clearing-persons">G.9. Clearing Persons</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -5042,7 +5211,7 @@ Expected: No person(s) are deleted. No persons cleared message displayed.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="erasing-ccas"><a class="link" href="#erasing-ccas">G.5. Erasing CCAs</a></h3>
+<h3 id="erasing-ccas"><a class="link" href="#erasing-ccas">G.10. Erasing CCAs</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -5071,7 +5240,7 @@ Expected: No CCA is erased. No CCAs erased message displayed.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exporting-data"><a class="link" href="#exporting-data">G.6. Exporting data</a></h3>
+<h3 id="exporting-data"><a class="link" href="#exporting-data">G.11. Exporting data</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -5100,7 +5269,7 @@ Expected: Data not exported. Invalid file type message displayed.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="importing-data"><a class="link" href="#importing-data">G.7. Importing data</a></h3>
+<h3 id="importing-data"><a class="link" href="#importing-data">G.12. Importing data</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -5131,4 +5300,4 @@ Expected: Data not imported. Invalid file type message displayed.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 08:17:31 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 09:13:24 UTC</div></div></div></body></html>
