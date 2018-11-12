@@ -1439,7 +1439,8 @@ The library is widely used and easy to understand so any new developer can easil
 <h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">4.4.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The budget feature in Hallper is implemented with reference to <code>AddressBook</code>. It stores <code>Cca</code> instead of <code>Person</code>, and
-each <code>Cca</code> contains the a <code>Budget</code> and a set of transaction <code>Entries</code>. The budget feature is facilitated by
+each <code>Cca</code> contains the <code>Name</code> of the head and vice-head, <code>Budget</code> allocated, <code>Spent</code> and <code>Outstanding</code> and a set of
+transaction <code>Entries</code>. Each <code>Entry</code> contains a <code>Date</code>, <code>Amount</code> and <code>Remarks</code>. The budget feature is facilitated by
 <code>BudgetBook</code> and <code>BudgetBookStorage</code>, and can also read and write onto the <code>ccabook.xml</code>, just like the  AddressBook.
  The purpose of this budget feature is to keep track of each <code>Cca</code> transaction.</p>
 </div>
@@ -1626,7 +1627,8 @@ the existing <code>ccabook.xml</code> with the updated CCA and its information.<
 <div class="paragraph">
 <p>The <code>add_trans</code> mechanism is facilitated by <code>BudgetBook</code> and <code>BudgetBookStorage</code>.
 When a transaction entry is to be added, it looks up the <code>BudgetBook</code> in the <code>BudgetBookStorage</code> of
-the <code>Model</code> for the CCA and add the specified entry to the CCA. It then update the <code>Cca</code> stored inside the <code>ccabook.xml</code> file in the
+the <code>Model</code> for the CCA and add the specified entry to the CCA. It then updates the <code>Cca</code> stored inside the <code>ccabook
+.xml</code> file in the
 local directory.
 It implements the following commands:</p>
 </div>
@@ -5413,8 +5415,8 @@ Expected: Image not copied. Invalid image error message displayed.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: The name of the given CCA is alphanumeric. The budget given is numeric and the only symbol can be
-used is dash.</p>
+<p>Prerequisites: The name of the given CCA only contains alphabets. The budget given is numeric and the only symbol
+can be used is dash.</p>
 </li>
 <li>
 <p>Test case: <code>create n/Basketball budget/500</code><br>
@@ -5603,4 +5605,4 @@ Expected: The CCA does not exist.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 14:48:20 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 15:18:21 UTC</div></div></div></body></html>
