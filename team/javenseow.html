@@ -7,7 +7,7 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
+<h2 id="1-overview"><a class="link" href="#1-overview">1. Overview</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This Project Portfolio Page aims to illustrate what I have learnt while working on Hallper, as well as to document my
@@ -33,7 +33,7 @@ one-stop solution for all JCRCs.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<h2 id="2-summary-of-contributions"><a class="link" href="#2-summary-of-contributions">2. Summary of contributions</a></h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
@@ -139,7 +139,7 @@ along with the tagged profile picture of the specified resident.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<h2 id="3-contributions-to-the-user-guide"><a class="link" href="#3-contributions-to-the-user-guide">3. Contributions to the User Guide</a></h2>
 <div class="sectionbody">
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -152,9 +152,9 @@ along with the tagged profile picture of the specified resident.</p>
 </tbody>
 </table>
 <div class="sect3">
-<h4 id="searching-all-persons-under-specified-tag-code-search-code"><a class="link" href="#searching-all-persons-under-specified-tag-code-search-code">Searching all persons under specified tag : <code>search</code></a></h4>
+<h4 id="searching-all-residents-under-specified-tag-code-search-code"><a class="link" href="#searching-all-residents-under-specified-tag-code-search-code">Searching all residents under specified tag : <code>search</code></a></h4>
 <div class="paragraph">
-<p>Shows a list of all persons in the Hallper that are associated with the specified keyword.<br>
+<p>Shows a list of all residents in the Hallper that are associated with the specified keyword.<br>
 Format: <code>search KEYWORD [MORE_KEYWORDS]</code></p>
 </div>
 <div class="sidebarblock">
@@ -176,23 +176,23 @@ Format: <code>search KEYWORD [MORE_KEYWORDS]</code></p>
 </div>
 <div class="paragraph">
 <p>Searches Hallper and lists all residents that are in <code>basketball</code>, staying in room <code>A123</code> or studying in <code>SoC</code>
-in the Person List Panel as seen in Figure 4.2.1.1 and Figure 4.2.1.2.</p>
+in the resident List Panel as seen in Figure 4.2.1.1 and Figure 4.2.1.2.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/SearchExample.png" alt="SearchExample" width="790">
+<img src="../images/SearchExample.png" alt="SearchExample" width="600">
 </div>
 </div>
 <div class="paragraph">
-<p><em>Figure 4.2.1.1: Screen before running <code>search</code> on Hallper.</em></p>
+<p><em>Figure 4.2.3.1: Screen before running <code>search</code> on Hallper.</em></p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/SearchExample2.png" alt="SearchExample2" width="790">
+<img src="../images/SearchExample2.png" alt="SearchExample2" width="600">
 </div>
 </div>
 <div class="paragraph">
-<p><em>Figure 4.2.1.2: Screen after running <code>search</code> on Hallper.</em></p>
+<p><em>Figure 4.2.3.2: Screen after running <code>search</code> on Hallper.</em></p>
 </div>
 <div class="ulist">
 <ul>
@@ -215,7 +215,7 @@ Searches Hallper and lists all residents that are staying in room <code>A123</co
 </div>
 </div>
 <div class="sect3">
-<h4 id="adds-a-picture-to-resident-detail-code-image-code"><a class="link" href="#adds-a-picture-to-resident-detail-code-image-code">Adds a picture to resident detail : <code>image</code></a></h4>
+<h4 id="adding-a-picture-to-resident-detail-code-image-code"><a class="link" href="#adding-a-picture-to-resident-detail-code-image-code">Adding a picture to resident detail : <code>image</code></a></h4>
 <div class="paragraph">
 <p>Saves a copy of the image of resident staying in the specified room to Hallper.<br>
 Format: <code>image r/ROOM f/FILEPATH</code></p>
@@ -224,9 +224,6 @@ Format: <code>image r/ROOM f/FILEPATH</code></p>
 <div class="content">
 <div class="ulist">
 <ul>
-<li>
-<p>Allow for the upload of the profile picture of resident.</p>
-</li>
 <li>
 <p>ROOM is not case-sensitive.</p>
 </li>
@@ -246,17 +243,13 @@ Format: <code>image r/ROOM f/FILEPATH</code></p>
 <p><code>image r/a123 f/C:/user/images/e0000000.jpg</code><br>
 Uploads the profile picture (in <strong><code>.jpg</code></strong>) of the resident living in room <code>A123</code> into Hallper.</p>
 </li>
-<li>
-<p><code>image r/B111 f/C:/user/images/e0000000.jpg</code><br>
-Uploads the profile picture (in <strong><code>.jpg</code></strong>) of the resident living in room <code>B111</code> into Hallper.</p>
-</li>
 </ul>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<h2 id="4-contributions-to-the-developer-guide"><a class="link" href="#4-contributions-to-the-developer-guide">4. Contributions to the Developer Guide</a></h2>
 <div class="sectionbody">
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -269,109 +262,9 @@ Uploads the profile picture (in <strong><code>.jpg</code></strong>) of the resid
 </tbody>
 </table>
 <div class="sect2">
-<h3 id="search-feature"><a class="link" href="#search-feature">Search feature</a></h3>
-<div class="sect3">
-<h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
-<div class="paragraph">
-<p>The search feature allows the user to search for persons who in Hallper using their room number, school and CCAs.</p>
-</div>
-<div class="paragraph">
-<p>It implements the following operation:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>SearchCommand#execute(Model model, CommandHistory history)</code>&#8201;&#8212;&#8201;Updates the filtered persons list with persons that
-has fields that match any of the predicates.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>This operation is exposed in the <code>Model</code> interface as <code>Model#updateFilteredPersonList(Predicate&lt;Person&gt; predicate)</code>.</p>
-</div>
-<div class="paragraph">
-<p>Given below is an example usage scenario and how the search mechanism behaves at each step.</p>
-</div>
-<div class="paragraph">
-<p><strong>Step 1.</strong> The user specifies the keywords to search Hallper with.</p>
-</div>
-<div class="paragraph">
-<p><strong>Step 2.</strong> <code>SearchCommandParser</code> checks for the keywords after the search command word. If there are no keywords
-after the search command word, a <code>ParseException</code> is thrown. Any keywords that comes after the search command word
-will be successfully parsed into a <code>FieldsContainsKeywordsPredicate</code></p>
-</div>
-<div class="paragraph">
-<p><strong>Step 3.</strong> <code>SearchCommand#execute(Model model, CommandHistory history)</code> is then called and uses the predicate to update
-the filtered persons list.</p>
-</div>
-<div class="paragraph">
-<p><strong>Step 4.</strong> After updating the list, the <code>PersonListPanel</code> is then updated to display the search result.</p>
-</div>
-<div class="paragraph">
-<p>The following sequence diagram shows how the search operation works:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/Search%20Sequence%20Diagram.png" alt="Search Sequence Diagram" width="800">
-</div>
-</div>
-<div class="paragraph">
-<p><em>Figure 4.10.1.1: Sequence diagram for search operation</em></p>
-</div>
-<div class="paragraph">
-<p>The following activity diagram summarizes what happens when a user executes the search command:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/Search%20Activity%20Diagram.png" alt="Search Activity Diagram" width="650">
-</div>
-</div>
-<div class="paragraph">
-<p><em>Figure 4.10.1.2: Activity diagram for search operation</em></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
-<div class="sect4">
-<h5 id="aspect-fields-to-search"><a class="link" href="#aspect-fields-to-search">Aspect: Fields to search</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Limit choice to only room number, school and CCA.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pro: The search command will only search for the fields that are the most commonly used.</p>
-</li>
-<li>
-<p>Con: The fields that can be used as keywords are limited.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Include all available fields to be the search criteria.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pro: Allows the command to search using more criteria.</p>
-</li>
-<li>
-<p>Con: Including name as a search criteria will overlap with the current find command and phone numbers
-are not commonly used as search criterias.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
 <h3 id="image-feature"><a class="link" href="#image-feature">Image feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">Current Implementation</a></h4>
+<h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
 <div class="paragraph">
 <p>The image feature allows <code>.jpg</code> image files to be uploaded into Hallper to a specific person from the computer.
 The feature is facilitated by <code>ProfilePictureDirStorage</code>. It implements the follow operations:</p>
@@ -424,7 +317,7 @@ computer.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/Image%20Sequence%20Diagram.png" alt="Image Sequence Diagram" width="800">
+<img src="../images/Image%20Sequence%20Diagram.png" alt="Image Sequence Diagram" width="730">
 </div>
 </div>
 <div class="paragraph">
@@ -435,7 +328,7 @@ computer.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/Image%20Activity%20Diagram.png" alt="Image Activity Diagram" width="650">
+<img src="../images/Image%20Activity%20Diagram.png" alt="Image Activity Diagram" width="400">
 </div>
 </div>
 <div class="paragraph">
@@ -443,7 +336,7 @@ computer.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-choice-of-component-to-read-and-save-the-file"><a class="link" href="#aspect-choice-of-component-to-read-and-save-the-file">Aspect: Choice of component to read and save the file</a></h5>
 <div class="ulist">
@@ -513,4 +406,4 @@ computer.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 08:14:18 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 08:17:31 UTC</div></div></div></body></html>

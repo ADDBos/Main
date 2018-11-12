@@ -7,7 +7,7 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
+<h2 id="1-overview"><a class="link" href="#1-overview">1) Overview</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The purpose of this portfolio is to document the contributions I have done to the project and provide an overview of
@@ -28,7 +28,7 @@ budget&#8201;&#8212;&#8201;all of the main concerns of the JCRC addressed on a s
 </div>
 </div>
 <div class="sect1">
-<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<h2 id="2-summary-of-contributions"><a class="link" href="#2-summary-of-contributions">2) Summary of contributions</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>These are my personal contributions to the project:</p>
@@ -84,8 +84,6 @@ window.</p>
 </li>
 <li>
 <p><strong>Code contributed</strong>:
-[ <a href="https://github.com/CS2103-AY1819S1-W16-1/main/tree/master/src/main/java/seedu/address">Functional code</a> ]
-[ <a href="https://github.com/CS2103-AY1819S1-W16-1/main/tree/master/src/test/java">Test code</a> ]
 [ <a href="https://nus-cs2103-ay1819s1.github.io/cs2103-dashboard/#=undefined&amp;search=ericyjw">RepoSense</a> ]</p>
 </li>
 <li>
@@ -131,7 +129,7 @@ window.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<h2 id="3-contributions-to-the-user-guide"><a class="link" href="#3-contributions-to-the-user-guide">3) Contributions to the User Guide</a></h2>
 <div class="sectionbody">
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -143,11 +141,6 @@ window.</p>
 </tr>
 </tbody>
 </table>
-<div class="sect2">
-<h3 id="budget-and-cca"><a class="link" href="#budget-and-cca">Budget and CCA</a></h3>
-<div class="paragraph">
-<p>This section lists features related to CCA budget management in Hallper.</p>
-</div>
 <div class="sect3">
 <h4 id="adding-a-cca-code-create-code"><a class="link" href="#adding-a-cca-code-create-code">Adding a cca: <code>create</code></a></h4>
 <div class="paragraph">
@@ -192,224 +185,6 @@ Format: <code>create n/NAME_OF_CCA budget/ALLOCATED_BUDGET</code></p>
 </li>
 <li>
 <p><code>create n/Basketball F budget/400</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="adding-a-transaction-code-add_trans-code"><a class="link" href="#adding-a-transaction-code-add_trans-code">Adding a transaction: <code>add_trans</code></a></h4>
-<div class="paragraph">
-<p>Adds a transaction entry to the specified CCA in Hallper.<br>
-Format: <code>add_trans c/NAME_OF_CCA date/DATE amount/AMOUNT remarks/REMARKS</code></p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Transaction entry can only be added one at a time.</p>
-</li>
-<li>
-<p><code>undo</code> and <code>redo</code> command does not apply to <code>add_trans</code>.</p>
-</li>
-</ul>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>add_trans c/Basketball date/31.01.2018 amount/-200 remarks/Competition Fee</code><br>
-Adds a transaction entry to <code>Basketball</code>. The date, amount and remarks of the transaction entry are <code>31.01.2018</code>,
- <code>-200</code> and <code>Competition Fee</code> respectively.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="deleting-a-cca-code-delete_cca-code"><a class="link" href="#deleting-a-cca-code-delete_cca-code">Deleting a cca : <code>delete_cca</code></a></h4>
-<div class="paragraph">
-<p>Deletes the specified CCA from Hallper.<br>
-Format: <code>delete c/NAME_OF_CCA</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="paragraph">
-<p>Deletes the CCA with the specified name.</p>
-</div>
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>The CCA specifed must exist in the Hallper.</p>
-</li>
-<li>
-<p><code>undo</code> and <code>redo</code> command does not apply to <code>delete_cca</code>.</p>
-</li>
-</ul>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>delete_cca c/netball</code></p>
-</li>
-<li>
-<p><code>delete_cca c/Basketball F</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="deleting-a-transaction-entry-code-delete_trans-code"><a class="link" href="#deleting-a-transaction-entry-code-delete_trans-code">Deleting a transaction entry : <code>delete_trans</code></a></h4>
-<div class="paragraph">
-<p>Deletes the specified transaction entry from the specified CCA from Hallper.<br>
-Format: <code>delete_trans c/NAME_OF_CCA trans/ENTRY_NUMBER</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Deletes the specific transaction entry from the CCA with the specified name.</p>
-</li>
-<li>
-<p>The transaction entry number must be a <strong>positive interger</strong> (e.g. 1,2,3,4&#8230;&#8203;).</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>The CCA specifed must exist in the Hallper.</p>
-</li>
-<li>
-<p>The transaction entry number must exist for the specified CCA.</p>
-</li>
-<li>
-<p><code>undo</code> and <code>redo</code> command does not apply to <code>delete_trans</code>.</p>
-</li>
-</ul>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>delete_trans c/netball trans/1</code></p>
-</li>
-<li>
-<p><code>delete_trans c/Basketball F trans/3</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="updating-a-cca-code-update-code"><a class="link" href="#updating-a-cca-code-update-code">Updating a cca : <code>update</code></a></h4>
-<div class="paragraph">
-<p>Updates an existing CCA in Hallper.<br>
-Format: <code>update c/CCA_NAME [n/NEW_CCA_NAME] [h/NAME_OF_HEAD] [vh/NAME_OF_VIC_HEAD] [budget/BUDGET]
-[trans/ENTRY_NUMBER] [date/DATE] [amount/AMOUNT] [remarks/REMARKS]</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>At least one of the optional fields must be provided.</p>
-</li>
-<li>
-<p>When <code>trans/</code> is included, at least one of the fields in the transaction entry must be provided. The transaction
-fields are <code>date</code>, <code>amount</code> and <code>remarks</code>.</p>
-</li>
-<li>
-<p>Existing values will be updated to the input values.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>The CCA specifed must exist in the Hallper.</p>
-</li>
-<li>
-<p>The transaction number specified with <code>trans/</code> must exist.</p>
-</li>
-<li>
-<p><code>undo</code> and <code>redo</code> command does not apply to <code>update</code>.</p>
-</li>
-</ul>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>update c/basketball n/basketball m h/Alex vh/Peter budget/700</code><br>
-Updates <code>basketball</code> to <code>basketball m</code>, budget to <code>700</code> and its head and vice-head to <code>Alex</code> and <code>Peter</code> respectively.</p>
-</li>
-<li>
-<p><code>update c/Netball trans/2 date/30.05.2018 amount/-200 remarks/Purchase of Equipment</code><br>
-Updates the date, amount and remarks of the 2nd transaction entry of <code>Netball</code> with <code>30.05.2018</code>, <code>-200</code> and
-<code>Purchase of Equipment</code> respectively.</p>
-</li>
-<li>
-<p><code>update c/track n/Track F h/Alice vh/June Ong budget/500 trans/1 date/28.02.2018 amount/100 remarks/Fund Raising</code><br>
-Updates <code>track</code> to <code>Track F</code>, its budget to <code>500</code> and its head and vice-head to <code>Alice</code> and <code>June Ong</code> respectively,
-and updates the date, amount and remarks of the 1st transaction entry with <code>28.02.2018</code>, <code>100</code> and <code>Fund Raising</code>
-respectively.</p>
 </li>
 </ul>
 </div>
@@ -493,9 +268,8 @@ Opens up the Budget Window, showing the transaction history of <code>Softball</c
 </div>
 </div>
 </div>
-</div>
 <div class="sect1">
-<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<h2 id="4-contributions-to-the-developer-guide"><a class="link" href="#4-contributions-to-the-developer-guide">4) Contributions to the Developer Guide</a></h2>
 <div class="sectionbody">
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -507,44 +281,6 @@ Opens up the Budget Window, showing the transaction history of <code>Softball</c
 </tr>
 </tbody>
 </table>
-<div class="sect2">
-<h3 id="budget-feature"><a class="link" href="#budget-feature">Budget feature</a></h3>
-<div class="sect3">
-<h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
-<div class="paragraph">
-<p>The budget feature in Hallper is implemented with reference to <code>AddressBook</code>. It stores <code>Cca</code> instead of <code>Person</code>, and
-each <code>Cca</code> contains the a <code>Budget</code> and a set of transaction <code>Entries</code>. The budget feature is facilitated by
-<code>BudgetBook</code> and <code>BudgetBookStorage</code>, and can also read and write onto the <code>ccabook.xml</code>, just like the  AddressBook.
- The purpose of this budget feature is to keep track of each <code>Cca</code> transaction.</p>
-</div>
-<div class="paragraph">
-<p>It implements the following commands:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>create</code>&#8201;&#8212;&#8201;Creates a CCA with a given budget.</p>
-</li>
-<li>
-<p><code>delete_cca</code>&#8201;&#8212;&#8201;Deletes a specified CCA.</p>
-</li>
-<li>
-<p><code>update</code>&#8201;&#8212;&#8201;Updates the details of a specified CCA.</p>
-</li>
-<li>
-<p><code>add_trans</code>&#8201;&#8212;&#8201;Adds a transaction entry to a specified CCA.</p>
-</li>
-<li>
-<p><code>delete_trans</code> &#8201;&#8212;&#8201;Deletes a transaction entry to a specified CCA.</p>
-</li>
-<li>
-<p><code>budget</code>&#8201;&#8212;&#8201;Shows the transaction information of each CCA.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>However, only the implementation of <code>create</code>, <code>update</code>, <code>add_trans</code> and <code>budget</code> will be discussed.</p>
-</div>
 <div class="sect4">
 <h5 id="create-command"><a class="link" href="#create-command">Create Command</a></h5>
 <div class="paragraph">
@@ -609,174 +345,9 @@ event)</code>. <code>StorageManager#saveBudgetBook(ReadOnlyBudgetBook data)</cod
 </div>
 </div>
 <div class="paragraph">
-<p><em>Figure 4.4.1.1: Sequence diagram for create command</em></p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="update-command"><a class="link" href="#update-command">Update Command</a></h5>
-<div class="paragraph">
-<p>The <code>update</code> mechanism is facilitated by <code>BudgetBook</code> and <code>BudgetBookStorage</code>.
-When a CCA is getting updated, it looks up the <code>BudgetBook</code> in the <code>BudgetBookStorage</code> of the <code>Model</code> for the CCA to
-update. It then updates the <code>Cca</code> stored inside the <code>ccabook.xml</code> file in the local directory.
-It implements the following commands:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>BudgetBook#updateCca(Cca targetCca, Cca editedCca)</code>&#8201;&#8212;&#8201;Updates an existing CCA in the <code>BudgetBook</code> in <code>Model</code>.</p>
-</li>
-<li>
-<p><code>BudgetBook#commitBudgetBook()</code>&#8201;&#8212;&#8201;Saves a current version of the budget book in the <code>VersionedBudgetBook</code>.</p>
-</li>
-<li>
-<p><code>UpdateCommand#createEditedCca(Cca ccaToEdit, EditCcaDescriptor editCcaDescriptor)</code>&#8201;&#8212;&#8201;Creates an updated version
-of the target CCA.</p>
-</li>
-<li>
-<p><code>TransactionMath#updateDetails(Cca cca)</code>&#8201;&#8212;&#8201;Updates the <code>Spent</code> and <code>Outstanding</code> amount of the specified CCA.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>These operations are exposed in the <code>Model</code> interface as:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>Model#updateCca(Cca targetCca, Cca editedCca)</code></p>
-</li>
-<li>
-<p><code>Model#hasCca(CcaName cca)</code></p>
-</li>
-<li>
-<p><code>Model#commitBudgetBook()</code></p>
-</li>
-<li>
-<p><code>Model#hasPerson(Name person)</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Given below is an example usage scenario and how the update cca mechanism behaves at each step:</p>
-</div>
-<div class="paragraph">
-<p>Step 1. The user specifies the CCA to be updated by including the CCA name and the fields to update.</p>
-</div>
-<div class="paragraph">
-<p>Step 2. The user can update the head&#8217;s name, the vice-head&#8217;s name, the budget allocated, and the details of a
-transaction entry such as its date, amount involved and remarks for the transaction. These information is stored in the
-<code>UpdateCommand#EditCcaDescriptor</code>. Any fields that are not valid will display an error message.</p>
-</div>
-<div class="paragraph">
-<p>Step 3. <code>update</code> command then checks for existing CCA name using <code>BudgetBook#hasCca(CcaName ccaName)</code>. If the cca name
- does not exist, an error message will appear. Otherwise, the updated CCA will be created from the
- <code>UpdateCommand#EditCcaDescriptor</code> using
- <code>UpdateCommand#createEditedCca(Cca ccaToEdit, EditCcaDescriptor editCcaDescriptor)</code>.</p>
-</div>
-<div class="paragraph">
-<p>Step 4. <code>BudgetBook#updateCca(Cca targetCca, Cca editedCca)</code> then replaces the existing CCA with the updated CCA and
-invokes <code>ModelManger#indicateBudgetBookChange()</code> to raise a <code>BudgetBookChangedEvent</code>, which is handled by
-<code>EventsCenter</code>.</p>
-</div>
-<div class="paragraph">
-<p>Step 5. <code>BudgetBookChangedEvent</code> is handled by <code>StorageManager#handleBudgetBookChangedEvent(BudgetBookChangedEvent
-event)</code>. <code>StorageManager#saveBudgetBook(ReadOnlyBudgetBook data)</code> is then called to replace the specified CCA in the
-the existing <code>ccabook.xml</code> with the updated CCA and its information.</p>
-</div>
-<div class="paragraph">
-<p>The following sequence diagram shows how the update operation works:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UpdateCommandSequenceDiagram.png" alt="UpdateCommandSequenceDiagram" width="1500">
-</div>
-</div>
-<div class="paragraph">
-<p><em>Figure 4.4.1.2: Sequence diagram for update command</em></p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="add_transaction-command"><a class="link" href="#add_transaction-command">Add_Transaction Command</a></h5>
-<div class="paragraph">
-<p>The <code>add_trans</code> mechanism is facilitated by <code>BudgetBook</code> and <code>BudgetBookStorage</code>.
-When a transaction entry is to be added, it looks up the <code>BudgetBook</code> in the <code>BudgetBookStorage</code> of
-the <code>Model</code> for the CCA and add the specified entry to the CCA. It then update the <code>Cca</code> stored inside the <code>ccabook.xml</code> file in the
-local directory.
-It implements the following commands:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>BudgetBook#updateCca(Cca targetCca, Cca editedCca)</code>&#8201;&#8212;&#8201;Updates an existing CCA in the <code>BudgetBook</code> in <code>Model</code>.</p>
-</li>
-<li>
-<p><code>BudgetBook#commitBudgetBook()</code>&#8201;&#8212;&#8201;Saves a current version of the budget book in the <code>VersionedBudgetBook</code>.</p>
-</li>
-<li>
-<p><code>TransactionMath#updateDetails(Cca cca)</code>&#8201;&#8212;&#8201;Updates the <code>Spent</code> and <code>Outstanding</code> amount of the specified CCA.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>These operations are exposed in the <code>Model</code> interface as:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>Model#updateCca(Cca targetCca, Cca editedCca)</code></p>
-</li>
-<li>
-<p><code>Model#hasCca(CcaName cca)</code></p>
-</li>
-<li>
-<p><code>Model#commitBudgetBook()</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Given below is an example usage scenario and how the add transaction mechanism behaves at each step:</p>
-</div>
-<div class="paragraph">
-<p>Step 1. The user specifies the CCA to add transaction to by including the CCA name and the transaction fields.</p>
-</div>
-<div class="paragraph">
-<p>Step 2. The user must include the <code>Date</code>, <code>Amount</code> and <code>Remarks</code> for the transaction entry. Any fields that are not
-valid will display an error message.</p>
-</div>
-<div class="paragraph">
-<p>Step 3. <code>add_trans</code> command then checks for existing CCA name using <code>BudgetBook#hasCca(CcaName ccaName)</code>. If the
-cca name does not exist, an error message will appear. Otherwise, the <code>Entry</code> is created and is added to the
-target <code>Cca</code> using <code>Cca#AddNewTransaction(Entry entry)</code>.</p>
-</div>
-<div class="paragraph">
-<p>Step 4. The <code>Spent</code> and <code>Outstanding</code> is then updated using <code>TransactionMath#updateDetails(Cca cca)</code>.</p>
-</div>
-<div class="paragraph">
-<p>Step 5. <code>BudgetBook#updateCca(Cca targetCca, Cca editedCca)</code> then replaces the existing CCA with the updated CCA and
-invokes <code>ModelManger#indicateBudgetBookChange()</code> to raise a <code>BudgetBookChangedEvent</code>, which is handled by
-<code>EventsCenter</code>.</p>
-</div>
-<div class="paragraph">
-<p>Step 6. <code>BudgetBookChangedEvent</code> is handled by <code>StorageManager#handleBudgetBookChangedEvent(BudgetBookChangedEvent
-event)</code>. <code>StorageManager#saveBudgetBook(ReadOnlyBudgetBook data)</code> is then called to replace the specified CCA in the
-the existing <code>ccabook.xml</code> with the updated CCA and its transaction entry.</p>
-</div>
-<div class="paragraph">
-<p>The following sequence diagram shows how the add transaction operation works:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/AddTransCommandSequenceDiagram.png" alt="AddTransCommandSequenceDiagram" width="1500">
-</div>
-</div>
-<div class="paragraph">
-<p><em>_Figure 4.4.1.3: Sequence diagram for add_trans command</em></p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="budget-command"><a class="link" href="#budget-command">Budget Command</a></h5>
-<div class="paragraph">
-<p>The <code>budget</code> mechanism is facilitated by <code>BudgetBook</code> and <code>BudgetBookStorage</code>.
+<p><em>Figure 4.4.1.1: Sequence diagram for create command</em>
+===== Budget Command
+The <code>budget</code> mechanism is facilitated by <code>BudgetBook</code> and <code>BudgetBookStorage</code>.
 It opens up a separate window to display the CCA information and its transaction history. It implements the
 following command:</p>
 </div>
@@ -827,7 +398,6 @@ and the <code>CcaName</code> is null.</p>
 <p><em>Figure 4.4.1.4: Activity diagram for budget command</em></p>
 </div>
 </div>
-</div>
 <div class="sect3">
 <h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
 <div class="sect4">
@@ -867,5 +437,4 @@ of parsing large XML files.</p>
 </div>
 </div>
 </div>
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 08:14:18 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 08:17:31 UTC</div></div></div></body></html>
