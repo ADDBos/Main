@@ -215,7 +215,7 @@ Format: <code>budget [c/CCA_NAME]</code></p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/BudgetWindowCcaPanel.png" alt="BudgetWindowCcaPanel" width="500"">
+<img src="../images/BudgetWindowCcaPanel.png" alt="BudgetWindowCcaPanel" width="200"">
 </div>
 </div>
 <div class="paragraph">
@@ -306,7 +306,7 @@ and the <code>CcaName</code> is null.</p>
 <div class="paragraph">
 <p><strong>Step 6.</strong> It then checks whether the CCA name is present in <code>BudgetWindow#fillInnerParts(CcaName ccaName)</code>. If CCA name
  is present, <code>BudgetBrowserPanel(ccaName)</code> is called and the specified CCA information will be displayed. Otherwise,
- <code>BudgetBrowserPanel()</code> is called, showing a blank page.</p>
+ <code>BudgetBrowserPanel()</code> will be called and a blank page will be showed.</p>
 </div>
 <div class="paragraph">
 <p>The following activity diagram summarizes what happens when a user executes a budget command:</p>
@@ -335,7 +335,7 @@ and the <code>CcaName</code> is null.</p>
 storing information.</p>
 </li>
 <li>
-<p>Cons: Parsing XML software is slow and cumbersome. Use large amounts of memory due to the verbosity and incur cost
+<p>Cons: Parsing XML software is slow and cumbersome. Uses large amounts of memory due to the verbosity and incurs cost
 of parsing large XML files.</p>
 </li>
 </ul>
@@ -346,10 +346,11 @@ of parsing large XML files.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Faster in parsing information.</p>
+<p>Pros: Faster in parsing information as compared to <code>.xml</code>.</p>
 </li>
 <li>
-<p>Cons: Limited in terms of what objects can be modeled.</p>
+<p>Cons: JSON has no error handling. Therefore when the code fails to insert information, the code will not throw any
+error.</p>
 </li>
 </ul>
 </div>
@@ -368,4 +369,4 @@ of parsing large XML files.</p>
 <p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 12:06:13 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 13:36:48 UTC</div></div></div></body></html>

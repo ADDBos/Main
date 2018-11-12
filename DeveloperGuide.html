@@ -99,6 +99,12 @@
 <li><a href="#importing-data">G.12. Importing data</a></li>
 <li><a href="#searching-a-person">G.13. Searching a person</a></li>
 <li><a href="#uploading-profile-picture">G.14. Uploading profile picture</a></li>
+<li><a href="#creating-cca">G.15. Creating CCA</a></li>
+<li><a href="#deleting-cca">G.16. Deleting CCA</a></li>
+<li><a href="#updating-cca">G.17. Updating CCA</a></li>
+<li><a href="#adding-a-transaction-entry">G.18. Adding a Transaction Entry</a></li>
+<li><a href="#deleting-a-transaction-entry">G.19. Deleting a Transaction Entry</a></li>
+<li><a href="#showing-ccas-budget">G.20. Showing CCAs' Budget</a></li>
 </ul>
 </li>
 </ul>
@@ -1474,7 +1480,7 @@ directory. It implements the following command:</p>
 <p><code>BudgetBook#addCca(Cca toAdd)</code>&#8201;&#8212;&#8201;Adds a non existing CCA into the <code>BudgetBook</code> in <code>Model</code>.</p>
 </li>
 <li>
-<p><code>BudgetBook#commitBudgetBook()</code>&#8201;&#8212;&#8201;Save a current version of the budget book in the <code>VersionedBudgetBook</code>.</p>
+<p><code>BudgetBook#commitBudgetBook()</code>&#8201;&#8212;&#8201;Saves a current version of the budget book in the <code>VersionedBudgetBook</code>.</p>
 </li>
 </ul>
 </div>
@@ -1729,7 +1735,7 @@ and the <code>CcaName</code> is null.</p>
 <div class="paragraph">
 <p><strong>Step 6.</strong> It then checks whether the CCA name is present in <code>BudgetWindow#fillInnerParts(CcaName ccaName)</code>. If CCA name
  is present, <code>BudgetBrowserPanel(ccaName)</code> is called and the specified CCA information will be displayed. Otherwise,
- <code>BudgetBrowserPanel()</code> is called, showing a blank page.</p>
+ <code>BudgetBrowserPanel()</code> will be called and a blank page will be showed.</p>
 </div>
 <div class="paragraph">
 <p>The following activity diagram summarizes what happens when a user executes a budget command:</p>
@@ -1759,7 +1765,7 @@ and the <code>CcaName</code> is null.</p>
 storing information.</p>
 </li>
 <li>
-<p>Cons: Parsing XML software is slow and cumbersome. Use large amounts of memory due to the verbosity and incur cost
+<p>Cons: Parsing XML software is slow and cumbersome. Uses large amounts of memory due to the verbosity and incurs cost
 of parsing large XML files.</p>
 </li>
 </ul>
@@ -1770,10 +1776,11 @@ of parsing large XML files.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Faster in parsing information.</p>
+<p>Pros: Faster in parsing information as compared to <code>.xml</code>.</p>
 </li>
 <li>
-<p>Cons: Limited in terms of what objects can be modeled.</p>
+<p>Cons: JSON has no error handling. Therefore when the code fails to insert information, the code will not throw any
+error.</p>
 </li>
 </ul>
 </div>
@@ -4458,16 +4465,16 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>JCRC member requests to add a CCA</p>
+<p>JCRC member requests to add a CCA.</p>
 </li>
 <li>
-<p>Hallper requests for details of CCA (Name of CCA, names of head and vice-head, budget)</p>
+<p>Hallper requests for details of CCA (Name of CCA and allocated budget).</p>
 </li>
 <li>
-<p>JCRC member enters the details</p>
+<p>JCRC member enters the details.</p>
 </li>
 <li>
-<p>Hallper displays the details of the CCA</p>
+<p>Hallper displays the details of the CCA.</p>
 <div class="paragraph">
 <p>Use Case ends.</p>
 </div>
@@ -4480,26 +4487,26 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>3a. Name(s) of head and/or vice-head is/are not detected in the contact list</p>
+<p>3a. CCA name given is in the wrong format.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
 <p>3a1. Hallper shows an error message</p>
 <div class="paragraph">
-<p>Use case resumes at step 2.</p>
+<p>Use case resumes at step 3.</p>
 </div>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>3b. Budget entered is invalid</p>
+<p>3b. Budget entered is is in the wrong format.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
 <p>3b1. Hallper shows an error message</p>
 <div class="paragraph">
-<p>Use case resumes at step 2.</p>
+<p>Use case resumes at step 3.</p>
 </div>
 </li>
 </ul>
@@ -4507,29 +4514,24 @@ for <code>RemarkCommandParser</code>.</p>
 </li>
 </ul>
 </div>
-<h3 id="use-case-modify-cca" class="discrete">Use case: Modify CCA</h3>
+<h3 id="use-case-update-cca" class="discrete">Use case: Update CCA</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>JCRC member requests to list CCAs</p>
+<p>JCRC member requests to modify a specific CCA in the list.</p>
 </li>
 <li>
-<p>Hallper shows list of CCAs</p>
+<p>Hallper requests for new details of the CCA (name of CCA, names of head and vice-head, budget, transaction entry
+number, date, amount transaction remarks).</p>
 </li>
 <li>
-<p>JCRC member requests to modify a specific CCA in the list</p>
+<p>JCRC member enters the details.</p>
 </li>
 <li>
-<p>Hallper requests for new details of the CCA (Name of CCA, names of head and vice-head, budget)</p>
-</li>
-<li>
-<p>JCRC member enters the details</p>
-</li>
-<li>
-<p>Hallper displays the new details of the CCA</p>
+<p>Hallper displays the new details of the CCA.</p>
 <div class="paragraph">
 <p>Use Case ends.</p>
 </div>
@@ -4539,48 +4541,55 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="paragraph">
 <p><strong>Extensions</strong></p>
 </div>
-<div class="ulist none">
-<ul class="none">
+<div class="ulist">
+<ul>
 <li>
-<p>2a. The list is empty</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-<li>
-<p>3a. The given index is invalid</p>
+<p>3a. The given CCA does not exist in Hallper.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
 <p>3a1. Hallper displays error message</p>
 <div class="paragraph">
-<p>Use case resumes at step 2.</p>
+<p>Use case resumes at step 3.</p>
 </div>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>5a. Name(s) of head and/or vice-head is/are not detected in the contact list</p>
+<p>3b. Name(s) of head and/or vice-head is/are not detected in the contact list.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>5a1. Hallper shows an error message</p>
+<p>3b1. Hallper shows an error message.</p>
 <div class="paragraph">
-<p>Use case resumes at step 2.</p>
+<p>Use case resumes at step 3.</p>
 </div>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>5b. Budget entered is invalid</p>
+<p>3c. Budget entered is invalid.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>5b1. Hallper shows an error message</p>
+<p>3c1. Hallper shows an error message.</p>
 <div class="paragraph">
-<p>Use case resumes at step 2.</p>
+<p>Use case resumes at step 3.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>3d. Transaction number not valid for CCA or date. amount, or remarks not in the correct format.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3d1. Hallper shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 3.</p>
 </div>
 </li>
 </ul>
@@ -4595,22 +4604,16 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>JCRC member requests to list CCAs</p>
+<p>JCRC member requests to delete a specific CCA in the list.</p>
 </li>
 <li>
-<p>Hallper shows list of CCAs</p>
+<p>Hallper requests for confirmation of deletion.</p>
 </li>
 <li>
-<p>JCRC member requests to delete a specific CCA in the list</p>
+<p>JCRC member confirms.</p>
 </li>
 <li>
-<p>Hallper requests for confirmation of deletion</p>
-</li>
-<li>
-<p>JCRC member confirms</p>
-</li>
-<li>
-<p>Hallper deletes the CCA</p>
+<p>Hallper deletes the CCA.</p>
 <div class="paragraph">
 <p>Use Case ends.</p>
 </div>
@@ -4620,71 +4623,10 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="paragraph">
 <p><strong>Extensions</strong></p>
 </div>
-<div class="ulist none">
-<ul class="none">
+<div class="ulist">
+<ul>
 <li>
-<p>2a. The list is empty</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-<li>
-<p>3a. The given index is invalid</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>3a1. Hallper shows an error message</p>
-<div class="paragraph">
-<p>Use case resumes at step 2.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>5a. JCRC member cancels instead</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ul>
-</div>
-<h3 id="use-case-select-cca" class="discrete">Use case: Select CCA</h3>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>JCRC member requests to list CCAs</p>
-</li>
-<li>
-<p>Hallper shows list of CCAs</p>
-</li>
-<li>
-<p>JCRC member requests to select a specific CCA in the list</p>
-</li>
-<li>
-<p>Hallper shows details of selected CCA</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><strong>Extensions</strong></p>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>2a. The list is empty.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-<li>
-<p>3a. The given index is invalid.</p>
+<p>3a. The given CCA does not exist in Hallper.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
@@ -4705,10 +4647,10 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>JCRC member requests for list of CCAs</p>
+<p>JCRC member requests for list of CCAs.</p>
 </li>
 <li>
-<p>Hallper displays list of CCAs</p>
+<p>Hallper displays list of CCAs.</p>
 <div class="paragraph">
 <p>Use Case ends.</p>
 </div>
@@ -4722,16 +4664,10 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>JCRC member requests for list of CCAs</p>
+<p>JCRC member requests to add a transaction for a specific CCA in the list.</p>
 </li>
 <li>
-<p>Hallper displays list of CCAs</p>
-</li>
-<li>
-<p>JCRC member requests to add a transaction for a specific CCA in the list</p>
-</li>
-<li>
-<p>Hallper requests transaction details (Amount of money, name of person-in-charge, comments)</p>
+<p>Hallper requests transaction details (date, amount, remarks).</p>
 </li>
 <li>
 <p>JCRC member enters transaction details</p>
@@ -4747,61 +4683,29 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="paragraph">
 <p><strong>Extensions</strong></p>
 </div>
+<div class="ulist">
+<ul>
+<li>
+<p>3a. The given CCA is not in Hallper.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a. The list is empty</p>
+<p>3a1. Hallper shows an error message.</p>
 <div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-<li>
-<p>3a. The given index is invalid</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>3a1. Hallper shows an error message</p>
-<div class="paragraph">
-<p>Use case resumes at step 2.</p>
+<p>Use case resumes at step 1.</p>
 </div>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>5a. Name of person-in-charge is not detected in the contact list</p>
+<p>3b. Date, amount and remarks are not in the correct format.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>5a1. Hallper shows an error message</p>
+<p>3b1. Hallper shows an error message</p>
 <div class="paragraph">
-<p>Use case resumes at step 4.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>5b. Amount of money entered is invalid</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>5b1. Hallper shows an error message</p>
-<div class="paragraph">
-<p>Use case resumes at step 4.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>5c. Comments left empty</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>5c1. Hallper shows an error message</p>
-<div class="paragraph">
-<p>Use case resumes at step 4.</p>
+<p>Use case resumes at step 1.</p>
 </div>
 </li>
 </ul>
@@ -5365,5 +5269,203 @@ Expected: Image not copied. Invalid image error message displayed.</p>
 </ol>
 </div>
 </div>
+<div class="sect2">
+<h3 id="creating-cca"><a class="link" href="#creating-cca">G.15. Creating CCA</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Adds a CCA with a given budget</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: The name of the given CCA is alphanumeric. The budget given is numeric and the only symbol can be
+used is dash.</p>
+</li>
+<li>
+<p>Test case: <code>create n/Basketball budget/500</code><br>
+Expected: New CCA added: Basketball Head: - Vice-Head: - Budget: 500</p>
+</li>
+<li>
+<p>Test case: <code>create n/Basketball</code><br>
+Expected: Invalid command format!
+          create: Create a new CCA to the address book.
+          Parameters: n/CCA NAME budget/BUDGET
+          Example: create n/Basketball budget/500</p>
+</li>
+<li>
+<p>Test case: <code>create</code><br>
+Expected: Invalid command format!
+          create: Create a new CCA to the address book.
+          Parameters: n/CCA NAME budget/BUDGET
+          Example: create n/Basketball budget/500</p>
+</li>
+<li>
+<p>Test case: <code>create n/Basketball-M budget/500</code><br>
+Expected: CCA names should only contain alphabet characters and spaces, and it should not be blank!</p>
+</li>
+<li>
+<p>Test case: <code>create n/Basketball budget/$500</code>
+Expected: Budget should only contain numbers and it should not be blank.</p>
+</li>
+</ol>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 12:06:13 UTC</div></div></div></body></html>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-cca"><a class="link" href="#deleting-cca">G.16. Deleting CCA</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Deletes a CCA in Hallper.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: The specified CCA must exist in Hallper.</p>
+</li>
+<li>
+<p>Test case: <code>delete_cca c/basketball</code><br>
+Expected: Deleted CCA: Basketball Head: - Vice-Head: - Budget: 500</p>
+</li>
+<li>
+<p>Test case: <code>delete_cca c/tennis</code><br>
+Expected: The CCA does not exist.</p>
+</li>
+<li>
+<p>Test case: <code>delete_cca</code><br>
+Expected: Invalid command format!
+          delete_cca: Deletes the CCA specified
+          Parameters: c/CCA
+          Example: delete_cca c/ basketball</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="updating-cca"><a class="link" href="#updating-cca">G.17. Updating CCA</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Update the details of a CCA.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: The specified CCA must exist in Hallper. The fields provided must be in the correct format.</p>
+</li>
+<li>
+<p>Test case: <code>update c/hockey h/Peter Park</code><br>
+Expected: CCA updated: Hockey Head: Peter Park Vice-Head: Bernice Yu Budget: 500</p>
+</li>
+<li>
+<p>Test case: <code>update c/tennis h/Peter Park</code><br>
+Expected: The CCA does not exist.</p>
+</li>
+<li>
+<p>Test case: <code>update c/hockey trans/1 amount/200</code><br>
+Expected: CCA updated: Hockey Head: Peter Park Vice-Head: Bernice Yu Budget: 500</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adding-a-transaction-entry"><a class="link" href="#adding-a-transaction-entry">G.18. Adding a Transaction Entry</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Adds a transaction entry for a specified CCA in Hallper</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: The specified CCA must exist in Hallper. The details of the transaction must all be provided and
+are in the correct format.</p>
+</li>
+<li>
+<p>Test case: <code>add_trans c/hockey date/20.12.2018 amount/-100 remarks/venue booking</code><br>
+Expected: Transaction added: Hockey Head: Alex Yeoh Vice-Head: Bernice Yu Budget: 500</p>
+</li>
+<li>
+<p>Test case: <code>add_trans c/tennis date/20.12.2018 amount/-100 remarks/venue booking</code><br>
+Expected: The CCA does not exist. Please create the CCA before. adding its transaction</p>
+</li>
+<li>
+<p>Test case: <code>add_trans c/tennis date/20.12.2018 amount/-100</code><br>
+Expected: All the fields must be provided.
+          add_trans: Add a new transaction to the specified Cca
+          Parameters: c/CCA date/DD.MM.YYYY amount/AMOUNTremarks/REMARKS
+          Example: add_trans c/basketball date/13.12.2018 amount/-100 remarks/Purchase of equipment</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-a-transaction-entry"><a class="link" href="#deleting-a-transaction-entry">G.19. Deleting a Transaction Entry</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Deletes a transaction entry for a specified CCA in Hallper.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: The specified CCA must exist in Hallper. The transaction entry must exist for that CCA.</p>
+</li>
+<li>
+<p>Test case: <code>delete_trans c/basketball trans/1</code><br>
+Expected: Deleted Cca Transaction Entry:  Entry Number: 1 Date: 13.11.2013 Amount: -300 Remarks: Purchase of Equipment</p>
+</li>
+<li>
+<p>Test case: <code>delete_cca c/basketball</code><br>
+Expected: delete_trans: Deletes the specified transaction entry of the specified CCA
+          Parameters: c/CCA INDEX (must be a positive integer)
+          Example: delete_trans c/ basketball 2</p>
+</li>
+<li>
+<p>Test case: <code>delete_trans c/tennis trans/1</code><br>
+Expected: The CCA does not exist.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="showing-ccas-budget"><a class="link" href="#showing-ccas-budget">G.20. Showing CCAs' Budget</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Displays the CCA information and its transaction history.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: The specified CCA must exist in Hallper.</p>
+</li>
+<li>
+<p>Test case: <code>budget</code><br>
+Expected: Display budget.</p>
+</li>
+<li>
+<p>Test case: <code>budget c/basketball</code><br>
+Expected: Display budget.</p>
+</li>
+<li>
+<p>Test case: <code>budget c/tennis</code><br>
+Expected: The CCA does not exist.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 13:36:48 UTC</div></div></div></body></html>

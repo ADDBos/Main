@@ -95,18 +95,18 @@ window.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Updated the About Us: (Pull request: <a href="https://github.com/CS2103-AY1819S1-W16-1/main/pull/1">#1</a>,
+<p>Updated About Us: (Pull request: <a href="https://github.com/CS2103-AY1819S1-W16-1/main/pull/1">#1</a>,
 <a href="https://github.com/CS2103-AY1819S1-W16-1/main/pull/8">#8</a>,
  <a href="https://github.com/CS2103-AY1819S1-W16-1/main/pull/10">#10</a>,
  <a href="https://github.com/CS2103-AY1819S1-W16-1/main/pull/16">#16</a>)</p>
 </li>
 <li>
-<p>Arrange the command in alphabetical order:
+<p>Organised the User Guide to make it more reader friendly:
 <a href="https://github.com/CS2103-AY1819S1-W16-1/main/pull/113/commits/59679dc3edf8c607b42ed6fd02889aa79d8f7152">#113</a></p>
 </li>
 <li>
-<p>Vet the User Guide, Developer Guide and About Us:
-(Pull request: <a href="https://github.com/CS2103-AY1819S1-W16-1/main/pull/168" class="bare">https://github.com/CS2103-AY1819S1-W16-1/main/pull/168</a>)</p>
+<p>Vetted the User Guide, Developer Guide and About Us:
+(Pull request: <a href="https://github.com/CS2103-AY1819S1-W16-1/main/pull/168">#162</a>)</p>
 </li>
 </ul>
 </div>
@@ -116,7 +116,21 @@ window.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Increase the code coverage from 68% to 81%: (Pull request: <a href="https://github.com/CS2103-AY1819S1-W16-1/main/pull/162">#162</a>)</p>
+<p>Increased the code coverage from 68% to 81%:
+(Pull request: <a href="https://github.com/CS2103-AY1819S1-W16-1/main/pull/162">#162</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Community:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Provided feedback for the other group&#8217;s project: (Issue:
+<a href="https://github.com/CS2103-AY1819S1-F10-3/main/issues/265">#265</a>,
+<a href="https://github.com/CS2103-AY1819S1-F10-3/main/issues/269">#269</a>,
+<a href="https://github.com/CS2103-AY1819S1-F10-3/main/issues/270">#270</a>)</p>
 </li>
 </ul>
 </div>
@@ -190,6 +204,78 @@ Format: <code>create n/NAME_OF_CCA budget/ALLOCATED_BUDGET</code></p>
 </div>
 </div>
 <div class="sect3">
+<h4 id="updating-a-cca-code-update-code"><a class="link" href="#updating-a-cca-code-update-code">Updating a cca : <code>update</code></a></h4>
+<div class="paragraph">
+<p>Updates an existing CCA in Hallper.<br>
+Format: <code>update c/CCA_NAME [n/NEW_CCA_NAME] [h/NAME_OF_HEAD] [vh/NAME_OF_VICE_HEAD] [budget/BUDGET]
+[trans/ENTRY_NUMBER] [date/DATE] [amount/AMOUNT] [remarks/REMARKS]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>At least one of the optional fields must be provided.</p>
+</li>
+<li>
+<p>When <code>trans/</code> is included, at least one of the fields in the transaction entry must be provided. The transaction
+fields are <code>date</code>, <code>amount</code> and <code>remarks</code>.</p>
+</li>
+<li>
+<p>Existing values will be updated to the input values.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The CCA specifed must exist in the Hallper.</p>
+</li>
+<li>
+<p>The transaction number specified with <code>trans/</code> must exist.</p>
+</li>
+<li>
+<p><code>undo</code> and <code>redo</code> command does not apply to <code>update</code>.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>update c/basketball n/basketball m h/Alex vh/Peter budget/700</code><br>
+Updates <code>basketball</code> to <code>basketball m</code>, budget to <code>700</code> and its head and vice-head to <code>Alex</code> and <code>Peter</code> respectively.</p>
+</li>
+<li>
+<p><code>update c/Netball trans/2 date/30.05.2018 amount/-200 remarks/Purchase of Equipment</code><br>
+Updates the date, amount and remarks of the 2nd transaction entry of <code>Netball</code> with <code>30.05.2018</code>, <code>-200</code> and
+<code>Purchase of Equipment</code> respectively.</p>
+</li>
+<li>
+<p><code>update c/track n/Track F h/Alice vh/June Ong budget/500 trans/1 date/28.02.2018 amount/100 remarks/Fund Raising</code><br>
+Updates <code>track</code> to <code>Track F</code>, its budget to <code>500</code> and its head and vice-head to <code>Alice</code> and <code>June Ong</code> respectively,
+and updates the date, amount and remarks of the 1st transaction entry to <code>28.02.2018</code>, <code>100</code> and <code>Fund Raising</code>
+respectively.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
 <h4 id="viewing-all-the-ccas-budget-code-budget-code"><a class="link" href="#viewing-all-the-ccas-budget-code-budget-code">Viewing all the ccas' budget : <code>budget</code></a></h4>
 <div class="paragraph">
 <p>Opens up a Budget Book in a new window.<br>
@@ -230,7 +316,7 @@ Format: <code>budget [c/CCA_NAME]</code></p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/BudgetWindowCcaPanel.png" alt="BudgetWindowCcaPanel" width="500"">
+<img src="../images/BudgetWindowCcaPanel.png" alt="BudgetWindowCcaPanel" width="200"">
 </div>
 </div>
 <div class="paragraph">
@@ -294,7 +380,7 @@ directory. It implements the following command:</p>
 <p><code>BudgetBook#addCca(Cca toAdd)</code>&#8201;&#8212;&#8201;Adds a non existing CCA into the <code>BudgetBook</code> in <code>Model</code>.</p>
 </li>
 <li>
-<p><code>BudgetBook#commitBudgetBook()</code>&#8201;&#8212;&#8201;Save a current version of the budget book in the <code>VersionedBudgetBook</code>.</p>
+<p><code>BudgetBook#commitBudgetBook()</code>&#8201;&#8212;&#8201;Saves a current version of the budget book in the <code>VersionedBudgetBook</code>.</p>
 </li>
 </ul>
 </div>
@@ -345,9 +431,13 @@ event)</code>. <code>StorageManager#saveBudgetBook(ReadOnlyBudgetBook data)</cod
 </div>
 </div>
 <div class="paragraph">
-<p><em>Figure 4.4.1.1: Sequence diagram for create command</em>
-===== Budget Command
-The <code>budget</code> mechanism is facilitated by <code>BudgetBook</code> and <code>BudgetBookStorage</code>.
+<p><em>Figure 4.4.1.1: Sequence diagram for create command</em></p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="budget-command"><a class="link" href="#budget-command">Budget Command</a></h5>
+<div class="paragraph">
+<p>The <code>budget</code> mechanism is facilitated by <code>BudgetBook</code> and <code>BudgetBookStorage</code>.
 It opens up a separate window to display the CCA information and its transaction history. It implements the
 following command:</p>
 </div>
@@ -384,7 +474,7 @@ and the <code>CcaName</code> is null.</p>
 <div class="paragraph">
 <p><strong>Step 6.</strong> It then checks whether the CCA name is present in <code>BudgetWindow#fillInnerParts(CcaName ccaName)</code>. If CCA name
  is present, <code>BudgetBrowserPanel(ccaName)</code> is called and the specified CCA information will be displayed. Otherwise,
- <code>BudgetBrowserPanel()</code> is called, showing a blank page.</p>
+ <code>BudgetBrowserPanel()</code> will be called and a blank page will be showed.</p>
 </div>
 <div class="paragraph">
 <p>The following activity diagram summarizes what happens when a user executes a budget command:</p>
@@ -413,7 +503,7 @@ and the <code>CcaName</code> is null.</p>
 storing information.</p>
 </li>
 <li>
-<p>Cons: Parsing XML software is slow and cumbersome. Use large amounts of memory due to the verbosity and incur cost
+<p>Cons: Parsing XML software is slow and cumbersome. Uses large amounts of memory due to the verbosity and incurs cost
 of parsing large XML files.</p>
 </li>
 </ul>
@@ -424,10 +514,11 @@ of parsing large XML files.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Faster in parsing information.</p>
+<p>Pros: Faster in parsing information as compared to <code>.xml</code>.</p>
 </li>
 <li>
-<p>Cons: Limited in terms of what objects can be modeled.</p>
+<p>Cons: JSON has no error handling. Therefore when the code fails to insert information, the code will not throw any
+error.</p>
 </li>
 </ul>
 </div>
@@ -437,4 +528,4 @@ of parsing large XML files.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 12:06:13 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 13:36:48 UTC</div></div></div></body></html>
