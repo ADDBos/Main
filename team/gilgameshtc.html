@@ -7,67 +7,87 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
+<h2 id="introduction"><a class="link" href="#introduction">Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This portfolio documents my contributions to the project, Hallper undertaken as a team b
-Hallper</p>
+<p>This portfolio documents my role and contributions to the project, Hallper. This project was undertaken as part of a
+requirement for the module CS2103T - Software Engineering, offered in the National University of Singapore (NUS). The main goal of the project is to enhance and add value to the application, AddressBook Level 4.</p>
+</div>
+<div class="paragraph">
+<p><strong>About Hallper:</strong> Hallper is a desktop application providing administrative convenience. It is catered to the Junior Common Room Committee (JCRC)
+of the halls of NUS, whose main responsibility is to organise and manage all student related activities in hall and look after the welfare of hall residents.
+Users interacts with Hallper using a Command Line Interface (CLI), whilst a Graphic User Interface (GUI) implemented with JavaFX displays the relevant information to the user. Hallper is written
+in Java and contains approximately 60k lines of code (LoC). Integrated within Hallper is a range of features such as calendar, email and budgeting. Besides that, features such as erase, search and clear from the existing AddressBook Level 4 application
+have been enhanced.</p>
+</div>
+<div class="paragraph">
+<p><strong>My role and contributions:</strong> My contribution to the project is the implementation the calendar feature and all its relevant commands. The commands that facilitate the calendar feature includes creating calendars, adding events, deleting events and viewing calendars.
+My role in this project is to make sure that the milestones we set collectively as a team are met on time. This includes reviewing the codes of my team members and doing acceptance testing (making sure the feature solves the problem it claims to solve).</p>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>This section lists the major and minor enhancements I have contributed to the project, Hallper as well as miscellaneous contributions in other aspects of the project.</p>
+</div>
+<div class="paragraph">
+<p>I implemented the calendar feature with external libraries,  <a href="https://github.com/ical4j/ical4j">iCal4j</a> and <a href="http://jfxtras.org/">JFxtras</a>.</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement</strong>: added <strong>the ability to create/edit calendars</strong></p>
+<p><strong>Major enhancement 1</strong>: added the ability to create calendars in Hallper</p>
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: allows the user to undo all previous commands one at a time. Preceding undo commands can be reversed by using the redo command.</p>
+<p>What it does: This feature allows the user (JCRC member) to create monthly calendars in Hallper.</p>
 </li>
 <li>
-<p>Justification: This feature improves the product significantly because a user can make mistakes in commands and the app should provide a convenient way to rectify them.</p>
+<p>Justification: This feature improves the product significantly because a JCRC member needs to keep track of the monthly events happening in hall, and a calendar is just the right tool. Being able to keep track of hall events in a calendar also allows the JCRC member to mitigate event date clashes with ease.</p>
 </li>
 <li>
-<p>Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands.</p>
-</li>
-<li>
-<p>Credits: <em>{mention here if you reused any code/ideas from elsewhere or if a third-party library is heavily used in the feature so that a reader can make a more accurate judgement of how much effort went into the feature}</em></p>
+<p>Highlights: Calendars are created in the file format <code>.ics</code>. This file format is chosen because it is compliant with the RFC 5545 format, which is recognised in the industry. Albeit the implementation of this feature requires an in-depth understanding of the external library <a href="https://github.com/ical4j/ical4j">iCal4j</a>. This is not an issue as the library is widely used and well documented, new developers can easily pick up and extend the current features.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>: added a history command that allows the user to navigate to previous commands using up/down keys.</p>
+<p><strong>Major enhancement 2</strong>: added the ability to view calendars in Hallper</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: This feature allows the user (JCRC member) to view monthly calendars in Hallper by displaying the calendar on the GUI.</p>
 </li>
 <li>
-<p><strong>Code contributed</strong>: [<a href="https://github.com">Functional code</a>] [<a href="https://github.com">Test code</a>] <em>{give links to collated code files}</em></p>
+<p>Justification: This feature improves the user experience as the user can observe changes made on the calendar dynamically. Besides that, the calendar is displayed alongside the command line interface (CLI), eliminating the need to switch between windows. In other words, the user can create, modify and view calendars in Hallper just by typing the keyboard.</p>
+</li>
+<li>
+<p>Highlights: The implementation of this feature requires an in-depth understanding of Java FXML API, JavaFX, XML, <a href="http://jfxtras.org/">JFxtras</a> and how they work together. It was challenging as it required changes to existing commands and interaction with the main window had to be correctly handled.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>: added a add event and delete event command that allows the user to modify calendar content.</p>
+</li>
+<li>
+<p><strong>Code contributed</strong>:
+[ <a href="https://github.com/CS2103-AY1819S1-W16-1/main/tree/master/src/main/java/seedu/address">Functional code</a> ]
+[ <a href="https://github.com/CS2103-AY1819S1-W16-1/main/tree/master/src/test/java">Test code</a> ]
+[ <a href="https://nus-cs2103-ay1819s1.github.io/cs2103-dashboard/#=undefined&amp;search=gilga&amp;sort=displayName&amp;since=2018-09-12&amp;until=2018-11-01&amp;timeframe=day&amp;reverse=false&amp;repoSort=true">RepoSense</a> ]</p>
 </li>
 <li>
 <p><strong>Other contributions</strong>:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Project management:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Managed releases <code>v1.3</code> - <code>v1.5rc</code> (3 releases) on GitHub</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
 <p>Enhancements to existing features:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Updated the GUI color scheme (Pull requests <a href="https://github.com">#33</a>, <a href="https://github.com">#34</a>)</p>
-</li>
-<li>
-<p>Wrote additional tests for existing features to increase coverage from 88% to 92% (Pull requests <a href="https://github.com">#36</a>, <a href="https://github.com">#38</a>)</p>
+<p>Wrote tests for calendar features to increase coverage from 54% to 66% (Pull request: <a href="https://github.com/CS2103-AY1819S1-W16-1/main/pull/119">#119</a>)</p>
 </li>
 </ul>
 </div>
@@ -77,7 +97,19 @@ Hallper</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Did cosmetic tweaks to existing contents of the User Guide: <a href="https://github.com">#14</a></p>
+<p>Updated the README:
+(Pull request: <a href="https://github.com/CS2103-AY1819S1-W16-1/main/pull/22">#22</a>)</p>
+</li>
+<li>
+<p>Updated the Developer Guide:
+(Pull request: <a href="https://github.com/CS2103-AY1819S1-W16-1/main/pull/73">#73</a>,
+ <a href="https://github.com/CS2103-AY1819S1-W16-1/main/pull/97">#97</a>,
+ <a href="https://github.com/CS2103-AY1819S1-W16-1/main/pull/174">#174</a>)</p>
+</li>
+<li>
+<p>Updated the User Guide:
+(Pull request: <a href="https://github.com/CS2103-AY1819S1-W16-1/main/pull/120">#120</a>,
+ <a href="https://github.com/CS2103-AY1819S1-W16-1/main/pull/136">#136</a>)</p>
 </li>
 </ul>
 </div>
@@ -87,16 +119,11 @@ Hallper</p>
 <div class="ulist">
 <ul>
 <li>
-<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com">#12</a>, <a href="https://github.com">#32</a>, <a href="https://github.com">#19</a>, <a href="https://github.com">#42</a></p>
+<p>Pull request reviewed (with non-trivial review comments): <a href="https://github.com/CS2103-AY1819S1-W16-1/main/pull/13">#13</a></p>
 </li>
 <li>
-<p>Contributed to forum discussions (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>, <a href="https://github.com">4</a>)</p>
-</li>
-<li>
-<p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>)</p>
-</li>
-<li>
-<p>Some parts of the history feature I added was adopted by several other class mates (<a href="https://github.com">1</a>, <a href="https://github.com">2</a>)</p>
+<p>Reported bugs and suggestions for other teams in the class
+(Issues: <a href="https://github.com/CS2103-AY1819S1-T16-4/main/issues/172">#172</a>, <a href="https://github.com/CS2103-AY1819S1-T16-4/main/issues/173">#173</a>, <a href="https://github.com/CS2103-AY1819S1-T16-4/main/issues/176">#176</a>, <a href="https://github.com/CS2103-AY1819S1-T16-4/main/issues/179">#179</a>)</p>
 </li>
 </ul>
 </div>
@@ -106,10 +133,13 @@ Hallper</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Integrated a third party library (Natty) to the project (<a href="https://github.com">#42</a>)</p>
+<p>Integrated Travis CI and auto publishing of documents to the project (Pull request: <a href="https://github.com/CS2103-AY1819S1-W16-1/main/pull/3">#3</a>)</p>
 </li>
 <li>
-<p>Integrated a new Github plugin (CircleCI) to the team repo</p>
+<p>Integrated a third party library (iCal4j) to the project (Pull request: <a href="https://github.com/CS2103-AY1819S1-W16-1/main/pull/17">#17</a>)</p>
+</li>
+<li>
+<p>Integrated a third party library (JFxtras) to the project (Pull request: <a href="https://github.com/CS2103-AY1819S1-W16-1/main/pull/107">#107</a>)</p>
 </li>
 </ul>
 </div>
@@ -118,9 +148,6 @@ Hallper</p>
 </div>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p><em>{you can add/remove categories in the list above}</em></p>
 </div>
 </div>
 </div>
@@ -137,36 +164,294 @@ Hallper</p>
 </tr>
 </tbody>
 </table>
-<div class="sect3">
-<h4 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">Redoing the previously undone command : <code>redo</code></a></h4>
+<div class="sect2">
+<h3 id="calendar"><a class="link" href="#calendar">Calendar</a></h3>
 <div class="paragraph">
-<p>Reverses the most recent <code>undo</code> command.<br>
-Format: <code>redo</code></p>
+<p>This section lists features related to managing the calendar in Hallper.</p>
+</div>
+<div class="sect3">
+<h4 id="adding-all-day-event-into-calendar-code-add_all_day_event-code"><a class="link" href="#adding-all-day-event-into-calendar-code-add_all_day_event-code">Adding all day event into calendar : <code>add_all_day_event</code></a></h4>
+<div class="paragraph">
+<p>Adds an all day event into the calendar.<br>
+Format: <code>add_all_day_event month/MMM year/YYYY date/DD title/NAME OF EVENT</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The MONTH <strong>must be specified as MMM</strong>.</p>
+</li>
+<li>
+<p>The MONTH <strong>is not case-sensitive</strong>.</p>
+</li>
+<li>
+<p>The YEAR <strong>must be specified as YYYY</strong>.</p>
+</li>
+<li>
+<p>The DATE <strong>must be specified as DD</strong>.</p>
+</li>
+<li>
+<p>The TITLE <strong>is case-sensitive</strong>.</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
+<p>Example:</p>
+</div>
+<div class="paragraph">
+<p>Before executing command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/add_all_day_event_diagram_before.png" alt="add all day event diagram before" width="790">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.4.1.1: Screen before running <code>add_all_day_event</code> on Hallper.</em></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>delete 1</code><br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br>
-<code>redo</code> (reapplies the <code>delete 1</code> command)<br></p>
-</li>
-<li>
-<p><code>delete 1</code><br>
-<code>redo</code><br>
-The <code>redo</code> command fails as there are no <code>undo</code> commands executed previously.</p>
-</li>
-<li>
-<p><code>delete 1</code><br>
-<code>clear</code><br>
-<code>undo</code> (reverses the <code>clear</code> command)<br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br>
-<code>redo</code> (reapplies the <code>delete 1</code> command)<br>
-<code>redo</code> (reapplies the <code>clear</code> command)<br></p>
+<p><code>add_all_day_event month/Oct year/2018 date/08 title/Hall open day</code><br>
+Adds an all day event titled <code>Hall open day</code> into the <code>OCT-2018.ics</code> calendar which happens on the <code>8th</code> of <code>Oct</code>.</p>
 </li>
 </ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/add_all_day_event_diagram_after.png" alt="add all day event diagram after" width="790">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.4.1.2: Screen after running <code>add_all_day_event</code> on Hallper.</em></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="adding-event-into-calendar-code-add_event-code"><a class="link" href="#adding-event-into-calendar-code-add_event-code">Adding event into calendar : <code>add_event</code></a></h4>
+<div class="paragraph">
+<p>Adds an event with a specific time frame into the calendar.<br>
+Format: <code>add_event month/MMM year/YYYY sdate/DD shour/HH smin/mm
+edate/DD ehour/HH emin/mm title/NAME OF EVENT</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The MONTH <strong>must be specified as MMM</strong>.</p>
+</li>
+<li>
+<p>The MONTH <strong>is not case-sensitive</strong>.</p>
+</li>
+<li>
+<p>The YEAR <strong>must be specified as YYYY</strong>.</p>
+</li>
+<li>
+<p>The DATE <strong>must be specified as DD</strong>.</p>
+</li>
+<li>
+<p>DATE, HOUR, MINUTE <strong>must be specified as XX</strong>.</p>
+</li>
+<li>
+<p>The TITLE <strong>is case-sensitive</strong>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="paragraph">
+<p>Before executing command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/add_event_diagram_before.png" alt="add event diagram before" width="790">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.4.2.1: Screen before running <code>add_event</code> on Hallper.</em></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add_event month/Oct year/2018 sdate/10 shour/15 smin/30 edate/10 ehour/18 emin/00 title/Block Committee Audit</code><br>
+Adds an event titled <code>Block Committee Audit</code> into the <code>OCT-2018.ics</code> calendar which starts on the <code>10th</code> at <code>1530</code> and ends on
+the <code>10th</code> at <code>1800</code>.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/add_event_diagram_after.png" alt="add event diagram after" width="790">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.4.2.2: Screen after running <code>add_event</code> on Hallper.</em></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="creating-calendar-code-create_calendar-code"><a class="link" href="#creating-calendar-code-create_calendar-code">Creating calendar : <code>create_calendar</code></a></h4>
+<div class="paragraph">
+<p>Creates a calendar file in Hallper for updating of events.<br>
+Format: <code>create_calendar month/MMM year/YYYY</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Creates a monthly calendar as a <strong><code>.ics</code></strong> file.</p>
+</li>
+<li>
+<p>The MONTH <strong>must be specified as MMM</strong>.</p>
+</li>
+<li>
+<p>MONTH <strong>is not case-sensitive</strong>.</p>
+</li>
+<li>
+<p>The YEAR <strong>must be specified as YYYY</strong>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>create_calendar month/Feb year/2018</code><br>
+Creates a calendar for the month of <code>Feb</code> and year <code>2018</code> and
+saves it as a <strong><code>.ics</code></strong> file.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="delete-event-from-calendar-code-delete_event-code"><a class="link" href="#delete-event-from-calendar-code-delete_event-code">Delete event from calendar : <code>delete_event</code></a></h4>
+<div class="paragraph">
+<p>Deletes an event from the calendar.<br>
+Format: <code>delete_event month/MMM year/YYYY sdate/DD edate/DD title/NAME OF EVENT</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>An event is considered identical when it has the same start date, end date and title. Regardless of starting time and ending time.</p>
+</li>
+<li>
+<p>The MONTH <strong>must be specified as MMM</strong>.</p>
+</li>
+<li>
+<p>The MONTH <strong>is not case-sensitive</strong>.</p>
+</li>
+<li>
+<p>The YEAR <strong>must be specified as YYYY</strong>.</p>
+</li>
+<li>
+<p>The DATE <strong>must be specified as DD</strong>.</p>
+</li>
+<li>
+<p>The TITLE <strong>is case-sensitive</strong>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="paragraph">
+<p>Before executing command:<br></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/delete_event_diagram_before.png" alt="delete event diagram before" width="790">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.4.4.1: Screen before running <code>delete_event</code> on Hallper.</em></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Deleting a non-existing event (Title is case sensitive)<br>
+<code>delete_event month/Oct year/2018 sdate/10 edate/10 title/block committee audit</code></p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/delete_event_diagram_after_invalid.png" alt="delete event diagram after invalid" width="790">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.4.4.2: Screen after running <code>delete_event</code> with a non-existing event in Hallper.</em></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Deleting an existing event<br>
+<code>delete_event month/Oct year/2018 sdate/10 edate/10 title/Block Committee Audit</code><br>
+Deletes an event titled <code>Block Committee Audit</code> from the <code>OCT-2018.ics</code> calendar which happens from the <code>10th</code> of <code>Oct</code> to <code>10th</code> of <code>Oct</code>.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/delete_event_diagram_after_valid.png" alt="delete event diagram after valid" width="790">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.4.4.3: Screen after running <code>delete_event</code> with an existing event in Hallper.</em></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="viewing-calendar-code-view_calendar-code"><a class="link" href="#viewing-calendar-code-view_calendar-code">Viewing calendar : <code>view_calendar</code></a></h4>
+<div class="paragraph">
+<p>Loads the specified monthly calendar <code>.ics</code> file into the UI. UI by default displays the current week.<br>
+Format: <code>view_calendar month/MMM year/YYYY</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The MONTH <strong>must be specified as MMM</strong>.</p>
+</li>
+<li>
+<p>MONTH <strong>is not case-sensitive</strong>.</p>
+</li>
+<li>
+<p>The YEAR <strong>must be specified as YYYY</strong>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>view_calendar month/Oct year/2018</code><br>
+Displays view of calendar with current week as default page with the events loaded from <code>OCT-2018.ics</code>.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/calendar_view_diagram.png" alt="calendar view diagram" width="790">
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -185,221 +470,425 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 </tbody>
 </table>
 <div class="sect2">
-<h3 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">Undo/Redo feature</a></h3>
+<h3 id="calendar-feature"><a class="link" href="#calendar-feature">Calendar feature</a></h3>
 <div class="sect3">
 <h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
 <div class="paragraph">
-<p>The undo/redo mechanism is facilitated by <code>VersionedAddressBook</code>.
-It extends <code>AddressBook</code> with an undo/redo history, stored internally as an <code>addressBookStateList</code> and <code>currentStatePointer</code>.
-Additionally, it implements the following operations:</p>
+<p>The calendar feature in Hallper is implemented using a third-party dependency, <a href="https://github.com/ical4j/ical4j">iCal4j</a>.
+It creates <code>.ics</code> files and saves them onto the local computer. Calendars in Hallper are created as monthly
+calendars, a <code>Map&lt;Year, Set&lt;Month&gt;&gt;</code> in <code>CalendarModel</code> keeps a record of existing calendars in Hallper.
+It implements the following commands:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>VersionedAddressBook#commit()</code>&#8201;&#8212;&#8201;Saves the current address book state in its history.</p>
+<p><code>create_calendar</code>&#8201;&#8212;&#8201;Creates a monthly calendar and store it in local memory.</p>
 </li>
 <li>
-<p><code>VersionedAddressBook#undo()</code>&#8201;&#8212;&#8201;Restores the previous address book state from its history.</p>
+<p><code>add_all_day_event</code>&#8201;&#8212;&#8201;Adds an all day event into the monthly calendar specified.</p>
 </li>
 <li>
-<p><code>VersionedAddressBook#redo()</code>&#8201;&#8212;&#8201;Restores a previously undone address book state from its history.</p>
+<p><code>add_event</code>&#8201;&#8212;&#8201;Adds an event of a specified time frame into the monthly calendar.</p>
+</li>
+<li>
+<p><code>delete_event</code>&#8201;&#8212;&#8201;Deletes an existing event in the monthly calendar.</p>
+</li>
+<li>
+<p><code>view_calendar</code>&#8201;&#8212;&#8201;Loads a monthly calendar from local memory onto the Hallper.</p>
+</li>
+</ul>
+</div>
+<div class="sect4">
+<h5 id="create_calendar-command"><a class="link" href="#create_calendar-command">Create_Calendar Command</a></h5>
+<div class="paragraph">
+<p>This command is facilitated by <code>CalendarModel</code> and <code>IcsCalendarStorage</code>.
+It implements the following operations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>CalendarModel#createCalendar(Year year, Month month)</code>&#8201;&#8212;&#8201;Initializes a calendar object in the <code>CalendarModel</code>.</p>
+</li>
+<li>
+<p><code>CalendarModel#isExistingCalendar(Year year, Month month)</code>&#8201;&#8212;&#8201;Checks if the calendar already exists in Hallper.</p>
+</li>
+<li>
+<p><code>IcsCalendarStorage#createCalendar(Calendar calendar, String calendarName)</code>&#8201;&#8212;&#8201;Saves the calendar passed from <code>CalendarModel</code> to the computer.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>These operations are exposed in the <code>Model</code> interface as <code>Model#commitAddressBook()</code>, <code>Model#undoAddressBook()</code> and <code>Model#redoAddressBook()</code> respectively.</p>
+<p>These operations are exposed in the <code>Model</code> interface as <code>Model#createCalendar(Year year, Month month)</code>, <code>Model#isExistingCalendar(Year year, Month month)</code> and in the <code>Storage</code> interface as <code>Storage#createCalendar(Calendar calendar, String calendarName)</code> respectively.</p>
 </div>
 <div class="paragraph">
-<p>Given below is an example usage scenario and how the undo/redo mechanism behaves at each step.</p>
+<p>Given below is an example usage scenario and how the <code>create_calendar</code> command behaves at each step:</p>
 </div>
 <div class="paragraph">
-<p>Step 1. The user launches the application for the first time. The <code>VersionedAddressBook</code> will be initialized with the initial address book state, and the <code>currentStatePointer</code> pointing to that single address book state.</p>
+<p>Step 1. The user executes the <code>create_calendar</code> command by specifying the month and year.
+The <code>create_calendar</code> command then calls <code>Model#isExistingCalendar(Year year, Month month)</code>, to check whether the
+calendar already exists inside Hallper. If it exists, the command does nothing and reflects to the user that the
+calendar already exists. Else, the command calls <code>Model#createCalendar(Year year, Month month)</code>, initializing a calendar object inside <code>CalendarModel</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. Once the calendar object is initialized in the <code>CalendarModel</code>, the <code>ModelManager</code> raises a <code>CalendarCreatedEvent</code>,
+ to indicate that a calendar object has been initialized in the <code>CalendarModel</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. The <code>CalendarCreatedEvent</code> goes to the <code>EventsCenter</code>, and is then handled by
+<code>StorageManager#handleCalendarCreatedEvent(CalendarCreatedEvent event)</code>, which then calls <code>IcsCalendarStorage#createCalendar(Calendar calendar, String calendarName)</code>.
+This saves the calendar to a specified local directory.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the create_calendar operation works:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/UndoRedoStartingStateListDiagram.png" alt="UndoRedoStartingStateListDiagram" width="800">
+<img src="../images/CreateCalendarSeqDiagram.png" alt="CreateCalendarSeqDiagram" width="1500">
 </div>
 </div>
 <div class="paragraph">
-<p>Step 2. The user executes <code>delete 5</code> command to delete the 5th person in the address book. The <code>delete</code> command calls <code>Model#commitAddressBook()</code>, causing the modified state of the address book after the <code>delete 5</code> command executes to be saved in the <code>addressBookStateList</code>, and the <code>currentStatePointer</code> is shifted to the newly inserted address book state.</p>
+<p><em>Figure 4.3.1.1: Sequence diagram for create_calendar command</em></p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="add-event-commands"><a class="link" href="#add-event-commands">Add Event Commands</a></h5>
+<div class="paragraph">
+<p>The <code>add_all_day_event</code> and <code>add_event</code> command have many similarities, they differ only by their parameters and the number of checks called to verify the validity of the event to be added. Events in Hallper are created as VEvent objects as implemented in the <a href="https://github.com/ical4j/ical4j">iCal4j</a> library.
+Both commands are facilitated by <code>ModelManager</code>, <code>CalendarModel</code> and <code>IcsCalendarStorage</code>. It implements the following operations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ModelManager#loadCalendar(Year year, Month month)</code>&#8201;&#8212;&#8201;Raises a <code>LoadCalendarEvent</code>.</p>
+</li>
+<li>
+<p><code>CalendarModel#createAllDayEvent(Year year, Month month, int date, String title)</code>&#8201;&#8212;&#8201;Creates an all day event object and saves it inside the loaded calendar in <code>CalendarModel</code>.</p>
+</li>
+<li>
+<p><code>CalendarModel#createEvent(Year year, Month month, int startDate, int startHour, int startMin, int endDate, int endHour, int endMin, String title)</code>&#8201;&#8212;&#8201;Creates an event object with the specified time frame and saves it inside the loaded calendar in <code>CalendarModel</code>.</p>
+</li>
+<li>
+<p><code>CalendarModel#loadCalendar(Year year, Month month)</code>&#8201;&#8212;&#8201;Loads the monthly calendar specified into <code>CalendarModel</code>.</p>
+</li>
+<li>
+<p><code>CalendarModel#isExistingCalendar(Year year, Month month)</code>&#8201;&#8212;&#8201;Checks if the calendar already exists in Hallper.</p>
+</li>
+<li>
+<p><code>CalendarModel#isValidDate(Year year, Month month, int date)</code>&#8201;&#8212;&#8201;Checks if the date is a valid date in accordance to the Gregorian calendar.</p>
+</li>
+<li>
+<p><code>CalendarModel#isValidTime(int hour, int min)</code>&#8201;&#8212;&#8201;Checks if the hour and minutes are valid in accordance to the 24 hour format.</p>
+</li>
+<li>
+<p><code>CalendarModel#isValidTimeFrame(int startDate, int startHour, int startMin, int endDate, int endHour, int endMin)</code>&#8201;&#8212;&#8201;Checks that the end date and time doesn&#8217;t occur before the start date and time.</p>
+</li>
+<li>
+<p><code>IcsCalendarStorage#loadCalendar(String calendarName)</code>&#8201;&#8212;&#8201;Loads the specified calendar from the local directory into local memory.</p>
+</li>
+<li>
+<p><code>IcsCalendarStorage#createCalendar(Calendar calendar, String calendarName)</code>&#8201;&#8212;&#8201;Saves the calendar passed from <code>CalendarModel</code> to the local directory.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These operations are exposed in the <code>Model</code> and <code>Storage</code> interface as :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Model#createAllDayEvent(Year year, Month month, int date, String title)</code></p>
+</li>
+<li>
+<p><code>Model#createEvent(Year year, Month month, int startDate, int startHour, int startMin, int endDate, int endHour, int endMin, String title)</code></p>
+</li>
+<li>
+<p><code>Model#loadCalendar(Year year, Month month)</code></p>
+</li>
+<li>
+<p><code>Model#isExistingCalendar(Year year, Month month)</code></p>
+</li>
+<li>
+<p><code>Model#isValidDate(Year year, Month month, int date)</code></p>
+</li>
+<li>
+<p><code>Model#isValidTime(int hour, int min)</code></p>
+</li>
+<li>
+<p><code>Model#isValidTimeFrame(int startDate, int startHour, int startMin, int endDate, int endHour, int endMin)</code></p>
+</li>
+<li>
+<p><code>Storage#loadCalendar(String calendarName)</code></p>
+</li>
+<li>
+<p><code>Storage#createCalendar(Calendar calendar, String calendarName)</code></p>
+</li>
+</ul>
+</div>
+<div class="sect5">
+<h6 id="add_all_day_event-command"><a class="link" href="#add_all_day_event-command">Add_All_Day_Event Command</a></h6>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the <code>add_all_day_event</code> command behaves at each step:</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user executes the <code>add_all_day_event</code> command by specifying the month, year, date and title.
+The <code>add_all_day_event</code> command then calls <code>Model#isExistingCalendar(Year year, Month month)</code>, <code>Model#isValidDate(Year year, Month month, int date)</code>, to perform checks on whether the
+request to create event is valid. If it fails any one of the checks, the command does nothing and reflects to the user that the request to create event is not valid.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. Else if the calendar hasn&#8217;t been loaded yet, <code>Model</code> first calls <code>CalendarModel#loadCalendar(Year year, Month month)</code> to load the calendar into <code>CalendarModel</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. Once the calendar object is loaded in the <code>CalendarModel</code>, it then calls <code>Model#createAllDayEvent(Year year, Month month, int date, String title)</code>, which calls <code>CalendarModel#createAllDayEvent(Year year, Month month, int date, String title)</code>.
+This creates an event object and loads it with all the relevant information.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. The <code>ModelManager</code> then raises a <code>AllDayEventAddedEvent</code>, to indicate an all day event has been created in the <code>CalendarModel</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 5. The <code>AllDayEventAddedEvent</code> goes to the <code>EventsCenter</code>, and is then handled by
+<code>StorageManager#handleAllDayEventAddedEvent(AllDayEventAddedEvent event)</code>, which then calls <code>IcsCalendarStorage#createCalendar(Calendar calendar, String calendarName)</code>.
+This saves the updated calendar back to the local directory.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the add_all_day_event operation works:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/UndoRedoNewCommand1StateListDiagram.png" alt="UndoRedoNewCommand1StateListDiagram" width="800">
+<img src="../images/AddAllDayEventSeqDiagram.png" alt="AddAllDayEventSeqDiagram" width="1500">
 </div>
 </div>
 <div class="paragraph">
-<p>Step 3. The user executes <code>add n/David &#8230;&#8203;</code> to add a new person. The <code>add</code> command also calls <code>Model#commitAddressBook()</code>, causing another modified address book state to be saved into the <code>addressBookStateList</code>.</p>
+<p><em>Figure 4.3.1.2: Sequence diagram for add_all_day_event command</em></p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="add_event-command"><a class="link" href="#add_event-command">Add_Event Command</a></h6>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the <code>add_event</code> command behaves at each step:</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user executes the <code>add_event</code> command by specifying the month, year, starting date, starting time, ending date, ending time and title.
+The <code>add_event</code> command then calls <code>Model#isExistingCalendar(Year year, Month month)</code>, <code>Model#isValidDate(Year year, Month month, int date)</code>,
+<code>Model#isValidTime(int hour, int min)</code> and <code>Model#isValidTimeFrame(int startDate, int startHour, int startMin, int endDate, int endHour, int endMin)</code> to perform checks on whether the
+request to create event is valid. If it fails any one of the checks, the command does nothing and reflects to the user that the request to create event is not valid.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. Else if the calendar hasn&#8217;t been loaded yet, <code>Model</code> first calls <code>ModelManager#loadCalendar(Year year, Month month)</code> to load the calendar into <code>CalendarModel</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. Once the calendar object is loaded in the <code>CalendarModel</code>, it then calls <code>Model#createEvent(Year year, Month month, int startDate, int startHour, int startMin, int endDate, int endHour, int endMin, String title)</code>, which calls <code>CalendarModel#createEvent(Year year, Month month, int startDate, int startHour, int startMin, int endDate, int endHour, int endMin, String title)</code>.
+This creates an event object and loads it with all the relevant information.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. The <code>ModelManager</code> then raises a <code>CalendarEventAddedEvent</code>, to indicate an event with a specified time frame has been created in the <code>CalendarModel</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 5. The <code>CalendarEventAddedEvent</code> goes to the <code>EventsCenter</code>, and is then handled by <code>StorageManager#handleCalendarEventAddedEvent(CalendarEventAddedEvent event)</code>, which then calls <code>IcsCalendarStorage#createCalendar(Calendar calendar, String calendarName)</code>.
+This saves the updated calendar back to the local directory.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the add_event operation works:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/UndoRedoNewCommand2StateListDiagram.png" alt="UndoRedoNewCommand2StateListDiagram" width="800">
+<img src="../images/AddEventSeqDiagram.png" alt="AddEventSeqDiagram" width="1500">
 </div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If a command fails its execution, it will not call <code>Model#commitAddressBook()</code>, so the address book state will not be saved into the <code>addressBookStateList</code>.
-</td>
-</tr>
-</table>
 </div>
 <div class="paragraph">
-<p>Step 4. The user now decides that adding the person was a mistake, and decides to undo that action by executing the <code>undo</code> command. The <code>undo</code> command will call <code>Model#undoAddressBook()</code>, which will shift the <code>currentStatePointer</code> once to the left, pointing it to the previous address book state, and restores the address book to that state.</p>
+<p><em>Figure 4.3.1.3: Sequence diagram for add_event command</em></p>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="delete_event-command"><a class="link" href="#delete_event-command">Delete_Event Command</a></h5>
+<div class="paragraph">
+<p>This command is facilitated by <code>ModelManager</code>, <code>CalendarModel</code> and <code>IcsCalendarStorage</code>.
+It implements the following operations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ModelManager#loadCalendar(Year year, Month month)</code>&#8201;&#8212;&#8201;Raises a <code>LoadCalendarEvent</code>.</p>
+</li>
+<li>
+<p><code>CalendarModel#loadCalendar(Year year, Month month)</code>&#8201;&#8212;&#8201;Loads the monthly calendar specified into <code>CalendarModel</code>.</p>
+</li>
+<li>
+<p><code>CalendarModel#deleteEvent(Year year, Month month)</code>&#8201;&#8212;&#8201;Deletes an existing event in the monthly calendar.</p>
+</li>
+<li>
+<p><code>CalendarModel#retrieveEvent(int startDate, int endDate, String title)</code>&#8201;&#8212;&#8201;Retrieves the event object from the calendar.</p>
+</li>
+<li>
+<p><code>CalendarModel#isSameEvent(int startDate, int endDate, String title, VEvent event)</code>&#8201;&#8212;&#8201;Checks whether the requested event to be deleted is the same event object in the calendar.</p>
+</li>
+<li>
+<p><code>CalendarModel#isExistingCalendar(Year year, Month month)</code>&#8201;&#8212;&#8201;Checks if the calendar already exists in Hallper.</p>
+</li>
+<li>
+<p><code>CalendarModel#isValidDate(Year year, Month month, int date)</code>&#8201;&#8212;&#8201;Checks if the date is a valid date in accordance to the Gregorian calendar.</p>
+</li>
+<li>
+<p><code>CalendarModel#isExistingEvent(Year year, Month month, int startDate, int endDate, String title)</code>&#8201;&#8212;&#8201;Checks if an event exists in the monthly calendar.</p>
+</li>
+<li>
+<p><code>IcsCalendarStorage#loadCalendar(String calendarName)</code>&#8201;&#8212;&#8201;Loads the specified calendar from the local directory into local memory.</p>
+</li>
+<li>
+<p><code>IcsCalendarStorage#createCalendar(Calendar calendar, String calendarName)</code>&#8201;&#8212;&#8201;Saves the calendar passed from <code>CalendarModel</code> to the local directory.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These operations are exposed in the <code>Model</code> and <code>Storage</code> interface as :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Model#loadCalendar(Year year, Month month)</code></p>
+</li>
+<li>
+<p><code>Model#deleteEvent(Year year, Month month, int startDate, int endDate, String title)</code></p>
+</li>
+<li>
+<p><code>Model#isExistingCalendar(Year year, Month month)</code></p>
+</li>
+<li>
+<p><code>Model#isValidDate(Year year, Month month, int date)</code></p>
+</li>
+<li>
+<p><code>Model#isExistingEvent(Year year, Month month, int startDate, int endDate, String title)</code></p>
+</li>
+<li>
+<p><code>Storage#loadCalendar(String calendarName)</code></p>
+</li>
+<li>
+<p><code>Storage#createCalendar(Calendar calendar, String calendarName)</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the <code>delete_event</code> command behaves at each step:</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user executes the <code>delete_event</code> command by specifying the month, year, starting date, ending date, and title.
+The <code>delete_event</code> command then calls <code>Model#isExistingCalendar(Year year, Month month)</code>, <code>Model#isValidDate(Year year, Month month, int date)</code> and
+<code>Model#isExistingEvent(Year year, Month month, int startDate, int endDate, String title)</code> to perform checks on whether the request to delete event is valid.
+If it fails any one of the checks, the command does nothing and reflects to the user that the request to delete event is not valid. Else, the <code>Model#isExistingEvent</code> check will retrieve the event and load it inside the <code>CalendarModel</code>. It then calls <code>Model#deleteEvent(Year year, Month month, int startDate, int endDate, String title)</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The <code>Model#isExistingEvent</code> check first calls <code>ModelManager#loadCalendar(Year year, Month month)</code> to load the calendar into <code>CalendarModel</code>. Once the calendar object is loaded in the <code>CalendarModel</code>, it then calls <code>CalendarModel#retrieveEvent(int startDate, int endDate, String title)</code> to retrieve the event and store it inside the <code>CalendarModel</code> as event to be deleted.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. The call to <code>Model#deleteEvent(Year year, Month month, int startDate, int endDate, String title)</code> calls <code>CalendarModel#deleteEvent(Year year, Month month)</code> which removes the event to be deleted in <code>CalendarModel</code> from the monthly calendar.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. The <code>ModelManager</code> then raises a <code>CalendarEventDeletedEvent</code>, to indicate an event has been deleted in the <code>CalendarModel</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 5. The <code>CalendarEventDeletedEvent</code> goes to the <code>EventsCenter</code>, and is then handled by <code>StorageManager#handleCalendarEventDeletedEvent(CalendarEventDeletedEvent event)</code>, which then calls <code>IcsCalendarStorage#createCalendar(Calendar calendar, String calendarName)</code>.
+This saves the updated calendar back to the local directory.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the delete_event operation works:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/UndoRedoExecuteUndoStateListDiagram.png" alt="UndoRedoExecuteUndoStateListDiagram" width="800">
+<img src="../images/DeleteEventSeqDiagram.png" alt="DeleteEventSeqDiagram" width="1500">
 </div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If the <code>currentStatePointer</code> is at index 0, pointing to the initial address book state, then there are no previous address book states to restore. The <code>undo</code> command uses <code>Model#canUndoAddressBook()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the undo.
-</td>
-</tr>
-</table>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how the undo operation works:</p>
+<p><em>Figure 4.3.1.4: Sequence diagram for delete_event command</em></p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="view_calendar-command"><a class="link" href="#view_calendar-command">View_Calendar Command</a></h5>
+<div class="paragraph">
+<p>This command is facilitated by <code>ModelManager</code>, <code>CalendarModel</code> and <code>IcsCalendarStorage</code>.
+It implements the following operations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ModelManager#loadCalendar(Year year, Month month)</code>&#8201;&#8212;&#8201;Raises a LoadCalendarEvent.</p>
+</li>
+<li>
+<p><code>CalendarModel#isExistingCalendar(Year year, Month month)</code>&#8201;&#8212;&#8201;Checks if the calendar already exists in Hallper.</p>
+</li>
+<li>
+<p><code>IcsCalendarStorage#loadCalendar(String calendarName)</code>&#8201;&#8212;&#8201;Loads the calendar from the computer.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These operations are exposed in the <code>Model</code> interface as <code>Model#loadCalendar(Year year, Month month)</code>, <code>Model#isExistingCalendar(Year year, Month month)</code> and in the <code>Storage</code> interface as <code>Storage#loadCalendar(String calendarName)</code> respectively.</p>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the <code>view_calendar</code> command behaves at each step:</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user executes the <code>view_calendar</code> command by specifying the month and year.
+The <code>view_calendar</code> command then calls <code>Model#isExistingCalendar(Year year, Month month)</code>, to check whether the
+calendar already exists inside Hallper. If it exists, the command does nothing and reflects to the user that the
+calendar already exists. Else, the command calls <code>Model#loadCalendar(Year year, Month month)</code> which then raise a <code>LoadCalendarEvent</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The <code>LoadCalendarEvent</code> goes to the <code>EventsCenter</code>, and is then handled by <code>StorageManager#handleLoadCalendarEvent(LoadCalendarEvent event)</code>, which then calls <code>IcsCalendarStorage#loadCalendar(String calendarName)</code>.
+This loads the calendar from the specified local directory.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. Once the calendar is loaded, it then raise a <code>CalendarLoadedEvent</code>. The event goes to the <code>EventsCenter</code>, and is then handled by <code>ModelManager#handleCalendarLoadedEvent(CalendarLoadedEvent event)</code> which then calls <code>CalendarModel#loadCalendar(Calendar calendar, String calendarName)</code>. This saves the calendar into the model.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the view_calendar operation works:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/UndoRedoSequenceDiagram.png" alt="UndoRedoSequenceDiagram" width="800">
+<img src="../images/ViewCalendarSeqDiagram.png" alt="ViewCalendarSeqDiagram" width="1500">
 </div>
 </div>
 <div class="paragraph">
-<p>The <code>redo</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>Model#redoAddressBook()</code>, which shifts the <code>currentStatePointer</code> once to the right, pointing to the previously undone state, and restores the address book to that state.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If the <code>currentStatePointer</code> is at index <code>addressBookStateList.size() - 1</code>, pointing to the latest address book state, then there are no undone address book states to restore. The <code>redo</code> command uses <code>Model#canRedoAddressBook()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
-</td>
-</tr>
-</table>
+<p><em>Figure 4.3.1.5: Sequence diagram for view_calendar command</em></p>
 </div>
 <div class="paragraph">
-<p>Step 5. The user then decides to execute the command <code>list</code>. Commands that do not modify the address book, such as <code>list</code>, will usually not call <code>Model#commitAddressBook()</code>, <code>Model#undoAddressBook()</code> or <code>Model#redoAddressBook()</code>. Thus, the <code>addressBookStateList</code> remains unchanged.</p>
+<p>The following activity diagram summarizes what happens when a user executes a calendar command:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/UndoRedoNewCommand3StateListDiagram.png" alt="UndoRedoNewCommand3StateListDiagram" width="800">
+<img src="../images/CalendarCommandActivityDiagram.png" alt="CalendarCommandActivityDiagram" width="650">
 </div>
 </div>
 <div class="paragraph">
-<p>Step 6. The user executes <code>clear</code>, which calls <code>Model#commitAddressBook()</code>. Since the <code>currentStatePointer</code> is not pointing at the end of the <code>addressBookStateList</code>, all address book states after the <code>currentStatePointer</code> will be purged. We designed it this way because it no longer makes sense to redo the <code>add n/David &#8230;&#8203;</code> command. This is the behavior that most modern desktop applications follow.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoNewCommand4StateListDiagram.png" alt="UndoRedoNewCommand4StateListDiagram" width="800">
-</div>
-</div>
-<div class="paragraph">
-<p>The following activity diagram summarizes what happens when a user executes a new command:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoActivityDiagram.png" alt="UndoRedoActivityDiagram" width="650">
+<p><em>Figure 4.3.1.6: Activity diagram for budget command</em></p>
 </div>
 </div>
 </div>
 <div class="sect3">
 <h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
 <div class="sect4">
-<h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
+<h5 id="aspect-file-format"><a class="link" href="#aspect-file-format">Aspect: File format</a></h5>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Saves the entire address book.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easy to implement.</p>
+<p><strong>Pro:</strong> The <code>.ics</code> file format is compliant with the RFC 5545 format, which is industry recognised, and can be opened
+and viewed using many applications, including Microsoft Outlook, Google Calendar, and Apple Calendar.</p>
 </li>
 <li>
-<p>Cons: May have performance issues in terms of memory usage.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Individual command knows how to undo/redo by itself.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Will use less memory (e.g. for <code>delete</code>, just save the person being deleted).</p>
-</li>
-<li>
-<p>Cons: Must ensure that the implementation of each individual command are correct.</p>
-</li>
-</ul>
-</div>
+<p><strong>Con:</strong> <code>.ics</code> file alone is not very useful. User needs to import the events created into users' preferred
+calender application manually and consistently. More implementations will be required to make <code>.ics</code> files useful in
+Hallper.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect4">
-<h5 id="aspect-data-structure-to-support-the-undo-redo-commands"><a class="link" href="#aspect-data-structure-to-support-the-undo-redo-commands">Aspect: Data structure to support the undo/redo commands</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Use a list to store the history of address book states.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easy for new Computer Science student undergraduates to understand, who are likely to be the new incoming developers of our project.</p>
-</li>
-<li>
-<p>Cons: Logic is duplicated twice. For example, when a new command is executed, we must remember to update both <code>HistoryManager</code> and <code>VersionedAddressBook</code>.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Use <code>HistoryManager</code> for undo/redo</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Do not need to maintain a separate list, and just reuse what is already in the codebase.</p>
-</li>
-<li>
-<p>Cons: Requires dealing with commands that have already been undone: We must remember to skip these commands. Violates Single Responsibility Principle and Separation of Concerns as <code>HistoryManager</code> now needs to do two different things.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">[Proposed] Data encryption</a></h3>
+<h5 id="aspect-using-a-href-https-github-com-ical4j-ical4j-ical4j-a"><a class="link" href="#aspect-using-a-href-https-github-com-ical4j-ical4j-ical4j-a">Aspect: Using <a href="https://github.com/ical4j/ical4j">iCal4j</a></a></h5>
 <div class="paragraph">
-<p><em>{Explain here how the data encryption feature will be implemented}</em></p>
+<p><a href="https://github.com/ical4j/ical4j">iCal4j</a> contains various methods that make creating, parsing and editing <code>.ics</code> files convenient.
+The library is widely used and easy to understand so any new developer can easily extend the current features.</p>
 </div>
 </div>
 </div>
 </div>
-<div class="sect1">
-<h2 id="project-powerpointlabs"><a class="link" href="#project-powerpointlabs">PROJECT: PowerPointLabs</a></h2>
-<div class="sectionbody">
-<hr>
-<div class="paragraph">
-<p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 03:35:22 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 04:03:57 UTC</div></div></div></body></html>

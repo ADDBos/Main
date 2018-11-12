@@ -3,49 +3,74 @@
 <link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">Hallper</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/CS2103-AY1819S1-W16-1/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>KOK YUAN - Project Portfolio</h1></div><div id="content"><div class="sect1">
 <h2 id="project-hallper"><a class="link" href="#project-hallper">PROJECT: Hallper</a></h2>
 <div class="sectionbody">
-<hr>
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="1-overview"><a class="link" href="#1-overview">1. Overview</a></h2>
+<div class="sectionbody">
 <div class="paragraph">
-<p><em>{<mark>To be edited</mark>}</em></p>
+<p>This Project Portfolio documents my contributions to Hallper.</p>
+</div>
+<div class="paragraph">
+<p>Hallper is designed by a team of 5 Computer Science students (including myself), from the National University of Singapore (NUS).
+Hallper is a desktop application designed to serve the JCRCs of NUS.
+The user interacts with Hallper using a defined list of typed commands.
+Hallper&#8217;s interface is created with JavaFX, and the other components are written in Java.</p>
+</div>
+<div class="paragraph">
+<p>Some of its main features are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Convenient management of multiple contacts</p>
+</li>
+<li>
+<p>Profile view of contacts</p>
+</li>
+<li>
+<p>Budget allocation and management</p>
+</li>
+<li>
+<p>Composition of emails to multiple contacts</p>
+</li>
+<li>
+<p>Calendar to update monthly events</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>AddressBook - Level 4 is a desktop address book application used for teaching Software Engineering principles. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 10 kLoC.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<h2 id="2-summary-of-contributions"><a class="link" href="#2-summary-of-contributions">2. Summary of contributions</a></h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement</strong>: added <strong>the ability to undo/redo previous commands</strong></p>
+<p><strong>Major enhancement</strong>: added <strong>the ability to compose emails</strong></p>
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: allows the user to undo all previous commands one at a time. Preceding undo commands can be reversed by using the redo command.</p>
+<p>What it does: allows the user to compose emails to recipients consisting of selected persons in Hallper.</p>
 </li>
 <li>
-<p>Justification: This feature improves the product significantly because a user can make mistakes in commands and the app should provide a convenient way to rectify them.</p>
+<p>Justification: improves Hallper significantly by allowing simple email creation with specified residents as recipients.</p>
 </li>
 <li>
-<p>Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands.</p>
+<p>Highlights: touches all components in Hallper. This made the implementation challenging as it required an understanding of all the various components.</p>
 </li>
 <li>
-<p>Credits: <em>{mention here if you reused any code/ideas from elsewhere or if a third-party library is heavily used in the feature so that a reader can make a more accurate judgement of how much effort went into the feature}</em></p>
+<p>Credits: uses <a href="http://www.simplejavamail.org/">Simple Java Mail</a></p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>: added a history command that allows the user to navigate to previous commands using up/down keys.</p>
+<p><strong>Minor enhancement</strong>: added a few commands (delete_email, list_emails, view_email) to improve email manipulation in Hallper.</p>
 </li>
 <li>
-<p><strong>Code contributed</strong>: [<a href="https://github.com">Functional code</a>] [<a href="https://github.com">Test code</a>] <em>{give links to collated code files}</em></p>
+<p><strong>Code contributed</strong>: <a href="https://nus-cs2103-ay1819s1.github.io/cs2103-dashboard/#=undefined&amp;search=eatorbeeaten">Link to compiled list of code</a></p>
 </li>
 <li>
 <p><strong>Other contributions</strong>:</p>
@@ -56,20 +81,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Managed releases <code>v1.3</code> - <code>v1.5rc</code> (3 releases) on GitHub</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Enhancements to existing features:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Updated the GUI color scheme (Pull requests <a href="https://github.com">#33</a>, <a href="https://github.com">#34</a>)</p>
-</li>
-<li>
-<p>Wrote additional tests for existing features to increase coverage from 88% to 92% (Pull requests <a href="https://github.com">#36</a>, <a href="https://github.com">#38</a>)</p>
+<p>Managed releases <code>v1.2.1</code> - <code>v1.4</code> (4 releases) on GitHub</p>
 </li>
 </ul>
 </div>
@@ -79,26 +91,16 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Did cosmetic tweaks to existing contents of the User Guide: <a href="https://github.com">#14</a></p>
-</li>
-</ul>
-</div>
+<p>Added email features to the User Guide.</p>
 </li>
 <li>
-<p>Community:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com">#12</a>, <a href="https://github.com">#32</a>, <a href="https://github.com">#19</a>, <a href="https://github.com">#42</a></p>
+<p>Added an introduction to the Developer Guide.</p>
 </li>
 <li>
-<p>Contributed to forum discussions (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>, <a href="https://github.com">4</a>)</p>
+<p>Added email features to the Developer Guide.</p>
 </li>
 <li>
-<p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>)</p>
-</li>
-<li>
-<p>Some parts of the history feature I added was adopted by several other class mates (<a href="https://github.com">1</a>, <a href="https://github.com">2</a>)</p>
+<p>Formatted use cases and user stories in the Developer Guide.</p>
 </li>
 </ul>
 </div>
@@ -108,10 +110,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Integrated a third party library (Natty) to the project (<a href="https://github.com">#42</a>)</p>
-</li>
-<li>
-<p>Integrated a new Github plugin (CircleCI) to the team repo</p>
+<p>Integrated Github plugins (AppVeyor, Coveralls, Codacy) to the team repository. (<a href="https://github.com/CS2103-AY1819S1-W16-1/main/pull/46">#42</a>)</p>
 </li>
 </ul>
 </div>
@@ -120,14 +119,11 @@
 </div>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p><em>{you can add/remove categories in the list above}</em></p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<h2 id="3-contributions-to-the-user-guide"><a class="link" href="#3-contributions-to-the-user-guide">3. Contributions to the User Guide</a></h2>
 <div class="sectionbody">
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -139,11 +135,184 @@
 </tr>
 </tbody>
 </table>
-<div class="sect3">
-<h4 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">Redoing the previously undone command : <code>redo</code></a></h4>
+<div class="sect2">
+<h3 id="email"><a class="link" href="#email">Email</a></h3>
 <div class="paragraph">
-<p>Reverses the most recent <code>undo</code> command.<br>
-Format: <code>redo</code></p>
+<p>This section lists features related to email in Hallper.</p>
+</div>
+<div class="sect3">
+<h4 id="composing-an-email-to-selected-indexes-code-compose_email_index-code"><a class="link" href="#composing-an-email-to-selected-indexes-code-compose_email_index-code">Composing an email to selected indexes: <code>compose_email_index</code></a></h4>
+<div class="paragraph">
+<p>Composes a <strong><code>.eml</code></strong> file that can be used to send emails to residents specified by index.<br>
+Format: <code>compose_email_index from/FROM to/INDEXES subject/SUBJECT content/CONTENT</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>FROM must be a valid email address. E.g. <a href="mailto:johndoe@example.com">johndoe@example.com</a></p>
+</li>
+<li>
+<p>INDEXES refer to the index numbers shown in the displayed resident list.</p>
+</li>
+<li>
+<p>INDEXES <strong>must be positive integers</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+<li>
+<p>SUBJECT has no word limit.</p>
+</li>
+<li>
+<p>CONTENT has no word limit.</p>
+</li>
+<li>
+<p><code>&lt;br&gt;</code> can be used in CONTENT for new line.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>CONTENT is written in HTML. Users who know HTML can use it to format the CONTENT.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list</code></p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/list.png" alt="list" width="790">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.3.1.1: Result after executing <code>list</code>.</em></p>
+</div>
+<div class="paragraph">
+<p><br>
+<code>compose_email_index from/johndoe@example.com to/1 3 5 subject/Meeting this Friday
+content/Dear All&lt;br&gt;&lt;br&gt;There&#8217;s a meeting this friday.&lt;br&gt;&lt;br&gt;John Doe</code><br>
+Composes an email from <code>johndoe@example.com</code> to residents at indexes 1, 3, and 5 with subject
+<code>Meeting this Friday</code> and email body <code>Dear All&lt;br&gt;&lt;br&gt;There&#8217;s a meeting this friday.&lt;br&gt;&lt;br&gt;John Doe</code> and saves it as a <strong><code>.eml</code></strong> file.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/compose_email_index.png" alt="compose email index" width="790">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.3.1.2: Result after executing <code>compose_email_index from/johndoe@example.com to/1 3 5 subject/Meeting this Friday content/Dear All&lt;br&gt;&lt;br&gt;There&#8217;s a meeting this friday.&lt;br&gt;&lt;br&gt;John Doe</code>.</em></p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="composing-an-email-to-currently-listed-residents-code-compose_email_list-code"><a class="link" href="#composing-an-email-to-currently-listed-residents-code-compose_email_list-code">Composing an email to currently listed residents: <code>compose_email_list</code></a></h4>
+<div class="paragraph">
+<p>Composes a <strong><code>.eml</code></strong> file that can be used to send emails to currently listed residents.<br>
+Format: <code>compose_email_list from/FROM subject/SUBJECT content/CONTENT</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>FROM must be a valid email address. E.g. <a href="mailto:johndoe@example.com">johndoe@example.com</a></p>
+</li>
+<li>
+<p>SUBJECT has no word limit.</p>
+</li>
+<li>
+<p>CONTENT has no word limit.</p>
+</li>
+<li>
+<p><code>&lt;br&gt;</code> can be used in CONTENT for new line.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>CONTENT is written in HTML. Users who know HTML can use it to format the CONTENT.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list</code></p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/list.png" alt="list" width="790">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.3.2.1: Result after executing <code>list</code>.</em></p>
+</div>
+<div class="paragraph">
+<p><br>
+<code>compose_email_list from/johndoe@example.com subject/Meeting this Friday content/Dear All&lt;br&gt;&lt;br&gt;There&#8217;s a meeting this friday.&lt;br&gt;&lt;br&gt;John Doe</code><br>
+Composes an email from <code>johndoe@example.com</code> to currently listed residents with subject
+<code>Meeting this Friday</code> and email body <code>Dear All&lt;br&gt;&lt;br&gt;There&#8217;s a meeting this friday.&lt;br&gt;&lt;br&gt;John Doe</code> and saves
+it as a <strong><code>.eml</code></strong> file.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/compose_email_list.png" alt="compose email list" width="790">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.3.2.2: Result after executing <code>compose_email_list from/johndoe@example.com subject/Meeting this Friday content/Dear All&lt;br&gt;&lt;br&gt;There&#8217;s a meeting this friday.&lt;br&gt;&lt;br&gt;John Doe</code>.</em></p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="deleting-an-email-code-delete_email-code"><a class="link" href="#deleting-an-email-code-delete_email-code">Deleting an email : <code>delete_email</code></a></h4>
+<div class="paragraph">
+<p>Deletes an email.<br>
+Format: <code>delete_email SUBJECT</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>SUBJECT is the subject of an existing email.</p>
+</li>
+<li>
+<p>SUBJECT is case-sensitive.</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -151,30 +320,72 @@ Format: <code>redo</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>delete 1</code><br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br>
-<code>redo</code> (reapplies the <code>delete 1</code> command)<br></p>
+<p><code>delete_email Meeting</code><br>
+Deletes the email with the subject <code>Meeting</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>image::delete_email.png[width="790"]+
+<em>Figure 4.3.3.1: Result after executing <code>delete_email Meeting</code>.</em></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="listing-all-emails-code-list_emails-code"><a class="link" href="#listing-all-emails-code-list_emails-code">Listing all emails : <code>list_emails</code></a></h4>
+<div class="paragraph">
+<p>Displays a list of all emails in Hallper.<br>
+Format: <code>list_emails</code></p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../images/list_emails.png" alt="list emails" width="790"></span>
+<em>Figure 4.3.4.1: Result after executing <code>list_emails</code>.</em></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="viewing-an-email-code-view_email-code"><a class="link" href="#viewing-an-email-code-view_email-code">Viewing an email : <code>view_email</code></a></h4>
+<div class="paragraph">
+<p>Displays an email.<br>
+Format: <code>view_email SUBJECT</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>SUBJECT is the subject of an existing email.</p>
 </li>
 <li>
-<p><code>delete 1</code><br>
-<code>redo</code><br>
-The <code>redo</code> command fails as there are no <code>undo</code> commands executed previously.</p>
+<p>SUBJECT is case-sensitive.</p>
 </li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
 <li>
-<p><code>delete 1</code><br>
-<code>clear</code><br>
-<code>undo</code> (reverses the <code>clear</code> command)<br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br>
-<code>redo</code> (reapplies the <code>delete 1</code> command)<br>
-<code>redo</code> (reapplies the <code>clear</code> command)<br></p>
+<p><code>view_email Meeting on Friday</code><br>
+Displays the email with the subject <code>Meeting on Friday</code>.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/view_email.png" alt="view email" width="790">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.3.5.1: Result after executing <code>view_email Meeting on Friday</code>.</em></p>
+</div>
 </li>
 </ul>
 </div>
 </div>
 </div>
 </div>
+</div>
 <div class="sect1">
-<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<h2 id="4-contributions-to-the-developer-guide"><a class="link" href="#4-contributions-to-the-developer-guide">4. Contributions to the Developer Guide</a></h2>
 <div class="sectionbody">
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -187,165 +398,86 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 </tbody>
 </table>
 <div class="sect2">
-<h3 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">Undo/Redo feature</a></h3>
+<h3 id="email-feature"><a class="link" href="#email-feature">Email feature</a></h3>
+<div class="paragraph">
+<p>Written below is the implementation of the Email feature.</p>
+</div>
 <div class="sect3">
 <h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
 <div class="paragraph">
-<p>The undo/redo mechanism is facilitated by <code>VersionedAddressBook</code>.
-It extends <code>AddressBook</code> with an undo/redo history, stored internally as an <code>addressBookStateList</code> and <code>currentStatePointer</code>.
-Additionally, it implements the following operations:</p>
+<p>The Email feature works using a third-party dependency, <a href="http://www.simplejavamail.org/#/about">Simple Java Mail</a>.
+It allows <code>.eml</code> files to be created and saved onto the computer.
+The feature is facilitated by <code>EmailModel</code> and <code>EmailDirStorage</code>.
+It implements the following operations:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>VersionedAddressBook#commit()</code>&#8201;&#8212;&#8201;Saves the current address book state in its history.</p>
+<p><code>EmailModel#saveComposedEmail(Email email)</code>&#8201;&#8212;&#8201;Stores each newly composed email in the <code>EmailModel</code>.</p>
 </li>
 <li>
-<p><code>VersionedAddressBook#undo()</code>&#8201;&#8212;&#8201;Restores the previous address book state from its history.</p>
-</li>
-<li>
-<p><code>VersionedAddressBook#redo()</code>&#8201;&#8212;&#8201;Restores a previously undone address book state from its history.</p>
+<p><code>EmailDirStorage#saveEmail(EmailModel email)</code>&#8201;&#8212;&#8201;Saves the newly composed email in the <code>EmailModel</code> to the computer.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>These operations are exposed in the <code>Model</code> interface as <code>Model#commitAddressBook()</code>, <code>Model#undoAddressBook()</code> and <code>Model#redoAddressBook()</code> respectively.</p>
-</div>
-<div class="paragraph">
-<p>Given below is an example usage scenario and how the undo/redo mechanism behaves at each step.</p>
-</div>
-<div class="paragraph">
-<p>Step 1. The user launches the application for the first time. The <code>VersionedAddressBook</code> will be initialized with the initial address book state, and the <code>currentStatePointer</code> pointing to that single address book state.</p>
+<p>These operations are exposed in the <code>Model</code> interface as <code>Model#saveComposedEmail(Email email)</code>, and in the <code>Storage</code> interface as <code>Storage#saveEmail(EmailModel email)</code> respectively.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/UndoRedoStartingStateListDiagram.png" alt="UndoRedoStartingStateListDiagram" width="800">
+<img src="../images/EmailSequenceDiagram.png" alt="EmailSequenceDiagram" width="1500">
 </div>
 </div>
 <div class="paragraph">
-<p>Step 2. The user executes <code>delete 5</code> command to delete the 5th person in the address book. The <code>delete</code> command calls <code>Model#commitAddressBook()</code>, causing the modified state of the address book after the <code>delete 5</code> command executes to be saved in the <code>addressBookStateList</code>, and the <code>currentStatePointer</code> is shifted to the newly inserted address book state.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoNewCommand1StateListDiagram.png" alt="UndoRedoNewCommand1StateListDiagram" width="800">
-</div>
+<p><em>Figure 4.2.1.1: Sequence diagram of</em> <code>ComposeEmailList</code>.</p>
 </div>
 <div class="paragraph">
-<p>Step 3. The user executes <code>add n/David &#8230;&#8203;</code> to add a new person. The <code>add</code> command also calls <code>Model#commitAddressBook()</code>, causing another modified address book state to be saved into the <code>addressBookStateList</code>.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoNewCommand2StateListDiagram.png" alt="UndoRedoNewCommand2StateListDiagram" width="800">
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If a command fails its execution, it will not call <code>Model#commitAddressBook()</code>, so the address book state will not be saved into the <code>addressBookStateList</code>.
-</td>
-</tr>
-</table>
+<p>Given below is an example usage scenario and how the Compose feature behaves at each step:</p>
 </div>
 <div class="paragraph">
-<p>Step 4. The user now decides that adding the person was a mistake, and decides to undo that action by executing the <code>undo</code> command. The <code>undo</code> command will call <code>Model#undoAddressBook()</code>, which will shift the <code>currentStatePointer</code> once to the left, pointing it to the previous address book state, and restores the address book to that state.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoExecuteUndoStateListDiagram.png" alt="UndoRedoExecuteUndoStateListDiagram" width="800">
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If the <code>currentStatePointer</code> is at index 0, pointing to the initial address book state, then there are no previous address book states to restore. The <code>undo</code> command uses <code>Model#canUndoAddressBook()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the undo.
-</td>
-</tr>
-</table>
+<p>Step 1. The user executes either the <code>ComposeEmailList</code> command or <code>ComposeEmailIndex</code> command, which creates an email.
+The <code>ComposeEmailList</code>/<code>ComposeEmailIndex</code> command calls <code>Model#saveComposedEmail(Email email)</code>, saving the email to <code>EmailModel</code>.
+In Figure 4.2.1.1, the user executes the <code>ComposeEmailList</code> command.</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how the undo operation works:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoSequenceDiagram.png" alt="UndoRedoSequenceDiagram" width="800">
-</div>
+<p>Step 2. Once the email is saved in the <code>EmailModel</code>, the <code>ModelManager</code> raises an <code>EmailSavedEvent</code>, to indicate that a new
+ email is saved to the <code>EmailModel</code>.</p>
 </div>
 <div class="paragraph">
-<p>The <code>redo</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>Model#redoAddressBook()</code>, which shifts the <code>currentStatePointer</code> once to the right, pointing to the previously undone state, and restores the address book to that state.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If the <code>currentStatePointer</code> is at index <code>addressBookStateList.size() - 1</code>, pointing to the latest address book state, then there are no undone address book states to restore. The <code>redo</code> command uses <code>Model#canRedoAddressBook()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Step 5. The user then decides to execute the command <code>list</code>. Commands that do not modify the address book, such as <code>list</code>, will usually not call <code>Model#commitAddressBook()</code>, <code>Model#undoAddressBook()</code> or <code>Model#redoAddressBook()</code>. Thus, the <code>addressBookStateList</code> remains unchanged.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoNewCommand3StateListDiagram.png" alt="UndoRedoNewCommand3StateListDiagram" width="800">
-</div>
-</div>
-<div class="paragraph">
-<p>Step 6. The user executes <code>clear</code>, which calls <code>Model#commitAddressBook()</code>. Since the <code>currentStatePointer</code> is not pointing at the end of the <code>addressBookStateList</code>, all address book states after the <code>currentStatePointer</code> will be purged. We designed it this way because it no longer makes sense to redo the <code>add n/David &#8230;&#8203;</code> command. This is the behavior that most modern desktop applications follow.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoNewCommand4StateListDiagram.png" alt="UndoRedoNewCommand4StateListDiagram" width="800">
-</div>
-</div>
-<div class="paragraph">
-<p>The following activity diagram summarizes what happens when a user executes a new command:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoActivityDiagram.png" alt="UndoRedoActivityDiagram" width="650">
-</div>
+<p>Step 3. The <code>EmailSavedEvent</code> goes to the <code>EventsCenter</code>, and is then handled by <code>StorageManager#handleEmailSavedEvent
+(EmailSavedEvent event)</code>, which then calls <code>EmailDirStorage#saveEmail(EmailModel email)</code>.
+This saves the email to a specified local directory.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
 <div class="sect4">
-<h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
+<h5 id="aspect-method-to-create-emails"><a class="link" href="#aspect-method-to-create-emails">Aspect: Method to create emails</a></h5>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Saves the entire address book.</p>
+<p><strong>Alternative 1 (current choice):</strong> Use <a href="http://www.simplejavamail.org/#/about">Simple Java Mail</a>.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Easy to implement.</p>
+<p>Pros: <a href="http://www.simplejavamail.org/#/about">Simple Java Mail</a> contains various methods to conveniently create emails.
+The library is easy to understand so any new developer can easily extend the current features.</p>
 </li>
 <li>
-<p>Cons: May have performance issues in terms of memory usage.</p>
+<p>Cons: The design of created emails is limited to the <a href="http://www.simplejavamail.org/#/about">Simple Java Mail</a> API.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> Individual command knows how to undo/redo by itself.</p>
+<p><strong>Alternative 2:</strong> Write a custom email builder.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Will use less memory (e.g. for <code>delete</code>, just save the person being deleted).</p>
+<p>Pros: The design of created emails can be freely manipulated.</p>
 </li>
 <li>
-<p>Cons: Must ensure that the implementation of each individual command are correct.</p>
+<p>Cons: Much more code has to be written.</p>
 </li>
 </ul>
 </div>
@@ -354,31 +486,31 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect4">
-<h5 id="aspect-data-structure-to-support-the-undo-redo-commands"><a class="link" href="#aspect-data-structure-to-support-the-undo-redo-commands">Aspect: Data structure to support the undo/redo commands</a></h5>
+<h5 id="aspect-text-type"><a class="link" href="#aspect-text-type">Aspect: Text type</a></h5>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Use a list to store the history of address book states.</p>
+<p><strong>Alternative 1 (current choice):</strong> HTML text</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Easy for new Computer Science student undergraduates to understand, who are likely to be the new incoming developers of our project.</p>
+<p>Pros: Users with HTML knowledge can manipulate the content of the email.</p>
 </li>
 <li>
-<p>Cons: Logic is duplicated twice. For example, when a new command is executed, we must remember to update both <code>HistoryManager</code> and <code>VersionedAddressBook</code>.</p>
+<p>Cons: Users unfamiliar with HTML minimally has to learn how the <code>&lt;br&gt;</code> tag works.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> Use <code>HistoryManager</code> for undo/redo</p>
+<p><strong>Alternative 2:</strong> Plain text</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Do not need to maintain a separate list, and just reuse what is already in the codebase.</p>
+<p>Pros: Plain text is easily understood by almost any user.</p>
 </li>
 <li>
-<p>Cons: Requires dealing with commands that have already been undone: We must remember to skip these commands. Violates Single Responsibility Principle and Separation of Concerns as <code>HistoryManager</code> now needs to do two different things.</p>
+<p>Cons: The design of the email content is very limited.</p>
 </li>
 </ul>
 </div>
@@ -388,20 +520,5 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">[Proposed] Data encryption</a></h3>
-<div class="paragraph">
-<p><em>{Explain here how the data encryption feature will be implemented}</em></p>
 </div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="project-powerpointlabs"><a class="link" href="#project-powerpointlabs">PROJECT: PowerPointLabs</a></h2>
-<div class="sectionbody">
-<hr>
-<div class="paragraph">
-<p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
-</div>
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 03:35:22 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 04:03:57 UTC</div></div></div></body></html>
