@@ -85,26 +85,30 @@
 <li><a href="#glossary">Appendix F: Glossary</a></li>
 <li><a href="#instructions-for-manual-testing">Appendix G: Instructions for Manual Testing</a>
 <ul class="sectlevel2">
-<li><a href="#launch-and-shutdown">G.1. Launch and Shutdown</a></li>
-<li><a href="#deleting-a-person">G.2. Deleting a Person</a></li>
-<li><a href="#composing-an-email-to-all-currently-listed-residents">G.3. Composing an Email to All Currently Listed Residents</a></li>
-<li><a href="#creating-a-monthly-calendar">G.4. Creating a monthly Calendar</a></li>
-<li><a href="#viewing-a-monthly-calendar">G.5. Viewing a monthly Calendar</a></li>
-<li><a href="#add-all-day-event-into-monthly-calendar">G.6. Add all day event into monthly Calendar</a></li>
-<li><a href="#add-event-into-monthly-calendar">G.7. Add event into monthly Calendar</a></li>
-<li><a href="#delete-event-from-monthly-calendar">G.8. Delete event from monthly Calendar</a></li>
-<li><a href="#clearing-persons">G.9. Clearing Persons</a></li>
-<li><a href="#erasing-ccas">G.10. Erasing CCAs</a></li>
-<li><a href="#exporting-data">G.11. Exporting data</a></li>
-<li><a href="#importing-data">G.12. Importing data</a></li>
-<li><a href="#searching-a-person">G.13. Searching a person</a></li>
-<li><a href="#uploading-profile-picture">G.14. Uploading profile picture</a></li>
-<li><a href="#creating-cca">G.15. Creating CCA</a></li>
-<li><a href="#deleting-cca">G.16. Deleting CCA</a></li>
-<li><a href="#updating-cca">G.17. Updating CCA</a></li>
-<li><a href="#adding-a-transaction-entry">G.18. Adding a Transaction Entry</a></li>
-<li><a href="#deleting-a-transaction-entry">G.19. Deleting a Transaction Entry</a></li>
-<li><a href="#showing-ccas-budget">G.20. Showing CCAs' Budget</a></li>
+<li><a href="#launching-and-shutting-down">G.1. Launching and shutting down</a></li>
+<li><a href="#deleting-a-person">G.2. Deleting a person</a></li>
+<li><a href="#composing-an-email-to-all-currently-listed-residents">G.3. Composing an email to all currently listed residents</a></li>
+<li><a href="#composing-an-email-to-specified-indexes">G.4. Composing an email to specified indexes</a></li>
+<li><a href="#deleting-an-email">G.5. Deleting an email</a></li>
+<li><a href="#listing-emails">G.6. Listing emails</a></li>
+<li><a href="#viewing-an-email">G.7. Viewing an email</a></li>
+<li><a href="#creating-a-monthly-calendar">G.8. Creating a monthly calendar</a></li>
+<li><a href="#viewing-a-monthly-calendar">G.9. Viewing a monthly calendar</a></li>
+<li><a href="#adding-an-all-day-event-into-monthly-calendar">G.10. Adding an all day event into monthly calendar</a></li>
+<li><a href="#adding-an-event-into-monthly-calendar">G.11. Adding an event into monthly calendar</a></li>
+<li><a href="#deleting-an-event-from-monthly-calendar">G.12. Deleting an event from monthly calendar</a></li>
+<li><a href="#clearing-persons">G.13. Clearing persons</a></li>
+<li><a href="#erasing-ccas">G.14. Erasing CCAs</a></li>
+<li><a href="#exporting-data">G.15. Exporting data</a></li>
+<li><a href="#importing-data">G.16. Importing data</a></li>
+<li><a href="#searching-persons">G.17. Searching persons</a></li>
+<li><a href="#uploading-a-profile-picture">G.18. Uploading a profile picture</a></li>
+<li><a href="#creating-cca">G.19. Creating CCA</a></li>
+<li><a href="#deleting-cca">G.20. Deleting CCA</a></li>
+<li><a href="#updating-cca">G.21. Updating CCA</a></li>
+<li><a href="#adding-a-transaction-entry">G.22. Adding a Transaction Entry</a></li>
+<li><a href="#deleting-a-transaction-entry">G.23. Deleting a Transaction Entry</a></li>
+<li><a href="#showing-ccas-budget">G.24. Showing CCAs' Budget</a></li>
 </ul>
 </li>
 </ul>
@@ -879,13 +883,13 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="sect2">
 <h3 id="email-feature"><a class="link" href="#email-feature">4.2. Email feature</a></h3>
 <div class="paragraph">
-<p>Written below is the implementation of the Email feature and considerations in its design.</p>
+<p>Written below is the implementation of the Email feature, and considerations in its design.</p>
 </div>
 <div class="sect3">
 <h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">4.2.1. Current Implementation</a></h4>
 <div class="imageblock">
 <div class="content">
-<img src="images/EmailActivityDiagram.png" alt="EmailActivityDiagram" width="1500">
+<img src="images/EmailActivityDiagram.png" alt="EmailActivityDiagram" width="1400">
 </div>
 </div>
 <div class="paragraph">
@@ -4817,7 +4821,7 @@ These instructions only provide a starting point for testers to work on; testers
 </table>
 </div>
 <div class="sect2">
-<h3 id="launch-and-shutdown"><a class="link" href="#launch-and-shutdown">G.1. Launch and Shutdown</a></h3>
+<h3 id="launching-and-shutting-down"><a class="link" href="#launching-and-shutting-down">G.1. Launching and shutting down</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4852,7 +4856,7 @@ Expected: The most recent window size and location is retained.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-person"><a class="link" href="#deleting-a-person">G.2. Deleting a Person</a></h3>
+<h3 id="deleting-a-person"><a class="link" href="#deleting-a-person">G.2. Deleting a person</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4881,7 +4885,7 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="composing-an-email-to-all-currently-listed-residents"><a class="link" href="#composing-an-email-to-all-currently-listed-residents">G.3. Composing an Email to All Currently Listed Residents</a></h3>
+<h3 id="composing-an-email-to-all-currently-listed-residents"><a class="link" href="#composing-an-email-to-all-currently-listed-residents">G.3. Composing an email to all currently listed residents</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4892,15 +4896,15 @@ Expected: Similar to previous.</p>
 <p>Prerequisites: List all persons using the <code>list</code> command. Multiple persons in the list.</p>
 </li>
 <li>
-<p>Test case: <code>compose_email_list from/john@gmail.com to/1 2 subject/Example Subject content/Example Content</code><br>
-Expected: Email displayed on the BrowserPanel with the emails of the first and second contact as recipients of the email.</p>
+<p>Test case: <code>compose_email_list from/john@gmail.com subject/Example Subject content/Example Content</code><br>
+Expected: Email displayed on the BrowserPanel with the emails of all listed contacts as recipients of the email.</p>
 </li>
 <li>
-<p>Test case: <code>compose_email_list from/john@gmail.com to/100 subject/Example Subject content/Example Content</code><br>
+<p>Test case: <code>compose_email_list from/john@gmail.com subject/    content/Example Content</code><br>
 Expected: Email not displayed on the BrowserPanel. Error details shown in the status message.</p>
 </li>
 <li>
-<p>Test case: <code>compose_email_list from/john@gmail.com to/0 subject/Example Subject content/Example Content</code><br>
+<p>Test case: <code>compose_email_list from/john subject/Example Subject content/Example Content</code><br>
 Expected: Email not displayed on the BrowserPanel. Error details shown in the status message.</p>
 </li>
 </ol>
@@ -4914,7 +4918,7 @@ Expected: Email not displayed on the BrowserPanel. Error details shown in the st
 <p>Prerequisites: Clear all persons by executing <code>clear all</code>. List should be empty.</p>
 </li>
 <li>
-<p>Test case: <code>compose_email_list from/john@gmail.com to/1 2 subject/Example Subject content/Example Content</code><br>
+<p>Test case: <code>compose_email_list from/john@gmail.com subject/Example Subject content/Example Content</code><br>
 Expected: Email not displayed on the BrowserPanel. Error details shown in the status message.</p>
 </li>
 </ol>
@@ -4924,7 +4928,138 @@ Expected: Email not displayed on the BrowserPanel. Error details shown in the st
 </div>
 </div>
 <div class="sect2">
-<h3 id="creating-a-monthly-calendar"><a class="link" href="#creating-a-monthly-calendar">G.4. Creating a monthly Calendar</a></h3>
+<h3 id="composing-an-email-to-specified-indexes"><a class="link" href="#composing-an-email-to-specified-indexes">G.4. Composing an email to specified indexes</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Composing an email while all persons are listed.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all persons using the <code>list</code> command. Multiple persons in the list.</p>
+</li>
+<li>
+<p>Test case: <code>compose_email_index from/john@gmail.com to/1 2 subject/Example Subject content/Example Content</code><br>
+Expected: Email displayed on the BrowserPanel with the emails of the first and second contact as recipients of the email.</p>
+</li>
+<li>
+<p>Test case: <code>compose_email_index from/john@gmail.com to/100 subject/Example Subject content/Example Content</code><br>
+Expected: Email not displayed on the BrowserPanel. Error details shown in the status message.</p>
+</li>
+<li>
+<p>Test case: <code>compose_email_index from/john@gmail.com to/0 subject/Example Subject content/Example Content</code><br>
+Expected: Email not displayed on the BrowserPanel. Error details shown in the status message.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Composing an email while no persons are listed.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Clear all persons by executing <code>clear all</code>. List should be empty.</p>
+</li>
+<li>
+<p>Test case: <code>compose_email_index from/john@gmail.com to/1 2 subject/Example Subject content/Example Content</code><br>
+Expected: Email not displayed on the BrowserPanel. Error details shown in the status message.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-an-email"><a class="link" href="#deleting-an-email">G.5. Deleting an email</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Deleting an email that exists</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Email to delete exists in the directory in the computer.</p>
+</li>
+<li>
+<p>Test case: <code>delete_email Valid Subject</code><br>
+Expected: Email with subject 'Valid Subject' is deleted from the computer.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Deleting an email that does not exist</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Email to delete does not exist in the directory in the computer.</p>
+</li>
+<li>
+<p>Test case: <code>delete_email Invalid Subject</code><br>
+Expected: Error details shown in the status message.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="listing-emails"><a class="link" href="#listing-emails">G.6. Listing emails</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Listing all emails</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>list_emails</code><br>
+Expected: Existing emails displayed on the BrowserPanel.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="viewing-an-email"><a class="link" href="#viewing-an-email">G.7. Viewing an email</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Viewing an email that exists</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Email to view exists in the directory in the computer.</p>
+</li>
+<li>
+<p>Test case: <code>view_email Valid Subject</code><br>
+Expected: Email displayed on the BrowserPanel.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Viewing an email that does not exist</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Email to view does not exist in the directory in the computer.</p>
+</li>
+<li>
+<p>Test case: <code>view_email Invalid Subject</code><br>
+Expected: Email not displayed on the BrowserPanel. Error details shown in the status message.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="creating-a-monthly-calendar"><a class="link" href="#creating-a-monthly-calendar">G.8. Creating a monthly calendar</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4964,7 +5099,7 @@ Expected: The GUI remains at the same state as it was before the command executi
 </div>
 </div>
 <div class="sect2">
-<h3 id="viewing-a-monthly-calendar"><a class="link" href="#viewing-a-monthly-calendar">G.5. Viewing a monthly Calendar</a></h3>
+<h3 id="viewing-a-monthly-calendar"><a class="link" href="#viewing-a-monthly-calendar">G.9. Viewing a monthly calendar</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4993,7 +5128,7 @@ Expected: Error details shown in the status message. The GUI remains at the same
 </div>
 </div>
 <div class="sect2">
-<h3 id="add-all-day-event-into-monthly-calendar"><a class="link" href="#add-all-day-event-into-monthly-calendar">G.6. Add all day event into monthly Calendar</a></h3>
+<h3 id="adding-an-all-day-event-into-monthly-calendar"><a class="link" href="#adding-an-all-day-event-into-monthly-calendar">G.10. Adding an all day event into monthly calendar</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -5029,7 +5164,7 @@ Expected: Displays the monthly calendar on the UI with the current week as its d
 </div>
 </div>
 <div class="sect2">
-<h3 id="add-event-into-monthly-calendar"><a class="link" href="#add-event-into-monthly-calendar">G.7. Add event into monthly Calendar</a></h3>
+<h3 id="adding-an-event-into-monthly-calendar"><a class="link" href="#adding-an-event-into-monthly-calendar">G.11. Adding an event into monthly calendar</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -5066,7 +5201,7 @@ Expected: Displays the monthly calendar on the UI with the current week as its d
 </div>
 </div>
 <div class="sect2">
-<h3 id="delete-event-from-monthly-calendar"><a class="link" href="#delete-event-from-monthly-calendar">G.8. Delete event from monthly Calendar</a></h3>
+<h3 id="deleting-an-event-from-monthly-calendar"><a class="link" href="#deleting-an-event-from-monthly-calendar">G.12. Deleting an event from monthly calendar</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -5088,7 +5223,7 @@ Expected: The updated calendar displays on the UI with the current week as its d
 </div>
 </div>
 <div class="sect2">
-<h3 id="clearing-persons"><a class="link" href="#clearing-persons">G.9. Clearing Persons</a></h3>
+<h3 id="clearing-persons"><a class="link" href="#clearing-persons">G.13. Clearing persons</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -5121,7 +5256,7 @@ Expected: No person(s) are deleted. No persons cleared message displayed.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="erasing-ccas"><a class="link" href="#erasing-ccas">G.10. Erasing CCAs</a></h3>
+<h3 id="erasing-ccas"><a class="link" href="#erasing-ccas">G.14. Erasing CCAs</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -5150,7 +5285,7 @@ Expected: No CCA is erased. No CCAs erased message displayed.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exporting-data"><a class="link" href="#exporting-data">G.11. Exporting data</a></h3>
+<h3 id="exporting-data"><a class="link" href="#exporting-data">G.15. Exporting data</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -5179,7 +5314,7 @@ Expected: Data not exported. Invalid file type message displayed.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="importing-data"><a class="link" href="#importing-data">G.12. Importing data</a></h3>
+<h3 id="importing-data"><a class="link" href="#importing-data">G.16. Importing data</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -5210,7 +5345,7 @@ Expected: Data not imported. Invalid file type message displayed.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="searching-a-person"><a class="link" href="#searching-a-person">G.13. Searching a person</a></h3>
+<h3 id="searching-persons"><a class="link" href="#searching-persons">G.17. Searching persons</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -5235,7 +5370,7 @@ Expected: Person Panel List will be empty. 0 persons message displayed.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="uploading-profile-picture"><a class="link" href="#uploading-profile-picture">G.14. Uploading profile picture</a></h3>
+<h3 id="uploading-a-profile-picture"><a class="link" href="#uploading-a-profile-picture">G.18. Uploading a profile picture</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -5270,7 +5405,7 @@ Expected: Image not copied. Invalid image error message displayed.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="creating-cca"><a class="link" href="#creating-cca">G.15. Creating CCA</a></h3>
+<h3 id="creating-cca"><a class="link" href="#creating-cca">G.19. Creating CCA</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -5314,7 +5449,7 @@ Expected: Budget should only contain numbers and it should not be blank.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-cca"><a class="link" href="#deleting-cca">G.16. Deleting CCA</a></h3>
+<h3 id="deleting-cca"><a class="link" href="#deleting-cca">G.20. Deleting CCA</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -5346,7 +5481,7 @@ Expected: Invalid command format!
 </div>
 </div>
 <div class="sect2">
-<h3 id="updating-cca"><a class="link" href="#updating-cca">G.17. Updating CCA</a></h3>
+<h3 id="updating-cca"><a class="link" href="#updating-cca">G.21. Updating CCA</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -5375,7 +5510,7 @@ Expected: CCA updated: Hockey Head: Peter Park Vice-Head: Bernice Yu Budget: 500
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-a-transaction-entry"><a class="link" href="#adding-a-transaction-entry">G.18. Adding a Transaction Entry</a></h3>
+<h3 id="adding-a-transaction-entry"><a class="link" href="#adding-a-transaction-entry">G.22. Adding a Transaction Entry</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -5408,7 +5543,7 @@ Expected: All the fields must be provided.
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-transaction-entry"><a class="link" href="#deleting-a-transaction-entry">G.19. Deleting a Transaction Entry</a></h3>
+<h3 id="deleting-a-transaction-entry"><a class="link" href="#deleting-a-transaction-entry">G.23. Deleting a Transaction Entry</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -5439,7 +5574,7 @@ Expected: The CCA does not exist.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="showing-ccas-budget"><a class="link" href="#showing-ccas-budget">G.20. Showing CCAs' Budget</a></h3>
+<h3 id="showing-ccas-budget"><a class="link" href="#showing-ccas-budget">G.24. Showing CCAs' Budget</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -5468,4 +5603,4 @@ Expected: The CCA does not exist.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 13:36:48 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 13:44:09 UTC</div></div></div></body></html>
