@@ -3,83 +3,134 @@
 <link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">Hallper</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/CS2103-AY1819S1-W16-1/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>SHANNA LIM KENG WOON - Project Portfolio</h1></div><div id="content"><div class="sect1">
 <h2 id="project-hallper"><a class="link" href="#project-hallper">PROJECT: Hallper</a></h2>
 <div class="sectionbody">
-<hr>
-<div class="paragraph">
-<p><em>{<mark>To be edited</mark>}</em></p>
-</div>
+
 </div>
 </div>
 <div class="sect1">
-<h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
+<h2 id="introduction"><a class="link" href="#introduction">Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>AddressBook - Level 4 is a desktop address book application used for teaching Software Engineering principles. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 10 kLoC.</p>
+<p>The purpose of this portfolio is to document my role in and contributions to the project Hallper.</p>
+</div>
+<div class="paragraph">
+<p><strong>About Hallper:</strong> Hallper is a desktop administration application used by Junior Common Room Committee (JCRC) members of
+the halls of NUS that facilitates management of hall residents and events. Our team of five undergraduate computer science students
+decided to create Hallper by building upon the existing AddressBook Level 4 application to improve management
+activities for JCRC members. The user interacts with Hallper using a Command Line Interface (CLI), and Hallper
+information is displayed using a Graphic User Interface (GUI) created with JavaFX. The application is written in Java
+and contains about 60k lines of code (LoC). Some of the main features include new features such as calendar, email and
+budgeting, as well as enhancement features such as erase, search and clear commands.</p>
+</div>
+<div class="paragraph">
+<p><strong>My role and contributions:</strong> I was tasked to implement four features: clear, erase, import and export commands.
+Every two weeks, I reviewed the milestones that were set before our team embarked on building Hallper, based on the
+features I had to implement, so i could complete my assigned portion on time.
+I also helped to review my team members’ codes to check for coding style errors and to keep myself updated with their
+implementations.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>This section lists the major and minor enhancements I have contributed to building Hallper, as well as miscellaneous
+contributions in other aspects of this project.</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement</strong>: added <strong>the ability to undo/redo previous commands</strong></p>
+<p><strong>Major enhancement 1:</strong> added the ability to <strong>import</strong> residents data to update Hallper</p>
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: allows the user to undo all previous commands one at a time. Preceding undo commands can be reversed by using the redo command.</p>
+<p>What it does: This feature allows the user to import xml files from the computer to update resident information stored in
+Hallper. The user can update information in various parts of Hallper based on the format of the imported file.</p>
 </li>
 <li>
-<p>Justification: This feature improves the product significantly because a user can make mistakes in commands and the app should provide a convenient way to rectify them.</p>
+<p>Justification: This feature improves Hallper significantly as the user can mass update resident information using a single
+command without having to key in the data one by one.</p>
 </li>
 <li>
-<p>Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands.</p>
-</li>
-<li>
-<p>Credits: <em>{mention here if you reused any code/ideas from elsewhere or if a third-party library is heavily used in the feature so that a reader can make a more accurate judgement of how much effort went into the feature}</em></p>
+<p>Highlights: This enhancement is highly case-sensitive as it requires the format of the imported file to be strictly
+followed for the data to be successfully read. However, more file formats can be added by future developers based on
+the current implementation of this command.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>: added a history command that allows the user to navigate to previous commands using up/down keys.</p>
-</li>
-<li>
-<p><strong>Code contributed</strong>: [<a href="https://github.com">Functional code</a>] [<a href="https://github.com">Test code</a>] <em>{give links to collated code files}</em></p>
-</li>
-<li>
-<p><strong>Other contributions</strong>:</p>
+<p><strong>Major enhancement 2:</strong> added the ability to <strong>export</strong> residents data from Hallper</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Project management:</p>
-<div class="ulist">
-<ul>
+<p>What it does: This feature allows the user to export all residents data in Hallper to an xml file on the computer.</p>
+</li>
 <li>
-<p>Managed releases <code>v1.3</code> - <code>v1.5rc</code> (3 releases) on GitHub</p>
+<p>Justification: This feature facilitates transporting of Hallper information across various devices, accompanied by
+the import command. Residents information can also be extracted to the computer for viewing or usage outside of the
+application.</p>
+</li>
+<li>
+<p>Highlights: This enhancement allows users to export the xml file to any valid directory on the computer.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>Enhancements to existing features:</p>
+<p><strong>Minor enhancement 1:</strong> added the ability to <strong>erase</strong> CCAs from residents in Hallper</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Updated the GUI color scheme (Pull requests <a href="https://github.com">#33</a>, <a href="https://github.com">#34</a>)</p>
+<p>What it does: This feature allows the user to erase specified CCAs from all residents in Hallper.</p>
 </li>
 <li>
-<p>Wrote additional tests for existing features to increase coverage from 88% to 92% (Pull requests <a href="https://github.com">#36</a>, <a href="https://github.com">#38</a>)</p>
+<p>Justification: This feature speeds up the reassigning of CCAs by facilitating mass CCA erasure. Users need not go
+through the residents one by one to remove the target CCAs.</p>
+</li>
+<li>
+<p>Highlights: This enhancement is a prelude to the import feature as it clears CCAs of the residents for reassignment
+later using the import feature.</p>
 </li>
 </ul>
 </div>
 </li>
+<li>
+<p><strong>Minor enhancement 2:</strong> improved the ability to <strong>clear</strong> residents from Hallper</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: This feature allows the user to clear residents associated with the specified CCA and/or room
+number, or to clear the entire database.</p>
+</li>
+<li>
+<p>Justification: This feature expands the functions of the existing clear command by allowing more flexible clearing
+options. The original clear command only allowed for clearing the entire database.</p>
+</li>
+<li>
+<p>Highlights: This enhancement allows the user to clear residents under multiple keywords (CCA, room number) using
+just a single command line as multiple keywords can be specified at once in any order.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Code contributed:
+[<a href="https://nus-cs2103-ay1819s1.github.io/cs2103-dashboard/#=undefined&amp;search=kengwoon">Project Code Dashboard</a>]</p>
+</li>
+<li>
+<p>Other contributions:</p>
+<div class="ulist">
+<ul>
 <li>
 <p>Documentation:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Did cosmetic tweaks to existing contents of the User Guide: <a href="https://github.com">#14</a></p>
+<p>Updated existing content in the User Guide: <a href="https://github.com">#65</a> <a href="https://github.com">#85</a></p>
+</li>
+<li>
+<p>Documented implementation for my assigned commands in Developer Guide: <a href="https://github.com">#112</a></p>
 </li>
 </ul>
 </div>
@@ -89,29 +140,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com">#12</a>, <a href="https://github.com">#32</a>, <a href="https://github.com">#19</a>, <a href="https://github.com">#42</a></p>
-</li>
-<li>
-<p>Contributed to forum discussions (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>, <a href="https://github.com">4</a>)</p>
-</li>
-<li>
-<p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>)</p>
-</li>
-<li>
-<p>Some parts of the history feature I added was adopted by several other class mates (<a href="https://github.com">1</a>, <a href="https://github.com">2</a>)</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Tools:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Integrated a third party library (Natty) to the project (<a href="https://github.com">#42</a>)</p>
-</li>
-<li>
-<p>Integrated a new Github plugin (CircleCI) to the team repo</p>
+<p>Reviewed pull requests by team members at each milestone.</p>
 </li>
 </ul>
 </div>
@@ -120,9 +149,6 @@
 </div>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p><em>{you can add/remove categories in the list above}</em></p>
 </div>
 </div>
 </div>
@@ -135,83 +161,224 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This section contains my contributions to the User Guide for Hallper.
+It has been documented and worded to facilitate mastering of features by end-users.</p></td>
 </tr>
 </tbody>
 </table>
 <div class="sect3">
-<h4 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">Undoing previous command : <code>undo</code></a></h4>
+<h4 id="clearing-all-residents-code-clear-all-code"><a class="link" href="#clearing-all-residents-code-clear-all-code">Clearing all residents : <code>clear all</code></a></h4>
 <div class="paragraph">
-<p>Restores Hallper to the state before the previous <em>undoable</em> command was executed.<br>
-Format: <code>undo</code></p>
+<p>Clears all residents from Hallper.<br>
+Format: <code>clear all</code></p>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Undoable commands: those commands that modify Hallper&#8217;s content (<code>add</code>, <code>delete</code>, <code>edit</code> and <code>clear</code>).</p>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>all</code> is case-sensitive.</p>
+</li>
+</ul>
 </div>
-</td>
-</tr>
-</table>
+</div>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
+<p>Example:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>delete 1</code><br>
-<code>list</code><br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br></p>
-</li>
-<li>
-<p><code>select 1</code><br>
-<code>list</code><br>
-<code>undo</code><br>
-The <code>undo</code> command fails as there are no undoable commands executed previously.</p>
-</li>
-<li>
-<p><code>delete 1</code><br>
-<code>clear</code><br>
-<code>undo</code> (reverses the <code>clear</code> command)<br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br></p>
+<p><code>clear all</code><br>
+Clears <code>all</code> residents in Hallper.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">Redoing the previously undone command : <code>redo</code></a></h4>
+<h4 id="clearing-specific-residents-code-clear-code"><a class="link" href="#clearing-specific-residents-code-clear-code">Clearing specific residents : <code>clear</code></a></h4>
 <div class="paragraph">
-<p>Reverses the most recent <code>undo</code> command.<br>
-Format: <code>redo</code></p>
+<p>Clears residents associated with specified CCAs from Hallper.<br>
+Format: <code>clear KEYWORD&#8230;&#8203;</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Clears residents associated with specified KEYWORD.</p>
+</li>
+<li>
+<p>KEYWORD refers to either a CCA or a ROOM.</p>
+</li>
+<li>
+<p>Multiple KEYWORDS can be specified at once, in any order.</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
+<p>Example:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>delete 1</code><br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br>
-<code>redo</code> (reapplies the <code>delete 1</code> command)<br></p>
+<p><code>clear basketball</code><br>
+Clears all residents associated with CCA <code>basketball</code>.</p>
 </li>
 <li>
-<p><code>delete 1</code><br>
-<code>redo</code><br>
-The <code>redo</code> command fails as there are no <code>undo</code> commands executed previously.</p>
+<p><code>clear A123</code><br>
+Clears all residents associated with room <code>A123</code>.</p>
 </li>
 <li>
-<p><code>delete 1</code><br>
-<code>clear</code><br>
-<code>undo</code> (reverses the <code>clear</code> command)<br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br>
-<code>redo</code> (reapplies the <code>delete 1</code> command)<br>
-<code>redo</code> (reapplies the <code>clear</code> command)<br></p>
+<p><code>clear baseball C456</code><br>
+Clears all residents associated with CCA <code>baseball</code> and room <code>C456</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="erasing-specified-ccas-code-erase-code"><a class="link" href="#erasing-specified-ccas-code-erase-code">Erasing specified CCAs : <code>erase</code></a></h4>
+<div class="paragraph">
+<p>Erases all specified CCA(s) from all residents from Hallper.<br>
+Format: <code>erase CCA&#8230;&#8203;</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Erases the CCA specified for all associated residents.</p>
+</li>
+<li>
+<p>The CCA specified must be an existing CCA.</p>
+</li>
+<li>
+<p>You can erase multiple CCAs by specifying the CCAs all at once.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>erase basketball</code><br>
+Erases <code>basketball</code> from residents associated with this CCA.<br></p>
+</li>
+<li>
+<p><code>erase basketball netball</code><br>
+Erases <code>basketball</code> and <code>netball</code> from residents associated with these CCAs.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="exporting-contact-information-code-export-code"><a class="link" href="#exporting-contact-information-code-export-code">Exporting contact information: <code>export</code></a></h4>
+<div class="paragraph">
+<p>Exports file containing existing residents information in Hallper.<br>
+Formate: <code>export dst/PATH fn/FILENAME</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The file exported will be a <strong><code>.xml</code></strong> file.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>export dst/C://Users/Files fn/data.xml</code><br>
+Exports Hallper residents information into <code>data.xml</code> located at <code>C://Users/Files</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="importing-residents-information-code-import-code"><a class="link" href="#importing-residents-information-code-import-code">Importing residents information : <code>import</code></a></h4>
+<div class="paragraph">
+<p>Imports file containing Hallper-related information and updates Hallper accordingly.<br>
+Format: <code>import f/FILEPATH</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Allows for the mass upload of resident(s) information.</p>
+</li>
+<li>
+<p>Allows for the mass upload of CCA(s) list.</p>
+</li>
+<li>
+<p>Allows for the mass upload of budget book information.</p>
+</li>
+<li>
+<p>Allows for the mass upload of CCA transaction(s).</p>
+</li>
+<li>
+<p>The file to be uploaded must be a <strong><code>.xml</code></strong> file.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>File format examples for importable <code>.xml</code> files are as shown below:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AddressBookExample.png" alt="AddressBookExample" width="790">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.1.9.1: Resident information example. Multiple <code>persons</code> can be specified.</em></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/CCAListExample.png" alt="CCAListExample" width="790">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.1.9.2: CCA list example. Residents are identified by their unique room number. Multiple <code>room</code> can be
+specified for multiple <code>cca</code>.</em></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/BudgetBookExample.png" alt="BudgetBookExample" width="790">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.1.9.3: Budget book information example. Multiple <code>transaction</code> can be specified for multiple <code>ccas</code>.</em></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/TransactionsExample.png" alt="TransactionsExample" width="790">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.1.9.4: Transaction information example. Multiple <code>transaction</code> can be specified.</em></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>import f/C://Users/Files/data.xml</code><br>
+Imports <code>data.xml</code> file to be read and for Hallper to be updated accordingly.</p>
 </li>
 </ul>
 </div>
@@ -227,226 +394,107 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This section contains my contributions to the Developer Guide for Hallper.
+It contains a technical documentation of my implementations of the features assigned to me as mentioned in the
+introduction.</p></td>
 </tr>
 </tbody>
 </table>
 <div class="sect2">
-<h3 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">Undo/Redo feature</a></h3>
+<h3 id="clear-feature"><a class="link" href="#clear-feature">Clear feature</a></h3>
 <div class="sect3">
 <h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
 <div class="paragraph">
-<p>The undo/redo mechanism is facilitated by <code>VersionedAddressBook</code>.
-It extends <code>AddressBook</code> with an undo/redo history, stored internally as an <code>addressBookStateList</code> and <code>currentStatePointer</code>.
-Additionally, it implements the following operations:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>VersionedAddressBook#commit()</code>&#8201;&#8212;&#8201;Saves the current address book state in its history.</p>
-</li>
-<li>
-<p><code>VersionedAddressBook#undo()</code>&#8201;&#8212;&#8201;Restores the previous address book state from its history.</p>
-</li>
-<li>
-<p><code>VersionedAddressBook#redo()</code>&#8201;&#8212;&#8201;Restores a previously undone address book state from its history.</p>
-</li>
-</ul>
+<p>The clear feature allows the user to clear persons associated with specified keywords from the database.</p>
 </div>
 <div class="paragraph">
-<p>These operations are exposed in the <code>Model</code> interface as <code>Model#commitAddressBook()</code>, <code>Model#undoAddressBook()</code> and <code>Model#redoAddressBook()</code> respectively.</p>
+<p>It implements the following operations:
+* <code>ClearCommand#clearAll(Model model)</code>&#8201;&#8212;&#8201;Clears the entire database.
+* <code>ClearCommand#clearSpecific(Model model)</code>&#8201;&#8212;&#8201;Clears persons associated with specified keywords.</p>
 </div>
 <div class="paragraph">
-<p>Given below is an example usage scenario and how the undo/redo mechanism behaves at each step.</p>
+<p>These operations are exposed in the <code>Model</code> interface as <code>Model#commitAddressBook</code>, <code>Model#resetData()</code> and
+<code>Model#clearMultiplePersons(List&lt;Person&gt; target)</code>.</p>
 </div>
-<div class="sect4">
-<h5 id="command-undo"><a class="link" href="#command-undo">Command: undo</a></h5>
 <div class="paragraph">
-<p>1) The user launches the application for the first time. The <code>VersionedAddressBook</code> will be initialized with the
-initial address book state, and the <code>currentStatePointer</code> pointing to that single address book state.</p>
+<p>Given below is an example usage scenario and how the clear mechanism behaves at each step:</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 1:</strong> The user specifies CCA(s) and/or room(s) of persons to be cleared from the database.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 2:</strong> <code>ClearCommandParser</code> checks for the validity of the CCA(s) and/or room(s) specified. If non-existent argument(s) specified,
+a <code>CommandException</code> will be thrown. A combination of existing and non-existent arguments specified will be successfully parsed.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 3:</strong> <code>ClearCommand#execute(Model model, CommandHistory history)</code> is then called and invokes <code>ClearCommand#clearSpecific(Model model)</code>,
+which uses the specified arguments to create a persons list containing associated persons to be cleared.
+<code>ModelManager#clearMultiplePersons(List&lt;Person&gt; target)</code> is then invoked to clear the internal list of persons in target.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 4:</strong> After the internal list is cleared, <code>ModelManager#clearMultiplePersons(List&lt;Person&gt; target)</code>
+then invokes <code>ModelManager#indicateAddressBookChanged()</code>, which raises an <code>AddressBookChangedEvent</code> which is handled by
+<code>EventsCenter</code>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 5:</strong> <code>AddressBookChangedEvent</code> is then handled by
+<code>StorageManager#handleAddressBookChangedEvent(AddressBookChangedEvent event)</code>.
+<code>StorageManager#saveAddressBook(ReadOnlyAddressBook data)</code> is then called to update the existing <code>addressbook.xml</code> file
+with the cleared persons list.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the clear operation works:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/UndoRedoStartingStateListDiagram.png" alt="UndoRedoStartingStateListDiagram" width="800">
+<img src="../images/ClearCommandSequenceDiagram.png" alt="ClearCommandSequenceDiagram" width="800">
 </div>
 </div>
 <div class="paragraph">
-<p>2) The user executes <code>delete 5</code> command to delete the 5th person in the address book. The <code>delete</code> command calls
-<code>Model#commitAddressBook()</code>, causing the modified state of the address book after the <code>delete 5</code> command executes to be saved in the <code>addressBookStateList</code>, and the <code>currentStatePointer</code> is shifted to the newly inserted address book state.</p>
+<p><em>Figure 4.5.1.1: Sequence diagram of clear command on specified keywords.</em></p>
+</div>
+<div class="paragraph">
+<p>The following activity diagram summarizes what happens when a user executes the clear command:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/UndoRedoNewCommand1StateListDiagram.png" alt="UndoRedoNewCommand1StateListDiagram" width="800">
+<img src="../images/ClearCommandActivityDiagram.png" alt="ClearCommandActivityDiagram" width="650">
 </div>
 </div>
 <div class="paragraph">
-<p>3) The user executes <code>add n/David &#8230;&#8203;</code> to add a new person. The <code>add</code> command also calls <code>Model#commitAddressBook()</code>,
-causing another modified address book state to be saved into the <code>addressBookStateList</code>.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoNewCommand2StateListDiagram.png" alt="UndoRedoNewCommand2StateListDiagram" width="800">
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If a command fails its execution, it will not call <code>Model#commitAddressBook()</code>, so the address book state will not be saved into the <code>addressBookStateList</code>.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>4) The user now decides that adding the person was a mistake, and decides to undo that action by executing the <code>undo</code>
-command. The <code>undo</code> command will call <code>Model#undoAddressBook()</code>, which will shift the <code>currentStatePointer</code> once to the left, pointing it to the previous address book state, and restores the address book to that state.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoExecuteUndoStateListDiagram.png" alt="UndoRedoExecuteUndoStateListDiagram" width="800">
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If the <code>currentStatePointer</code> is at index 0, pointing to the initial address book state, then there are no previous address book states to restore. The <code>undo</code> command uses <code>Model#canUndoAddressBook()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the undo.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>The following sequence diagram shows how the undo operation works:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoSequenceDiagram.png" alt="UndoRedoSequenceDiagram" width="800">
-</div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="command-redo"><a class="link" href="#command-redo">Command: redo</a></h5>
-<div class="paragraph">
-<p>The <code>redo</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>Model#redoAddressBook()</code>, which shifts the <code>currentStatePointer</code> once to the right, pointing to the previously undone state, and restores the address book to that state.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If the <code>currentStatePointer</code> is at index <code>addressBookStateList.size() - 1</code>, pointing to the latest address book state, then there are no undone address book states to restore. The <code>redo</code> command uses <code>Model#canRedoAddressBook()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p><strong>Things to Note</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Not all commands can undo or redo. Some commands, such as <code>list</code>, do not modify the address book and
-will usually not call <code>Model#commitAddressBook()</code>, <code>Model#undoAddressBook()</code> or <code>Model#redoAddressBook()</code>. Thus, the <code>addressBookStateList</code> remains unchanged.</p>
-</li>
-</ul>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoNewCommand3StateListDiagram.png" alt="UndoRedoNewCommand3StateListDiagram" width="800">
-</div>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Some commands such as <code>clear</code>, will calls <code>Model#commitAddressBook()</code>. In this case, the <code>currentStatePointer</code> is
-not pointing at the end of the <code>addressBookStateList</code>, all address book states after the <code>currentStatePointer</code> will be purged. We designed it this way because it no longer makes sense to redo the <code>add n/David &#8230;&#8203;</code> command. This is the behavior that most modern desktop applications follow.</p>
-</li>
-</ul>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoNewCommand4StateListDiagram.png" alt="UndoRedoNewCommand4StateListDiagram" width="800">
-</div>
-</div>
-<div class="paragraph">
-<p>The following activity diagram summarizes what happens when a user executes a new command:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoActivityDiagram.png" alt="UndoRedoActivityDiagram" width="650">
-</div>
-</div>
+<p><em>Figure 4.5.1.2: Activity diagram showing different path flows of clear command.</em></p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
 <div class="sect4">
-<h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
+<h5 id="aspect-merging-command-to-clear-entire-database-or-specific-persons"><a class="link" href="#aspect-merging-command-to-clear-entire-database-or-specific-persons">Aspect: Merging command to clear entire database or specific persons</a></h5>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Saves the entire address book.</p>
+<p><strong>Alternative 1 (current choice):</strong> Clear command is merged.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Easy to implement.</p>
+<p>Pros: Due to the similar function of clearing persons from the database, merging them under a single command makes it
+easier for the user to remember and produce the command input. Clearing of the entire database is also rarely executed
+so it makes logical sense to merge these commands.</p>
 </li>
 <li>
-<p>Cons: May have performance issues in terms of memory usage.</p>
+<p>Cons: The user will not be able to use <code>all</code> as a CCA as it is a reserved keyword to clear the entire database.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> Individual command knows how to undo/redo by itself.</p>
+<p><strong>Alternative 2:</strong> Clear commands are separated.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Will use less memory (e.g. for <code>delete</code>, just save the person being deleted).</p>
+<p>Pros: The user can clearly distinguish between the two features by renaming them with different command inputs.</p>
 </li>
 <li>
-<p>Cons: Must ensure that the implementation of each individual command are correct.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect4">
-<h5 id="aspect-data-structure-to-support-the-undo-redo-commands"><a class="link" href="#aspect-data-structure-to-support-the-undo-redo-commands">Aspect: Data structure to support the undo/redo commands</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Use a list to store the history of address book states.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easy for new Computer Science student undergraduates to understand, who are likely to be the new incoming developers of our project.</p>
-</li>
-<li>
-<p>Cons: Logic is duplicated twice. For example, when a new command is executed, we must remember to update both <code>HistoryManager</code> and <code>VersionedAddressBook</code>.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Use <code>HistoryManager</code> for undo/redo</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Do not need to maintain a separate list, and just reuse what is already in the codebase.</p>
-</li>
-<li>
-<p>Cons: Requires dealing with commands that have already been undone: We must remember to skip these commands. Violates Single Responsibility Principle and Separation of Concerns as <code>HistoryManager</code> now needs to do two different things.</p>
+<p>Cons: There is no need for a separate command for clearing the entire database as it is a rarely used feature.</p>
 </li>
 </ul>
 </div>
@@ -457,19 +505,338 @@ not pointing at the end of the <code>addressBookStateList</code>, all address bo
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">[Proposed] Data encryption</a></h3>
+<h3 id="erase-feature"><a class="link" href="#erase-feature">Erase Feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">Current Implementation</a></h4>
 <div class="paragraph">
-<p><em>{Explain here how the data encryption feature will be implemented}</em></p>
+<p>The erase feature allows the user to erase specified CCAs from persons associated with the CCAs in the database.</p>
 </div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="project-powerpointlabs"><a class="link" href="#project-powerpointlabs">PROJECT: PowerPointLabs</a></h2>
-<div class="sectionbody">
-<hr>
 <div class="paragraph">
-<p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
+<p>It implements the following operation:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>EraseCommand#execute(Model model, CommandHistory history)</code>&#8201;&#8212;&#8201;Executes the erasure of CCAs from persons in the database.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This operation is exposed in the <code>Model</code> interface as <code>Model#commitAddressBook()</code> and
+<code>Model#removeTagsFromPersons(ArrayList&lt;Person&gt; target, ArrayList&lt;Person&gt; original)</code>.</p>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the erase mechanism behaves at each step:</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 1:</strong> The user specifies CCA(s) to be erased from the database.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 2:</strong> <code>EraseCommandParser</code> checks for the validity of the CCA(s) specified. If non-existent CCA(s) specified,
+a <code>CommandException</code> will be thrown. A combination of existing and non-existent CCAs specified will be successfully parsed.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 3:</strong> <code>EraseCommand#execute(Model model, CommandHistory history)</code> is then called and uses the specified CCA arguments
+to create a new persons list with specified CCAs erased from associated persons.
+<code>ModelManager#removeTagsFromPersons(List&lt;Person&gt; editedPersons, List&lt;Person&gt; targets)</code> is then invoked to update
+the internal list with the new persons list.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 4:</strong> After the internal list is updated, <code>ModelManager#removeTagsFromPersons(List&lt;Person&gt; editedPersons, List&lt;Person&gt; targets)</code>
+then invokes <code>ModelManager#indicateAddressBookChanged()</code>, which raises an <code>AddressBookChangedEvent</code> which is handled by
+<code>EventsCenter</code>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 5:</strong> <code>AddressBookChangedEvent</code> is then handled by
+<code>StorageManager#handleAddressBookChangedEvent(AddressBookChangedEvent event)</code>.
+<code>StorageManager#saveAddressBook(ReadOnlyAddressBook data)</code> is then called to update the existing <code>addressbook.xml</code> file
+with the new persons list.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the erase operation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/EraseCommandSequenceDiagram.png" alt="EraseCommandSequenceDiagram" width="800">
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-01 16:50:13 UTC</div></div></div></body></html>
+<div class="paragraph">
+<p><em>Figure 4.6.1.1: Sequence diagram of erase command on specified keywords.</em></p>
+</div>
+<div class="paragraph">
+<p>The following activity diagram summarizes what happens when a user executes the erase command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/EraseCommandActivityDiagram.png" alt="EraseCommandActivityDiagram" width="650">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.6.1.2: Activity diagram showing different path flows of erase command.</em></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-algorithm-to-identify-persons-associated-with-ccas-to-be-erased"><a class="link" href="#aspect-algorithm-to-identify-persons-associated-with-ccas-to-be-erased">Aspect: Algorithm to identify persons associated with CCAs to be erased</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Loop through current internal list to extract associated persons.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: The implementation of the extraction algorithm is straightforward and will not miss out any persons.</p>
+</li>
+<li>
+<p>Cons: The execution time will be slow for large quantity of persons in the internal list.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Store persons in a multilayer linked list data structure.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: The number of CCAs are fewer than the number of persons in the database, so it would be faster to search for the
+target CCAs in the first layer of the linked list and obtain the entire second layer list of persons associated with the CCA.</p>
+</li>
+<li>
+<p>Cons: The implementation is rather complicated and requires other commands such as add, edit and delete to be modified
+as well. More space would be needed on the computer to store the multilayer linked list other than the actual
+<code>addressbook.xml</code> file.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="export-feature"><a class="link" href="#export-feature">Export feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">Current Implementation</a></h4>
+<div class="paragraph">
+<p>The export feature allows Hallper data to be exported as an <code>xml</code> file to the computer.</p>
+</div>
+<div class="paragraph">
+<p>It implements the following operation:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ExportCommand#execute(Model model, CommandHistory history)</code>&#8201;&#8212;&#8201;Exports current Hallper data as an <code>xml</code> file to
+the specified path.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This operation is exposed in the <code>Model</code> interface as <code>Model#exportAddressBook(Path filePath)</code>.</p>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the export mechanism behaves at each step.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 1:</strong> The user exports an 'xml' file by specifying the destination path and name of the exported file.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 2:</strong> <code>ExportCommandParser</code> checks for the validity of the path and file name. If path or file name are invalid, Hallper
+data will not be exported. Otherwise, path and filename will be parsed into a single, full path.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 3:</strong> <code>ExportCommand#execute(Model model, CommandHistory history)</code> then invokes
+<code>ModelManager#exportAddressBook(Path filePath)</code> which raises an <code>ExportAddressBookEvent</code>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 4:</strong> <code>ExportAddressBookEvent</code> is then handled by
+<code>StorageManager#handleExportAddressBookEvent(ExportAddressBookEvent event)</code>.
+<code>StorageManager#exportAddressBook(ReadOnlyAddressBook addressBook, Path path)</code> is then called to export Hallper&#8217;s
+storage data to the specified path.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the export operation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ExportCommandSequenceDiagram.png" alt="ExportCommandSequenceDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.8.1.1: Sequence diagram of export command.</em></p>
+</div>
+<div class="paragraph">
+<p>The following activity diagram summarizes what happens when a user executes the export command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ExportCommandActivityDiagram.png" alt="ExportCommandActivityDiagram" width="650">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.8.1.2: Activity diagram showing different path flows of export command.</em></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-choice-of-export-format"><a class="link" href="#aspect-choice-of-export-format">Aspect: Choice of export format</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Export <code>.xml</code> format only.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy for user to update and re-import the <code>.xml</code> file. Standardised format for Hallper-related data files.</p>
+</li>
+<li>
+<p>Cons: Difficult to convert/transfer data to other applications due to limited export format. Need to use external
+applications to convert <code>.xml</code> file.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Export <code>.xml</code>, <code>.txt</code> and <code>.xlsx</code> formats.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: More options for user to export Hallper data. Exported files can be read across different applications.</p>
+</li>
+<li>
+<p>Cons: Unused file formats. <code>.xml</code> is the format that is mainly used by Hallper so <code>.txt</code> and <code>.xlsx</code> may be
+underused or unused.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="import-feature"><a class="link" href="#import-feature">Import feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">Current Implementation</a></h4>
+<div class="paragraph">
+<p>The import feature allows <code>.xml</code> files of different formats to be imported from the computer.</p>
+</div>
+<div class="paragraph">
+<p>It implements the following operations and classes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ImportCommand#parseFile()</code>&#8201;&#8212;&#8201;Parses specified path into document for reading.</p>
+</li>
+<li>
+<p><code>ImportAddressBook#execute(Document doc, Model model)</code>&#8201;&#8212;&#8201;Imports <code>.xml</code> file from the specified path to update
+Hallper data.</p>
+</li>
+<li>
+<p><code>ImportCcaList#execute(Document doc, Model model)</code>&#8201;&#8212;&#8201;Imports <code>.xml</code> file from the specified path to update Hallper
+contacts' CCAs.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These operations are exposed in the <code>Model</code> interface as <code>Model#commitAddressBook()</code>, <code>Model#addMultiplePersons()</code>
+and <code>Model#updateMultiplePersons</code>.</p>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the import mechanism behaves at each step.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 1:</strong> The user imports <code>.xml</code> file by specifying the path of the file.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 2:</strong> <code>ImportCommandParser</code> checks for the validity of the path and <code>.xml</code> file format. If <code>.xml</code> file has an invalid
+format, the specified file will not be imported.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 3:</strong> <code>ImportCommand#parseFile()</code> then prepares the file for reading by parsing into a document.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 4:</strong> <code>ImportCommand#execute(Model model, CommandHistory history)</code> then invokes <code>ImportAddressBook#execute(Document doc,
+Model model)</code> to read the document.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 5:</strong> After the document data is read,  <code>ImportAddressBook#execute(Document doc, Model model)</code> then invokes
+<code>ModelManager#addMultiplePersons(List&lt;Person&gt; personList)</code> to update Hallper&#8217;s internal list and
+<code>ModelManager#indicateAddressBookChanged()</code>, which raises an <code>AddressBookChangedEvent</code> which is handled by
+<code>EventsCenter</code>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 6:</strong> <code>AddressBookChangedEvent</code> is then handled by
+<code>StorageManager#handleAddressBookChangedEvent(AddressBookChangedEvent event)</code>.
+<code>StorageManager#saveAddressBook(ReadOnlyAddressBook data)</code> is then called to update the existing <code>addressbook.xml</code> file
+with the new contacts.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the import operation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ImportCommandSequenceDiagram.png" alt="ImportCommandSequenceDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.7.1.1: Sequence diagram of import command.</em></p>
+</div>
+<div class="paragraph">
+<p>The following activity diagram summarizes what happens when a user executes the import command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ImportCommandActivityDiagram.png" alt="ImportCommandActivityDiagram" width="650">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.7.1.2: Activity diagram showing different path flows of import command.</em></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-choice-of-component-to-read-imported-file"><a class="link" href="#aspect-choice-of-component-to-read-imported-file">Aspect: Choice of component to read imported file</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Reads file in <code>Logic</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to change parsing of <code>.xml</code> file when <code>.xml</code> file format changes. New <code>.xml</code> file formats can be added
+without disrupting the existing parsers.</p>
+</li>
+<li>
+<p>Cons: Importing from the computer is a storage-related feature but the reading of the file is located outside of
+Storage component.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Reads file in <code>Storage</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Proper grouping of import implementation inside related component.</p>
+</li>
+<li>
+<p>Cons: More complicated implementation if more <code>.xml</code> file formats are added to be parsed in the future.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 03:35:22 UTC</div></div></div></body></html>

@@ -17,28 +17,28 @@
 <li><a href="#updating-hallper">4.1. Updating Hallper</a>
 <ul class="sectlevel3">
 <li><a href="#adding-a-person-code-add-code">4.1.1. Adding a person: <code>add</code></a></li>
-<li><a href="#adding-a-picture-to-resident-detail-code-image-code">4.1.2. Adding a picture to resident detail : <code>image</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-all-code">4.1.3. Clearing all entries : <code>clear all</code></a></li>
-<li><a href="#clearing-all-specified-tags-code-erase-code">4.1.4. Clearing all specified tags : <code>erase</code></a></li>
-<li><a href="#clearing-specific-entries-code-clear-code">4.1.5. Clearing specific entries : <code>clear</code></a></li>
-<li><a href="#editing-a-person-code-edit-code">4.1.6. Editing a person : <code>edit</code></a></li>
+<li><a href="#adds-a-picture-to-resident-detail-code-image-code">4.1.2. Adds a picture to resident detail : <code>image</code></a></li>
+<li><a href="#clearing-all-residents-code-clear-all-code">4.1.3. Clearing all residents : <code>clear all</code></a></li>
+<li><a href="#clearing-specific-residents-code-clear-code">4.1.4. Clearing specific residents : <code>clear</code></a></li>
+<li><a href="#editing-a-resident-code-edit-code">4.1.5. Editing a resident : <code>edit</code></a></li>
+<li><a href="#erasing-specified-ccas-code-erase-code">4.1.6. Erasing specified CCAs : <code>erase</code></a></li>
 <li><a href="#exporting-contact-information-code-export-code">4.1.7. Exporting contact information: <code>export</code></a></li>
-<li><a href="#deleting-a-person-code-delete-code">4.1.8. Deleting a person : <code>delete</code></a></li>
-<li><a href="#deleting-a-transaction-entry-code-delete_trans-code">4.1.9. Deleting a transaction entry : <code>delete_trans</code></a></li>
-<li><a href="#importing-contact-information-code-import-code">4.1.10. Importing contact information : <code>import</code></a></li>
+<li><a href="#deleting-a-resident-code-delete-code">4.1.8. Deleting a resident : <code>delete</code></a></li>
+<li><a href="#importing-residents-information-code-import-code">4.1.9. Importing residents information : <code>import</code></a></li>
 </ul>
 </li>
 <li><a href="#viewing-hallper">4.2. Viewing Hallper</a>
 <ul class="sectlevel3">
-<li><a href="#searching-all-persons-under-specified-tag-code-search-code">4.2.1. Searching all persons under specified tag : <code>search</code></a></li>
+<li><a href="#listing-all-persons-code-list-code">4.2.1. Listing all persons : <code>list</code></a></li>
 <li><a href="#locating-persons-by-name-code-find-code">4.2.2. Locating persons by name: <code>find</code></a></li>
-<li><a href="#listing-all-persons-code-list-code">4.2.3. Listing all persons : <code>list</code></a></li>
+<li><a href="#searching-all-persons-under-specified-tag-code-search-code">4.2.3. Searching all persons under specified tag : <code>search</code></a></li>
+<li><a href="#selecting-a-person-code-select-code">4.2.4. Selecting a person: <code>select</code></a></li>
 </ul>
 </li>
 <li><a href="#email">4.3. Email</a>
 <ul class="sectlevel3">
 <li><a href="#composing-an-email-to-selected-indexes-code-compose_email_index-code">4.3.1. Composing an email to selected indexes: <code>compose_email_index</code></a></li>
-<li><a href="#composing-an-email-to-currently-listed-people-code-compose_email_list-code">4.3.2. Composing an email to currently listed people: <code>compose_email_list</code></a></li>
+<li><a href="#composing-an-email-to-currently-listed-residents-code-compose_email_list-code">4.3.2. Composing an email to currently listed residents: <code>compose_email_list</code></a></li>
 <li><a href="#deleting-an-email-code-delete_email-code">4.3.3. Deleting an email : <code>delete_email</code></a></li>
 <li><a href="#listing-all-emails-code-list_emails-code">4.3.4. Listing all emails : <code>list_emails</code></a></li>
 <li><a href="#viewing-an-email-code-view_email-code">4.3.5. Viewing an email : <code>view_email</code></a></li>
@@ -58,18 +58,20 @@
 <li><a href="#adding-a-cca-code-create-code">4.5.1. Adding a cca: <code>create</code></a></li>
 <li><a href="#adding-a-transaction-code-add_trans-code">4.5.2. Adding a transaction: <code>add_trans</code></a></li>
 <li><a href="#deleting-a-cca-code-delete_cca-code">4.5.3. Deleting a cca : <code>delete_cca</code></a></li>
-<li><a href="#updating-a-cca-code-update-code">4.5.4. Updating a cca : <code>update</code></a></li>
-<li><a href="#viewing-all-the-ccas-budget-code-budget-code">4.5.5. Viewing all the ccas' budget : <code>budget</code></a></li>
+<li><a href="#deleting-a-transaction-entry-code-delete_trans-code">4.5.4. Deleting a transaction entry : <code>delete_trans</code></a></li>
+<li><a href="#updating-a-cca-code-update-code">4.5.5. Updating a cca : <code>update</code></a></li>
+<li><a href="#viewing-all-the-ccas-budget-code-budget-code">4.5.6. Viewing all the ccas' budget : <code>budget</code></a></li>
 </ul>
 </li>
 <li><a href="#miscellaneous">4.6. Miscellaneous</a>
 <ul class="sectlevel3">
-<li><a href="#viewing-help-code-help-code">4.6.1. Viewing help : <code>help</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">4.6.1. Exiting the program : <code>exit</code></a></li>
 <li><a href="#listing-entered-commands-code-history-code">4.6.2. Listing entered commands : <code>history</code></a></li>
-<li><a href="#undoing-previous-command-code-undo-code">4.6.3. Undoing previous command : <code>undo</code></a></li>
-<li><a href="#redoing-the-previously-undone-command-code-redo-code">4.6.4. Redoing the previously undone command : <code>redo</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">4.6.5. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">4.6.6. Saving the data</a></li>
+<li><a href="#redoing-the-previously-undone-command-code-redo-code">4.6.3. Redoing the previously undone command : <code>redo</code></a></li>
+<li><a href="#saving-the-data">4.6.4. Saving the data</a></li>
+<li><a href="#undoing-previous-command-code-undo-code">4.6.5. Undoing previous command : <code>undo</code></a></li>
+<li><a href="#viewing-help-code-help-code">4.6.6. Viewing help : <code>help</code></a></li>
+<li><a href="#displaying-profile-image-code-coming-in-v2-0-code">4.6.7. Displaying profile image <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
 </ul>
@@ -106,7 +108,7 @@
 <p>Ensure you have Java version <code>9</code> or later installed in your Computer.</p>
 </li>
 <li>
-<p>Download the latest <code>Hallper.jar</code> <a href="https://github.com/CS2103-AY1819S1-W16-1/main/tree/master/releases">here</a>.</p>
+<p>Download the latest <code>Hallper.jar</code> <a href="https://github.com/CS2103-AY1819S1-W16-1/main/releases">here</a>.</p>
 </li>
 <li>
 <p>Copy the file to the folder you want to use as the home folder for your Hallper.</p>
@@ -168,10 +170,11 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by the user e.g. in <code>add n/NAME</code>, <code>NAME</code> is a parameter which can be used as <code>add n/John Doe</code>.</p>
 </li>
 <li>
-<p>Items in square brackets are optional e.g <code>n/NAME [t/CCA]</code> can be used as <code>n/John Doe c/soccer</code> or as <code>n/John Doe</code>.</p>
+<p>Items in square brackets are optional e.g <code>n/NAME [c/CCA]</code> can be used as <code>n/John Doe c/soccer</code> or as <code>n/John Doe</code>.</p>
 </li>
 <li>
-<p>Items with <code>…</code>​ after them can be used multiple times including zero times e.g. <code>[t/CCA]&#8230;&#8203;</code> can be used as <code>&#160;</code> (i.e. 0 times), <code>t/soccer</code>, <code>t/soccer t/basketball</code> etc.</p>
+<p>Items with <code>…</code>​ after them can be used multiple times including zero times e.g. <code>[c/CCA]&#8230;&#8203;</code> can be used as
+<code>&#160;</code> (i.e. 0 times), <code>c/soccer</code>, <code>c/soccer c/basketball</code> etc.</p>
 </li>
 <li>
 <p>Parameters can be in any order e.g. if the command specifies <code>n/NAME p/PHONE_NUMBER</code>, <code>p/PHONE_NUMBER n/NAME</code> is also acceptable.</p>
@@ -189,7 +192,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <h4 id="adding-a-person-code-add-code"><a class="link" href="#adding-a-person-code-add-code">4.1.1. Adding a person: <code>add</code></a></h4>
 <div class="paragraph">
 <p>Adds a person to Hallper.<br>
-Format: <code>add n/NAME p/PHONE_NUMBER e/EMAIL r/ROOM NUMBER s/SCHOOL [t/CCA]&#8230;&#8203;</code></p>
+Format: <code>add n/NAME p/PHONE_NUMBER e/EMAIL r/ROOM NUMBER s/SCHOOL [c/CCA]&#8230;&#8203;</code></p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -209,24 +212,30 @@ A person can have any number of CCAs (including 0)
 <div class="ulist">
 <ul>
 <li>
-<p><code>add n/John Doe p/98765432 e/johnd@example.com r/C420 s/SoC t/Basketball</code></p>
+<p><code>add n/John Doe p/98765432 e/johnd@example.com r/C420 s/SoC c/Basketball</code></p>
 </li>
 <li>
-<p><code>add n/Betsy Crowe t/Soccer e/betsycrowe@example.com p/1234567 r/B213 s/Business</code></p>
+<p><code>add n/Betsy Crowe c/Soccer e/betsycrowe@example.com p/1234567 r/B213 s/Business</code></p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="adding-a-picture-to-resident-detail-code-image-code"><a class="link" href="#adding-a-picture-to-resident-detail-code-image-code">4.1.2. Adding a picture to resident detail : <code>image</code></a></h4>
+<h4 id="adds-a-picture-to-resident-detail-code-image-code"><a class="link" href="#adds-a-picture-to-resident-detail-code-image-code">4.1.2. Adds a picture to resident detail : <code>image</code></a></h4>
 <div class="paragraph">
-<p>Uploads the image of resident staying in the specified room to Hallper and opens the profile page of the resident (<strong>without the profile picture</strong>).<br>
+<p>Saves a copy of the image of resident staying in the specified room to Hallper.<br>
 Format: <code>image r/ROOM f/FILEPATH</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
+<li>
+<p>Allow for the upload of the profile picture of resident.</p>
+</li>
+<li>
+<p>ROOM is not case-sensitive.</p>
+</li>
 <li>
 <p>The image must be in <strong><code>.jpg</code></strong>.</p>
 </li>
@@ -240,15 +249,20 @@ Format: <code>image r/ROOM f/FILEPATH</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>image r/a123 f/C://Users/Files/a123.jpg</code></p>
+<p><code>image r/a123 f/C:/user/images/e0000000.jpg</code><br>
+Uploads the profile picture (in <strong><code>.jpg</code></strong>) of the resident living in room <code>A123</code> into Hallper.</p>
+</li>
+<li>
+<p><code>image r/B111 f/C:/user/images/e0000000.jpg</code><br>
+Uploads the profile picture (in <strong><code>.jpg</code></strong>) of the resident living in room <code>B111</code> into Hallper.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="clearing-all-entries-code-clear-all-code"><a class="link" href="#clearing-all-entries-code-clear-all-code">4.1.3. Clearing all entries : <code>clear all</code></a></h4>
+<h4 id="clearing-all-residents-code-clear-all-code"><a class="link" href="#clearing-all-residents-code-clear-all-code">4.1.3. Clearing all residents : <code>clear all</code></a></h4>
 <div class="paragraph">
-<p>Clears all entries from Hallper.<br>
+<p>Clears all residents from Hallper.<br>
 Format: <code>clear all</code></p>
 </div>
 <div class="sidebarblock">
@@ -256,7 +270,7 @@ Format: <code>clear all</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>'all' is case-sensitive.</p>
+<p><code>all</code> is case-sensitive.</p>
 </li>
 </ul>
 </div>
@@ -269,54 +283,15 @@ Format: <code>clear all</code></p>
 <ul>
 <li>
 <p><code>clear all</code><br>
-Clears <code>all</code> entries in Hallper.</p>
+Clears <code>all</code> residents in Hallper.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="clearing-all-specified-tags-code-erase-code"><a class="link" href="#clearing-all-specified-tags-code-erase-code">4.1.4. Clearing all specified tags : <code>erase</code></a></h4>
+<h4 id="clearing-specific-residents-code-clear-code"><a class="link" href="#clearing-specific-residents-code-clear-code">4.1.4. Clearing specific residents : <code>clear</code></a></h4>
 <div class="paragraph">
-<p>Clears all specified tags from all persons from Hallper.<br>
-Format: <code>erase CCA&#8230;&#8203;</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Erases the CCA specified for all associated persons.</p>
-</li>
-<li>
-<p>The CCA specified must be an existing CCA.</p>
-</li>
-<li>
-<p>Multiple CCAs can be specified at once.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>erase basketball</code><br>
-Erases <code>basketball</code> from persons associated with this CCA.<br></p>
-</li>
-<li>
-<p><code>erase basketball netball</code><br>
-Erases <code>basketball</code> and <code>netball</code> from persons associated with these CCAs.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="clearing-specific-entries-code-clear-code"><a class="link" href="#clearing-specific-entries-code-clear-code">4.1.5. Clearing specific entries : <code>clear</code></a></h4>
-<div class="paragraph">
-<p>Clears specified entries from Hallper.<br>
+<p>Clears residents associated with specified CCAs from Hallper.<br>
 Format: <code>clear KEYWORD&#8230;&#8203;</code></p>
 </div>
 <div class="sidebarblock">
@@ -324,13 +299,13 @@ Format: <code>clear KEYWORD&#8230;&#8203;</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>Clears persons associated with KEYWORD.</p>
+<p>Clears residents associated with specified KEYWORD.</p>
 </li>
 <li>
-<p>KEYWORD refers to either a CCA or ROOM.</p>
+<p>KEYWORD refers to either a CCA or a ROOM.</p>
 </li>
 <li>
-<p>Multiple KEYWORDS can be specified at once in any order.</p>
+<p>Multiple KEYWORDS can be specified at once, in any order.</p>
 </li>
 </ul>
 </div>
@@ -343,31 +318,31 @@ Format: <code>clear KEYWORD&#8230;&#8203;</code></p>
 <ul>
 <li>
 <p><code>clear basketball</code><br>
-Clears all persons associated with CCA <code>basketball</code>.</p>
+Clears all residents associated with CCA <code>basketball</code>.</p>
 </li>
 <li>
 <p><code>clear A123</code><br>
-Clears all persons associated with room <code>A123</code>.</p>
+Clears all residents associated with room <code>A123</code>.</p>
 </li>
 <li>
 <p><code>clear baseball C456</code><br>
-Clears all persons associated with CCA <code>baseball</code> and room <code>C456</code></p>
+Clears all residents associated with CCA <code>baseball</code> and room <code>C456</code></p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="editing-a-person-code-edit-code"><a class="link" href="#editing-a-person-code-edit-code">4.1.6. Editing a person : <code>edit</code></a></h4>
+<h4 id="editing-a-resident-code-edit-code"><a class="link" href="#editing-a-resident-code-edit-code">4.1.5. Editing a resident : <code>edit</code></a></h4>
 <div class="paragraph">
-<p>Edits an existing person in Hallper.<br>
-Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/CCA]&#8230;&#8203;</code></p>
+<p>Edits an existing resident in Hallper.<br>
+Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [c/CCA]&#8230;&#8203;</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Edits the person at the specified <code>INDEX</code>. The index refers to the index number shown in the displayed person list. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+<p>Edits the resident at the specified <code>INDEX</code>. The index refers to the index number shown in the displayed resident list. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
 </li>
 <li>
 <p>At least one of the optional fields must be provided.</p>
@@ -376,10 +351,10 @@ Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/CCA]&#8230;
 <p>Existing values will be updated to the input values.</p>
 </li>
 <li>
-<p>When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.</p>
+<p>When editing CCAs, the existing CCAs of the resident will be removed i.e adding of CCAs is not cumulative.</p>
 </li>
 <li>
-<p>You can remove all the person&#8217;s tags by typing <code>c/</code> without specifying any tags after it.</p>
+<p>You can remove all the resident&#8217;s CCAs by typing <code>c/</code> without specifying any CCAs after it.</p>
 </li>
 </ul>
 </div>
@@ -392,11 +367,50 @@ Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/CCA]&#8230;
 <ul>
 <li>
 <p><code>edit 1 p/91234567 e/johndoe@example.com</code><br>
-Edits the phone number and email address of the 1st person to be <code>91234567</code> and <code>johndoe@example.com</code> respectively.</p>
+Edits the phone number and email address of the 1st resident to be <code>91234567</code> and <code>johndoe@example.com</code> respectively.</p>
 </li>
 <li>
 <p><code>edit 2 n/Betsy Crower c/</code><br>
-Edits the name of the 2nd person to be <code>Betsy Crower</code> and clears all existing tags.</p>
+Edits the name of the 2nd resident to be <code>Betsy Crower</code> and clears all existing CCAs.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="erasing-specified-ccas-code-erase-code"><a class="link" href="#erasing-specified-ccas-code-erase-code">4.1.6. Erasing specified CCAs : <code>erase</code></a></h4>
+<div class="paragraph">
+<p>Erases all specified CCA(s) from all residents from Hallper.<br>
+Format: <code>erase CCA&#8230;&#8203;</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Erases the CCA specified for all associated residents.</p>
+</li>
+<li>
+<p>The CCA specified must be an existing CCA.</p>
+</li>
+<li>
+<p>You can erase multiple CCAs by specifying the CCAs all at once.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>erase basketball</code><br>
+Erases <code>basketball</code> from residents associated with this CCA.<br></p>
+</li>
+<li>
+<p><code>erase basketball netball</code><br>
+Erases <code>basketball</code> and <code>netball</code> from residents associated with these CCAs.</p>
 </li>
 </ul>
 </div>
@@ -404,7 +418,7 @@ Edits the name of the 2nd person to be <code>Betsy Crower</code> and clears all 
 <div class="sect3">
 <h4 id="exporting-contact-information-code-export-code"><a class="link" href="#exporting-contact-information-code-export-code">4.1.7. Exporting contact information: <code>export</code></a></h4>
 <div class="paragraph">
-<p>Exports file containing existing contact information in Hallper.<br>
+<p>Exports file containing existing residents information in Hallper.<br>
 Formate: <code>export dst/PATH fn/FILENAME</code></p>
 </div>
 <div class="sidebarblock">
@@ -425,15 +439,15 @@ Formate: <code>export dst/PATH fn/FILENAME</code></p>
 <ul>
 <li>
 <p><code>export dst/C://Users/Files fn/data.xml</code><br>
-Exports Hallper contacts data into <code>data.xml</code> located at <code>C://Users/Files</code>.</p>
+Exports Hallper residents information into <code>data.xml</code> located at <code>C://Users/Files</code>.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="deleting-a-person-code-delete-code"><a class="link" href="#deleting-a-person-code-delete-code">4.1.8. Deleting a person : <code>delete</code></a></h4>
+<h4 id="deleting-a-resident-code-delete-code"><a class="link" href="#deleting-a-resident-code-delete-code">4.1.8. Deleting a resident : <code>delete</code></a></h4>
 <div class="paragraph">
-<p>Deletes the specified person from Hallper.<br>
+<p>Deletes the specified resident from Hallper.<br>
 Format: <code>delete INDEX</code></p>
 </div>
 <div class="sidebarblock">
@@ -441,10 +455,10 @@ Format: <code>delete INDEX</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>Deletes the person at the specified <code>INDEX</code>.</p>
+<p>Deletes the resident at the specified <code>INDEX</code>.</p>
 </li>
 <li>
-<p>The index refers to the index number shown in the displayed person list.</p>
+<p>The index refers to the index number shown in the displayed resident list.</p>
 </li>
 <li>
 <p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
@@ -461,75 +475,20 @@ Format: <code>delete INDEX</code></p>
 <li>
 <p><code>list</code><br>
 <code>delete 2</code><br>
-Deletes the 2nd person in Hallper.</p>
+Deletes the 2nd resident in Hallper.</p>
 </li>
 <li>
 <p><code>find Betsy</code><br>
 <code>delete 1</code><br>
-Deletes the 1st person in the results of the <code>find</code> command.</p>
+Deletes the 1st resident in the results of the <code>find</code> command.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="deleting-a-transaction-entry-code-delete_trans-code"><a class="link" href="#deleting-a-transaction-entry-code-delete_trans-code">4.1.9. Deleting a transaction entry : <code>delete_trans</code></a></h4>
+<h4 id="importing-residents-information-code-import-code"><a class="link" href="#importing-residents-information-code-import-code">4.1.9. Importing residents information : <code>import</code></a></h4>
 <div class="paragraph">
-<p>Deletes the specified transaction entry from the specified CCA from Hallper.<br>
-Format: <code>delete_trans c/NAME_OF_CCA trans/ENTRY_NUMBER</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Deletes the specific transaction entry from the CCA with the specified name.</p>
-</li>
-<li>
-<p>The transaction entry number must be a <strong>positive interger</strong> (e.g. 1,2,3,4&#8230;&#8203;).</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>The CCA specifed must exist in the Hallper.</p>
-</li>
-<li>
-<p>The transaction entry number must exist for the specified CCA.</p>
-</li>
-</ul>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>delete_cca c/netball trans/1</code></p>
-</li>
-<li>
-<p><code>delete_cca c/Basketball F trans/3</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="importing-contact-information-code-import-code"><a class="link" href="#importing-contact-information-code-import-code">4.1.10. Importing contact information : <code>import</code></a></h4>
-<div class="paragraph">
-<p>Imports file containing contact information and updates Hallper accordingly.<br>
+<p>Imports file containing Hallper-related information and updates Hallper accordingly.<br>
 Format: <code>import f/FILEPATH</code></p>
 </div>
 <div class="sidebarblock">
@@ -537,10 +496,16 @@ Format: <code>import f/FILEPATH</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>Allows for the mass upload of contact information.</p>
+<p>Allows for the mass upload of resident(s) information.</p>
 </li>
 <li>
-<p>Allows for the mass upload of CCA lists.</p>
+<p>Allows for the mass upload of CCA(s) list.</p>
+</li>
+<li>
+<p>Allows for the mass upload of budget book information.</p>
+</li>
+<li>
+<p>Allows for the mass upload of CCA transaction(s).</p>
 </li>
 <li>
 <p>The file to be uploaded must be a <strong><code>.xml</code></strong> file.</p>
@@ -550,7 +515,7 @@ Format: <code>import f/FILEPATH</code></p>
 </div>
 </div>
 <div class="paragraph">
-<p>File formats for imported <code>.xml</code> files are as shown below.</p>
+<p>File format examples for importable <code>.xml</code> files are as shown below:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -558,7 +523,7 @@ Format: <code>import f/FILEPATH</code></p>
 </div>
 </div>
 <div class="paragraph">
-<p><em>Figure 4.1.7.1: Contacts information <code>.xml</code> file format.</em></p>
+<p><em>Figure 4.1.9.1: Resident information example. Multiple <code>persons</code> can be specified.</em></p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -566,7 +531,24 @@ Format: <code>import f/FILEPATH</code></p>
 </div>
 </div>
 <div class="paragraph">
-<p><em>Figure 4.1.7.2: CCA list <code>.xml</code> file format.</em></p>
+<p><em>Figure 4.1.9.2: CCA list example. Residents are identified by their unique room number. Multiple <code>room</code> can be
+specified for multiple <code>cca</code>.</em></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/BudgetBookExample.png" alt="BudgetBookExample" width="790">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.1.9.3: Budget book information example. Multiple <code>transaction</code> can be specified for multiple <code>ccas</code>.</em></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/TransactionsExample.png" alt="TransactionsExample" width="790">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.1.9.4: Transaction information example. Multiple <code>transaction</code> can be specified.</em></p>
 </div>
 <div class="paragraph">
 <p>Example:</p>
@@ -575,7 +557,7 @@ Format: <code>import f/FILEPATH</code></p>
 <ul>
 <li>
 <p><code>import f/C://Users/Files/data.xml</code><br>
-Imports <code>data.xml</code> file to be read and for database to be updated accordingly.</p>
+Imports <code>data.xml</code> file to be read and for Hallper to be updated accordingly.</p>
 </li>
 </ul>
 </div>
@@ -587,47 +569,10 @@ Imports <code>data.xml</code> file to be read and for database to be updated acc
 <p>This section lists features related to viewing all or specific contacts in Hallper.</p>
 </div>
 <div class="sect3">
-<h4 id="searching-all-persons-under-specified-tag-code-search-code"><a class="link" href="#searching-all-persons-under-specified-tag-code-search-code">4.2.1. Searching all persons under specified tag : <code>search</code></a></h4>
+<h4 id="listing-all-persons-code-list-code"><a class="link" href="#listing-all-persons-code-list-code">4.2.1. Listing all persons : <code>list</code></a></h4>
 <div class="paragraph">
-<p>Shows a list of all persons in the Hallper that are associated with the specified keyword.<br>
-Format: <code>search KEYWORD [MORE_KEYWORDS]</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>KEYWORD can be ROOM, CCA or SCHOOL.</p>
-</li>
-<li>
-<p>KEYWORD is not case-sensitive.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>search SoC</code><br>
-Searches Hallper and lists all residents that are studying in <code>SoC</code>.</p>
-</li>
-<li>
-<p><code>search basketball</code><br>
-Searches Hallper and lists all residents that are in <code>basketball</code>.</p>
-</li>
-<li>
-<p><code>search A123</code><br>
-Searches Hallper and lists all residents that are staying in room <code>A123</code>.</p>
-</li>
-<li>
-<p><code>search basketball A123 Soc</code><br>
-Searches Hallper and lists all residents that are in <code>basketball</code>, staying in room`A123` and studying in <code>SoC</code>.</p>
-</li>
-</ul>
+<p>Shows a list of all persons in Hallper.<br>
+Format: <code>list</code></p>
 </div>
 </div>
 <div class="sect3">
@@ -676,10 +621,123 @@ Returns any person having names <code>Betsy</code>, <code>Tim</code>, or <code>J
 </div>
 </div>
 <div class="sect3">
-<h4 id="listing-all-persons-code-list-code"><a class="link" href="#listing-all-persons-code-list-code">4.2.3. Listing all persons : <code>list</code></a></h4>
+<h4 id="searching-all-persons-under-specified-tag-code-search-code"><a class="link" href="#searching-all-persons-under-specified-tag-code-search-code">4.2.3. Searching all persons under specified tag : <code>search</code></a></h4>
 <div class="paragraph">
-<p>Shows a list of all persons in Hallper.<br>
-Format: <code>list</code></p>
+<p>Shows a list of all persons in the Hallper that are associated with the specified keyword.<br>
+Format: <code>search KEYWORD [MORE_KEYWORDS]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>KEYWORD can be ROOM, CCA or SCHOOL.</p>
+</li>
+<li>
+<p>KEYWORD is not case-sensitive.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="paragraph">
+<p>Searches Hallper and lists all residents that are in <code>basketball</code>, staying in room <code>A123</code> or studying in <code>SoC</code>
+in the Person List Panel as seen in Figure 4.2.1.1 and Figure 4.2.1.2.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/SearchExample.png" alt="SearchExample" width="790">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.2.1.1: Screen before running <code>search</code> on Hallper.</em></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/SearchExample2.png" alt="SearchExample2" width="790">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.2.1.2: Screen after running <code>search</code> on Hallper.</em></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>search SoC</code><br>
+Searches Hallper and lists all residents that are studying in <code>SoC</code>.</p>
+</li>
+<li>
+<p><code>search basketball</code><br>
+Searches Hallper and lists all residents that are in <code>basketball</code>.</p>
+</li>
+<li>
+<p><code>search A123</code><br>
+Searches Hallper and lists all residents that are staying in room <code>A123</code>.</p>
+</li>
+<li>
+<p><code>search basketball A123 Soc</code><br></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="selecting-a-person-code-select-code"><a class="link" href="#selecting-a-person-code-select-code">4.2.4. Selecting a person: <code>select</code></a></h4>
+<div class="paragraph">
+<p>Selects the person identified by the index number used in the displayed person list.
+Format: <code>select INDEX</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Selects the person and loads the profile page of the person at the specified <code>INDEX</code>.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the displayed person list.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong>, <code>1, 2, 3, &#8230;&#8203;</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="paragraph">
+<p>The screens for Hallper before and after executing the <code>select</code> command are shown below in Figure 4.2.4.1 and
+Figure 4.2.4.2 respectively:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/SearchExample.png" alt="SearchExample" width="790">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.2.4.1: Screen before running <code>select</code> on Hallper.</em></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/Select%20Example.png" alt="Select Example" width="790">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.2.4.2: Screen after running <code>select</code> on Hallper.</em></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list</code><br>
+<code>select 2</code><br>
+Selects the 2nd person in Hallper and opens his/her profile page.</p>
+</li>
+<li>
+<p><code>find Betsy</code><br>
+<code>select 1</code><br>
+Selects the 1st person in the results of the <code>find</code> command and opens his/her profile page.</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -699,10 +757,10 @@ Format: <code>compose_email_index from/FROM to/INDEXES subject/SUBJECT content/C
 <div class="ulist">
 <ul>
 <li>
-<p>FROM must be a valid email address e.g. <a href="mailto:johndoe@example.com">johndoe@example.com</a></p>
+<p>FROM must be a valid email address. E.g. <a href="mailto:johndoe@example.com">johndoe@example.com</a></p>
 </li>
 <li>
-<p>INDEXES refer to the index numbers shown in the displayed person list.</p>
+<p>INDEXES refer to the index numbers shown in the displayed resident list.</p>
 </li>
 <li>
 <p>INDEXES <strong>must be positive integers</strong> 1, 2, 3, &#8230;&#8203;</p>
@@ -713,9 +771,26 @@ Format: <code>compose_email_index from/FROM to/INDEXES subject/SUBJECT content/C
 <li>
 <p>CONTENT has no word limit.</p>
 </li>
+<li>
+<p><code>&lt;br&gt;</code> can be used in CONTENT for new line.</p>
+</li>
 </ul>
 </div>
 </div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>CONTENT is written in HTML. Users who know HTML can use it to format the CONTENT.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Example:</p>
@@ -723,17 +798,32 @@ Format: <code>compose_email_index from/FROM to/INDEXES subject/SUBJECT content/C
 <div class="ulist">
 <ul>
 <li>
-<p><code>compose_email_index from/johndoe@example.com to/1 6 10 subject/Meeting this Friday
-content/Hey there&#8217;s a meeting this friday.</code><br>
-Composes an email from <code>johndoe@example.com</code> to people at indexes 1, 6 and 10 with subject
-<code>Meeting this Friday</code> and email body <code>Hey there&#8217;s a meeting this friday.</code> and saves
-it as a <strong><code>.eml</code></strong> file.</p>
+<p><code>list</code></p>
+<div class="imageblock">
+<div class="content">
+<img src="images/list.png" alt="list" width="790">
+</div>
+<div class="title">Figure 1. Result after executing <code>list</code></div>
+</div>
+<div class="paragraph">
+<p><br>
+<code>compose_email_index from/johndoe@example.com to/1 3 5 subject/Meeting this Friday
+content/Dear All&lt;br&gt;&lt;br&gt;There&#8217;s a meeting this friday.&lt;br&gt;&lt;br&gt;John Doe</code><br>
+Composes an email from <code>johndoe@example.com</code> to residents at indexes 1, 3, and 5 with subject
+<code>Meeting this Friday</code> and email body <code>Dear All&lt;br&gt;&lt;br&gt;There&#8217;s a meeting this friday.&lt;br&gt;&lt;br&gt;John Doe</code> and saves it as a <strong><code>.eml</code></strong> file.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/compose_email_index.png" alt="compose email index" width="790">
+</div>
+<div class="title">Figure 2. Result after executing <code>compose_email_index from/johndoe@example.com to/1 3 5 subject/Meeting this Friday content/Dear All&lt;br&gt;&lt;br&gt;There&#8217;s a meeting this friday.&lt;br&gt;&lt;br&gt;John Doe</code></div>
+</div>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="composing-an-email-to-currently-listed-people-code-compose_email_list-code"><a class="link" href="#composing-an-email-to-currently-listed-people-code-compose_email_list-code">4.3.2. Composing an email to currently listed people: <code>compose_email_list</code></a></h4>
+<h4 id="composing-an-email-to-currently-listed-residents-code-compose_email_list-code"><a class="link" href="#composing-an-email-to-currently-listed-residents-code-compose_email_list-code">4.3.2. Composing an email to currently listed residents: <code>compose_email_list</code></a></h4>
 <div class="paragraph">
 <p>Composes a <strong><code>.eml</code></strong> file that can be used to send emails to currently listed residents.<br>
 Format: <code>compose_email_list from/FROM subject/SUBJECT content/CONTENT</code></p>
@@ -743,7 +833,7 @@ Format: <code>compose_email_list from/FROM subject/SUBJECT content/CONTENT</code
 <div class="ulist">
 <ul>
 <li>
-<p>FROM must be a valid email address e.g. <a href="mailto:johndoe@example.com">johndoe@example.com</a></p>
+<p>FROM must be a valid email address. E.g. <a href="mailto:johndoe@example.com">johndoe@example.com</a></p>
 </li>
 <li>
 <p>SUBJECT has no word limit.</p>
@@ -751,9 +841,26 @@ Format: <code>compose_email_list from/FROM subject/SUBJECT content/CONTENT</code
 <li>
 <p>CONTENT has no word limit.</p>
 </li>
+<li>
+<p><code>&lt;br&gt;</code> can be used in CONTENT for new line.</p>
+</li>
 </ul>
 </div>
 </div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>CONTENT is written in HTML. Users who know HTML can use it to format the CONTENT.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Example:</p>
@@ -761,11 +868,26 @@ Format: <code>compose_email_list from/FROM subject/SUBJECT content/CONTENT</code
 <div class="ulist">
 <ul>
 <li>
-<p><code>compose_email_list from/johndoe@example.com subject/Meeting this Friday
-content/Hey there&#8217;s a meeting this friday.</code><br>
-Composes an email from <code>johndoe@example.com</code> to currently listed people with subject
-<code>Meeting this Friday</code> and email body <code>Hey there&#8217;s a meeting this friday.</code> and saves
+<p><code>list</code></p>
+<div class="imageblock">
+<div class="content">
+<img src="images/list.png" alt="list" width="790">
+</div>
+<div class="title">Figure 3. Result after executing <code>list</code></div>
+</div>
+<div class="paragraph">
+<p><br>
+<code>compose_email_list from/johndoe@example.com subject/Meeting this Friday content/Dear All&lt;br&gt;&lt;br&gt;There&#8217;s a meeting this friday.&lt;br&gt;&lt;br&gt;John Doe</code><br>
+Composes an email from <code>johndoe@example.com</code> to currently listed residents with subject
+<code>Meeting this Friday</code> and email body <code>Dear All&lt;br&gt;&lt;br&gt;There&#8217;s a meeting this friday.&lt;br&gt;&lt;br&gt;John Doe</code> and saves
 it as a <strong><code>.eml</code></strong> file.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/compose_email_list.png" alt="compose email list" width="790">
+</div>
+<div class="title">Figure 4. Result after executing <code>compose_email_list from/johndoe@example.com subject/Meeting this Friday content/Dear All&lt;br&gt;&lt;br&gt;There&#8217;s a meeting this friday.&lt;br&gt;&lt;br&gt;John Doe</code></div>
+</div>
 </li>
 </ul>
 </div>
@@ -837,6 +959,12 @@ Format: <code>view_email SUBJECT</code></p>
 <li>
 <p><code>view_email Meeting on Friday</code><br>
 Displays the email with the subject <code>Meeting on Friday</code>.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/view_email.png" alt="view email" width="790">
+</div>
+<div class="title">Figure 5. Result after executing <code>view_email Meeting on Friday</code></div>
+</div>
 </li>
 </ul>
 </div>
@@ -880,12 +1008,15 @@ Format: <code>add_all_day_event month/MMM year/YYYY date/DD title/NAME OF EVENT<
 <p>Example:</p>
 </div>
 <div class="paragraph">
-<p>Before executing command</p>
+<p>Before executing command:</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/add_all_day_event_diagram_before.png" alt="add all day event diagram before" width="790">
 </div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.4.1.1: Screen before running <code>add_all_day_event</code> on Hallper.</em></p>
 </div>
 <div class="ulist">
 <ul>
@@ -899,6 +1030,9 @@ Adds an all day event titled <code>Hall open day</code> into the <code>OCT-2018.
 <div class="content">
 <img src="images/add_all_day_event_diagram_after.png" alt="add all day event diagram after" width="790">
 </div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.4.1.2: Screen after running <code>add_all_day_event</code> on Hallper.</em></p>
 </div>
 </div>
 <div class="sect3">
@@ -938,12 +1072,15 @@ edate/DD ehour/HH emin/mm title/NAME OF EVENT</code></p>
 <p>Example:</p>
 </div>
 <div class="paragraph">
-<p>Before executing command</p>
+<p>Before executing command:</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/add_event_diagram_before.png" alt="add event diagram before" width="790">
 </div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.4.2.1: Screen before running <code>add_event</code> on Hallper.</em></p>
 </div>
 <div class="ulist">
 <ul>
@@ -958,6 +1095,9 @@ the <code>10th</code> at <code>1800</code>.</p>
 <div class="content">
 <img src="images/add_event_diagram_after.png" alt="add event diagram after" width="790">
 </div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.4.2.2: Screen after running <code>add_event</code> on Hallper.</em></p>
 </div>
 </div>
 <div class="sect3">
@@ -1035,12 +1175,15 @@ Format: <code>delete_event month/MMM year/YYYY sdate/DD edate/DD title/NAME OF E
 <p>Example:</p>
 </div>
 <div class="paragraph">
-<p>Before executing command<br></p>
+<p>Before executing command:<br></p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/delete_event_diagram_before.png" alt="delete event diagram before" width="790">
 </div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.4.4.1: Screen before running <code>delete_event</code> on Hallper.</em></p>
 </div>
 <div class="ulist">
 <ul>
@@ -1054,6 +1197,9 @@ Format: <code>delete_event month/MMM year/YYYY sdate/DD edate/DD title/NAME OF E
 <div class="content">
 <img src="images/delete_event_diagram_after_invalid.png" alt="delete event diagram after invalid" width="790">
 </div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.4.4.2: Screen after running <code>delete_event</code> with a non-existing event in Hallper.</em></p>
 </div>
 <div class="ulist">
 <ul>
@@ -1069,12 +1215,14 @@ Deletes an event titled <code>Block Committee Audit</code> from the <code>OCT-20
 <img src="images/delete_event_diagram_after_valid.png" alt="delete event diagram after valid" width="790">
 </div>
 </div>
+<div class="paragraph">
+<p><em>Figure 4.4.4.3: Screen after running <code>delete_event</code> with an existing event in Hallper.</em></p>
+</div>
 </div>
 <div class="sect3">
 <h4 id="viewing-calendar-code-view_calendar-code"><a class="link" href="#viewing-calendar-code-view_calendar-code">4.4.5. Viewing calendar : <code>view_calendar</code></a></h4>
 <div class="paragraph">
-<p><strong>Currently doesn&#8217;t work on Mac OS</strong><br>
-Loads the specified monthly calendar <code>.ics</code> file into the UI. UI by default displays the current week.<br>
+<p>Loads the specified monthly calendar <code>.ics</code> file into the UI. UI by default displays the current week.<br>
 Format: <code>view_calendar month/MMM year/YYYY</code></p>
 </div>
 <div class="sidebarblock">
@@ -1121,7 +1269,7 @@ Displays view of calendar with current week as default page with the events load
 <h4 id="adding-a-cca-code-create-code"><a class="link" href="#adding-a-cca-code-create-code">4.5.1. Adding a cca: <code>create</code></a></h4>
 <div class="paragraph">
 <p>Adds a CCA to Hallper.<br>
-Format: <code>create n/NAME_OF_CCA budget/500</code></p>
+Format: <code>create n/NAME_OF_CCA budget/ALLOCATED_BUDGET</code></p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -1178,22 +1326,15 @@ Format: <code>add_trans c/NAME_OF_CCA date/DATE amount/AMOUNT remarks/REMARKS</c
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<div class="paragraph">
+<div class="ulist">
+<ul>
+<li>
 <p>Transaction entry can only be added one at a time.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
+</li>
+<li>
 <p><code>undo</code> and <code>redo</code> command does not apply to <code>add_trans</code>.</p>
+</li>
+</ul>
 </div>
 </td>
 </tr>
@@ -1206,8 +1347,8 @@ Format: <code>add_trans c/NAME_OF_CCA date/DATE amount/AMOUNT remarks/REMARKS</c
 <ul>
 <li>
 <p><code>add_trans c/Basketball date/31.01.2018 amount/-200 remarks/Competition Fee</code><br>
-Adds a transaction entry to <code>Basketball</code>. The date, amount and remarks of the transaction entry are <code>31.01
-.2018</code>, <code>-200</code> and <code>Competition Fee</code> respectively.</p>
+Adds a transaction entry to <code>Basketball</code>. The date, amount and remarks of the transaction entry are <code>31.01.2018</code>,
+ <code>-200</code> and <code>Competition Fee</code> respectively.</p>
 </li>
 </ul>
 </div>
@@ -1238,7 +1379,7 @@ Format: <code>delete c/NAME_OF_CCA</code></p>
 <p>The CCA specifed must exist in the Hallper.</p>
 </li>
 <li>
-<p><code>undo</code> and <code>redo</code> command does not apply to <code>create</code>.</p>
+<p><code>undo</code> and <code>redo</code> command does not apply to <code>delete_cca</code>.</p>
 </li>
 </ul>
 </div>
@@ -1261,7 +1402,65 @@ Format: <code>delete c/NAME_OF_CCA</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="updating-a-cca-code-update-code"><a class="link" href="#updating-a-cca-code-update-code">4.5.4. Updating a cca : <code>update</code></a></h4>
+<h4 id="deleting-a-transaction-entry-code-delete_trans-code"><a class="link" href="#deleting-a-transaction-entry-code-delete_trans-code">4.5.4. Deleting a transaction entry : <code>delete_trans</code></a></h4>
+<div class="paragraph">
+<p>Deletes the specified transaction entry from the specified CCA from Hallper.<br>
+Format: <code>delete_trans c/NAME_OF_CCA trans/ENTRY_NUMBER</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Deletes the specific transaction entry from the CCA with the specified name.</p>
+</li>
+<li>
+<p>The transaction entry number must be a <strong>positive interger</strong> (e.g. 1,2,3,4&#8230;&#8203;).</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The CCA specifed must exist in the Hallper.</p>
+</li>
+<li>
+<p>The transaction entry number must exist for the specified CCA.</p>
+</li>
+<li>
+<p><code>undo</code> and <code>redo</code> command does not apply to <code>delete_trans</code>.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>delete_trans c/netball trans/1</code></p>
+</li>
+<li>
+<p><code>delete_trans c/Basketball F trans/3</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="updating-a-cca-code-update-code"><a class="link" href="#updating-a-cca-code-update-code">4.5.5. Updating a cca : <code>update</code></a></h4>
 <div class="paragraph">
 <p>Updates an existing CCA in Hallper.<br>
 Format: <code>update c/CCA_NAME [n/NEW_CCA_NAME] [h/NAME_OF_HEAD] [vh/NAME_OF_VIC_HEAD] [budget/BUDGET]
@@ -1272,13 +1471,11 @@ Format: <code>update c/CCA_NAME [n/NEW_CCA_NAME] [h/NAME_OF_HEAD] [vh/NAME_OF_VI
 <div class="ulist">
 <ul>
 <li>
-<p>Edits the CCA specified with <code>c/</code>. <code>c/</code> is required.</p>
-</li>
-<li>
 <p>At least one of the optional fields must be provided.</p>
 </li>
 <li>
-<p>When <code>trans/</code> is included, at least one of the fields in the transaction entry must be provided.</p>
+<p>When <code>trans/</code> is included, at least one of the fields in the transaction entry must be provided. The transaction
+fields are <code>date</code>, <code>amount</code> and <code>remarks</code>.</p>
 </li>
 <li>
 <p>Existing values will be updated to the input values.</p>
@@ -1335,7 +1532,7 @@ respectively.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="viewing-all-the-ccas-budget-code-budget-code"><a class="link" href="#viewing-all-the-ccas-budget-code-budget-code">4.5.5. Viewing all the ccas' budget : <code>budget</code></a></h4>
+<h4 id="viewing-all-the-ccas-budget-code-budget-code"><a class="link" href="#viewing-all-the-ccas-budget-code-budget-code">4.5.6. Viewing all the ccas' budget : <code>budget</code></a></h4>
 <div class="paragraph">
 <p>Opens up a Budget Book in a new window.<br>
 Format: <code>budget [c/CCA_NAME]</code></p>
@@ -1344,13 +1541,17 @@ Format: <code>budget [c/CCA_NAME]</code></p>
 <div class="content">
 <img src="images/BudgetWindowEmpty.png" alt="BudgetWindowEmpty" width="500">
 </div>
-<div class="title">Figure 1. Budget Window with a blank screen</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.5.6.1: Budget Window with a blank screen</em></p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/BudgetWindowCca.png" alt="BudgetWindowCca" width="500"">
 </div>
-<div class="title">Figure 2. Budget Window showing the transaction history of Softball</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.5.6.2: Budget Window showing the transaction history of Softball</em></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -1368,6 +1569,14 @@ Format: <code>budget [c/CCA_NAME]</code></p>
 </ul>
 </div>
 </div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/BudgetWindowCcaPanel.png" alt="BudgetWindowCcaPanel" width="500"">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.5.6.3: CCA panel of the Budget Window.</em></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1406,10 +1615,10 @@ Opens up the Budget Window, showing the transaction history of <code>Softball</c
 <p>This section lists miscellaneous commands for navigating Hallper.</p>
 </div>
 <div class="sect3">
-<h4 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">4.6.1. Viewing help : <code>help</code></a></h4>
+<h4 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">4.6.1. Exiting the program : <code>exit</code></a></h4>
 <div class="paragraph">
-<p>Opens up the User Guide in a new window.<br>
-Format: <code>help</code></p>
+<p>Exits the program.<br>
+Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect3">
@@ -1434,7 +1643,46 @@ Format: <code>history</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">4.6.3. Undoing previous command : <code>undo</code></a></h4>
+<h4 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">4.6.3. Redoing the previously undone command : <code>redo</code></a></h4>
+<div class="paragraph">
+<p>Reverses the most recent <code>undo</code> command.<br>
+Format: <code>redo</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>delete 1</code><br>
+<code>undo</code> (reverses the <code>delete 1</code> command)<br>
+<code>redo</code> (reapplies the <code>delete 1</code> command)<br></p>
+</li>
+<li>
+<p><code>delete 1</code><br>
+<code>redo</code><br>
+The <code>redo</code> command fails as there are no <code>undo</code> commands executed previously.</p>
+</li>
+<li>
+<p><code>delete 1</code><br>
+<code>clear</code><br>
+<code>undo</code> (reverses the <code>clear</code> command)<br>
+<code>undo</code> (reverses the <code>delete 1</code> command)<br>
+<code>redo</code> (reapplies the <code>delete 1</code> command)<br>
+<code>redo</code> (reapplies the <code>clear</code> command)<br></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="saving-the-data"><a class="link" href="#saving-the-data">4.6.4. Saving the data</a></h4>
+<div class="paragraph">
+<p>Hallper data are saved in the hard disk automatically after any command that changes the data.<br>
+There is no need to save manually.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">4.6.5. Undoing previous command : <code>undo</code></a></h4>
 <div class="paragraph">
 <p>Restores Hallper to the state before the previous <em>undoable</em> command was executed.<br>
 Format: <code>undo</code></p>
@@ -1479,49 +1727,18 @@ The <code>undo</code> command fails as there are no undoable commands executed p
 </div>
 </div>
 <div class="sect3">
-<h4 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">4.6.4. Redoing the previously undone command : <code>redo</code></a></h4>
+<h4 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">4.6.6. Viewing help : <code>help</code></a></h4>
 <div class="paragraph">
-<p>Reverses the most recent <code>undo</code> command.<br>
-Format: <code>redo</code></p>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>delete 1</code><br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br>
-<code>redo</code> (reapplies the <code>delete 1</code> command)<br></p>
-</li>
-<li>
-<p><code>delete 1</code><br>
-<code>redo</code><br>
-The <code>redo</code> command fails as there are no <code>undo</code> commands executed previously.</p>
-</li>
-<li>
-<p><code>delete 1</code><br>
-<code>clear</code><br>
-<code>undo</code> (reverses the <code>clear</code> command)<br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br>
-<code>redo</code> (reapplies the <code>delete 1</code> command)<br>
-<code>redo</code> (reapplies the <code>clear</code> command)<br></p>
-</li>
-</ul>
+<p>Opens up the User Guide in a new window.<br>
+Format: <code>help</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">4.6.5. Exiting the program : <code>exit</code></a></h4>
+<h4 id="displaying-profile-image-code-coming-in-v2-0-code"><a class="link" href="#displaying-profile-image-code-coming-in-v2-0-code">4.6.7. Displaying profile image <code>[coming in v2.0]</code></a></h4>
 <div class="paragraph">
-<p>Exits the program.<br>
-Format: <code>exit</code></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="saving-the-data"><a class="link" href="#saving-the-data">4.6.6. Saving the data</a></h4>
-<div class="paragraph">
-<p>Hallper data are saved in the hard disk automatically after any command that changes the data.<br>
-There is no need to save manually.</p>
+<p>Hallper profile pictures are currently saved in the hard disk after the <code>image</code> command is executed.<br>
+In the future, the profile picture will be displayed on the on the profile together with the resident&#8217;s
+other information.</p>
 </div>
 </div>
 </div>
@@ -1593,6 +1810,10 @@ e.g. <code>find James Jake</code></p>
 <p><strong>Search</strong> : <code>search KEYWORD [MORE_KEYWORDS]</code><br>
 e.g. <code>search basketball A123</code></p>
 </li>
+<li>
+<p><strong>Select</strong> : <code>select INDEX</code><br>
+e.g. <code>select 1</code></p>
+</li>
 </ul>
 </div>
 </div>
@@ -1602,7 +1823,7 @@ e.g. <code>search basketball A123</code></p>
 <ul>
 <li>
 <p><strong>Compose Email (Index)</strong> : <code>compose_email_index from/FROM to/INDEXES subject/SUBJECT content/CONTENT</code><br>
-e.g. <code>compose_email_index from/johndoe@example.com to/1 6 10 subject/Meeting this Friday content/Hey there&#8217;s a meeting this friday.</code></p>
+e.g. <code>compose_email_index from/johndoe@example.com to/1 3 5 subject/Meeting this Friday content/Hey there&#8217;s a meeting this friday.</code></p>
 </li>
 <li>
 <p><strong>Compose Email (List)</strong> : <code>compose_email_list from/FROM subject/SUBJECT content/CONTENT</code><br>
@@ -1650,27 +1871,29 @@ e.g. <code>view_calendar month/Oct year/2018</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Add Transaction</strong> : <code>add_transaction CCA AMOUNT TYPE PERSON-IN-CHARGE</code><br>
-e.g. <code>add_transaction soccer 500 debit James</code></p>
+<p><strong>Add CCA</strong> : <code>create n/CCA bud/BUDGET</code><br>
+e.g. <code>create n/Basketball budget/500</code></p>
 </li>
 <li>
-<p><strong>Budget</strong> : <code>budget</code></p>
+<p><strong>Add Transaction</strong> : <code>add_trans c/NAME_OF_CCA date/DATE amount/AMOUNT remarks/REMARKS</code><br>
+e.g. <code>add_trans c/Basketball date/31.01.2018 amount/-200 remarks/Competition Fee</code></p>
 </li>
 <li>
-<p><strong>Create CCA Budget</strong> : <code>create n/CCA bud/BUDGET</code><br>
-e.g. <code>create Basketball 500</code></p>
+<p><strong>Delete CCA</strong> : <code>delete_cca c/CCA</code><br>
+e.g. <code>delete_cca c/basketball</code></p>
 </li>
 <li>
-<p><strong>Delete CCA</strong> : <code>delete_cca CCA</code><br>
-e.g. <code>delete_cca basketball</code></p>
+<p><strong>Delete Transaction</strong> : <code>delete_trans c/NAME_OF_CCA trans/ENTRY_NUMBER</code><br>
+e.g. <code>delete_trans c/netball trans/1</code></p>
 </li>
 <li>
-<p><strong>Modify CCA</strong> : <code>modify_cca CCA BUDGET</code><br>
-e.g. <code>modify_cca basketball 500</code></p>
+<p><strong>Update CCA Details</strong> : <code>update c/CCA_NAME [n/NEW_CCA_NAME] [h/NAME_OF_HEAD] [vh/NAME_OF_VIC_HEAD] [budget/BUDGET]
+[trans/ENTRY_NUMBER] [date/DATE] [amount/AMOUNT] [remarks/REMARKS]</code><br>
+e.g. <code>update c/track n/Track F h/Alice vh/June Ong budget/500 trans/1 date/28.02.2018 amount/100 remarks/Fund Raising</code></p>
 </li>
 <li>
-<p><strong>View CCA</strong> : <code>view_cca CCA</code><br>
-e.g. <code>view_cca basketball</code></p>
+<p><strong>View CCAs' budget</strong> : <code>budget [c/CCA_NAME]</code><br>
+e.g. <code>budget c/basketball</code></p>
 </li>
 </ul>
 </div>
@@ -1714,4 +1937,4 @@ e.g. <code>view 2</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-01 16:50:13 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 03:35:22 UTC</div></div></div></body></html>

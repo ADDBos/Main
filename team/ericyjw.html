@@ -4,114 +4,121 @@
 <h2 id="project-hallper"><a class="link" href="#project-hallper">PROJECT: Hallper</a></h2>
 <div class="sectionbody">
 <hr>
-<div class="paragraph">
-<p><em>{<mark>To be edited</mark>}</em></p>
-</div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>AddressBook - Level 4 is a desktop address book application used for teaching Software Engineering principles. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 10 kLoC.</p>
+<p>The purpose of this portfolio is to document the contributions I have done to the project and provide an overview of
+what the project is about.</p>
+</div>
+<div class="paragraph">
+<p>This project is undertaken by myself and four other Computer Science students as part of our Software Engineering
+module. Titled as Hallper, our project is a desktop application specially designed for the Junior Common Room
+Committee (JCRC). The JCRC is a student representative body from every Hall in National University of Singapore,
+responsible for managing student affairs. Hallper aims to facilitate the JCRC in its day-to-day management by
+providing a combined platform that encompasses different functions that are mainly used by the JCRC. This allows the
+JCRC to carry out its  duties more efficiently and systematically.</p>
+</div>
+<div class="paragraph">
+<p>To use Hallper, the user keys in specific commands to create emails, calendar events and manage the Hall&#8217;s
+budget&#8201;&#8212;&#8201;all of the main concerns of the JCRC addressed on a single platform.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>These are my personal contributions to the project:</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement</strong>: added <strong>the ability to undo/redo previous commands</strong></p>
+<p><strong>Major enhancement 1</strong>: added <strong>the budget feature</strong></p>
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: allows the user to undo all previous commands one at a time. Preceding undo commands can be reversed by using the redo command.</p>
+<p>What it does: It allows the user to allocate budgets to the CCAs and key in future transactions to keep
+track of each CCA&#8217;s spending.</p>
 </li>
 <li>
-<p>Justification: This feature improves the product significantly because a user can make mistakes in commands and the app should provide a convenient way to rectify them.</p>
+<p>Justification: This feature improves Hallper&#8217;s functionality where it provides an extra option to assist the user
+in managing finances and monitor the hall&#8217;s budget more easily. By centralising the different CCAs' spending onto
+ a centralised platform, the user can manage hall finances in a more straightforward manner.</p>
 </li>
 <li>
-<p>Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands.</p>
-</li>
-<li>
-<p>Credits: <em>{mention here if you reused any code/ideas from elsewhere or if a third-party library is heavily used in the feature so that a reader can make a more accurate judgement of how much effort went into the feature}</em></p>
+<p>Highlights: The budget feature adds on to the existing address book and creates a separate budget book to store
+new information regarding the CCAs, their budget and spending. The tags used in the address book are used to
+link the address book and budget book together. The budget feature requires in-depth understanding of
+the source code as it adds and deletes CCAs and transactions, similar to adding and deleting a person in an address
+book.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>: added a history command that allows the user to navigate to previous commands using up/down keys.</p>
+<p><strong>Major enhancement 2</strong>: added <strong>the budget window</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: It opens up another window that displays the list of CCAs available and their transaction history.</p>
 </li>
 <li>
-<p><strong>Code contributed</strong>: [<a href="https://github.com">Functional code</a>] [<a href="https://github.com">Test code</a>] <em>{give links to collated code files}</em></p>
+<p>Justification: This feature improves the user experience as the user can obtain the financial information of each
+CCA easily. The separate window allows the user to go back to the main Hallper window easily when he wants to look up
+ for a person in the address book. The separate windows allow the user to tend to financial matters while searching
+ for the person-in-charge concurrently.</p>
+</li>
+<li>
+<p>Highlights: This budget window requires a deep understanding of Java FXML API, JavaFX and XML, and how they work
+together. It is challenging as it requires interaction with the main window.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>: added a F2 button to allow the user to switch between the budget window and the main Hallper
+window.</p>
+</li>
+<li>
+<p><strong>Code contributed</strong>:
+[ <a href="https://github.com/CS2103-AY1819S1-W16-1/main/tree/master/src/main/java/seedu/address">Functional code</a> ]
+[ <a href="https://github.com/CS2103-AY1819S1-W16-1/main/tree/master/src/test/java">Test code</a> ]
+[ <a href="https://nus-cs2103-ay1819s1.github.io/cs2103-dashboard/#=undefined&amp;search=ericyjw">RepoSense</a> ]</p>
 </li>
 <li>
 <p><strong>Other contributions</strong>:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Project management:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Managed releases <code>v1.3</code> - <code>v1.5rc</code> (3 releases) on GitHub</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Enhancements to existing features:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Updated the GUI color scheme (Pull requests <a href="https://github.com">#33</a>, <a href="https://github.com">#34</a>)</p>
-</li>
-<li>
-<p>Wrote additional tests for existing features to increase coverage from 88% to 92% (Pull requests <a href="https://github.com">#36</a>, <a href="https://github.com">#38</a>)</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
 <p>Documentation:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Did cosmetic tweaks to existing contents of the User Guide: <a href="https://github.com">#14</a></p>
+<p>Updated the About Us: (Pull request: <a href="https://github.com/CS2103-AY1819S1-W16-1/main/pull/1">#1</a>,
+<a href="https://github.com/CS2103-AY1819S1-W16-1/main/pull/8">#8</a>,
+ <a href="https://github.com/CS2103-AY1819S1-W16-1/main/pull/10">#10</a>,
+ <a href="https://github.com/CS2103-AY1819S1-W16-1/main/pull/16">#16</a>)</p>
+</li>
+<li>
+<p>Arrange the command in alphabetical order:
+<a href="https://github.com/CS2103-AY1819S1-W16-1/main/pull/113/commits/59679dc3edf8c607b42ed6fd02889aa79d8f7152">#113</a></p>
+</li>
+<li>
+<p>Vet the User Guide, Developer Guide and About Us:
+(Pull request: <a href="https://github.com/CS2103-AY1819S1-W16-1/main/pull/168" class="bare">https://github.com/CS2103-AY1819S1-W16-1/main/pull/168</a>)</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>Community:</p>
+<p>Enhancement:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com">#12</a>, <a href="https://github.com">#32</a>, <a href="https://github.com">#19</a>, <a href="https://github.com">#42</a></p>
-</li>
-<li>
-<p>Contributed to forum discussions (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>, <a href="https://github.com">4</a>)</p>
-</li>
-<li>
-<p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>)</p>
-</li>
-<li>
-<p>Some parts of the history feature I added was adopted by several other class mates (<a href="https://github.com">1</a>, <a href="https://github.com">2</a>)</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Tools:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Integrated a third party library (Natty) to the project (<a href="https://github.com">#42</a>)</p>
-</li>
-<li>
-<p>Integrated a new Github plugin (CircleCI) to the team repo</p>
+<p>Increase the code coverage from 68% to 81%: (Pull request: <a href="https://github.com/CS2103-AY1819S1-W16-1/main/pull/162">#162</a>)</p>
 </li>
 </ul>
 </div>
@@ -120,9 +127,6 @@
 </div>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p><em>{you can add/remove categories in the list above}</em></p>
 </div>
 </div>
 </div>
@@ -139,11 +143,30 @@
 </tr>
 </tbody>
 </table>
-<div class="sect3">
-<h4 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">Undoing previous command : <code>undo</code></a></h4>
+<div class="sect2">
+<h3 id="budget-and-cca"><a class="link" href="#budget-and-cca">Budget and CCA</a></h3>
 <div class="paragraph">
-<p>Restores Hallper to the state before the previous <em>undoable</em> command was executed.<br>
-Format: <code>undo</code></p>
+<p>This section lists features related to CCA budget management in Hallper.</p>
+</div>
+<div class="sect3">
+<h4 id="adding-a-cca-code-create-code"><a class="link" href="#adding-a-cca-code-create-code">Adding a cca: <code>create</code></a></h4>
+<div class="paragraph">
+<p>Adds a CCA to Hallper.<br>
+Format: <code>create n/NAME_OF_CCA budget/ALLOCATED_BUDGET</code></p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You can add in the name of the head and vice-head after you create the CCA.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -153,7 +176,7 @@ Format: <code>undo</code></p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Undoable commands: those commands that modify Hallper&#8217;s content (<code>add</code>, <code>delete</code>, <code>edit</code> and <code>clear</code>).</p>
+<p><code>undo</code> and <code>redo</code> command does not apply to <code>create</code>.</p>
 </div>
 </td>
 </tr>
@@ -165,30 +188,40 @@ Format: <code>undo</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>delete 1</code><br>
-<code>list</code><br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br></p>
+<p><code>create n/Netball budget/500</code></p>
 </li>
 <li>
-<p><code>select 1</code><br>
-<code>list</code><br>
-<code>undo</code><br>
-The <code>undo</code> command fails as there are no undoable commands executed previously.</p>
-</li>
-<li>
-<p><code>delete 1</code><br>
-<code>clear</code><br>
-<code>undo</code> (reverses the <code>clear</code> command)<br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br></p>
+<p><code>create n/Basketball F budget/400</code></p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">Redoing the previously undone command : <code>redo</code></a></h4>
+<h4 id="adding-a-transaction-code-add_trans-code"><a class="link" href="#adding-a-transaction-code-add_trans-code">Adding a transaction: <code>add_trans</code></a></h4>
 <div class="paragraph">
-<p>Reverses the most recent <code>undo</code> command.<br>
-Format: <code>redo</code></p>
+<p>Adds a transaction entry to the specified CCA in Hallper.<br>
+Format: <code>add_trans c/NAME_OF_CCA date/DATE amount/AMOUNT remarks/REMARKS</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Transaction entry can only be added one at a time.</p>
+</li>
+<li>
+<p><code>undo</code> and <code>redo</code> command does not apply to <code>add_trans</code>.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -196,24 +229,267 @@ Format: <code>redo</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>delete 1</code><br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br>
-<code>redo</code> (reapplies the <code>delete 1</code> command)<br></p>
-</li>
-<li>
-<p><code>delete 1</code><br>
-<code>redo</code><br>
-The <code>redo</code> command fails as there are no <code>undo</code> commands executed previously.</p>
-</li>
-<li>
-<p><code>delete 1</code><br>
-<code>clear</code><br>
-<code>undo</code> (reverses the <code>clear</code> command)<br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br>
-<code>redo</code> (reapplies the <code>delete 1</code> command)<br>
-<code>redo</code> (reapplies the <code>clear</code> command)<br></p>
+<p><code>add_trans c/Basketball date/31.01.2018 amount/-200 remarks/Competition Fee</code><br>
+Adds a transaction entry to <code>Basketball</code>. The date, amount and remarks of the transaction entry are <code>31.01.2018</code>,
+ <code>-200</code> and <code>Competition Fee</code> respectively.</p>
 </li>
 </ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="deleting-a-cca-code-delete_cca-code"><a class="link" href="#deleting-a-cca-code-delete_cca-code">Deleting a cca : <code>delete_cca</code></a></h4>
+<div class="paragraph">
+<p>Deletes the specified CCA from Hallper.<br>
+Format: <code>delete c/NAME_OF_CCA</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Deletes the CCA with the specified name.</p>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The CCA specifed must exist in the Hallper.</p>
+</li>
+<li>
+<p><code>undo</code> and <code>redo</code> command does not apply to <code>delete_cca</code>.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>delete_cca c/netball</code></p>
+</li>
+<li>
+<p><code>delete_cca c/Basketball F</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="deleting-a-transaction-entry-code-delete_trans-code"><a class="link" href="#deleting-a-transaction-entry-code-delete_trans-code">Deleting a transaction entry : <code>delete_trans</code></a></h4>
+<div class="paragraph">
+<p>Deletes the specified transaction entry from the specified CCA from Hallper.<br>
+Format: <code>delete_trans c/NAME_OF_CCA trans/ENTRY_NUMBER</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Deletes the specific transaction entry from the CCA with the specified name.</p>
+</li>
+<li>
+<p>The transaction entry number must be a <strong>positive interger</strong> (e.g. 1,2,3,4&#8230;&#8203;).</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The CCA specifed must exist in the Hallper.</p>
+</li>
+<li>
+<p>The transaction entry number must exist for the specified CCA.</p>
+</li>
+<li>
+<p><code>undo</code> and <code>redo</code> command does not apply to <code>delete_trans</code>.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>delete_trans c/netball trans/1</code></p>
+</li>
+<li>
+<p><code>delete_trans c/Basketball F trans/3</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="updating-a-cca-code-update-code"><a class="link" href="#updating-a-cca-code-update-code">Updating a cca : <code>update</code></a></h4>
+<div class="paragraph">
+<p>Updates an existing CCA in Hallper.<br>
+Format: <code>update c/CCA_NAME [n/NEW_CCA_NAME] [h/NAME_OF_HEAD] [vh/NAME_OF_VIC_HEAD] [budget/BUDGET]
+[trans/ENTRY_NUMBER] [date/DATE] [amount/AMOUNT] [remarks/REMARKS]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>At least one of the optional fields must be provided.</p>
+</li>
+<li>
+<p>When <code>trans/</code> is included, at least one of the fields in the transaction entry must be provided. The transaction
+fields are <code>date</code>, <code>amount</code> and <code>remarks</code>.</p>
+</li>
+<li>
+<p>Existing values will be updated to the input values.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The CCA specifed must exist in the Hallper.</p>
+</li>
+<li>
+<p>The transaction number specified with <code>trans/</code> must exist.</p>
+</li>
+<li>
+<p><code>undo</code> and <code>redo</code> command does not apply to <code>update</code>.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>update c/basketball n/basketball m h/Alex vh/Peter budget/700</code><br>
+Updates <code>basketball</code> to <code>basketball m</code>, budget to <code>700</code> and its head and vice-head to <code>Alex</code> and <code>Peter</code> respectively.</p>
+</li>
+<li>
+<p><code>update c/Netball trans/2 date/30.05.2018 amount/-200 remarks/Purchase of Equipment</code><br>
+Updates the date, amount and remarks of the 2nd transaction entry of <code>Netball</code> with <code>30.05.2018</code>, <code>-200</code> and
+<code>Purchase of Equipment</code> respectively.</p>
+</li>
+<li>
+<p><code>update c/track n/Track F h/Alice vh/June Ong budget/500 trans/1 date/28.02.2018 amount/100 remarks/Fund Raising</code><br>
+Updates <code>track</code> to <code>Track F</code>, its budget to <code>500</code> and its head and vice-head to <code>Alice</code> and <code>June Ong</code> respectively,
+and updates the date, amount and remarks of the 1st transaction entry with <code>28.02.2018</code>, <code>100</code> and <code>Fund Raising</code>
+respectively.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="viewing-all-the-ccas-budget-code-budget-code"><a class="link" href="#viewing-all-the-ccas-budget-code-budget-code">Viewing all the ccas' budget : <code>budget</code></a></h4>
+<div class="paragraph">
+<p>Opens up a Budget Book in a new window.<br>
+Format: <code>budget [c/CCA_NAME]</code></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/BudgetWindowEmpty.png" alt="BudgetWindowEmpty" width="500">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.5.6.1: Budget Window with a blank screen</em></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/BudgetWindowCca.png" alt="BudgetWindowCca" width="500"">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.5.6.2: Budget Window showing the transaction history of Softball</em></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>budget</code> shows the list of CCAs existing in Hallper.</p>
+</li>
+<li>
+<p>If <code>c/</code> is used, the new window will open up, showing the transaction information of the CCA specified.</p>
+</li>
+<li>
+<p>Otherwise, the new window will open up and show a blank screen until a CCA is selected from the CCA panel.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/BudgetWindowCcaPanel.png" alt="BudgetWindowCcaPanel" width="500"">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.5.6.3: CCA panel of the Budget Window.</em></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The CCA specifed must exist in the Hallper.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>budget</code><br>
+Opens up the Budget Window.</p>
+</li>
+<li>
+<p><code>budget c/Softball</code><br>
+Opens up the Budget Window, showing the transaction history of <code>Softball</code>.</p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
@@ -232,221 +508,357 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 </tbody>
 </table>
 <div class="sect2">
-<h3 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">Undo/Redo feature</a></h3>
+<h3 id="budget-feature"><a class="link" href="#budget-feature">Budget feature</a></h3>
 <div class="sect3">
 <h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
 <div class="paragraph">
-<p>The undo/redo mechanism is facilitated by <code>VersionedAddressBook</code>.
-It extends <code>AddressBook</code> with an undo/redo history, stored internally as an <code>addressBookStateList</code> and <code>currentStatePointer</code>.
-Additionally, it implements the following operations:</p>
+<p>The budget feature in Hallper is implemented with reference to <code>AddressBook</code>. It stores <code>Cca</code> instead of <code>Person</code>, and
+each <code>Cca</code> contains the a <code>Budget</code> and a set of transaction <code>Entries</code>. The budget feature is facilitated by
+<code>BudgetBook</code> and <code>BudgetBookStorage</code>, and can also read and write onto the <code>ccabook.xml</code>, just like the  AddressBook.
+ The purpose of this budget feature is to keep track of each <code>Cca</code> transaction.</p>
+</div>
+<div class="paragraph">
+<p>It implements the following commands:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>VersionedAddressBook#commit()</code>&#8201;&#8212;&#8201;Saves the current address book state in its history.</p>
+<p><code>create</code>&#8201;&#8212;&#8201;Creates a CCA with a given budget.</p>
 </li>
 <li>
-<p><code>VersionedAddressBook#undo()</code>&#8201;&#8212;&#8201;Restores the previous address book state from its history.</p>
+<p><code>delete_cca</code>&#8201;&#8212;&#8201;Deletes a specified CCA.</p>
 </li>
 <li>
-<p><code>VersionedAddressBook#redo()</code>&#8201;&#8212;&#8201;Restores a previously undone address book state from its history.</p>
+<p><code>update</code>&#8201;&#8212;&#8201;Updates the details of a specified CCA.</p>
+</li>
+<li>
+<p><code>add_trans</code>&#8201;&#8212;&#8201;Adds a transaction entry to a specified CCA.</p>
+</li>
+<li>
+<p><code>delete_trans</code> &#8201;&#8212;&#8201;Deletes a transaction entry to a specified CCA.</p>
+</li>
+<li>
+<p><code>budget</code>&#8201;&#8212;&#8201;Shows the transaction information of each CCA.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>These operations are exposed in the <code>Model</code> interface as <code>Model#commitAddressBook()</code>, <code>Model#undoAddressBook()</code> and <code>Model#redoAddressBook()</code> respectively.</p>
-</div>
-<div class="paragraph">
-<p>Given below is an example usage scenario and how the undo/redo mechanism behaves at each step.</p>
+<p>However, only the implementation of <code>create</code>, <code>update</code>, <code>add_trans</code> and <code>budget</code> will be discussed.</p>
 </div>
 <div class="sect4">
-<h5 id="command-undo"><a class="link" href="#command-undo">Command: undo</a></h5>
+<h5 id="create-command"><a class="link" href="#create-command">Create Command</a></h5>
 <div class="paragraph">
-<p>1) The user launches the application for the first time. The <code>VersionedAddressBook</code> will be initialized with the
-initial address book state, and the <code>currentStatePointer</code> pointing to that single address book state.</p>
+<p>The <code>create</code> mechanism is facilitated by <code>BudgetBook</code> and <code>BudgetBookStorage</code>.
+When a CCA is created, it is stored in a <code>UniqueCcaList</code> in the <code>BudgetBook</code>, and in a <code>.xml</code> file in the local
+directory. It implements the following command:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>BudgetBook#addCca(Cca toAdd)</code>&#8201;&#8212;&#8201;Adds a non existing CCA into the <code>BudgetBook</code> in <code>Model</code>.</p>
+</li>
+<li>
+<p><code>BudgetBook#commitBudgetBook()</code>&#8201;&#8212;&#8201;Save a current version of the budget book in the <code>VersionedBudgetBook</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These operations are exposed in the <code>Model</code> interface as:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Model#addCca(Cca cca)</code></p>
+</li>
+<li>
+<p><code>Model#hasCca(CcaName name)</code></p>
+</li>
+<li>
+<p><code>Model#hasCca(Cca cca)</code></p>
+</li>
+<li>
+<p><code>Model#commitBudgetBook()</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the create cca mechanism behaves at each step.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user creates a new CCA by including the <code>CCA name</code> and the <code>budget</code> allocated to the CCA.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. <code>create</code> command checks for existing CCA name using <code>BudgetBook#hasCca(Cca toAdd)</code>. If a CCA with the same
+name exists, the CCA is not created. Otherwise, it is added into the <code>BudgetBook</code> in the <code>Model</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. <code>BudgetBook#addCca(Cca cca)</code> then invokes <code>ModelManger#indicateBudgetBookChange()</code> to raise a
+<code>BudgetBookChangedEvent</code>, which is handled by <code>EventsCenter</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. <code>BudgetBookChangedEvent</code> is then handled by <code>StorageManager#handleBudgetBookChangedEvent(BudgetBookChangedEvent
+event)</code>. <code>StorageManager#saveBudgetBook(ReadOnlyBudgetBook data)</code> is then called to update the existing
+<code>ccabook.xml</code> file with the new CCA.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the create operation works:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/UndoRedoStartingStateListDiagram.png" alt="UndoRedoStartingStateListDiagram" width="800">
+<img src="../images/CreateCcaCommandSequenceDiagram.png" alt="CreateCcaCommandSequenceDiagram" width="1500">
 </div>
 </div>
 <div class="paragraph">
-<p>2) The user executes <code>delete 5</code> command to delete the 5th person in the address book. The <code>delete</code> command calls
-<code>Model#commitAddressBook()</code>, causing the modified state of the address book after the <code>delete 5</code> command executes to be saved in the <code>addressBookStateList</code>, and the <code>currentStatePointer</code> is shifted to the newly inserted address book state.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoNewCommand1StateListDiagram.png" alt="UndoRedoNewCommand1StateListDiagram" width="800">
-</div>
-</div>
-<div class="paragraph">
-<p>3) The user executes <code>add n/David &#8230;&#8203;</code> to add a new person. The <code>add</code> command also calls <code>Model#commitAddressBook()</code>,
-causing another modified address book state to be saved into the <code>addressBookStateList</code>.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoNewCommand2StateListDiagram.png" alt="UndoRedoNewCommand2StateListDiagram" width="800">
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If a command fails its execution, it will not call <code>Model#commitAddressBook()</code>, so the address book state will not be saved into the <code>addressBookStateList</code>.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>4) The user now decides that adding the person was a mistake, and decides to undo that action by executing the <code>undo</code>
-command. The <code>undo</code> command will call <code>Model#undoAddressBook()</code>, which will shift the <code>currentStatePointer</code> once to the left, pointing it to the previous address book state, and restores the address book to that state.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoExecuteUndoStateListDiagram.png" alt="UndoRedoExecuteUndoStateListDiagram" width="800">
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If the <code>currentStatePointer</code> is at index 0, pointing to the initial address book state, then there are no previous address book states to restore. The <code>undo</code> command uses <code>Model#canUndoAddressBook()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the undo.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>The following sequence diagram shows how the undo operation works:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoSequenceDiagram.png" alt="UndoRedoSequenceDiagram" width="800">
-</div>
+<p><em>Figure 4.4.1.1: Sequence diagram for create command</em></p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="command-redo"><a class="link" href="#command-redo">Command: redo</a></h5>
+<h5 id="update-command"><a class="link" href="#update-command">Update Command</a></h5>
 <div class="paragraph">
-<p>The <code>redo</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>Model#redoAddressBook()</code>, which shifts the <code>currentStatePointer</code> once to the right, pointing to the previously undone state, and restores the address book to that state.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If the <code>currentStatePointer</code> is at index <code>addressBookStateList.size() - 1</code>, pointing to the latest address book state, then there are no undone address book states to restore. The <code>redo</code> command uses <code>Model#canRedoAddressBook()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p><strong>Things to Note</strong></p>
+<p>The <code>update</code> mechanism is facilitated by <code>BudgetBook</code> and <code>BudgetBookStorage</code>.
+When a CCA is getting updated, it looks up the <code>BudgetBook</code> in the <code>BudgetBookStorage</code> of the <code>Model</code> for the CCA to
+update. It then updates the <code>Cca</code> stored inside the <code>ccabook.xml</code> file in the local directory.
+It implements the following commands:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Not all commands can undo or redo. Some commands, such as <code>list</code>, do not modify the address book and
-will usually not call <code>Model#commitAddressBook()</code>, <code>Model#undoAddressBook()</code> or <code>Model#redoAddressBook()</code>. Thus, the <code>addressBookStateList</code> remains unchanged.</p>
+<p><code>BudgetBook#updateCca(Cca targetCca, Cca editedCca)</code>&#8201;&#8212;&#8201;Updates an existing CCA in the <code>BudgetBook</code> in <code>Model</code>.</p>
+</li>
+<li>
+<p><code>BudgetBook#commitBudgetBook()</code>&#8201;&#8212;&#8201;Saves a current version of the budget book in the <code>VersionedBudgetBook</code>.</p>
+</li>
+<li>
+<p><code>UpdateCommand#createEditedCca(Cca ccaToEdit, EditCcaDescriptor editCcaDescriptor)</code>&#8201;&#8212;&#8201;Creates an updated version
+of the target CCA.</p>
+</li>
+<li>
+<p><code>TransactionMath#updateDetails(Cca cca)</code>&#8201;&#8212;&#8201;Updates the <code>Spent</code> and <code>Outstanding</code> amount of the specified CCA.</p>
 </li>
 </ul>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoNewCommand3StateListDiagram.png" alt="UndoRedoNewCommand3StateListDiagram" width="800">
-</div>
+<div class="paragraph">
+<p>These operations are exposed in the <code>Model</code> interface as:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Some commands such as <code>clear</code>, will calls <code>Model#commitAddressBook()</code>. In this case, the <code>currentStatePointer</code> is
-not pointing at the end of the <code>addressBookStateList</code>, all address book states after the <code>currentStatePointer</code> will be purged. We designed it this way because it no longer makes sense to redo the <code>add n/David &#8230;&#8203;</code> command. This is the behavior that most modern desktop applications follow.</p>
+<p><code>Model#updateCca(Cca targetCca, Cca editedCca)</code></p>
+</li>
+<li>
+<p><code>Model#hasCca(CcaName cca)</code></p>
+</li>
+<li>
+<p><code>Model#commitBudgetBook()</code></p>
+</li>
+<li>
+<p><code>Model#hasPerson(Name person)</code></p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the update cca mechanism behaves at each step:</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user specifies the CCA to be updated by including the CCA name and the fields to update.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The user can update the head&#8217;s name, the vice-head&#8217;s name, the budget allocated, and the details of a
+transaction entry such as its date, amount involved and remarks for the transaction. These information is stored in the
+<code>UpdateCommand#EditCcaDescriptor</code>. Any fields that are not valid will display an error message.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. <code>update</code> command then checks for existing CCA name using <code>BudgetBook#hasCca(CcaName ccaName)</code>. If the cca name
+ does not exist, an error message will appear. Otherwise, the updated CCA will be created from the
+ <code>UpdateCommand#EditCcaDescriptor</code> using
+ <code>UpdateCommand#createEditedCca(Cca ccaToEdit, EditCcaDescriptor editCcaDescriptor)</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. <code>BudgetBook#updateCca(Cca targetCca, Cca editedCca)</code> then replaces the existing CCA with the updated CCA and
+invokes <code>ModelManger#indicateBudgetBookChange()</code> to raise a <code>BudgetBookChangedEvent</code>, which is handled by
+<code>EventsCenter</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 5. <code>BudgetBookChangedEvent</code> is handled by <code>StorageManager#handleBudgetBookChangedEvent(BudgetBookChangedEvent
+event)</code>. <code>StorageManager#saveBudgetBook(ReadOnlyBudgetBook data)</code> is then called to replace the specified CCA in the
+the existing <code>ccabook.xml</code> with the updated CCA and its information.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the update operation works:</p>
+</div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/UndoRedoNewCommand4StateListDiagram.png" alt="UndoRedoNewCommand4StateListDiagram" width="800">
+<img src="../images/UpdateCommandSequenceDiagram.png" alt="UpdateCommandSequenceDiagram" width="1500">
 </div>
 </div>
 <div class="paragraph">
-<p>The following activity diagram summarizes what happens when a user executes a new command:</p>
+<p><em>Figure 4.4.1.2: Sequence diagram for update command</em></p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="add_transaction-command"><a class="link" href="#add_transaction-command">Add_Transaction Command</a></h5>
+<div class="paragraph">
+<p>The <code>add_trans</code> mechanism is facilitated by <code>BudgetBook</code> and <code>BudgetBookStorage</code>.
+When a transaction entry is to be added, it looks up the <code>BudgetBook</code> in the <code>BudgetBookStorage</code> of
+the <code>Model</code> for the CCA and add the specified entry to the CCA. It then update the <code>Cca</code> stored inside the <code>ccabook.xml</code> file in the
+local directory.
+It implements the following commands:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>BudgetBook#updateCca(Cca targetCca, Cca editedCca)</code>&#8201;&#8212;&#8201;Updates an existing CCA in the <code>BudgetBook</code> in <code>Model</code>.</p>
+</li>
+<li>
+<p><code>BudgetBook#commitBudgetBook()</code>&#8201;&#8212;&#8201;Saves a current version of the budget book in the <code>VersionedBudgetBook</code>.</p>
+</li>
+<li>
+<p><code>TransactionMath#updateDetails(Cca cca)</code>&#8201;&#8212;&#8201;Updates the <code>Spent</code> and <code>Outstanding</code> amount of the specified CCA.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These operations are exposed in the <code>Model</code> interface as:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Model#updateCca(Cca targetCca, Cca editedCca)</code></p>
+</li>
+<li>
+<p><code>Model#hasCca(CcaName cca)</code></p>
+</li>
+<li>
+<p><code>Model#commitBudgetBook()</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the add transaction mechanism behaves at each step:</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user specifies the CCA to add transaction to by including the CCA name and the transaction fields.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The user must include the <code>Date</code>, <code>Amount</code> and <code>Remarks</code> for the transaction entry. Any fields that are not
+valid will display an error message.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. <code>add_trans</code> command then checks for existing CCA name using <code>BudgetBook#hasCca(CcaName ccaName)</code>. If the
+cca name does not exist, an error message will appear. Otherwise, the <code>Entry</code> is created and is added to the
+target <code>Cca</code> using <code>Cca#AddNewTransaction(Entry entry)</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. The <code>Spent</code> and <code>Outstanding</code> is then updated using <code>TransactionMath#updateDetails(Cca cca)</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 5. <code>BudgetBook#updateCca(Cca targetCca, Cca editedCca)</code> then replaces the existing CCA with the updated CCA and
+invokes <code>ModelManger#indicateBudgetBookChange()</code> to raise a <code>BudgetBookChangedEvent</code>, which is handled by
+<code>EventsCenter</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 6. <code>BudgetBookChangedEvent</code> is handled by <code>StorageManager#handleBudgetBookChangedEvent(BudgetBookChangedEvent
+event)</code>. <code>StorageManager#saveBudgetBook(ReadOnlyBudgetBook data)</code> is then called to replace the specified CCA in the
+the existing <code>ccabook.xml</code> with the updated CCA and its transaction entry.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the add transaction operation works:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/UndoRedoActivityDiagram.png" alt="UndoRedoActivityDiagram" width="650">
+<img src="../images/AddTransCommandSequenceDiagram.png" alt="AddTransCommandSequenceDiagram" width="1500">
 </div>
+<div class="title">Figure 1. Sequence diagram for update command</div>
+</div>
+<div class="paragraph">
+<p><em>_Figure 4.4.1.3: Sequence diagram for add_trans command</em></p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="budget-command"><a class="link" href="#budget-command">Budget Command</a></h5>
+<div class="paragraph">
+<p>The <code>budget</code> mechanism is facilitated by <code>BudgetBook</code> and <code>BudgetBookStorage</code>.
+It opens up a separate window to display the CCA information and its transaction history. It implements the
+following command:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>`EventsCenter#getInstance()&#8201;&#8212;&#8201;Gets the instance of the EventsCenter.</p>
+</li>
+<li>
+<p>`EventsCenter#post(E event)&#8201;&#8212;&#8201;Posts an event to the event bus.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the budget mechanism behaves at each step.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user enters the budget command with or without a specified CCA.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. When a CCA is specified, <code>BudgetCommand(CcaName ccaName)</code> is called. Otherwise, <code>BudgetCommand()</code> is called
+and the <code>CcaName</code> is null.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. If the CCA is specified, the <code>budget</code> command checks whether the CCA specified exist.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. <code>budget</code> command then raises a <code>ShowBudgetViewEvent</code>, which is handled by <code>EventsCenter</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 5. <code>ShowBudgetViewEvent</code> is handled by <code>MainWindow#handleShowBudgetEvent(ShowBudgetViewEvent event)</code> and invokes
+ <code>MainWindow#handleBudget(CcaName ccaName)</code>. This opens the budget window through <code>BudgetWindow#show(CcaName ccaName)</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 6. It then checks whether the CCA name is present in <code>BudgetWindow#fillInnerParts(CcaName ccaName)</code>. If CCA name
+ is present, <code>BudgetBrowserPanel(ccaName)</code> is called and the specified CCA information will be displayed. Otherwise,
+ <code>BudgetBrowserPanel()</code> is called, showing a blank page.</p>
+</div>
+<div class="paragraph">
+<p>The following activity diagram summarizes what happens when a user executes a budget command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/BudgetCommandActivityDiagram.png" alt="BudgetCommandActivityDiagram" width="650">
+</div>
+</div>
+<div class="paragraph">
+<p><em>_Figure 4.4.1.4: Activity diagram for budget command</em></p>
 </div>
 </div>
 </div>
 <div class="sect3">
 <h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
 <div class="sect4">
-<h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
+<h5 id="aspect-choice-of-local-storage-format"><a class="link" href="#aspect-choice-of-local-storage-format">Aspect: Choice of local storage format</a></h5>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Saves the entire address book.</p>
+<p><strong>Alternative 1 (current choice):</strong> Saves in <code>.xml</code> format.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Easy to implement.</p>
+<p>Pros: Easy to create, understand, move and translate into other environments. International data standard for
+storing information.</p>
 </li>
 <li>
-<p>Cons: May have performance issues in terms of memory usage.</p>
+<p>Cons: Parsing XML software is slow and cumbersome. Use large amounts of memory due to the verbosity and incur cost
+of parsing large XML files.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> Individual command knows how to undo/redo by itself.</p>
+<p><strong>Alternative 2:</strong> Save in <code>.json</code> format.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Will use less memory (e.g. for <code>delete</code>, just save the person being deleted).</p>
+<p>Pros: Faster in parsing information.</p>
 </li>
 <li>
-<p>Cons: Must ensure that the implementation of each individual command are correct.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect4">
-<h5 id="aspect-data-structure-to-support-the-undo-redo-commands"><a class="link" href="#aspect-data-structure-to-support-the-undo-redo-commands">Aspect: Data structure to support the undo/redo commands</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Use a list to store the history of address book states.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easy for new Computer Science student undergraduates to understand, who are likely to be the new incoming developers of our project.</p>
-</li>
-<li>
-<p>Cons: Logic is duplicated twice. For example, when a new command is executed, we must remember to update both <code>HistoryManager</code> and <code>VersionedAddressBook</code>.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Use <code>HistoryManager</code> for undo/redo</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Do not need to maintain a separate list, and just reuse what is already in the codebase.</p>
-</li>
-<li>
-<p>Cons: Requires dealing with commands that have already been undone: We must remember to skip these commands. Violates Single Responsibility Principle and Separation of Concerns as <code>HistoryManager</code> now needs to do two different things.</p>
+<p>Cons: Limited in terms of what objects can be modeled.</p>
 </li>
 </ul>
 </div>
@@ -456,20 +868,5 @@ not pointing at the end of the <code>addressBookStateList</code>, all address bo
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">[Proposed] Data encryption</a></h3>
-<div class="paragraph">
-<p><em>{Explain here how the data encryption feature will be implemented}</em></p>
 </div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="project-powerpointlabs"><a class="link" href="#project-powerpointlabs">PROJECT: PowerPointLabs</a></h2>
-<div class="sectionbody">
-<hr>
-<div class="paragraph">
-<p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
-</div>
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-01 16:50:13 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 03:35:22 UTC</div></div></div></body></html>

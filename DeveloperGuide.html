@@ -33,12 +33,16 @@
 <li><a href="#undo-redo-feature">4.1. Undo/Redo feature</a></li>
 <li><a href="#compose-email-feature">4.2. Compose email feature</a></li>
 <li><a href="#calendar-feature">4.3. Calendar feature</a></li>
-<li><a href="#create-cca-feature">4.4. Create CCA feature</a></li>
-<li><a href="#import-feature">4.5. Import feature</a></li>
-<li><a href="#export-feature">4.6. Export feature</a></li>
-<li><a href="#proposed-data-encryption">4.7. [Proposed] Data encryption</a></li>
-<li><a href="#logging">4.8. Logging</a></li>
-<li><a href="#Implementation-Configuration">4.9. Configuration</a></li>
+<li><a href="#budget-feature">4.4. Budget feature</a></li>
+<li><a href="#clear-feature">4.5. Clear feature</a></li>
+<li><a href="#erase-feature">4.6. Erase Feature</a></li>
+<li><a href="#import-feature">4.7. Import feature</a></li>
+<li><a href="#export-feature">4.8. Export feature</a></li>
+<li><a href="#image-feature">4.9. Image feature</a></li>
+<li><a href="#search-feature">4.10. Search feature</a></li>
+<li><a href="#proposed-data-encryption">4.11. [Proposed] Data encryption</a></li>
+<li><a href="#logging">4.12. Logging</a></li>
+<li><a href="#Implementation-Configuration">4.13. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a>
@@ -79,12 +83,11 @@
 <li><a href="#use-cases">Appendix D: Use Cases</a></li>
 <li><a href="#non-functional-requirements">Appendix E: Non Functional Requirements</a></li>
 <li><a href="#glossary">Appendix F: Glossary</a></li>
-<li><a href="#product-survey">Appendix G: Product Survey</a></li>
-<li><a href="#instructions-for-manual-testing">Appendix H: Instructions for Manual Testing</a>
+<li><a href="#instructions-for-manual-testing">Appendix G: Instructions for Manual Testing</a>
 <ul class="sectlevel2">
-<li><a href="#launch-and-shutdown">H.1. Launch and Shutdown</a></li>
-<li><a href="#deleting-a-person">H.2. Deleting a Person</a></li>
-<li><a href="#saving-data">H.3. Saving Data</a></li>
+<li><a href="#launch-and-shutdown">G.1. Launch and Shutdown</a></li>
+<li><a href="#deleting-a-person">G.2. Deleting a Person</a></li>
+<li><a href="#saving-data">G.3. Saving Data</a></li>
 </ul>
 </li>
 </ul>
@@ -94,8 +97,8 @@
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Hallper is a desktop application aimed at serving <a href="#jcrc">JCRCs</a> of the Halls of NUS.
-Hallper follows an event-driven architecture, and is designed to work on any <a href="#mainstream-os">mainstream OS</a>.
+<p>Hallper is a desktop application aimed at serving the Junior Common Room Committees (<a href="#jcrc">JCRCs</a>) of the Halls of NUS.
+Hallper follows an event-driven architecture, and is designed to work on any <a href="#mainstream-os">mainstream operating system (OS)</a>.
 This guide provides you with information on how to contribute to Hallper, whether you are a new or experienced developer.</p>
 </div>
 </div>
@@ -664,11 +667,8 @@ Additionally, it implements the following operations:</p>
 <div class="paragraph">
 <p>Given below is an example usage scenario and how the undo/redo mechanism behaves at each step.</p>
 </div>
-<div class="sect4">
-<h5 id="command-undo"><a class="link" href="#command-undo">Command: undo</a></h5>
 <div class="paragraph">
-<p>1) The user launches the application for the first time. The <code>VersionedAddressBook</code> will be initialized with the
-initial address book state, and the <code>currentStatePointer</code> pointing to that single address book state.</p>
+<p>Step 1. The user launches the application for the first time. The <code>VersionedAddressBook</code> will be initialized with the initial address book state, and the <code>currentStatePointer</code> pointing to that single address book state.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -676,8 +676,7 @@ initial address book state, and the <code>currentStatePointer</code> pointing to
 </div>
 </div>
 <div class="paragraph">
-<p>2) The user executes <code>delete 5</code> command to delete the 5th person in the address book. The <code>delete</code> command calls
-<code>Model#commitAddressBook()</code>, causing the modified state of the address book after the <code>delete 5</code> command executes to be saved in the <code>addressBookStateList</code>, and the <code>currentStatePointer</code> is shifted to the newly inserted address book state.</p>
+<p>Step 2. The user executes <code>delete 5</code> command to delete the 5th person in the address book. The <code>delete</code> command calls <code>Model#commitAddressBook()</code>, causing the modified state of the address book after the <code>delete 5</code> command executes to be saved in the <code>addressBookStateList</code>, and the <code>currentStatePointer</code> is shifted to the newly inserted address book state.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -685,8 +684,7 @@ initial address book state, and the <code>currentStatePointer</code> pointing to
 </div>
 </div>
 <div class="paragraph">
-<p>3) The user executes <code>add n/David &#8230;&#8203;</code> to add a new person. The <code>add</code> command also calls <code>Model#commitAddressBook()</code>,
-causing another modified address book state to be saved into the <code>addressBookStateList</code>.</p>
+<p>Step 3. The user executes <code>add n/David &#8230;&#8203;</code> to add a new person. The <code>add</code> command also calls <code>Model#commitAddressBook()</code>, causing another modified address book state to be saved into the <code>addressBookStateList</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -706,8 +704,7 @@ If a command fails its execution, it will not call <code>Model#commitAddressBook
 </table>
 </div>
 <div class="paragraph">
-<p>4) The user now decides that adding the person was a mistake, and decides to undo that action by executing the <code>undo</code>
-command. The <code>undo</code> command will call <code>Model#undoAddressBook()</code>, which will shift the <code>currentStatePointer</code> once to the left, pointing it to the previous address book state, and restores the address book to that state.</p>
+<p>Step 4. The user now decides that adding the person was a mistake, and decides to undo that action by executing the <code>undo</code> command. The <code>undo</code> command will call <code>Model#undoAddressBook()</code>, which will shift the <code>currentStatePointer</code> once to the left, pointing it to the previous address book state, and restores the address book to that state.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -734,9 +731,6 @@ If the <code>currentStatePointer</code> is at index 0, pointing to the initial a
 <img src="images/UndoRedoSequenceDiagram.png" alt="UndoRedoSequenceDiagram" width="800">
 </div>
 </div>
-</div>
-<div class="sect4">
-<h5 id="command-redo"><a class="link" href="#command-redo">Command: redo</a></h5>
 <div class="paragraph">
 <p>The <code>redo</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>Model#redoAddressBook()</code>, which shifts the <code>currentStatePointer</code> once to the right, pointing to the previously undone state, and restores the address book to that state.</p>
 </div>
@@ -753,28 +747,15 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </table>
 </div>
 <div class="paragraph">
-<p><strong>Things to Note</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Not all commands can undo or redo. Some commands, such as <code>list</code>, do not modify the address book and
-will usually not call <code>Model#commitAddressBook()</code>, <code>Model#undoAddressBook()</code> or <code>Model#redoAddressBook()</code>. Thus, the <code>addressBookStateList</code> remains unchanged.</p>
-</li>
-</ul>
+<p>Step 5. The user then decides to execute the command <code>list</code>. Commands that do not modify the address book, such as <code>list</code>, will usually not call <code>Model#commitAddressBook()</code>, <code>Model#undoAddressBook()</code> or <code>Model#redoAddressBook()</code>. Thus, the <code>addressBookStateList</code> remains unchanged.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/UndoRedoNewCommand3StateListDiagram.png" alt="UndoRedoNewCommand3StateListDiagram" width="800">
 </div>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>Some commands such as <code>clear</code>, will calls <code>Model#commitAddressBook()</code>. In this case, the <code>currentStatePointer</code> is
-not pointing at the end of the <code>addressBookStateList</code>, all address book states after the <code>currentStatePointer</code> will be purged. We designed it this way because it no longer makes sense to redo the <code>add n/David &#8230;&#8203;</code> command. This is the behavior that most modern desktop applications follow.</p>
-</li>
-</ul>
+<div class="paragraph">
+<p>Step 6. The user executes <code>clear</code>, which calls <code>Model#commitAddressBook()</code>. Since the <code>currentStatePointer</code> is not pointing at the end of the <code>addressBookStateList</code>, all address book states after the <code>currentStatePointer</code> will be purged. We designed it this way because it no longer makes sense to redo the <code>add n/David &#8230;&#8203;</code> command. This is the behavior that most modern desktop applications follow.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -787,7 +768,6 @@ not pointing at the end of the <code>addressBookStateList</code>, all address bo
 <div class="imageblock">
 <div class="content">
 <img src="images/UndoRedoActivityDiagram.png" alt="UndoRedoActivityDiagram" width="650">
-</div>
 </div>
 </div>
 </div>
@@ -866,7 +846,7 @@ not pointing at the end of the <code>addressBookStateList</code>, all address bo
 <div class="sect3">
 <h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">4.2.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>The Compose feature works using a third-party dependency, <a href="http://www.simplejavamail.org/#/about">Simple Java Mail</a>.
+<p>The Compose email feature works using a third-party dependency, <a href="http://www.simplejavamail.org/#/about">Simple Java Mail</a>.
 It allows <code>.eml</code> files to be saved onto the computer.
 The feature is facilitated by <code>EmailModel</code> and <code>EmailDirStorage</code>.
 It implements the following operations:</p>
@@ -965,7 +945,7 @@ The library is easy to understand so any new developer can easily extend the cur
 <p>Pros: Plain text is easily understood by almost any user.</p>
 </li>
 <li>
-<p>Cons: The design of the email content is limited.</p>
+<p>Cons: The design of the email content is very limited.</p>
 </li>
 </ul>
 </div>
@@ -1299,9 +1279,45 @@ The library is widely used and easy to understand so any new develeper can easil
 </div>
 </div>
 <div class="sect2">
-<h3 id="create-cca-feature"><a class="link" href="#create-cca-feature">4.4. Create CCA feature</a></h3>
+<h3 id="budget-feature"><a class="link" href="#budget-feature">4.4. Budget feature</a></h3>
 <div class="sect3">
 <h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">4.4.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The budget feature in Hallper is implemented with reference to <code>AddressBook</code>. It stores <code>Cca</code> instead of <code>Person</code>, and
+each <code>Cca</code> contains the a <code>Budget</code> and a set of transaction <code>Entries</code>. The budget feature is facilitated by
+<code>BudgetBook</code> and <code>BudgetBookStorage</code>, and can also read and write onto the <code>ccabook.xml</code>, just like the  AddressBook.
+ The purpose of this budget feature is to keep track of each <code>Cca</code> transaction.</p>
+</div>
+<div class="paragraph">
+<p>It implements the following commands:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>create</code>&#8201;&#8212;&#8201;Creates a CCA with a given budget.</p>
+</li>
+<li>
+<p><code>delete_cca</code>&#8201;&#8212;&#8201;Deletes a specified CCA.</p>
+</li>
+<li>
+<p><code>update</code>&#8201;&#8212;&#8201;Updates the details of a specified CCA.</p>
+</li>
+<li>
+<p><code>add_trans</code>&#8201;&#8212;&#8201;Adds a transaction entry to a specified CCA.</p>
+</li>
+<li>
+<p><code>delete_trans</code> &#8201;&#8212;&#8201;Deletes a transaction entry to a specified CCA.</p>
+</li>
+<li>
+<p><code>budget</code>&#8201;&#8212;&#8201;Shows the transaction information of each CCA.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>However, only the implementation of <code>create</code>, <code>update</code>, <code>add_trans</code> and <code>budget</code> will be discussed.</p>
+</div>
+<div class="sect4">
+<h5 id="create-command"><a class="link" href="#create-command">Create Command</a></h5>
 <div class="paragraph">
 <p>The <code>create</code> mechanism is facilitated by <code>BudgetBook</code> and <code>BudgetBookStorage</code>.
 When a CCA is created, it is stored in a <code>UniqueCcaList</code> in the <code>BudgetBook</code>, and in a <code>.xml</code> file in the local
@@ -1318,31 +1334,270 @@ directory. It implements the following command:</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>These operations are exposed in the <code>Model</code> interface as <code>Model#addCca(Cca cca)</code>, <code>Model#hasCca(CcaName name)</code>,
-<code>Model#hasCca(Cca cca)</code> and <code>Model#commitBudgetBook()</code>.</p>
+<p>These operations are exposed in the <code>Model</code> interface as:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Model#addCca(Cca cca)</code></p>
+</li>
+<li>
+<p><code>Model#hasCca(CcaName name)</code></p>
+</li>
+<li>
+<p><code>Model#hasCca(Cca cca)</code></p>
+</li>
+<li>
+<p><code>Model#commitBudgetBook()</code></p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p>Given below is an example usage scenario and how the create cca mechanism behaves at each step.</p>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>The user create a new CCA by including the <code>CCA name</code> and the 'budget` allocated to the CCA.</p>
-</li>
-<li>
-<p><code>create</code> command checks for existing CCA name using <code>BudgetBook#hasCca(Cca toAdd)</code>. If a CCA with the same
+<div class="paragraph">
+<p>Step 1. The user creates a new CCA by including the <code>CCA name</code> and the <code>budget</code> allocated to the CCA.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. <code>create</code> command checks for existing CCA name using <code>BudgetBook#hasCca(Cca toAdd)</code>. If a CCA with the same
 name exists, the CCA is not created. Otherwise, it is added into the <code>BudgetBook</code> in the <code>Model</code>.</p>
-</li>
-<li>
-<p><code>BudgetBook#addCca(Cca cca)</code> then invokes <code>ModelManger#indicateBudgetBookChange()</code> to raise a
+</div>
+<div class="paragraph">
+<p>Step 3. <code>BudgetBook#addCca(Cca cca)</code> then invokes <code>ModelManger#indicateBudgetBookChange()</code> to raise a
 <code>BudgetBookChangedEvent</code>, which is handled by <code>EventsCenter</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. <code>BudgetBookChangedEvent</code> is then handled by <code>StorageManager#handleBudgetBookChangedEvent(BudgetBookChangedEvent
+event)</code>. <code>StorageManager#saveBudgetBook(ReadOnlyBudgetBook data)</code> is then called to update the existing
+<code>ccabook.xml</code> file with the new CCA.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the create operation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/CreateCcaCommandSequenceDiagram.png" alt="CreateCcaCommandSequenceDiagram" width="1500">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.4.1.1: Sequence diagram for create command</em></p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="update-command"><a class="link" href="#update-command">Update Command</a></h5>
+<div class="paragraph">
+<p>The <code>update</code> mechanism is facilitated by <code>BudgetBook</code> and <code>BudgetBookStorage</code>.
+When a CCA is getting updated, it looks up the <code>BudgetBook</code> in the <code>BudgetBookStorage</code> of the <code>Model</code> for the CCA to
+update. It then updates the <code>Cca</code> stored inside the <code>ccabook.xml</code> file in the local directory.
+It implements the following commands:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>BudgetBook#updateCca(Cca targetCca, Cca editedCca)</code>&#8201;&#8212;&#8201;Updates an existing CCA in the <code>BudgetBook</code> in <code>Model</code>.</p>
 </li>
 <li>
-<p><code>BudgetBookChangedEvent</code> is then handled by <code>StorageManager#handleBudgetBookChangedEvent(BudgetBookChangedEvent
-event)</code>. <code>StorageManager#saveBudgetBook(ReadOnlyBudgetBook data)</code> is then called to write the update the existing
-<code>ccabook.xml</code> file with the new CCA.</p>
+<p><code>BudgetBook#commitBudgetBook()</code>&#8201;&#8212;&#8201;Saves a current version of the budget book in the <code>VersionedBudgetBook</code>.</p>
 </li>
-</ol>
+<li>
+<p><code>UpdateCommand#createEditedCca(Cca ccaToEdit, EditCcaDescriptor editCcaDescriptor)</code>&#8201;&#8212;&#8201;Creates an updated version
+of the target CCA.</p>
+</li>
+<li>
+<p><code>TransactionMath#updateDetails(Cca cca)</code>&#8201;&#8212;&#8201;Updates the <code>Spent</code> and <code>Outstanding</code> amount of the specified CCA.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These operations are exposed in the <code>Model</code> interface as:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Model#updateCca(Cca targetCca, Cca editedCca)</code></p>
+</li>
+<li>
+<p><code>Model#hasCca(CcaName cca)</code></p>
+</li>
+<li>
+<p><code>Model#commitBudgetBook()</code></p>
+</li>
+<li>
+<p><code>Model#hasPerson(Name person)</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the update cca mechanism behaves at each step:</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user specifies the CCA to be updated by including the CCA name and the fields to update.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The user can update the head&#8217;s name, the vice-head&#8217;s name, the budget allocated, and the details of a
+transaction entry such as its date, amount involved and remarks for the transaction. These information is stored in the
+<code>UpdateCommand#EditCcaDescriptor</code>. Any fields that are not valid will display an error message.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. <code>update</code> command then checks for existing CCA name using <code>BudgetBook#hasCca(CcaName ccaName)</code>. If the cca name
+ does not exist, an error message will appear. Otherwise, the updated CCA will be created from the
+ <code>UpdateCommand#EditCcaDescriptor</code> using
+ <code>UpdateCommand#createEditedCca(Cca ccaToEdit, EditCcaDescriptor editCcaDescriptor)</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. <code>BudgetBook#updateCca(Cca targetCca, Cca editedCca)</code> then replaces the existing CCA with the updated CCA and
+invokes <code>ModelManger#indicateBudgetBookChange()</code> to raise a <code>BudgetBookChangedEvent</code>, which is handled by
+<code>EventsCenter</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 5. <code>BudgetBookChangedEvent</code> is handled by <code>StorageManager#handleBudgetBookChangedEvent(BudgetBookChangedEvent
+event)</code>. <code>StorageManager#saveBudgetBook(ReadOnlyBudgetBook data)</code> is then called to replace the specified CCA in the
+the existing <code>ccabook.xml</code> with the updated CCA and its information.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the update operation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/UpdateCommandSequenceDiagram.png" alt="UpdateCommandSequenceDiagram" width="1500">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.4.1.2: Sequence diagram for update command</em></p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="add_transaction-command"><a class="link" href="#add_transaction-command">Add_Transaction Command</a></h5>
+<div class="paragraph">
+<p>The <code>add_trans</code> mechanism is facilitated by <code>BudgetBook</code> and <code>BudgetBookStorage</code>.
+When a transaction entry is to be added, it looks up the <code>BudgetBook</code> in the <code>BudgetBookStorage</code> of
+the <code>Model</code> for the CCA and add the specified entry to the CCA. It then update the <code>Cca</code> stored inside the <code>ccabook.xml</code> file in the
+local directory.
+It implements the following commands:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>BudgetBook#updateCca(Cca targetCca, Cca editedCca)</code>&#8201;&#8212;&#8201;Updates an existing CCA in the <code>BudgetBook</code> in <code>Model</code>.</p>
+</li>
+<li>
+<p><code>BudgetBook#commitBudgetBook()</code>&#8201;&#8212;&#8201;Saves a current version of the budget book in the <code>VersionedBudgetBook</code>.</p>
+</li>
+<li>
+<p><code>TransactionMath#updateDetails(Cca cca)</code>&#8201;&#8212;&#8201;Updates the <code>Spent</code> and <code>Outstanding</code> amount of the specified CCA.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These operations are exposed in the <code>Model</code> interface as:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Model#updateCca(Cca targetCca, Cca editedCca)</code></p>
+</li>
+<li>
+<p><code>Model#hasCca(CcaName cca)</code></p>
+</li>
+<li>
+<p><code>Model#commitBudgetBook()</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the add transaction mechanism behaves at each step:</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user specifies the CCA to add transaction to by including the CCA name and the transaction fields.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The user must include the <code>Date</code>, <code>Amount</code> and <code>Remarks</code> for the transaction entry. Any fields that are not
+valid will display an error message.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. <code>add_trans</code> command then checks for existing CCA name using <code>BudgetBook#hasCca(CcaName ccaName)</code>. If the
+cca name does not exist, an error message will appear. Otherwise, the <code>Entry</code> is created and is added to the
+target <code>Cca</code> using <code>Cca#AddNewTransaction(Entry entry)</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. The <code>Spent</code> and <code>Outstanding</code> is then updated using <code>TransactionMath#updateDetails(Cca cca)</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 5. <code>BudgetBook#updateCca(Cca targetCca, Cca editedCca)</code> then replaces the existing CCA with the updated CCA and
+invokes <code>ModelManger#indicateBudgetBookChange()</code> to raise a <code>BudgetBookChangedEvent</code>, which is handled by
+<code>EventsCenter</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 6. <code>BudgetBookChangedEvent</code> is handled by <code>StorageManager#handleBudgetBookChangedEvent(BudgetBookChangedEvent
+event)</code>. <code>StorageManager#saveBudgetBook(ReadOnlyBudgetBook data)</code> is then called to replace the specified CCA in the
+the existing <code>ccabook.xml</code> with the updated CCA and its transaction entry.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the add transaction operation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AddTransCommandSequenceDiagram.png" alt="AddTransCommandSequenceDiagram" width="1500">
+</div>
+<div class="title">Figure 10. Sequence diagram for update command</div>
+</div>
+<div class="paragraph">
+<p><em>_Figure 4.4.1.3: Sequence diagram for add_trans command</em></p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="budget-command"><a class="link" href="#budget-command">Budget Command</a></h5>
+<div class="paragraph">
+<p>The <code>budget</code> mechanism is facilitated by <code>BudgetBook</code> and <code>BudgetBookStorage</code>.
+It opens up a separate window to display the CCA information and its transaction history. It implements the
+following command:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>`EventsCenter#getInstance()&#8201;&#8212;&#8201;Gets the instance of the EventsCenter.</p>
+</li>
+<li>
+<p>`EventsCenter#post(E event)&#8201;&#8212;&#8201;Posts an event to the event bus.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the budget mechanism behaves at each step.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user enters the budget command with or without a specified CCA.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. When a CCA is specified, <code>BudgetCommand(CcaName ccaName)</code> is called. Otherwise, <code>BudgetCommand()</code> is called
+and the <code>CcaName</code> is null.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. If the CCA is specified, the <code>budget</code> command checks whether the CCA specified exist.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. <code>budget</code> command then raises a <code>ShowBudgetViewEvent</code>, which is handled by <code>EventsCenter</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 5. <code>ShowBudgetViewEvent</code> is handled by <code>MainWindow#handleShowBudgetEvent(ShowBudgetViewEvent event)</code> and invokes
+ <code>MainWindow#handleBudget(CcaName ccaName)</code>. This opens the budget window through <code>BudgetWindow#show(CcaName ccaName)</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 6. It then checks whether the CCA name is present in <code>BudgetWindow#fillInnerParts(CcaName ccaName)</code>. If CCA name
+ is present, <code>BudgetBrowserPanel(ccaName)</code> is called and the specified CCA information will be displayed. Otherwise,
+ <code>BudgetBrowserPanel()</code> is called, showing a blank page.</p>
+</div>
+<div class="paragraph">
+<p>The following activity diagram summarizes what happens when a user executes a budget command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/BudgetCommandActivityDiagram.png" alt="BudgetCommandActivityDiagram" width="650">
+</div>
+</div>
+<div class="paragraph">
+<p><em>_Figure 4.4.1.4: Activity diagram for budget command</em></p>
+</div>
 </div>
 </div>
 <div class="sect3">
@@ -1385,9 +1640,224 @@ of parsing large XML files.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="import-feature"><a class="link" href="#import-feature">4.5. Import feature</a></h3>
+<h3 id="clear-feature"><a class="link" href="#clear-feature">4.5. Clear feature</a></h3>
 <div class="sect3">
 <h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">4.5.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The clear feature allows the user to clear persons associated with specified keywords from the database.</p>
+</div>
+<div class="paragraph">
+<p>It implements the following operations:
+* <code>ClearCommand#clearAll(Model model)</code>&#8201;&#8212;&#8201;Clears the entire database.
+* <code>ClearCommand#clearSpecific(Model model)</code>&#8201;&#8212;&#8201;Clears persons associated with specified keywords.</p>
+</div>
+<div class="paragraph">
+<p>These operations are exposed in the <code>Model</code> interface as <code>Model#commitAddressBook</code>, <code>Model#resetData()</code> and
+<code>Model#clearMultiplePersons(List&lt;Person&gt; target)</code>.</p>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the clear mechanism behaves at each step:</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 1:</strong> The user specifies CCA(s) and/or room(s) of persons to be cleared from the database.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 2:</strong> <code>ClearCommandParser</code> checks for the validity of the CCA(s) and/or room(s) specified. If non-existent argument(s) specified,
+a <code>CommandException</code> will be thrown. A combination of existing and non-existent arguments specified will be successfully parsed.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 3:</strong> <code>ClearCommand#execute(Model model, CommandHistory history)</code> is then called and invokes <code>ClearCommand#clearSpecific(Model model)</code>,
+which uses the specified arguments to create a persons list containing associated persons to be cleared.
+<code>ModelManager#clearMultiplePersons(List&lt;Person&gt; target)</code> is then invoked to clear the internal list of persons in target.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 4:</strong> After the internal list is cleared, <code>ModelManager#clearMultiplePersons(List&lt;Person&gt; target)</code>
+then invokes <code>ModelManager#indicateAddressBookChanged()</code>, which raises an <code>AddressBookChangedEvent</code> which is handled by
+<code>EventsCenter</code>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 5:</strong> <code>AddressBookChangedEvent</code> is then handled by
+<code>StorageManager#handleAddressBookChangedEvent(AddressBookChangedEvent event)</code>.
+<code>StorageManager#saveAddressBook(ReadOnlyAddressBook data)</code> is then called to update the existing <code>addressbook.xml</code> file
+with the cleared persons list.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the clear operation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ClearCommandSequenceDiagram.png" alt="ClearCommandSequenceDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.5.1.1: Sequence diagram of clear command on specified keywords.</em></p>
+</div>
+<div class="paragraph">
+<p>The following activity diagram summarizes what happens when a user executes the clear command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ClearCommandActivityDiagram.png" alt="ClearCommandActivityDiagram" width="650">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.5.1.2: Activity diagram showing different path flows of clear command.</em></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.5.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-merging-command-to-clear-entire-database-or-specific-persons"><a class="link" href="#aspect-merging-command-to-clear-entire-database-or-specific-persons">Aspect: Merging command to clear entire database or specific persons</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Clear command is merged.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Due to the similar function of clearing persons from the database, merging them under a single command makes it
+easier for the user to remember and produce the command input. Clearing of the entire database is also rarely executed
+so it makes logical sense to merge these commands.</p>
+</li>
+<li>
+<p>Cons: The user will not be able to use <code>all</code> as a CCA as it is a reserved keyword to clear the entire database.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Clear commands are separated.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: The user can clearly distinguish between the two features by renaming them with different command inputs.</p>
+</li>
+<li>
+<p>Cons: There is no need for a separate command for clearing the entire database as it is a rarely used feature.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="erase-feature"><a class="link" href="#erase-feature">4.6. Erase Feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">4.6.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The erase feature allows the user to erase specified CCAs from persons associated with the CCAs in the database.</p>
+</div>
+<div class="paragraph">
+<p>It implements the following operation:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>EraseCommand#execute(Model model, CommandHistory history)</code>&#8201;&#8212;&#8201;Executes the erasure of CCAs from persons in the database.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This operation is exposed in the <code>Model</code> interface as <code>Model#commitAddressBook()</code> and
+<code>Model#removeTagsFromPersons(ArrayList&lt;Person&gt; target, ArrayList&lt;Person&gt; original)</code>.</p>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the erase mechanism behaves at each step:</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 1:</strong> The user specifies CCA(s) to be erased from the database.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 2:</strong> <code>EraseCommandParser</code> checks for the validity of the CCA(s) specified. If non-existent CCA(s) specified,
+a <code>CommandException</code> will be thrown. A combination of existing and non-existent CCAs specified will be successfully parsed.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 3:</strong> <code>EraseCommand#execute(Model model, CommandHistory history)</code> is then called and uses the specified CCA arguments
+to create a new persons list with specified CCAs erased from associated persons.
+<code>ModelManager#removeTagsFromPersons(List&lt;Person&gt; editedPersons, List&lt;Person&gt; targets)</code> is then invoked to update
+the internal list with the new persons list.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 4:</strong> After the internal list is updated, <code>ModelManager#removeTagsFromPersons(List&lt;Person&gt; editedPersons, List&lt;Person&gt; targets)</code>
+then invokes <code>ModelManager#indicateAddressBookChanged()</code>, which raises an <code>AddressBookChangedEvent</code> which is handled by
+<code>EventsCenter</code>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 5:</strong> <code>AddressBookChangedEvent</code> is then handled by
+<code>StorageManager#handleAddressBookChangedEvent(AddressBookChangedEvent event)</code>.
+<code>StorageManager#saveAddressBook(ReadOnlyAddressBook data)</code> is then called to update the existing <code>addressbook.xml</code> file
+with the new persons list.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the erase operation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/EraseCommandSequenceDiagram.png" alt="EraseCommandSequenceDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.6.1.1: Sequence diagram of erase command on specified keywords.</em></p>
+</div>
+<div class="paragraph">
+<p>The following activity diagram summarizes what happens when a user executes the erase command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/EraseCommandActivityDiagram.png" alt="EraseCommandActivityDiagram" width="650">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.6.1.2: Activity diagram showing different path flows of erase command.</em></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">4.6.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-algorithm-to-identify-persons-associated-with-ccas-to-be-erased"><a class="link" href="#aspect-algorithm-to-identify-persons-associated-with-ccas-to-be-erased">Aspect: Algorithm to identify persons associated with CCAs to be erased</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Loop through current internal list to extract associated persons.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: The implementation of the extraction algorithm is straightforward and will not miss out any persons.</p>
+</li>
+<li>
+<p>Cons: The execution time will be slow for large quantity of persons in the internal list.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Store persons in a multilayer linked list data structure.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: The number of CCAs are fewer than the number of persons in the database, so it would be faster to search for the
+target CCAs in the first layer of the linked list and obtain the entire second layer list of persons associated with the CCA.</p>
+</li>
+<li>
+<p>Cons: The implementation is rather complicated and requires other commands such as add, edit and delete to be modified
+as well. More space would be needed on the computer to store the multilayer linked list other than the actual
+<code>addressbook.xml</code> file.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="import-feature"><a class="link" href="#import-feature">4.7. Import feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-7"><a class="link" href="#current-implementation-7">4.7.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The import feature allows <code>.xml</code> files of different formats to be imported from the computer.</p>
 </div>
@@ -1416,39 +1886,57 @@ and <code>Model#updateMultiplePersons</code>.</p>
 <div class="paragraph">
 <p>Given below is an example usage scenario and how the import mechanism behaves at each step.</p>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>The user imports <code>.xml</code> file by specifying the path of the file.</p>
-</li>
-<li>
-<p><code>ImportCommandParser</code> checks for the validity of the path and <code>.xml</code> file format. If <code>.xml</code> file has an invalid
+<div class="paragraph">
+<p><strong>Step 1:</strong> The user imports <code>.xml</code> file by specifying the path of the file.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 2:</strong> <code>ImportCommandParser</code> checks for the validity of the path and <code>.xml</code> file format. If <code>.xml</code> file has an invalid
 format, the specified file will not be imported.</p>
-</li>
-<li>
-<p><code>ImportCommand#parseFile()</code> then prepares the file for reading by parsing into a document.</p>
-</li>
-<li>
-<p><code>ImportCommand.execute(Model model, CommandHistory history)</code> then invokes <code>ImportAddressBook#execute(Document doc,
+</div>
+<div class="paragraph">
+<p><strong>Step 3:</strong> <code>ImportCommand#parseFile()</code> then prepares the file for reading by parsing into a document.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 4:</strong> <code>ImportCommand#execute(Model model, CommandHistory history)</code> then invokes <code>ImportAddressBook#execute(Document doc,
 Model model)</code> to read the document.</p>
-</li>
-<li>
-<p>After the document data is read,  <code>ImportAddressBook#execute(Document doc, Model model)</code> then invokes
+</div>
+<div class="paragraph">
+<p><strong>Step 5:</strong> After the document data is read,  <code>ImportAddressBook#execute(Document doc, Model model)</code> then invokes
 <code>ModelManager#addMultiplePersons(List&lt;Person&gt; personList)</code> to update Hallper&#8217;s internal list and
 <code>ModelManager#indicateAddressBookChanged()</code>, which raises an <code>AddressBookChangedEvent</code> which is handled by
 <code>EventsCenter</code>.</p>
-</li>
-<li>
-<p><code>AddressBookChangedEvent</code> is then handled by
+</div>
+<div class="paragraph">
+<p><strong>Step 6:</strong> <code>AddressBookChangedEvent</code> is then handled by
 <code>StorageManager#handleAddressBookChangedEvent(AddressBookChangedEvent event)</code>.
 <code>StorageManager#saveAddressBook(ReadOnlyAddressBook data)</code> is then called to update the existing <code>addressbook.xml</code> file
 with the new contacts.</p>
-</li>
-</ol>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the import operation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ImportCommandSequenceDiagram.png" alt="ImportCommandSequenceDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.7.1.1: Sequence diagram of import command.</em></p>
+</div>
+<div class="paragraph">
+<p>The following activity diagram summarizes what happens when a user executes the import command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ImportCommandActivityDiagram.png" alt="ImportCommandActivityDiagram" width="650">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.7.1.2: Activity diagram showing different path flows of import command.</em></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.5.2. Design Considerations</a></h4>
+<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">4.7.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-choice-of-component-to-read-imported-file"><a class="link" href="#aspect-choice-of-component-to-read-imported-file">Aspect: Choice of component to read imported file</a></h5>
 <div class="ulist">
@@ -1487,9 +1975,9 @@ Storage component.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="export-feature"><a class="link" href="#export-feature">4.6. Export feature</a></h3>
+<h3 id="export-feature"><a class="link" href="#export-feature">4.8. Export feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">4.6.1. Current Implementation</a></h4>
+<h4 id="current-implementation-8"><a class="link" href="#current-implementation-8">4.8.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The export feature allows Hallper data to be exported as an <code>xml</code> file to the computer.</p>
 </div>
@@ -1510,30 +1998,48 @@ the specified path.</p>
 <div class="paragraph">
 <p>Given below is an example usage scenario and how the export mechanism behaves at each step.</p>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>The user exports an 'xml' file by specifying the destination path and name of the exported file.</p>
-</li>
-<li>
-<p><code>ExportCommandParser</code> checks for the validity of the path and file name. If path or file name are invalid, Hallper
+<div class="paragraph">
+<p><strong>Step 1:</strong> The user exports an 'xml' file by specifying the destination path and name of the exported file.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 2:</strong> <code>ExportCommandParser</code> checks for the validity of the path and file name. If path or file name are invalid, Hallper
 data will not be exported. Otherwise, path and filename will be parsed into a single, full path.</p>
-</li>
-<li>
-<p><code>ExportCommand#execute(Model model, CommandHistory history)</code> then invokes
+</div>
+<div class="paragraph">
+<p><strong>Step 3:</strong> <code>ExportCommand#execute(Model model, CommandHistory history)</code> then invokes
 <code>ModelManager#exportAddressBook(Path filePath)</code> which raises an <code>ExportAddressBookEvent</code>.</p>
-</li>
-<li>
-<p><code>ExportAddressBookEvent</code> is then handled by
+</div>
+<div class="paragraph">
+<p><strong>Step 4:</strong> <code>ExportAddressBookEvent</code> is then handled by
 <code>StorageManager#handleExportAddressBookEvent(ExportAddressBookEvent event)</code>.
 <code>StorageManager#exportAddressBook(ReadOnlyAddressBook addressBook, Path path)</code> is then called to export Hallper&#8217;s
 storage data to the specified path.</p>
-</li>
-</ol>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the export operation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ExportCommandSequenceDiagram.png" alt="ExportCommandSequenceDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.8.1.1: Sequence diagram of export command.</em></p>
+</div>
+<div class="paragraph">
+<p>The following activity diagram summarizes what happens when a user executes the export command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ExportCommandActivityDiagram.png" alt="ExportCommandActivityDiagram" width="650">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.8.1.2: Activity diagram showing different path flows of export command.</em></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">4.6.2. Design Considerations</a></h4>
+<h4 id="design-considerations-8"><a class="link" href="#design-considerations-8">4.8.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-choice-of-export-format"><a class="link" href="#aspect-choice-of-export-format">Aspect: Choice of export format</a></h5>
 <div class="ulist">
@@ -1572,13 +2078,257 @@ underused or unused.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">4.7. [Proposed] Data encryption</a></h3>
+<h3 id="image-feature"><a class="link" href="#image-feature">4.9. Image feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-9"><a class="link" href="#current-implementation-9">4.9.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The image feature allows <code>.jpg</code> image files to be uploaded into Hallper to a specific person from the computer.
+The feature is facilitated by <code>ProfilePictureDirStorage</code>. It implements the follow operations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ProfilePictureDirStorage#readProfilePicture(File file)</code>&#8201;&#8212;&#8201;Reads the file that is specified by the user through
+a path and returns a copy of the image that is being read.</p>
+</li>
+<li>
+<p><code>ProfilePictureDirStorage#saveProfilePicture(BufferedImage image, Room number)</code>&#8201;&#8212;&#8201;Saves the copied image into the
+computer.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Both operations are exposed in the <code>Storage</code> interface as <code>Storage#readProfilePicture(File file)</code> and
+<code>Storage#saveProfilePicture(BufferedImage image, Room number)</code> respectively.</p>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the image mechanism behaves at each step:</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 1.</strong> The user specifies the file path of the <code>.jpg</code> image to be uploaded and the person&#8217;s room number.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 2.</strong> <code>ImageCommandParser</code> passes the room number and file that is specified by the file path to <code>ImageCommand</code>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 3.</strong> <code>ImageCommand</code> searches Hallper for the person that is tagged with the specified room number. It returns an
+error message if the room number specified is not tagged to any person.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 4.</strong> Once the room number is verified, a <code>NewImageEvent</code> is raised from the <code>ImageCommand</code> to initiate the reading
+and copying of the image from the given file path.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 5.</strong> The <code>NewImageEvent</code> goes to the <code>EventCenter</code>, and is then handled by
+<code>StorageManager#handleNewImageEvent(NewImageEvent event)</code>. <code>ProfilePictureStorage#readProfilePicture(File file)</code> is
+then called to read the image file. After reading a valid image file, the
+<code>ProfilePictureStorage#saveProfilePicture(BufferedImage image, Room number)</code> is called to save the image into the
+computer.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 6.</strong> Hallper then updates the person&#8217;s profile picture field with the name of the copied image.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the image operation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/Image%20Sequence%20Diagram.png" alt="Image Sequence Diagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.7.1.1: Sequence diagram for image operation</em></p>
+</div>
+<div class="paragraph">
+<p>The following activity diagram summarizes what happens when a user executes the image command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/Image%20Activity%20Diagram.png" alt="Image Activity Diagram" width="650">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.7.1.2: Activity diagram for image operation</em></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-9"><a class="link" href="#design-considerations-9">4.9.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-choice-of-component-to-read-and-save-the-file"><a class="link" href="#aspect-choice-of-component-to-read-and-save-the-file">Aspect: Choice of component to read and save the file</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Read and save image file through <code>Storage</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pro: Reading and saving files through <code>Storage</code> follows the architecture that the project is built upon.</p>
+</li>
+<li>
+<p>Con: Informing the user of invalid file path is much more complicated.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Read and save image file through <code>ImageCommand</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pro: Informing the user of invalid file path will be similar to when an invalid command is given.</p>
+</li>
+<li>
+<p>Con: Reading and saving the image file from <code>ImageCommand</code> breaks the architecture of the project.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="aspect-image-type"><a class="link" href="#aspect-image-type">4.9.3. Aspect: Image type</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Only <code>.jpg</code> image files.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pro: Copying the image will be easier since all images saved will be in the form of <code>.jpg</code>.</p>
+</li>
+<li>
+<p>Con: Limiting users to only being able to upload one type of image file.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Allow for multiple image file types i.e <code>.jpg</code>, <code>.png</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pro: Increasing the valid image file types allows users to have more choices when choosing the picture to upload.</p>
+</li>
+<li>
+<p>Con: Copying of the image will be more complicated since all images will be saved as a <code>.jpg</code> image file type.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="search-feature"><a class="link" href="#search-feature">4.10. Search feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-10"><a class="link" href="#current-implementation-10">4.10.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The search feature allows the user to search for persons who in Hallper using their room number, school and CCAs.</p>
+</div>
+<div class="paragraph">
+<p>It implements the following operation:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>SearchCommand#execute(Model model, CommandHistory history)</code>&#8201;&#8212;&#8201;Updates the filtered persons list with persons that
+has fields that match any of the predicates.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This operation is exposed in the <code>Model</code> interface as <code>Model#updateFilteredPersonList(Predicate&lt;Person&gt; predicate)</code>.</p>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the search mechanism behaves at each step.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 1.</strong> The user specifies the keywords to search Hallper with.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 2.</strong> <code>SearchCommandParser</code> checks for the keywords after the search command word. If there are no keywords
+after the search command word, a <code>ParseException</code> is thrown. Any keywords that comes after the search command word
+will be successfully parsed into a <code>FieldsContainsKeywordsPredicate</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Step 3.</strong> <code>SearchCommand#execute(Model model, CommandHistory history)</code> is then called and uses the predicate to update
+the filtered persons list.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 4.</strong> After updating the list, the <code>PersonListPanel</code> is then updated to display the search result.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the search operation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/Search%20Sequence%20Diagram.png" alt="Search Sequence Diagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.10.1.1: Sequence diagram for search operation</em></p>
+</div>
+<div class="paragraph">
+<p>The following activity diagram summarizes what happens when a user executes the search command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/Search%20Activity%20Diagram.png" alt="Search Activity Diagram" width="650">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.10.1.2: Activity diagram for search operation</em></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-10"><a class="link" href="#design-considerations-10">4.10.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-fields-to-search"><a class="link" href="#aspect-fields-to-search">Aspect: Fields to search</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Limit choice to only room number, school and CCA.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pro: The search command will only search for the fields that are the most commonly used.</p>
+</li>
+<li>
+<p>Con: The fields that can be used as keywords are limited.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Include all available fields to be the search criteria.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pro: Allows the command to search using more criteria.</p>
+</li>
+<li>
+<p>Con: Including name as a search criteria will overlap with the current find command and phone numbers
+are not commonly used as search criterias.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">4.11. [Proposed] Data encryption</a></h3>
 <div class="paragraph">
 <p><em>{Explain here how the data encryption feature will be implemented}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">4.8. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">4.12. Logging</a></h3>
 <div class="paragraph">
 <p><code>java.util.logging</code> package is used for logging. The <code>LogsCenter</code> class is used to manage the logging levels and
 logging destinations.</p>
@@ -1587,7 +2337,7 @@ logging destinations.</p>
 <ul>
 <li>
 <p>Logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See
-<a href="#Implementation-Configuration">Section 4.9, &#8220;Configuration&#8221;</a>)</p>
+<a href="#Implementation-Configuration">Section 4.13, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the
@@ -1620,7 +2370,7 @@ instead of just its size.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.9. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.13. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -1686,7 +2436,7 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 <div class="content">
 <img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
 </div>
-<div class="title">Figure 10. Saving documentation as PDF files in Chrome</div>
+<div class="title">Figure 11. Saving documentation as PDF files in Chrome</div>
 </div>
 </div>
 <div class="sect2">
@@ -3951,10 +4701,10 @@ for <code>RemarkCommandParser</code>.</p>
 <p>JCRC member requests to add a person&#8217;s image</p>
 </li>
 <li>
-<p>Hallper requests for name and image location</p>
+<p>Hallper requests for room number and image location</p>
 </li>
 <li>
-<p>JCRC member enters name and image location</p>
+<p>JCRC member enters room number and image location</p>
 </li>
 <li>
 <p>Hallper adds the image</p>
@@ -4016,44 +4766,7 @@ for <code>RemarkCommandParser</code>.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="product-survey"><a class="link" href="#product-survey">Appendix G: Product Survey</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Product Name</strong></p>
-</div>
-<div class="paragraph">
-<p>Author: &#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>Pros:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Cons:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="instructions-for-manual-testing"><a class="link" href="#instructions-for-manual-testing">Appendix H: Instructions for Manual Testing</a></h2>
+<h2 id="instructions-for-manual-testing"><a class="link" href="#instructions-for-manual-testing">Appendix G: Instructions for Manual Testing</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Given below are instructions to test the app manually.</p>
@@ -4071,7 +4784,7 @@ These instructions only provide a starting point for testers to work on; testers
 </table>
 </div>
 <div class="sect2">
-<h3 id="launch-and-shutdown"><a class="link" href="#launch-and-shutdown">H.1. Launch and Shutdown</a></h3>
+<h3 id="launch-and-shutdown"><a class="link" href="#launch-and-shutdown">G.1. Launch and Shutdown</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4109,7 +4822,7 @@ Expected: The most recent window size and location is retained.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-person"><a class="link" href="#deleting-a-person">H.2. Deleting a Person</a></h3>
+<h3 id="deleting-a-person"><a class="link" href="#deleting-a-person">G.2. Deleting a Person</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4141,7 +4854,7 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-data"><a class="link" href="#saving-data">H.3. Saving Data</a></h3>
+<h3 id="saving-data"><a class="link" href="#saving-data">G.3. Saving Data</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4161,4 +4874,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-01 16:50:13 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 03:35:22 UTC</div></div></div></body></html>
