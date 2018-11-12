@@ -400,14 +400,23 @@ Displays the email with the subject <code>Meeting on Friday</code>.</p>
 <div class="sect2">
 <h3 id="email-feature"><a class="link" href="#email-feature">Email feature</a></h3>
 <div class="paragraph">
-<p>Written below is the implementation of the Email feature.</p>
+<p>Written below is the implementation of the Email feature and considerations in its design.</p>
 </div>
 <div class="sect3">
 <h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
+<div class="imageblock">
+<div class="content">
+<img src="../images/EmailActivityDiagram.png" alt="EmailActivityDiagram" width="1500">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.2.1.1: Activity diagram of</em> <code>ComposeEmailList</code>.</p>
+</div>
 <div class="paragraph">
 <p>The Email feature works using a third-party dependency, <a href="http://www.simplejavamail.org/#/about">Simple Java Mail</a>.
 It allows <code>.eml</code> files to be created and saved onto the computer.
 The feature is facilitated by <code>EmailModel</code> and <code>EmailDirStorage</code>.
+A simple activity diagram depicting how <code>ComposeEmailList</code> works is shown above in Figure 4.2.1.1.
 It implements the following operations:</p>
 </div>
 <div class="ulist">
@@ -429,7 +438,7 @@ It implements the following operations:</p>
 </div>
 </div>
 <div class="paragraph">
-<p><em>Figure 4.2.1.1: Sequence diagram of</em> <code>ComposeEmailList</code>.</p>
+<p><em>Figure 4.2.1.2: Sequence diagram of</em> <code>ComposeEmailList</code>.</p>
 </div>
 <div class="paragraph">
 <p>Given below is an example usage scenario and how the Compose feature behaves at each step:</p>
@@ -521,4 +530,4 @@ The library is easy to understand so any new developer can easily extend the cur
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 06:09:54 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 06:38:17 UTC</div></div></div></body></html>
