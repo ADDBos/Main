@@ -340,24 +340,24 @@ introduction.</p></td>
 <p>Given below is an example usage scenario and how the clear mechanism behaves at each step:</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 1:</strong> The user specifies CCA(s) and/or room(s) of persons to be cleared from the database.</p>
+<p><strong>Step 1.</strong> The user specifies CCA(s) and/or room(s) of persons to be cleared from the database.</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 2:</strong> <code>ClearCommandParser</code> checks for the validity of the CCA(s) and/or room(s) specified. If non-existent argument(s) specified,
+<p><strong>Step 2.</strong> <code>ClearCommandParser</code> checks for the validity of the CCA(s) and/or room(s) specified. If non-existent argument(s) specified,
 a <code>CommandException</code> will be thrown. A combination of existing and non-existent arguments specified will be successfully parsed.</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 3:</strong> <code>ClearCommand#execute(Model model, CommandHistory history)</code> is then called and invokes <code>ClearCommand#clearSpecific(Model model)</code>,
+<p><strong>Step 3.</strong> <code>ClearCommand#execute(Model model, CommandHistory history)</code> is then called and invokes <code>ClearCommand#clearSpecific(Model model)</code>,
 which uses the specified arguments to create a persons list containing associated persons to be cleared.
 <code>ModelManager#clearMultiplePersons(List&lt;Person&gt; target)</code> is then invoked to clear the internal list of persons in target.</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 4:</strong> After the internal list is cleared, <code>ModelManager#clearMultiplePersons(List&lt;Person&gt; target)</code>
+<p><strong>Step 4.</strong> After the internal list is cleared, <code>ModelManager#clearMultiplePersons(List&lt;Person&gt; target)</code>
 then invokes <code>ModelManager#indicateAddressBookChanged()</code>, which raises an <code>AddressBookChangedEvent</code> which is handled by
 <code>EventsCenter</code>.</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 5:</strong> <code>AddressBookChangedEvent</code> is then handled by
+<p><strong>Step 5.</strong> <code>AddressBookChangedEvent</code> is then handled by
 <code>StorageManager#handleAddressBookChangedEvent(AddressBookChangedEvent event)</code>.
 <code>StorageManager#saveAddressBook(ReadOnlyAddressBook data)</code> is then called to update the existing <code>addressbook.xml</code> file
 with the cleared persons list.</p>
@@ -449,18 +449,18 @@ the specified path.</p>
 <p>Given below is an example usage scenario and how the export mechanism behaves at each step.</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 1:</strong> The user exports an 'xml' file by specifying the destination path and name of the exported file.</p>
+<p><strong>Step 1.</strong> The user exports an 'xml' file by specifying the destination path and name of the exported file.</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 2:</strong> <code>ExportCommandParser</code> checks for the validity of the path and file name. If path or file name are invalid, Hallper
+<p><strong>Step 2.</strong> <code>ExportCommandParser</code> checks for the validity of the path and file name. If path or file name are invalid, Hallper
 data will not be exported. Otherwise, path and filename will be parsed into a single, full path.</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 3:</strong> <code>ExportCommand#execute(Model model, CommandHistory history)</code> then invokes
+<p><strong>Step 3.</strong> <code>ExportCommand#execute(Model model, CommandHistory history)</code> then invokes
 <code>ModelManager#exportAddressBook(Path filePath)</code> which raises an <code>ExportAddressBookEvent</code>.</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 4:</strong> <code>ExportAddressBookEvent</code> is then handled by
+<p><strong>Step 4.</strong> <code>ExportAddressBookEvent</code> is then handled by
 <code>StorageManager#handleExportAddressBookEvent(ExportAddressBookEvent event)</code>.
 <code>StorageManager#exportAddressBook(ReadOnlyAddressBook addressBook, Path path)</code> is then called to export Hallper&#8217;s
 storage data to the specified path.</p>
@@ -560,27 +560,27 @@ and <code>Model#updateMultiplePersons</code>.</p>
 <p>Given below is an example usage scenario and how the import mechanism behaves at each step.</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 1:</strong> The user imports <code>.xml</code> file by specifying the path of the file.</p>
+<p><strong>Step 1.</strong> The user imports <code>.xml</code> file by specifying the path of the file.</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 2:</strong> <code>ImportCommandParser</code> checks for the validity of the path and <code>.xml</code> file format. If <code>.xml</code> file has an invalid
+<p><strong>Step 2.</strong> <code>ImportCommandParser</code> checks for the validity of the path and <code>.xml</code> file format. If <code>.xml</code> file has an invalid
 format, the specified file will not be imported.</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 3:</strong> <code>ImportCommand#parseFile()</code> then prepares the file for reading by parsing into a document.</p>
+<p><strong>Step 3.</strong> <code>ImportCommand#parseFile()</code> then prepares the file for reading by parsing into a document.</p>
 </div>
 <div class="paragraph">
 <p><strong>Step 4:</strong> <code>ImportCommand#execute(Model model, CommandHistory history)</code> then invokes <code>ImportAddressBook#execute(Document doc,
 Model model)</code> to read the document.</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 5:</strong> After the document data is read,  <code>ImportAddressBook#execute(Document doc, Model model)</code> then invokes
+<p><strong>Step 5.</strong> After the document data is read,  <code>ImportAddressBook#execute(Document doc, Model model)</code> then invokes
 <code>ModelManager#addMultiplePersons(List&lt;Person&gt; personList)</code> to update Hallper&#8217;s internal list and
 <code>ModelManager#indicateAddressBookChanged()</code>, which raises an <code>AddressBookChangedEvent</code> which is handled by
 <code>EventsCenter</code>.</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 6:</strong> <code>AddressBookChangedEvent</code> is then handled by
+<p><strong>Step 6.</strong> <code>AddressBookChangedEvent</code> is then handled by
 <code>StorageManager#handleAddressBookChangedEvent(AddressBookChangedEvent event)</code>.
 <code>StorageManager#saveAddressBook(ReadOnlyAddressBook data)</code> is then called to update the existing <code>addressbook.xml</code> file
 with the new contacts.</p>
@@ -648,4 +648,4 @@ Storage component.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 09:48:28 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 10:42:49 UTC</div></div></div></body></html>

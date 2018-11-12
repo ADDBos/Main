@@ -287,24 +287,24 @@ following command:</p>
 <p>Given below is an example usage scenario and how the budget mechanism behaves at each step.</p>
 </div>
 <div class="paragraph">
-<p>Step 1. The user enters the budget command with or without a specified CCA.</p>
+<p><strong>Step 1.</strong> The user enters the budget command with or without a specified CCA.</p>
 </div>
 <div class="paragraph">
-<p>Step 2. When a CCA is specified, <code>BudgetCommand(CcaName ccaName)</code> is called. Otherwise, <code>BudgetCommand()</code> is called
+<p><strong>Step 2.</strong> When a CCA is specified, <code>BudgetCommand(CcaName ccaName)</code> is called. Otherwise, <code>BudgetCommand()</code> is called
 and the <code>CcaName</code> is null.</p>
 </div>
 <div class="paragraph">
-<p>Step 3. If the CCA is specified, the <code>budget</code> command checks whether the CCA specified exist.</p>
+<p><strong>Step 3.</strong> If the CCA is specified, the <code>budget</code> command checks whether the CCA specified exist.</p>
 </div>
 <div class="paragraph">
-<p>Step 4. <code>budget</code> command then raises a <code>ShowBudgetViewEvent</code>, which is handled by <code>EventsCenter</code>.</p>
+<p><strong>Step 4.</strong> <code>budget</code> command then raises a <code>ShowBudgetViewEvent</code>, which is handled by <code>EventsCenter</code>.</p>
 </div>
 <div class="paragraph">
-<p>Step 5. <code>ShowBudgetViewEvent</code> is handled by <code>MainWindow#handleShowBudgetEvent(ShowBudgetViewEvent event)</code> and invokes
+<p><strong>Step 5.</strong> <code>ShowBudgetViewEvent</code> is handled by <code>MainWindow#handleShowBudgetEvent(ShowBudgetViewEvent event)</code> and invokes
  <code>MainWindow#handleBudget(CcaName ccaName)</code>. This opens the budget window through <code>BudgetWindow#show(CcaName ccaName)</code>.</p>
 </div>
 <div class="paragraph">
-<p>Step 6. It then checks whether the CCA name is present in <code>BudgetWindow#fillInnerParts(CcaName ccaName)</code>. If CCA name
+<p><strong>Step 6.</strong> It then checks whether the CCA name is present in <code>BudgetWindow#fillInnerParts(CcaName ccaName)</code>. If CCA name
  is present, <code>BudgetBrowserPanel(ccaName)</code> is called and the specified CCA information will be displayed. Otherwise,
  <code>BudgetBrowserPanel()</code> is called, showing a blank page.</p>
 </div>
@@ -368,4 +368,4 @@ of parsing large XML files.</p>
 <p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 09:48:28 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 10:42:49 UTC</div></div></div></body></html>

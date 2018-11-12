@@ -444,16 +444,16 @@ It implements the following operations:</p>
 <p>Given below is an example usage scenario and how the Compose feature behaves at each step:</p>
 </div>
 <div class="paragraph">
-<p>Step 1. The user executes either the <code>ComposeEmailList</code> command or <code>ComposeEmailIndex</code> command, which creates an email.
+<p><strong>Step 1.</strong> The user executes either the <code>ComposeEmailList</code> command or <code>ComposeEmailIndex</code> command, which creates an email.
 The <code>ComposeEmailList</code>/<code>ComposeEmailIndex</code> command calls <code>Model#saveComposedEmail(Email email)</code>, saving the email to <code>EmailModel</code>.
 In Figure 4.2.1.1, the user executes the <code>ComposeEmailList</code> command.</p>
 </div>
 <div class="paragraph">
-<p>Step 2. Once the email is saved in the <code>EmailModel</code>, the <code>ModelManager</code> raises an <code>EmailSavedEvent</code>, to indicate that a new
+<p><strong>Step 2.</strong> Once the email is saved in the <code>EmailModel</code>, the <code>ModelManager</code> raises an <code>EmailSavedEvent</code>, to indicate that a new
  email is saved to the <code>EmailModel</code>.</p>
 </div>
 <div class="paragraph">
-<p>Step 3. The <code>EmailSavedEvent</code> goes to the <code>EventsCenter</code>, and is then handled by <code>StorageManager#handleEmailSavedEvent
+<p><strong>Step 3.</strong> The <code>EmailSavedEvent</code> goes to the <code>EventsCenter</code>, and is then handled by <code>StorageManager#handleEmailSavedEvent
 (EmailSavedEvent event)</code>, which then calls <code>EmailDirStorage#saveEmail(EmailModel email)</code>.
 This saves the email to a specified local directory.</p>
 </div>
@@ -530,4 +530,4 @@ The library is easy to understand so any new developer can easily extend the cur
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 09:48:28 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 10:42:49 UTC</div></div></div></body></html>
