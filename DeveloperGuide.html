@@ -88,6 +88,10 @@
 <li><a href="#launch-and-shutdown">G.1. Launch and Shutdown</a></li>
 <li><a href="#deleting-a-person">G.2. Deleting a Person</a></li>
 <li><a href="#composing-an-email-to-all-currently-listed-residents">G.3. Composing an Email to All Currently Listed Residents</a></li>
+<li><a href="#clearing-persons">G.4. Clearing Persons</a></li>
+<li><a href="#erasing-ccas">G.5. Erasing CCAs</a></li>
+<li><a href="#exporting-data">G.6. Exporting data</a></li>
+<li><a href="#importing-data">G.7. Importing data</a></li>
 </ul>
 </li>
 </ul>
@@ -5008,5 +5012,127 @@ Expected: Email not displayed on the BrowserPanel. Error details shown in the st
 </ol>
 </div>
 </div>
+<div class="sect2">
+<h3 id="clearing-persons"><a class="link" href="#clearing-persons">G.4. Clearing Persons</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Clearing persons while all persons are listed</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequitsites: List all persons using the <code>list</code> command. Multiple persons in the list.</p>
+</li>
+<li>
+<p>Test case: <code>clear soccer</code> (where <code>soccer</code> exists in list)<br>
+Expected: Person(s) associated with <code>soccer</code> is/are cleared from the list.</p>
+</li>
+<li>
+<p>Test case: <code>clear A123</code> (where <code>A123</code> exists in list)<br>
+Expected: Person(s) associated with <code>A123</code> is/are cleared from the list.</p>
+</li>
+<li>
+<p>Test case: <code>clear soccer A123</code> (where <code>soccer</code> and/or <code>A123</code> exist in list)<br>
+Expected: Person(s) associated with <code>soccer</code> or <code>A123</code> is/are cleared from the list.</p>
+</li>
+<li>
+<p>Test case: <code>clear invalidCCA</code> (where <code>invalidCCA</code> does not exist in list)<br>
+Expected: No person(s) are deleted. No persons cleared message displayed.</p>
+</li>
+</ol>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 06:56:38 UTC</div></div></div></body></html>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="erasing-ccas"><a class="link" href="#erasing-ccas">G.5. Erasing CCAs</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Erasing CCAs while all persons are listed</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequitsites: List all persons using the <code>list</code> command. Multiple persons in the list.</p>
+</li>
+<li>
+<p>Test case: <code>erase basketball</code> (where <code>basketball</code> exists in list)<br>
+Expected: <code>basketball</code> is removed from associated person(s) in list.</p>
+</li>
+<li>
+<p>Test case: <code>clear basketball soccer</code> (where <code>basketball</code> and <code>soccer</code> exist in list)<br>
+Expected: <code>basketball</code> and <code>soccer</code> are removed from associated person(s) in list.</p>
+</li>
+<li>
+<p>Test case: <code>clear invalidCCA</code> (where <code>invalidCCA</code> does not exist in list)<br>
+Expected: No CCA is erased. No CCAs erased message displayed.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="exporting-data"><a class="link" href="#exporting-data">G.6. Exporting data</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Exporting Hallper persons to the computer.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: <code>C://Users/Me/Documents</code> and <code>~/Desktop</code> are valid, accessible paths.</p>
+</li>
+<li>
+<p>Test case: <code>export dst/C://Users/Me/Documents fn/export.xml</code><br>
+Expected: Hallper data exported to <code>export.xml</code> in <code>C://Users/Me/Documents</code>.</p>
+</li>
+<li>
+<p>Test case: <code>export dst/~/Desktop fn/export.xml</code><br>
+Expected: Hallper data exported to <code>export.xml</code> in <code>~/Desktop</code>.</p>
+</li>
+<li>
+<p>Test case: <code>export dst/~/Desktop fn/export.txt</code><br>
+Expected: Data not exported. Invalid file type message displayed.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="importing-data"><a class="link" href="#importing-data">G.7. Importing data</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Importing data files from computer to update Hallper.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Data files created in accessible path on computer with valid format and named <code>import.xml</code>.
+Refer to User Guide Section 4.1.9 for valid data formats. <code>C://Users/Me/Documents</code> and <code>~/Desktop</code> are valid,
+accessible paths.</p>
+</li>
+<li>
+<p>Test case: <code>import dst/C://Users/Me/Documents/import.xml</code><br>
+Expected: Data imported from <code>import.xml</code> in <code>C://Users/Me/Documents</code>.</p>
+</li>
+<li>
+<p>Test case: <code>import f/~/Desktop/import.xml</code><br>
+Expected: Data imported from <code>import.xml</code> in <code>~/Desktop</code>.</p>
+</li>
+<li>
+<p>Test case: <code>import f/C://Users/Me/Documents/import.txt</code><br>
+Expected: Data not imported. Invalid file type message displayed.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 07:12:43 UTC</div></div></div></body></html>
